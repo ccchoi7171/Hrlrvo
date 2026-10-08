@@ -1,0 +1,58 @@
+{
+  "architecture_verdict": "PASS — architecture is fully specified and code-consistent",
+  "architecture_version": 8,
+  "scope": "source/static + selected CPU unit/geometry/Conv tests only; no LTX/attention forward, real training/inference/GPU/optimizer step",
+  "native": "PASS",
+  "adaptive": "PASS",
+  "global": "PASS (shared full-cell C4 + fixed Global-grid R4)",
+  "C2": "PASS",
+  "C4": "PASS (same per-block primitive; fail-closed nondivisible geometry)",
+  "R2": "PASS",
+  "R4": "PASS (unchanged whole-grid bilinear + depthwise Conv3D)",
+  "train_inference_common_forward": "PASS (static)",
+  "fusion_O_CA_FFN_order": "PASS (static; official STG exception documented)",
+  "geometry_invariants": {
+    "nonempty_alignment_and_layout_cases": 36,
+    "all_case_pass_count": 41,
+    "empty_early_exit_cases": 5
+  },
+  "geometry_violation_counts": {
+    "outside_canvas": 0,
+    "role_overlap": 0,
+    "role_holes": 0,
+    "read_support_drop": 0,
+    "read_support_duplication": 0,
+    "partial_C2": 0,
+    "partial_C4": 0,
+    "C1": 0,
+    "wrong_query": 0,
+    "write_outside_target": 0,
+    "write_drop": 0,
+    "write_duplication": 0
+  },
+  "artifacts": {
+    "markdown": 10,
+    "case_png": 41,
+    "contact_sheets": 3,
+    "verification": "PASS"
+  },
+  "mismatches": [],
+  "source_modifications": 3,
+  "source_hash_files": 24,
+  "pinned_hash_files": 205,
+  "model_forward_backward_optimizer_generation_executions": 0,
+  "output_root": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main/docs/final_architecture_audit",
+  "previous_mismatches": [
+    {
+      "id": "M1",
+      "status": "RESOLVED: partial fallback removed"
+    },
+    {
+      "id": "M2",
+      "status": "WITHDRAWN: user clarifies fixed whole-grid R4 definition; no R4 code change"
+    }
+  ],
+  "selected_cpu_tests_passed": 62,
+  "verification_summary": "c4_unification/verification_summary.json",
+  "historical_read_only_summary": "c4_unification/audit_summary.before.json"
+}

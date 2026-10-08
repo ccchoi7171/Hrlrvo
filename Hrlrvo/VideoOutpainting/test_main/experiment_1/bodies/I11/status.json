@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "pid": 3221880,
+  "ordinal": 0,
+  "worker_id": 1,
+  "body": {
+    "index": 11,
+    "body_id": "I11",
+    "global_start": 803,
+    "global_stop": 884,
+    "left_bridge": "B11",
+    "right_bridge": "B12",
+    "middle_global_start": 812,
+    "middle_global_stop": 876,
+    "visible_middle_stop": 876
+  },
+  "started_utc": "2026-10-08T02:06:25.836240+00:00",
+  "ended_utc": "2026-10-08T02:49:48.468990+00:00",
+  "sample_seconds": 2305.5525349657983,
+  "noise": {
+    "generator_seed": 33334136,
+    "shape": [
+      1,
+      23760,
+      128
+    ],
+    "dtype": "torch.bfloat16",
+    "sha256": "8c58a0d0dad2f5887f16767035bfa02c676b55db3dbe036ed865d26a3a4b0478"
+  },
+  "output_sha256": "1ea34294aa81ead49cd966fed1d7b65b32b4c775b6cf7a82bf6e45d818665cf1",
+  "suffix_latent_sha256": "78814fd8864aac91e21c32aff624d5bc08997d9fee82a5e9161a5f1c2cf0c21a",
+  "known_mask_sha256": "210cf32b4b25d37fae0c4b0ac1353492b5242a19920d4571b0400b825e389fd2",
+  "reference_cache_sha256": "b93e63d00f6b0b0d7daf18d2bdea04f15cf904afdcd451d40b405f845904d2ab",
+  "recurrence_events": [
+    {
+      "chunk": 16,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 16,
+      "action": "temporal_rebase",
+      "seconds_removed": 33.458333333333336
+    }
+  ],
+  "peak_cuda_allocated_bytes": 32770834944,
+  "peak_cuda_reserved_bytes": 35414605824
+}

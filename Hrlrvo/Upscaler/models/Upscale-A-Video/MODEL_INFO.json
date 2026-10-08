@@ -1,0 +1,11 @@
+{
+  "model": "Upscale-A-Video",
+  "official_repository": "https://github.com/sczhou/Upscale-A-Video",
+  "repository_commit": "10ca1d751cad25b8ac0b9b0cab415a82d9df1ac6",
+  "paper": "https://arxiv.org/abs/2312.06640",
+  "official_weights": "https://drive.google.com/drive/folders/1O8pbeR1hsRlFUU8O4EULe-lOKNGEWZl1",
+  "repository_path": "/home/work/ai-graphics_33/Hrlrvo/Upscaler/models/Upscale-A-Video/repository",
+  "weights_installed": false,
+  "weights_install_decision": "Not downloaded: untouched official inference downsamples 4K input to 960x540 and returns 4K, so the weights cannot produce the required 4K-to-16K benchmark without a custom code change.",
+  "training_or_finetuning_performed": false
+}

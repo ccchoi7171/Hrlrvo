@@ -1,0 +1,27 @@
+{
+  "time_utc": "2026-09-26T14:21:22.361148+00:00",
+  "action": "retire only frozen04 input validation after parent no-new-jobs latch",
+  "retired_pid": 1807436,
+  "child_actions": [
+    {
+      "pid": 1809062,
+      "state": "already_exited_zombie",
+      "signal": null
+    }
+  ],
+  "reason": "User-authorized move04upscale to A6000 before inference; old journal truthfully records terminated child, not corrupt output. No journal edits.",
+  "migration_status": {
+    "04": "MIGRATED_TO_A6000_PENDING_LAUNCH",
+    "03": "MIGRATED_TO_A6000_PENDING_LAUNCH",
+    "02": "OUTPAINT_CONTINUES_UPSCALE_DISABLED",
+    "01": "OUTPAINT_CONTINUATION_ARMED_UPSCALE_DISABLED",
+    "05": "DONE_REAL_BATCH_RECEIPT"
+  },
+  "historical_batch_state": {
+    "01": "PENDING",
+    "02": "OUTPAINT_RUNNING",
+    "03": "UPSCALE_WAITING",
+    "04": "FAILED_UPSCALE",
+    "05": "DONE"
+  }
+}

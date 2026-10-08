@@ -1,0 +1,13 @@
+{
+  "final_sha256": "ad76190aabc04717b51cb0b87fed84a1ccdc0748c53b49669ca4460b8cf2f77a",
+  "frames": {
+    "final": 21,
+    "outpaint": 65,
+    "source": 1952,
+    "upscale": 21
+  },
+  "output": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Output/03_16K",
+  "run_id": "20260929T152238Z_246b37",
+  "stage": "DONE",
+  "updated_utc": "2026-09-29T16:30:48+00:00"
+}

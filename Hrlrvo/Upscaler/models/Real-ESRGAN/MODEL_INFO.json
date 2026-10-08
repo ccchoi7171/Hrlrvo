@@ -1,0 +1,18 @@
+{
+  "model": "RealESRGAN_x4plus",
+  "model_family": "frame-independent image super-resolution",
+  "scale": 4,
+  "official_repository": "https://github.com/xinntao/Real-ESRGAN",
+  "repository_commit": "a4abfb2979a7bbff3f69f58f58ae324608821e27",
+  "official_weight_url": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth",
+  "weight_path": "weights/RealESRGAN_x4plus.pth",
+  "weight_sha256": "4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1",
+  "license": "BSD-3-Clause",
+  "inference_policy": {
+    "native_scale_only": true,
+    "face_enhancement": false,
+    "tile_size": 512,
+    "tile_pad": 10,
+    "precision": "fp16"
+  }
+}

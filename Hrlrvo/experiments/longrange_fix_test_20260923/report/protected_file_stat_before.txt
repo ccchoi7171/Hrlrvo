@@ -1,0 +1,2 @@
+/home/work/ai-graphics_33/Hrlrvo/pipeline/data/02_VideoOutPaint_4K_3840x2160/05_VideoOutPaint_4K.mp4 215711720 1790121509 644
+/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main/src/ltx_outpaint/inference.py 102693 1790064186 644

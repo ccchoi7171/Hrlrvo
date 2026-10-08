@@ -1,0 +1,27 @@
+{
+  "request": {
+    "anchor": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/input/05_anchor_960x540_24fps_1169f.mkv",
+    "anchor_sha256": "e1bc48bcc19ed6350e86a831f01a01ce31c20535fd8416398a5fc37c816faaed",
+    "base_seed": 71634910,
+    "baseline_checkpoint": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-007500",
+    "baseline_fingerprint": "0784f19eceebbbdafdb4ad4f438b3d7702f703413d3b331050709dba34545495",
+    "baseline_negative_prompt": "people, person, human, staff, audience, crowd, backstage, seats",
+    "baseline_prompt": "",
+    "encoded_canvas": [
+      1920,
+      1152
+    ],
+    "experiment_source_sha256": "69542830e48229650f8afce87e2240403ab6f78049fd1868252158b9ff97a426",
+    "generated_prefix_strength": 1.0,
+    "mode": "c0_recovery",
+    "rebase_temporal_position": true,
+    "steps": 30,
+    "use_latent_carry": true,
+    "visible_canvas": [
+      1920,
+      1080
+    ]
+  },
+  "request_fingerprint": "cfb8a1355a6f493e2c48527f6543f243eb5da780d8e0f9f047448dd1d4e09899",
+  "schema_version": 1
+}

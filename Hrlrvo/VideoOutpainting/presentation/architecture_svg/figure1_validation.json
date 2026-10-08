@@ -1,0 +1,50 @@
+{
+  "video_outpainting_figure1.svg": {
+    "elements": 133,
+    "text_elements": 45,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "0d5540a763cdd237c8f49e5b0d7150c2da2e3e2c933045d1c69470bed432cd48",
+    "bytes": 16895
+  },
+  "video_outpainting_figure1_outlined.svg": {
+    "elements": 748,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "7945be41b77cb6b10019ad06392df7167df69dda58743221301968375b560f47",
+    "bytes": 179581
+  },
+  "video_outpainting_figure1_architecture.svg": {
+    "elements": 100,
+    "text_elements": 36,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "23925a631421b8cf331d3f0fdc8dbbb2d11d760daf34306ecd1ff6c0c5f2469b",
+    "bytes": 12538
+  },
+  "video_outpainting_figure1_architecture_outlined.svg": {
+    "elements": 596,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "05dd28af1ec2443e149cd0b48988e2219b9c82e0c160dbbf1c52f918794302b7",
+    "bytes": 140468
+  },
+  "video_outpainting_figure1_task.svg": {
+    "elements": 38,
+    "text_elements": 9,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "d785e1a904c7b229448ccac3428b58fb30977201e2a6c6fd21be9a0134d8ee7f",
+    "bytes": 5742
+  },
+  "video_outpainting_figure1_task_outlined.svg": {
+    "elements": 154,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "44638e1096b1aa4d1879216c93cd2b289b7baf8e73077c61ac359c6a83d88383",
+    "bytes": 40996
+  }
+}

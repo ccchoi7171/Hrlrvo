@@ -1,0 +1,387 @@
+{
+  "center_composite": {
+    "alpha_profile": "inward nearest-edge smoothstep t^2*(3-2t)",
+    "bbox_yx": [
+      2160,
+      3840,
+      6480,
+      11520
+    ],
+    "method": "Alpha Feather Blending",
+    "original_resized": false,
+    "output_16k_feather_width_pixels": 64,
+    "source_4k_feather_width_pixels": 16,
+    "x_range": [
+      3840,
+      11520
+    ],
+    "y_range": [
+      2160,
+      6480
+    ]
+  },
+  "encoding": {
+    "encoder": {
+      "codec": "mjpeg",
+      "extension": ".jpg",
+      "name": "mjpeg",
+      "pixel_format": "yuvj420p",
+      "quality": 2
+    },
+    "encoder_probe_attempts": [],
+    "filename_pattern": "{frame_index}.jpg",
+    "frames_written": 21,
+    "image_sequence": true,
+    "memory_mode": "one original 8K frame plus bounded 16K row bands",
+    "original_audio_source": null,
+    "output_kind": "jpeg_sequence",
+    "output_mode": "jpeg_sequence",
+    "preexisting_raw_file_ignored": false,
+    "raw_16k_intermediate_video": false,
+    "raw_16k_output": null,
+    "raw_created_by_this_run": false,
+    "raw_status": "SKIPPED",
+    "seconds": 1722.994382545352,
+    "single_final_video_encode": false,
+    "vertical_band_count": 15
+  },
+  "flashvsr": {
+    "configuration": {
+      "artifact_metadata_root": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/segments/metadata",
+      "benchmark_mode": "full",
+      "effective_input_frames_processed": 21,
+      "gpu_index": 0,
+      "local_range": 11,
+      "oom_retry_attempts": 0,
+      "padded_model_frames": 25,
+      "processed_input_frames": 21,
+      "sparse_ratio": 2.0,
+      "start_frame": 0,
+      "temporal_mode": "official_continuous_causal_kv_no_independent_chunks",
+      "tile_overlap": 32,
+      "tile_size": 320
+    },
+    "model": "FlashVSR_v1.1",
+    "model_root": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1",
+    "reference_implementation": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/flashvsr/architect/FlashVSR_v1.1/upscale.py",
+    "reference_sha256": "3db9c0524418070a87b26b948612f8988cd47f007c6e7739a89d3911ed0d703d",
+    "scale": 4,
+    "stage_reused": false,
+    "temporal_mode": "official_continuous_causal_kv_no_independent_chunks",
+    "temporal_overlap": null,
+    "tile_count": 112
+  },
+  "frame_mapping": {
+    "drop": false,
+    "duplication": false,
+    "input_4k_fps": "16/1",
+    "input_and_original_cfr_timelines_verified": false,
+    "interpolation": false,
+    "original_8k_fps": "16/1",
+    "output_fps": "16/1",
+    "policy": "same zero-based decoded frame index; 16/1 input and output",
+    "source_has_at_least_requested_frames_verified": true
+  },
+  "input_4k": {
+    "avg_frame_rate": "16/1",
+    "codec_name": "h264",
+    "color_primaries": null,
+    "color_space": null,
+    "color_transfer": null,
+    "decoded_frame_count_performed": false,
+    "duration": 4.0625,
+    "fps": 16.0,
+    "frame_count": 65,
+    "height": 2160,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/outpaint/final/03_Outpaint_4K.mp4",
+    "pix_fmt": "yuv420p",
+    "r_frame_rate": "16/1",
+    "start_time": "0.000000",
+    "time_base": "1/16384",
+    "width": 3840
+  },
+  "original_8k": {
+    "avg_frame_rate": "16/1",
+    "codec_name": "hevc",
+    "color_primaries": "bt709",
+    "color_space": "bt709",
+    "color_transfer": null,
+    "decoded_frame_count_performed": false,
+    "duration": 122.0,
+    "fps": 16.0,
+    "frame_count": 1952,
+    "height": 4320,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/03_Input_8K.mp4",
+    "pix_fmt": "yuv420p10le",
+    "r_frame_rate": "16/1",
+    "start_time": "0.000000",
+    "time_base": "1/16384",
+    "width": 7680
+  },
+  "output": {
+    "codec_name": "mjpeg",
+    "filename_pattern": "{frame_index}.jpg",
+    "first_frame": "0.jpg",
+    "format": "jpeg_sequence",
+    "frame_count": 21,
+    "height": 8640,
+    "last_frame": "20.jpg",
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames",
+    "width": 15360
+  },
+  "output_file": null,
+  "output_sequence": {
+    "files": [
+      {
+        "mtime_ns": 1790697801763606000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/0.jpg",
+        "size": 9559432
+      },
+      {
+        "mtime_ns": 1790697945067203000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/1.jpg",
+        "size": 9833544
+      },
+      {
+        "mtime_ns": 1790698084792255000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/2.jpg",
+        "size": 9899296
+      },
+      {
+        "mtime_ns": 1790698244642381000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/3.jpg",
+        "size": 9982111
+      },
+      {
+        "mtime_ns": 1790698408199171000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/4.jpg",
+        "size": 9993841
+      },
+      {
+        "mtime_ns": 1790698558757285000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/5.jpg",
+        "size": 10047338
+      },
+      {
+        "mtime_ns": 1790698723519345000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/6.jpg",
+        "size": 10043365
+      },
+      {
+        "mtime_ns": 1790698813572230000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/7.jpg",
+        "size": 10041423
+      },
+      {
+        "mtime_ns": 1790698900512216000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/8.jpg",
+        "size": 10009314
+      },
+      {
+        "mtime_ns": 1790699020180317000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/9.jpg",
+        "size": 10062276
+      },
+      {
+        "mtime_ns": 1790699050494412000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/10.jpg",
+        "size": 10085678
+      },
+      {
+        "mtime_ns": 1790699079925180000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/11.jpg",
+        "size": 10063276
+      },
+      {
+        "mtime_ns": 1790699109342352000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/12.jpg",
+        "size": 10050036
+      },
+      {
+        "mtime_ns": 1790699140084192000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/13.jpg",
+        "size": 10051584
+      },
+      {
+        "mtime_ns": 1790699169737412000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/14.jpg",
+        "size": 10056303
+      },
+      {
+        "mtime_ns": 1790699199237445000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/15.jpg",
+        "size": 10036240
+      },
+      {
+        "mtime_ns": 1790699227473129000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/16.jpg",
+        "size": 9981884
+      },
+      {
+        "mtime_ns": 1790699256207046000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/17.jpg",
+        "size": 9999732
+      },
+      {
+        "mtime_ns": 1790699285055310000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/18.jpg",
+        "size": 10009024
+      },
+      {
+        "mtime_ns": 1790699312305345000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/19.jpg",
+        "size": 9997738
+      },
+      {
+        "mtime_ns": 1790699313016361000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames/20.jpg",
+        "size": 9996591
+      }
+    ],
+    "frame_count": 21,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_000/final/frames"
+  },
+  "request": {
+    "configuration": {
+      "center_bbox_yx": [
+        2160,
+        3840,
+        6480,
+        11520
+      ],
+      "encoder": "libx265",
+      "expected_frames": 21,
+      "feather_method": "inward_nearest_edge_smoothstep_alpha",
+      "feather_width_pixels": 64,
+      "ffmpeg_threads": 32,
+      "input_4k_fps": "16/1",
+      "input_start_frame": 0,
+      "jpeg_codec": "mjpeg",
+      "jpeg_filename_pattern": "{frame_index}.jpg",
+      "jpeg_pixel_format": "yuvj420p",
+      "jpeg_quality": 2,
+      "local_range": 11,
+      "min_tile_size": 320,
+      "omit_original_audio": true,
+      "original_8k_fps": "16/1",
+      "outpainting_config": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/video_outpainting/main/configs/inference_4k.yaml",
+      "output_fps": "16/1",
+      "output_mode": "jpeg_sequence",
+      "scale": 4,
+      "seed": 33333333,
+      "selected_range": true,
+      "sparse_ratio": 2.0,
+      "tile_overlap": "32",
+      "tile_size": "320"
+    },
+    "flashvsr_reference": {
+      "mtime_ns": 1790171496615857000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/flashvsr/architect/FlashVSR_v1.1/upscale.py",
+      "sha256": "3db9c0524418070a87b26b948612f8988cd47f007c6e7739a89d3911ed0d703d",
+      "size": 73779
+    },
+    "input_4k": {
+      "mtime_ns": 1790696983962668000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/outpaint/final/03_Outpaint_4K.mp4",
+      "sha256": "ce44979d3e634a944692a9502e7d95a8221a731fbee138f0735d309e87626d6c",
+      "size": 33738055
+    },
+    "input_4k_metadata": {
+      "avg_frame_rate": "16/1",
+      "codec_name": "h264",
+      "color_primaries": null,
+      "color_space": null,
+      "color_transfer": null,
+      "decoded_frame_count_performed": false,
+      "duration": 4.0625,
+      "fps": 16.0,
+      "frame_count": 65,
+      "height": 2160,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/outpaint/final/03_Outpaint_4K.mp4",
+      "pix_fmt": "yuv420p",
+      "r_frame_rate": "16/1",
+      "start_time": "0.000000",
+      "time_base": "1/16384",
+      "width": 3840
+    },
+    "model_assets": [
+      {
+        "mtime_ns": 1788519138852390000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/repository/diffsynth/pipelines/flashvsr_tiny_long.py",
+        "size": 24566
+      },
+      {
+        "mtime_ns": 1788519139915405000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/repository/examples/WanVSR/utils/utils.py",
+        "size": 9403
+      },
+      {
+        "mtime_ns": 1788519139913355000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/repository/examples/WanVSR/utils/TCDecoder.py",
+        "size": 12560
+      },
+      {
+        "mtime_ns": 1788519139904914000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/repository/examples/WanVSR/prompt_tensor/posi_prompt.pth",
+        "size": 4195504
+      },
+      {
+        "mtime_ns": 1788519205240597000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/checkpoint/diffusion_pytorch_model_streaming_dmd.safetensors",
+        "size": 5676070392
+      },
+      {
+        "mtime_ns": 1788519162356658000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/checkpoint/LQ_proj_in.ckpt",
+        "size": 575694948
+      },
+      {
+        "mtime_ns": 1788519162724707000,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/checkpoint/TCDecoder.ckpt",
+        "size": 189018333
+      }
+    ],
+    "model_root": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1",
+    "original_8k": {
+      "mtime_ns": 1790659643183052000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/03_Input_8K.mp4",
+      "sha256": "eb1f65fc3f65ab16212f039ea971287d17092f0147866bdc95e3591f1f73ca66",
+      "size": 512294695
+    },
+    "original_8k_metadata": {
+      "avg_frame_rate": "16/1",
+      "codec_name": "hevc",
+      "color_primaries": "bt709",
+      "color_space": "bt709",
+      "color_transfer": null,
+      "decoded_frame_count_performed": false,
+      "duration": 122.0,
+      "fps": 16.0,
+      "frame_count": 1952,
+      "height": 4320,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/03_Input_8K.mp4",
+      "pix_fmt": "yuv420p10le",
+      "r_frame_rate": "16/1",
+      "start_time": "0.000000",
+      "time_base": "1/16384",
+      "width": 7680
+    },
+    "outpainting_config": {
+      "mtime_ns": 1790168537266826000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/video_outpainting/main/configs/inference_4k.yaml",
+      "sha256": "c62aa0bbf06a658e0110a302bd0c6040651568048d73a5ec358a765899cea9ec",
+      "size": 3568
+    },
+    "schema_version": 1,
+    "video_id": "03"
+  },
+  "schema_version": 1,
+  "status": "PASS",
+  "verification_policy": {
+    "ffprobe_count_frames_performed": false,
+    "final_frame_count_evidence": "exact_numbered_file_set_jpeg_headers_and_encoder_counter",
+    "full_16k_pixel_decode_performed": false,
+    "limitations": "JPEG dimensions and terminal markers verified without full pixel decode"
+  },
+  "video_id": "03"
+}

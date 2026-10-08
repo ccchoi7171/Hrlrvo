@@ -1,0 +1,176 @@
+{
+  "absolute_start_frame": 0,
+  "anchor_source_frame_range": [
+    0,
+    65
+  ],
+  "causal_latent_carry": {
+    "chunk_index": 0,
+    "dtype": "torch.bfloat16",
+    "file": "causal_latent_carry_000000.pt",
+    "semantics": "last3 final-clean unpatchified slices; next first slice reencoded from RGB; current anchor overwrites",
+    "sha256": "9576062f28b057ae105cee8568c61e41d35c2f958f100465963a1360d5dd70bb",
+    "shape": [
+      1,
+      128,
+      3,
+      68,
+      120
+    ]
+  },
+  "chunk_index": 0,
+  "chunk_seed": 71634910,
+  "emitted_tensor_range": [
+    0,
+    65
+  ],
+  "final_partial_repeat_last": false,
+  "new_output_frame_range": [
+    0,
+    65
+  ],
+  "next_prefix_byte_size": 1692064737,
+  "next_prefix_dtype": "float32",
+  "next_prefix_file": "previous_prefix_0.pt",
+  "next_prefix_shape_fchw": [
+    17,
+    3,
+    2160,
+    3840
+  ],
+  "next_prefix_state_sha256": "db2566726fcd022eb650fb372f7823e9f19313f2f7583f56ba55041684bf2f8b",
+  "output_appended_count": 65,
+  "prefix_output_frame_range": null,
+  "real_input_frame_count": 65,
+  "recurrence": {
+    "generated_prefix_strength": 1.0,
+    "lineart_bias_schedule": [
+      {
+        "end_step": 9,
+        "start_step": 0,
+        "strength": 0.5
+      },
+      {
+        "end_step": 19,
+        "start_step": 10,
+        "strength": 0.3
+      },
+      {
+        "end_step": 29,
+        "start_step": 20,
+        "strength": 0.1
+      }
+    ],
+    "lineart_density_method": "direct_4k_global_footprint_density",
+    "lineart_density_normalizer": 0.05,
+    "lineart_density_padding": {
+      "bottom": 8,
+      "left": 0,
+      "right": 0,
+      "top": 8,
+      "value": 0
+    },
+    "lineart_extraction": {
+      "L2gradient": true,
+      "aperture": 3,
+      "border": "BORDER_REFLECT_101",
+      "canny_high": 100,
+      "canny_low": 35,
+      "clahe": false,
+      "component_connectivity": 8,
+      "component_min_long_span": 12,
+      "component_min_pixels": 12,
+      "dilation": false,
+      "gaussian_kernel": [
+        3,
+        3
+      ],
+      "gaussian_sigma": 0.8,
+      "grayscale": "RGB2GRAY",
+      "morphology": false,
+      "thinning": false
+    },
+    "lineart_global_map": [
+      30,
+      17
+    ],
+    "lineart_global_prior": true,
+    "lineart_reference_resolution": [
+      3840,
+      2160
+    ],
+    "lineart_source": "chunk00_first_final_rgb_frame",
+    "lineart_source_resize": "none",
+    "lineart_start_chunk": 1,
+    "rebase_temporal_position": true,
+    "use_latent_carry": true
+  },
+  "repeat_last_padding_count": 0,
+  "runtime": {
+    "anchor_rgb_shape": [
+      65,
+      3,
+      1080,
+      1920
+    ],
+    "boundary_blend_width_pixels": 16,
+    "chunk_seed": 71634910,
+    "condition_latent_shape": [
+      1,
+      128,
+      9,
+      68,
+      120
+    ],
+    "conditioning_prefix_frames": 0,
+    "decoded_chunk_finite": true,
+    "decoded_chunk_shape": [
+      65,
+      3,
+      2160,
+      3840
+    ],
+    "denoise_elapsed_seconds": 1233.3468810766935,
+    "denoised_latent_finite": true,
+    "full_generation_latent_shape": [
+      1,
+      128,
+      9,
+      68,
+      120
+    ],
+    "generated_prefix_strength": 1.0,
+    "known_anchor_rect_yxyx": [
+      17,
+      30,
+      51,
+      90
+    ],
+    "known_mask_elements": 18360,
+    "known_mask_shape": [
+      1,
+      9,
+      68,
+      120
+    ],
+    "latent_carry_applied": false,
+    "peak_cuda_allocated_bytes": 45114832384,
+    "peak_cuda_reserved_bytes": 57998835712,
+    "preview_frame_indices": null,
+    "preview_latent_source": null,
+    "preview_step": null,
+    "rebase_temporal_position": false,
+    "vae_decode_elapsed_seconds": 22.43831904232502
+  },
+  "segment_byte_size": 1617408128,
+  "segment_dtype": "uint8",
+  "segment_file": "segment_000000.npy",
+  "segment_pixel_sha256": "6ff8b7e716f972c3c49d126b14416987d2782780ffeff2816a8d7bae9095c50c",
+  "segment_shape_fhwc": [
+    65,
+    2160,
+    3840,
+    3
+  ],
+  "working_frame_count": 65
+}

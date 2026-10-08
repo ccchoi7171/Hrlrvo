@@ -1,0 +1,24 @@
+{
+  "run": "hrlrvo_main_train_v1",
+  "source": "hrlrvo_train:1.1 tmux scrollback; native trainer INFO messages",
+  "checkpoint_manifest": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-013000/outpainting_manifest.json",
+  "optimizer_step_limit": 13000,
+  "first_recorded_step": 20,
+  "log_interval_steps": 20,
+  "number_of_observations": 650,
+  "number_of_original_records": 657,
+  "duplicate_policy": "Keep last occurrence at each optimizer step after resume",
+  "duplicated_steps": [
+    7520,
+    7540,
+    7560,
+    7580,
+    7600,
+    7620,
+    7640
+  ],
+  "missing_expected_observations": [],
+  "loss_precision": "4 decimal places, as printed by the native trainer",
+  "smoothing": "Trailing arithmetic mean of 50 observations (1,000-step window); full windows only",
+  "csv_sha256": "2590317e437231ff5d8a8d00c0125e27f96435530b117a456d718f815165438c"
+}

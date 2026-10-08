@@ -1,0 +1,3354 @@
+{
+  "timestamp_utc": "2026-09-10T22:17:43.712862+00:00",
+  "mode": "static_geometry_only_no_model_execution",
+  "architecture_version": 8,
+  "coordinate_sources": {
+    "record_id": "0002e965-b236-4ec5-846d-4d1b919cf3f0.pt",
+    "gt_shape": [
+      128,
+      11,
+      68,
+      120
+    ],
+    "anchor_shape": [
+      128,
+      9,
+      34,
+      60
+    ],
+    "gt_dtype": "torch.bfloat16",
+    "anchor_dtype": "torch.bfloat16",
+    "scale_factors_thw": [
+      8,
+      32,
+      32
+    ],
+    "pixel_boundary": {
+      "requested_height": 2160,
+      "requested_width": 3840,
+      "encoded_height": 2176,
+      "encoded_width": 3840,
+      "top": 8,
+      "left": 0
+    },
+    "canonical_anchor_rect": [
+      17,
+      30,
+      51,
+      90
+    ],
+    "visible_anchor_latent_footprint_xyxy": [
+      960,
+      536,
+      2880,
+      1624
+    ],
+    "actual_rgb_content_source_yxyx": [
+      540,
+      960,
+      1620,
+      2880
+    ],
+    "gt_contract_sha256": "133163357e4b4a95c64106a5a8311cd4347a8ec96b6c5fb50ef77a60a1fce339",
+    "vae_sha256": "7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f",
+    "legacy_known_latent_rect_in_cache_not_used": [
+      17,
+      30,
+      50,
+      90
+    ]
+  },
+  "partitions": {
+    "4": {
+      "height_axis": [
+        [
+          0,
+          17
+        ],
+        [
+          17,
+          34
+        ],
+        [
+          34,
+          51
+        ],
+        [
+          51,
+          68
+        ]
+      ],
+      "width_axis": [
+        [
+          0,
+          30
+        ],
+        [
+          30,
+          60
+        ],
+        [
+          60,
+          90
+        ],
+        [
+          90,
+          120
+        ]
+      ],
+      "window_count": 16,
+      "window_hw": [
+        17,
+        30
+      ],
+      "holes": 0,
+      "overlap_spatial_positions": 0,
+      "extra_reads": 0,
+      "max_multiplicity": 1,
+      "overlap_rows": [],
+      "overlap_columns": []
+    },
+    "5": {
+      "height_axis": [
+        [
+          0,
+          14
+        ],
+        [
+          14,
+          28
+        ],
+        [
+          27,
+          41
+        ],
+        [
+          41,
+          55
+        ],
+        [
+          54,
+          68
+        ]
+      ],
+      "width_axis": [
+        [
+          0,
+          24
+        ],
+        [
+          24,
+          48
+        ],
+        [
+          48,
+          72
+        ],
+        [
+          72,
+          96
+        ],
+        [
+          96,
+          120
+        ]
+      ],
+      "window_count": 25,
+      "window_hw": [
+        14,
+        24
+      ],
+      "holes": 0,
+      "overlap_spatial_positions": 240,
+      "extra_reads": 240,
+      "max_multiplicity": 2,
+      "overlap_rows": [
+        27,
+        54
+      ],
+      "overlap_columns": []
+    }
+  },
+  "cases": [
+    {
+      "partition": 4,
+      "index": 0,
+      "local_bbox": [
+        0,
+        0,
+        17,
+        30
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        0,
+        0,
+        17,
+        30
+      ],
+      "selected_anchor_patch": [
+        17,
+        30,
+        34,
+        60
+      ],
+      "intended_bbox": [
+        0,
+        0,
+        34,
+        60
+      ],
+      "expanded_bbox": [
+        0,
+        0,
+        36,
+        60
+      ],
+      "expanded_hw": [
+        36,
+        60
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "down:2",
+      "expansion_lrtb": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "c2_count": 316,
+      "c4_count": 56,
+      "kv_count": 372,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_00.png",
+      "anchor_read_intersection": [
+        17,
+        30,
+        36,
+        60
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 1,
+      "local_bbox": [
+        0,
+        30,
+        17,
+        60
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        0,
+        30,
+        17,
+        60
+      ],
+      "selected_anchor_patch": [
+        17,
+        30,
+        34,
+        60
+      ],
+      "intended_bbox": [
+        0,
+        30,
+        34,
+        60
+      ],
+      "expanded_bbox": [
+        0,
+        30,
+        36,
+        62
+      ],
+      "expanded_hw": [
+        36,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "down:2",
+      "expansion_lrtb": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "c2_count": 288,
+      "c4_count": 0,
+      "kv_count": 288,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_01.png",
+      "anchor_read_intersection": [
+        17,
+        30,
+        36,
+        62
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 2,
+      "local_bbox": [
+        0,
+        60,
+        17,
+        90
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        0,
+        60,
+        17,
+        90
+      ],
+      "selected_anchor_patch": [
+        17,
+        60,
+        34,
+        90
+      ],
+      "intended_bbox": [
+        0,
+        60,
+        34,
+        90
+      ],
+      "expanded_bbox": [
+        0,
+        58,
+        36,
+        90
+      ],
+      "expanded_hw": [
+        36,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "down:2",
+      "expansion_lrtb": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "c2_count": 288,
+      "c4_count": 0,
+      "kv_count": 288,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_02.png",
+      "anchor_read_intersection": [
+        17,
+        58,
+        36,
+        90
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 3,
+      "local_bbox": [
+        0,
+        90,
+        17,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        0,
+        90,
+        17,
+        120
+      ],
+      "selected_anchor_patch": [
+        17,
+        60,
+        34,
+        90
+      ],
+      "intended_bbox": [
+        0,
+        60,
+        34,
+        120
+      ],
+      "expanded_bbox": [
+        0,
+        60,
+        36,
+        120
+      ],
+      "expanded_hw": [
+        36,
+        60
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "down:2",
+      "expansion_lrtb": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "c2_count": 316,
+      "c4_count": 56,
+      "kv_count": 372,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_03.png",
+      "anchor_read_intersection": [
+        17,
+        60,
+        36,
+        90
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 4,
+      "local_bbox": [
+        17,
+        0,
+        34,
+        30
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        17,
+        0,
+        34,
+        30
+      ],
+      "selected_anchor_patch": [
+        17,
+        30,
+        34,
+        60
+      ],
+      "intended_bbox": [
+        17,
+        0,
+        34,
+        60
+      ],
+      "expanded_bbox": [
+        17,
+        0,
+        37,
+        60
+      ],
+      "expanded_hw": [
+        20,
+        60
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "down:3",
+      "expansion_lrtb": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "c2_count": 300,
+      "c4_count": 0,
+      "kv_count": 300,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_04.png",
+      "anchor_read_intersection": [
+        17,
+        30,
+        37,
+        60
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 5,
+      "local_bbox": [
+        17,
+        30,
+        34,
+        60
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        17,
+        30,
+        34,
+        60
+      ],
+      "anchor_intersection_area": 510,
+      "raw_target_area": 510,
+      "resolved_target_area": 0,
+      "resolved_target_bbox": null,
+      "selected_anchor_patch": null,
+      "intended_bbox": null,
+      "expanded_bbox": null,
+      "expanded_hw": null,
+      "mod4": null,
+      "horizontal_expansion": "N/A",
+      "vertical_expansion": "N/A",
+      "expansion_lrtb": null,
+      "c2_count": 0,
+      "c4_count": 0,
+      "kv_count": 0,
+      "q_count": 0,
+      "early_exit": true,
+      "filename": "grid4_local_05.png",
+      "anchor_read_intersection": null
+    },
+    {
+      "partition": 4,
+      "index": 6,
+      "local_bbox": [
+        17,
+        60,
+        34,
+        90
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        17,
+        60,
+        34,
+        90
+      ],
+      "anchor_intersection_area": 510,
+      "raw_target_area": 510,
+      "resolved_target_area": 0,
+      "resolved_target_bbox": null,
+      "selected_anchor_patch": null,
+      "intended_bbox": null,
+      "expanded_bbox": null,
+      "expanded_hw": null,
+      "mod4": null,
+      "horizontal_expansion": "N/A",
+      "vertical_expansion": "N/A",
+      "expansion_lrtb": null,
+      "c2_count": 0,
+      "c4_count": 0,
+      "kv_count": 0,
+      "q_count": 0,
+      "early_exit": true,
+      "filename": "grid4_local_06.png",
+      "anchor_read_intersection": null
+    },
+    {
+      "partition": 4,
+      "index": 7,
+      "local_bbox": [
+        17,
+        90,
+        34,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        17,
+        90,
+        34,
+        120
+      ],
+      "selected_anchor_patch": [
+        17,
+        60,
+        34,
+        90
+      ],
+      "intended_bbox": [
+        17,
+        60,
+        34,
+        120
+      ],
+      "expanded_bbox": [
+        17,
+        60,
+        37,
+        120
+      ],
+      "expanded_hw": [
+        20,
+        60
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "down:3",
+      "expansion_lrtb": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "c2_count": 300,
+      "c4_count": 0,
+      "kv_count": 300,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_07.png",
+      "anchor_read_intersection": [
+        17,
+        60,
+        37,
+        90
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 8,
+      "local_bbox": [
+        34,
+        0,
+        51,
+        30
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        34,
+        0,
+        51,
+        30
+      ],
+      "selected_anchor_patch": [
+        34,
+        30,
+        51,
+        60
+      ],
+      "intended_bbox": [
+        34,
+        0,
+        51,
+        60
+      ],
+      "expanded_bbox": [
+        31,
+        0,
+        51,
+        60
+      ],
+      "expanded_hw": [
+        20,
+        60
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "up:3",
+      "expansion_lrtb": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "c2_count": 300,
+      "c4_count": 0,
+      "kv_count": 300,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_08.png",
+      "anchor_read_intersection": [
+        31,
+        30,
+        51,
+        60
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 9,
+      "local_bbox": [
+        34,
+        30,
+        51,
+        60
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        34,
+        30,
+        51,
+        60
+      ],
+      "anchor_intersection_area": 510,
+      "raw_target_area": 510,
+      "resolved_target_area": 0,
+      "resolved_target_bbox": null,
+      "selected_anchor_patch": null,
+      "intended_bbox": null,
+      "expanded_bbox": null,
+      "expanded_hw": null,
+      "mod4": null,
+      "horizontal_expansion": "N/A",
+      "vertical_expansion": "N/A",
+      "expansion_lrtb": null,
+      "c2_count": 0,
+      "c4_count": 0,
+      "kv_count": 0,
+      "q_count": 0,
+      "early_exit": true,
+      "filename": "grid4_local_09.png",
+      "anchor_read_intersection": null
+    },
+    {
+      "partition": 4,
+      "index": 10,
+      "local_bbox": [
+        34,
+        60,
+        51,
+        90
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        34,
+        60,
+        51,
+        90
+      ],
+      "anchor_intersection_area": 510,
+      "raw_target_area": 510,
+      "resolved_target_area": 0,
+      "resolved_target_bbox": null,
+      "selected_anchor_patch": null,
+      "intended_bbox": null,
+      "expanded_bbox": null,
+      "expanded_hw": null,
+      "mod4": null,
+      "horizontal_expansion": "N/A",
+      "vertical_expansion": "N/A",
+      "expansion_lrtb": null,
+      "c2_count": 0,
+      "c4_count": 0,
+      "kv_count": 0,
+      "q_count": 0,
+      "early_exit": true,
+      "filename": "grid4_local_10.png",
+      "anchor_read_intersection": null
+    },
+    {
+      "partition": 4,
+      "index": 11,
+      "local_bbox": [
+        34,
+        90,
+        51,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        34,
+        90,
+        51,
+        120
+      ],
+      "selected_anchor_patch": [
+        34,
+        60,
+        51,
+        90
+      ],
+      "intended_bbox": [
+        34,
+        60,
+        51,
+        120
+      ],
+      "expanded_bbox": [
+        31,
+        60,
+        51,
+        120
+      ],
+      "expanded_hw": [
+        20,
+        60
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "up:3",
+      "expansion_lrtb": [
+        0,
+        0,
+        3,
+        0
+      ],
+      "c2_count": 300,
+      "c4_count": 0,
+      "kv_count": 300,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_11.png",
+      "anchor_read_intersection": [
+        31,
+        60,
+        51,
+        90
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 12,
+      "local_bbox": [
+        51,
+        0,
+        68,
+        30
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        51,
+        0,
+        68,
+        30
+      ],
+      "selected_anchor_patch": [
+        34,
+        30,
+        51,
+        60
+      ],
+      "intended_bbox": [
+        34,
+        0,
+        68,
+        60
+      ],
+      "expanded_bbox": [
+        32,
+        0,
+        68,
+        60
+      ],
+      "expanded_hw": [
+        36,
+        60
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        0,
+        0,
+        2,
+        0
+      ],
+      "c2_count": 316,
+      "c4_count": 56,
+      "kv_count": 372,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_12.png",
+      "anchor_read_intersection": [
+        32,
+        30,
+        51,
+        60
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 13,
+      "local_bbox": [
+        51,
+        30,
+        68,
+        60
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        51,
+        30,
+        68,
+        60
+      ],
+      "selected_anchor_patch": [
+        34,
+        30,
+        51,
+        60
+      ],
+      "intended_bbox": [
+        34,
+        30,
+        68,
+        60
+      ],
+      "expanded_bbox": [
+        32,
+        30,
+        68,
+        62
+      ],
+      "expanded_hw": [
+        36,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        0,
+        2,
+        2,
+        0
+      ],
+      "c2_count": 288,
+      "c4_count": 0,
+      "kv_count": 288,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_13.png",
+      "anchor_read_intersection": [
+        32,
+        30,
+        51,
+        62
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 14,
+      "local_bbox": [
+        51,
+        60,
+        68,
+        90
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        51,
+        60,
+        68,
+        90
+      ],
+      "selected_anchor_patch": [
+        34,
+        60,
+        51,
+        90
+      ],
+      "intended_bbox": [
+        34,
+        60,
+        68,
+        90
+      ],
+      "expanded_bbox": [
+        32,
+        58,
+        68,
+        90
+      ],
+      "expanded_hw": [
+        36,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "c2_count": 288,
+      "c4_count": 0,
+      "kv_count": 288,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_14.png",
+      "anchor_read_intersection": [
+        32,
+        58,
+        51,
+        90
+      ]
+    },
+    {
+      "partition": 4,
+      "index": 15,
+      "local_bbox": [
+        51,
+        90,
+        68,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 510,
+      "resolved_target_area": 510,
+      "resolved_target_bbox": [
+        51,
+        90,
+        68,
+        120
+      ],
+      "selected_anchor_patch": [
+        34,
+        60,
+        51,
+        90
+      ],
+      "intended_bbox": [
+        34,
+        60,
+        68,
+        120
+      ],
+      "expanded_bbox": [
+        32,
+        60,
+        68,
+        120
+      ],
+      "expanded_hw": [
+        36,
+        60
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        0,
+        0,
+        2,
+        0
+      ],
+      "c2_count": 316,
+      "c4_count": 56,
+      "kv_count": 372,
+      "q_count": 135,
+      "early_exit": false,
+      "filename": "grid4_local_15.png",
+      "anchor_read_intersection": [
+        32,
+        60,
+        51,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 0,
+      "local_bbox": [
+        0,
+        0,
+        14,
+        24
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        0,
+        0,
+        14,
+        24
+      ],
+      "selected_anchor_patch": [
+        17,
+        30,
+        31,
+        54
+      ],
+      "intended_bbox": [
+        0,
+        0,
+        31,
+        54
+      ],
+      "expanded_bbox": [
+        0,
+        0,
+        32,
+        56
+      ],
+      "expanded_hw": [
+        32,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "down:1",
+      "expansion_lrtb": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "c2_count": 208,
+      "c4_count": 60,
+      "kv_count": 268,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_00.png",
+      "anchor_read_intersection": [
+        17,
+        30,
+        32,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 1,
+      "local_bbox": [
+        0,
+        24,
+        14,
+        48
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        0,
+        24,
+        14,
+        48
+      ],
+      "selected_anchor_patch": [
+        17,
+        30,
+        31,
+        54
+      ],
+      "intended_bbox": [
+        0,
+        24,
+        31,
+        54
+      ],
+      "expanded_bbox": [
+        0,
+        24,
+        32,
+        56
+      ],
+      "expanded_hw": [
+        32,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "down:1",
+      "expansion_lrtb": [
+        0,
+        2,
+        0,
+        1
+      ],
+      "c2_count": 208,
+      "c4_count": 12,
+      "kv_count": 220,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_01.png",
+      "anchor_read_intersection": [
+        17,
+        30,
+        32,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 2,
+      "local_bbox": [
+        0,
+        48,
+        14,
+        72
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        0,
+        48,
+        14,
+        72
+      ],
+      "selected_anchor_patch": [
+        17,
+        48,
+        31,
+        72
+      ],
+      "intended_bbox": [
+        0,
+        48,
+        31,
+        72
+      ],
+      "expanded_bbox": [
+        0,
+        48,
+        32,
+        72
+      ],
+      "expanded_hw": [
+        32,
+        24
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "down:1",
+      "expansion_lrtb": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "c2_count": 192,
+      "c4_count": 0,
+      "kv_count": 192,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_02.png",
+      "anchor_read_intersection": [
+        17,
+        48,
+        32,
+        72
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 3,
+      "local_bbox": [
+        0,
+        72,
+        14,
+        96
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        0,
+        72,
+        14,
+        96
+      ],
+      "selected_anchor_patch": [
+        17,
+        66,
+        31,
+        90
+      ],
+      "intended_bbox": [
+        0,
+        66,
+        31,
+        96
+      ],
+      "expanded_bbox": [
+        0,
+        64,
+        32,
+        96
+      ],
+      "expanded_hw": [
+        32,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "down:1",
+      "expansion_lrtb": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "c2_count": 208,
+      "c4_count": 12,
+      "kv_count": 220,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_03.png",
+      "anchor_read_intersection": [
+        17,
+        64,
+        32,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 4,
+      "local_bbox": [
+        0,
+        96,
+        14,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        0,
+        96,
+        14,
+        120
+      ],
+      "selected_anchor_patch": [
+        17,
+        66,
+        31,
+        90
+      ],
+      "intended_bbox": [
+        0,
+        66,
+        31,
+        120
+      ],
+      "expanded_bbox": [
+        0,
+        64,
+        32,
+        120
+      ],
+      "expanded_hw": [
+        32,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "down:1",
+      "expansion_lrtb": [
+        2,
+        0,
+        0,
+        1
+      ],
+      "c2_count": 208,
+      "c4_count": 60,
+      "kv_count": 268,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_04.png",
+      "anchor_read_intersection": [
+        17,
+        64,
+        32,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 5,
+      "local_bbox": [
+        14,
+        0,
+        28,
+        24
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        14,
+        0,
+        28,
+        24
+      ],
+      "selected_anchor_patch": [
+        17,
+        30,
+        31,
+        54
+      ],
+      "intended_bbox": [
+        14,
+        0,
+        31,
+        54
+      ],
+      "expanded_bbox": [
+        14,
+        0,
+        34,
+        56
+      ],
+      "expanded_hw": [
+        20,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "down:3",
+      "expansion_lrtb": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "c2_count": 236,
+      "c4_count": 11,
+      "kv_count": 247,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_05.png",
+      "anchor_read_intersection": [
+        17,
+        30,
+        34,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 6,
+      "local_bbox": [
+        14,
+        24,
+        28,
+        48
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        17,
+        30,
+        28,
+        48
+      ],
+      "anchor_intersection_area": 198,
+      "raw_target_area": 336,
+      "resolved_target_area": 138,
+      "resolved_target_bbox": [
+        14,
+        24,
+        28,
+        48
+      ],
+      "selected_anchor_patch": [
+        17,
+        30,
+        31,
+        54
+      ],
+      "intended_bbox": [
+        14,
+        24,
+        31,
+        54
+      ],
+      "expanded_bbox": [
+        14,
+        24,
+        34,
+        56
+      ],
+      "expanded_hw": [
+        20,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "down:3",
+      "expansion_lrtb": [
+        0,
+        2,
+        0,
+        3
+      ],
+      "c2_count": 156,
+      "c4_count": 1,
+      "kv_count": 157,
+      "q_count": 39,
+      "early_exit": false,
+      "filename": "grid5_local_06.png",
+      "anchor_read_intersection": [
+        17,
+        30,
+        34,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 7,
+      "local_bbox": [
+        14,
+        48,
+        28,
+        72
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        17,
+        48,
+        28,
+        72
+      ],
+      "anchor_intersection_area": 264,
+      "raw_target_area": 336,
+      "resolved_target_area": 72,
+      "resolved_target_bbox": [
+        14,
+        48,
+        17,
+        72
+      ],
+      "selected_anchor_patch": [
+        17,
+        48,
+        31,
+        72
+      ],
+      "intended_bbox": [
+        14,
+        48,
+        31,
+        72
+      ],
+      "expanded_bbox": [
+        14,
+        48,
+        34,
+        72
+      ],
+      "expanded_hw": [
+        20,
+        24
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "down:3",
+      "expansion_lrtb": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "c2_count": 120,
+      "c4_count": 0,
+      "kv_count": 120,
+      "q_count": 24,
+      "early_exit": false,
+      "filename": "grid5_local_07.png",
+      "anchor_read_intersection": [
+        17,
+        48,
+        34,
+        72
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 8,
+      "local_bbox": [
+        14,
+        72,
+        28,
+        96
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        17,
+        72,
+        28,
+        90
+      ],
+      "anchor_intersection_area": 198,
+      "raw_target_area": 336,
+      "resolved_target_area": 138,
+      "resolved_target_bbox": [
+        14,
+        72,
+        28,
+        96
+      ],
+      "selected_anchor_patch": [
+        17,
+        66,
+        31,
+        90
+      ],
+      "intended_bbox": [
+        14,
+        66,
+        31,
+        96
+      ],
+      "expanded_bbox": [
+        14,
+        64,
+        34,
+        96
+      ],
+      "expanded_hw": [
+        20,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "down:3",
+      "expansion_lrtb": [
+        2,
+        0,
+        0,
+        3
+      ],
+      "c2_count": 156,
+      "c4_count": 1,
+      "kv_count": 157,
+      "q_count": 39,
+      "early_exit": false,
+      "filename": "grid5_local_08.png",
+      "anchor_read_intersection": [
+        17,
+        64,
+        34,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 9,
+      "local_bbox": [
+        14,
+        96,
+        28,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        14,
+        96,
+        28,
+        120
+      ],
+      "selected_anchor_patch": [
+        17,
+        66,
+        31,
+        90
+      ],
+      "intended_bbox": [
+        14,
+        66,
+        31,
+        120
+      ],
+      "expanded_bbox": [
+        14,
+        64,
+        34,
+        120
+      ],
+      "expanded_hw": [
+        20,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "down:3",
+      "expansion_lrtb": [
+        2,
+        0,
+        0,
+        3
+      ],
+      "c2_count": 236,
+      "c4_count": 11,
+      "kv_count": 247,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_09.png",
+      "anchor_read_intersection": [
+        17,
+        64,
+        34,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 10,
+      "local_bbox": [
+        27,
+        0,
+        41,
+        24
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        27,
+        0,
+        41,
+        24
+      ],
+      "selected_anchor_patch": [
+        27,
+        30,
+        41,
+        54
+      ],
+      "intended_bbox": [
+        27,
+        0,
+        41,
+        54
+      ],
+      "expanded_bbox": [
+        27,
+        0,
+        43,
+        56
+      ],
+      "expanded_hw": [
+        16,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "down:2",
+      "expansion_lrtb": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "c2_count": 208,
+      "c4_count": 4,
+      "kv_count": 212,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_10.png",
+      "anchor_read_intersection": [
+        27,
+        30,
+        43,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 11,
+      "local_bbox": [
+        27,
+        24,
+        41,
+        48
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        27,
+        30,
+        41,
+        48
+      ],
+      "anchor_intersection_area": 252,
+      "raw_target_area": 336,
+      "resolved_target_area": 84,
+      "resolved_target_bbox": [
+        27,
+        24,
+        41,
+        30
+      ],
+      "selected_anchor_patch": [
+        27,
+        30,
+        41,
+        54
+      ],
+      "intended_bbox": [
+        27,
+        24,
+        41,
+        54
+      ],
+      "expanded_bbox": [
+        27,
+        24,
+        43,
+        56
+      ],
+      "expanded_hw": [
+        16,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "down:2",
+      "expansion_lrtb": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "c2_count": 128,
+      "c4_count": 0,
+      "kv_count": 128,
+      "q_count": 21,
+      "early_exit": false,
+      "filename": "grid5_local_11.png",
+      "anchor_read_intersection": [
+        27,
+        30,
+        43,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 12,
+      "local_bbox": [
+        27,
+        48,
+        41,
+        72
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        27,
+        48,
+        41,
+        72
+      ],
+      "anchor_intersection_area": 336,
+      "raw_target_area": 336,
+      "resolved_target_area": 0,
+      "resolved_target_bbox": null,
+      "selected_anchor_patch": null,
+      "intended_bbox": null,
+      "expanded_bbox": null,
+      "expanded_hw": null,
+      "mod4": null,
+      "horizontal_expansion": "N/A",
+      "vertical_expansion": "N/A",
+      "expansion_lrtb": null,
+      "c2_count": 0,
+      "c4_count": 0,
+      "kv_count": 0,
+      "q_count": 0,
+      "early_exit": true,
+      "filename": "grid5_local_12.png",
+      "anchor_read_intersection": null
+    },
+    {
+      "partition": 5,
+      "index": 13,
+      "local_bbox": [
+        27,
+        72,
+        41,
+        96
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        27,
+        72,
+        41,
+        90
+      ],
+      "anchor_intersection_area": 252,
+      "raw_target_area": 336,
+      "resolved_target_area": 84,
+      "resolved_target_bbox": [
+        27,
+        90,
+        41,
+        96
+      ],
+      "selected_anchor_patch": [
+        27,
+        66,
+        41,
+        90
+      ],
+      "intended_bbox": [
+        27,
+        66,
+        41,
+        96
+      ],
+      "expanded_bbox": [
+        27,
+        64,
+        43,
+        96
+      ],
+      "expanded_hw": [
+        16,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "down:2",
+      "expansion_lrtb": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "c2_count": 128,
+      "c4_count": 0,
+      "kv_count": 128,
+      "q_count": 21,
+      "early_exit": false,
+      "filename": "grid5_local_13.png",
+      "anchor_read_intersection": [
+        27,
+        64,
+        43,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 14,
+      "local_bbox": [
+        27,
+        96,
+        41,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        27,
+        96,
+        41,
+        120
+      ],
+      "selected_anchor_patch": [
+        27,
+        66,
+        41,
+        90
+      ],
+      "intended_bbox": [
+        27,
+        66,
+        41,
+        120
+      ],
+      "expanded_bbox": [
+        27,
+        64,
+        43,
+        120
+      ],
+      "expanded_hw": [
+        16,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "down:2",
+      "expansion_lrtb": [
+        2,
+        0,
+        0,
+        2
+      ],
+      "c2_count": 208,
+      "c4_count": 4,
+      "kv_count": 212,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_14.png",
+      "anchor_read_intersection": [
+        27,
+        64,
+        43,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 15,
+      "local_bbox": [
+        41,
+        0,
+        55,
+        24
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        41,
+        0,
+        55,
+        24
+      ],
+      "selected_anchor_patch": [
+        37,
+        30,
+        51,
+        54
+      ],
+      "intended_bbox": [
+        37,
+        0,
+        55,
+        54
+      ],
+      "expanded_bbox": [
+        35,
+        0,
+        55,
+        56
+      ],
+      "expanded_hw": [
+        20,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        0,
+        2,
+        2,
+        0
+      ],
+      "c2_count": 208,
+      "c4_count": 18,
+      "kv_count": 226,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_15.png",
+      "anchor_read_intersection": [
+        35,
+        30,
+        51,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 16,
+      "local_bbox": [
+        41,
+        24,
+        55,
+        48
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        41,
+        30,
+        51,
+        48
+      ],
+      "anchor_intersection_area": 180,
+      "raw_target_area": 336,
+      "resolved_target_area": 156,
+      "resolved_target_bbox": [
+        41,
+        24,
+        55,
+        48
+      ],
+      "selected_anchor_patch": [
+        37,
+        30,
+        51,
+        54
+      ],
+      "intended_bbox": [
+        37,
+        24,
+        55,
+        54
+      ],
+      "expanded_bbox": [
+        35,
+        24,
+        55,
+        56
+      ],
+      "expanded_hw": [
+        20,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        0,
+        2,
+        2,
+        0
+      ],
+      "c2_count": 148,
+      "c4_count": 3,
+      "kv_count": 151,
+      "q_count": 39,
+      "early_exit": false,
+      "filename": "grid5_local_16.png",
+      "anchor_read_intersection": [
+        35,
+        30,
+        51,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 17,
+      "local_bbox": [
+        41,
+        48,
+        55,
+        72
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        41,
+        48,
+        51,
+        72
+      ],
+      "anchor_intersection_area": 240,
+      "raw_target_area": 336,
+      "resolved_target_area": 96,
+      "resolved_target_bbox": [
+        51,
+        48,
+        55,
+        72
+      ],
+      "selected_anchor_patch": [
+        37,
+        48,
+        51,
+        72
+      ],
+      "intended_bbox": [
+        37,
+        48,
+        55,
+        72
+      ],
+      "expanded_bbox": [
+        35,
+        48,
+        55,
+        72
+      ],
+      "expanded_hw": [
+        20,
+        24
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        0,
+        0,
+        2,
+        0
+      ],
+      "c2_count": 120,
+      "c4_count": 0,
+      "kv_count": 120,
+      "q_count": 24,
+      "early_exit": false,
+      "filename": "grid5_local_17.png",
+      "anchor_read_intersection": [
+        35,
+        48,
+        51,
+        72
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 18,
+      "local_bbox": [
+        41,
+        72,
+        55,
+        96
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": [
+        41,
+        72,
+        51,
+        90
+      ],
+      "anchor_intersection_area": 180,
+      "raw_target_area": 336,
+      "resolved_target_area": 156,
+      "resolved_target_bbox": [
+        41,
+        72,
+        55,
+        96
+      ],
+      "selected_anchor_patch": [
+        37,
+        66,
+        51,
+        90
+      ],
+      "intended_bbox": [
+        37,
+        66,
+        55,
+        96
+      ],
+      "expanded_bbox": [
+        35,
+        64,
+        55,
+        96
+      ],
+      "expanded_hw": [
+        20,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "c2_count": 148,
+      "c4_count": 3,
+      "kv_count": 151,
+      "q_count": 39,
+      "early_exit": false,
+      "filename": "grid5_local_18.png",
+      "anchor_read_intersection": [
+        35,
+        64,
+        51,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 19,
+      "local_bbox": [
+        41,
+        96,
+        55,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        41,
+        96,
+        55,
+        120
+      ],
+      "selected_anchor_patch": [
+        37,
+        66,
+        51,
+        90
+      ],
+      "intended_bbox": [
+        37,
+        66,
+        55,
+        120
+      ],
+      "expanded_bbox": [
+        35,
+        64,
+        55,
+        120
+      ],
+      "expanded_hw": [
+        20,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "up:2",
+      "expansion_lrtb": [
+        2,
+        0,
+        2,
+        0
+      ],
+      "c2_count": 208,
+      "c4_count": 18,
+      "kv_count": 226,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_19.png",
+      "anchor_read_intersection": [
+        35,
+        64,
+        51,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 20,
+      "local_bbox": [
+        54,
+        0,
+        68,
+        24
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        54,
+        0,
+        68,
+        24
+      ],
+      "selected_anchor_patch": [
+        37,
+        30,
+        51,
+        54
+      ],
+      "intended_bbox": [
+        37,
+        0,
+        68,
+        54
+      ],
+      "expanded_bbox": [
+        36,
+        0,
+        68,
+        56
+      ],
+      "expanded_hw": [
+        32,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "up:1",
+      "expansion_lrtb": [
+        0,
+        2,
+        1,
+        0
+      ],
+      "c2_count": 208,
+      "c4_count": 60,
+      "kv_count": 268,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_20.png",
+      "anchor_read_intersection": [
+        36,
+        30,
+        51,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 21,
+      "local_bbox": [
+        54,
+        24,
+        68,
+        48
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        54,
+        24,
+        68,
+        48
+      ],
+      "selected_anchor_patch": [
+        37,
+        30,
+        51,
+        54
+      ],
+      "intended_bbox": [
+        37,
+        24,
+        68,
+        54
+      ],
+      "expanded_bbox": [
+        36,
+        24,
+        68,
+        56
+      ],
+      "expanded_hw": [
+        32,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "right:2",
+      "vertical_expansion": "up:1",
+      "expansion_lrtb": [
+        0,
+        2,
+        1,
+        0
+      ],
+      "c2_count": 208,
+      "c4_count": 12,
+      "kv_count": 220,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_21.png",
+      "anchor_read_intersection": [
+        36,
+        30,
+        51,
+        56
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 22,
+      "local_bbox": [
+        54,
+        48,
+        68,
+        72
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        54,
+        48,
+        68,
+        72
+      ],
+      "selected_anchor_patch": [
+        37,
+        48,
+        51,
+        72
+      ],
+      "intended_bbox": [
+        37,
+        48,
+        68,
+        72
+      ],
+      "expanded_bbox": [
+        36,
+        48,
+        68,
+        72
+      ],
+      "expanded_hw": [
+        32,
+        24
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "none",
+      "vertical_expansion": "up:1",
+      "expansion_lrtb": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "c2_count": 192,
+      "c4_count": 0,
+      "kv_count": 192,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_22.png",
+      "anchor_read_intersection": [
+        36,
+        48,
+        51,
+        72
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 23,
+      "local_bbox": [
+        54,
+        72,
+        68,
+        96
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        54,
+        72,
+        68,
+        96
+      ],
+      "selected_anchor_patch": [
+        37,
+        66,
+        51,
+        90
+      ],
+      "intended_bbox": [
+        37,
+        66,
+        68,
+        96
+      ],
+      "expanded_bbox": [
+        36,
+        64,
+        68,
+        96
+      ],
+      "expanded_hw": [
+        32,
+        32
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "up:1",
+      "expansion_lrtb": [
+        2,
+        0,
+        1,
+        0
+      ],
+      "c2_count": 208,
+      "c4_count": 12,
+      "kv_count": 220,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_23.png",
+      "anchor_read_intersection": [
+        36,
+        64,
+        51,
+        90
+      ]
+    },
+    {
+      "partition": 5,
+      "index": 24,
+      "local_bbox": [
+        54,
+        96,
+        68,
+        120
+      ],
+      "anchor_bbox": [
+        17,
+        30,
+        51,
+        90
+      ],
+      "anchor_intersection": null,
+      "anchor_intersection_area": 0,
+      "raw_target_area": 336,
+      "resolved_target_area": 336,
+      "resolved_target_bbox": [
+        54,
+        96,
+        68,
+        120
+      ],
+      "selected_anchor_patch": [
+        37,
+        66,
+        51,
+        90
+      ],
+      "intended_bbox": [
+        37,
+        66,
+        68,
+        120
+      ],
+      "expanded_bbox": [
+        36,
+        64,
+        68,
+        120
+      ],
+      "expanded_hw": [
+        32,
+        56
+      ],
+      "mod4": [
+        0,
+        0
+      ],
+      "horizontal_expansion": "left:2",
+      "vertical_expansion": "up:1",
+      "expansion_lrtb": [
+        2,
+        0,
+        1,
+        0
+      ],
+      "c2_count": 208,
+      "c4_count": 60,
+      "kv_count": 268,
+      "q_count": 84,
+      "early_exit": false,
+      "filename": "grid5_local_24.png",
+      "anchor_read_intersection": [
+        36,
+        64,
+        51,
+        90
+      ]
+    }
+  ],
+  "statistics": {
+    "4": {
+      "case_count": 16,
+      "empty_cases": 4,
+      "c2_count": {
+        "min": 0,
+        "max": 316,
+        "mean": 226,
+        "median": 294.0,
+        "sum": 3616
+      },
+      "c4_count": {
+        "min": 0,
+        "max": 56,
+        "mean": 14,
+        "median": 0.0,
+        "sum": 224
+      },
+      "kv_count": {
+        "min": 0,
+        "max": 372,
+        "mean": 240,
+        "median": 294.0,
+        "sum": 3840
+      },
+      "q_count": {
+        "min": 0,
+        "max": 135,
+        "mean": 101.25,
+        "median": 135.0,
+        "sum": 1620
+      }
+    },
+    "5": {
+      "case_count": 25,
+      "empty_cases": 1,
+      "c2_count": {
+        "min": 0,
+        "max": 236,
+        "mean": 178.24,
+        "median": 208,
+        "sum": 4456
+      },
+      "c4_count": {
+        "min": 0,
+        "max": 60,
+        "mean": 14.48,
+        "median": 4,
+        "sum": 362
+      },
+      "kv_count": {
+        "min": 0,
+        "max": 268,
+        "mean": 192.72,
+        "median": 212,
+        "sum": 4818
+      },
+      "q_count": {
+        "min": 0,
+        "max": 84,
+        "mean": 63.6,
+        "median": 84,
+        "sum": 1590
+      }
+    },
+    "all": {
+      "case_count": 41,
+      "empty_cases": 5,
+      "c2_count": {
+        "min": 0,
+        "max": 316,
+        "mean": 196.8780487804878,
+        "median": 208,
+        "sum": 8072
+      },
+      "c4_count": {
+        "min": 0,
+        "max": 60,
+        "mean": 14.292682926829269,
+        "median": 1,
+        "sum": 586
+      },
+      "kv_count": {
+        "min": 0,
+        "max": 372,
+        "mean": 211.17073170731706,
+        "median": 220,
+        "sum": 8658
+      },
+      "q_count": {
+        "min": 0,
+        "max": 135,
+        "mean": 78.29268292682927,
+        "median": 84,
+        "sum": 3210
+      }
+    }
+  },
+  "invariants": {
+    "nonempty_alignment_and_layout_cases": 36,
+    "all_case_pass_count": 41,
+    "empty_early_exit_cases": 5
+  },
+  "violation_counts": {
+    "outside_canvas": 0,
+    "role_overlap": 0,
+    "role_holes": 0,
+    "read_support_drop": 0,
+    "read_support_duplication": 0,
+    "partial_C2": 0,
+    "partial_C4": 0,
+    "C1": 0,
+    "wrong_query": 0,
+    "write_outside_target": 0,
+    "write_drop": 0,
+    "write_duplication": 0
+  },
+  "supplementary_geometry_probes": [
+    {
+      "name": "already_aligned",
+      "verdict": "PASS",
+      "detail": {
+        "input": [
+          4,
+          4,
+          12,
+          12
+        ],
+        "canvas": [
+          20,
+          20
+        ],
+        "actual": [
+          4,
+          4,
+          12,
+          12
+        ]
+      }
+    },
+    {
+      "name": "left_and_above_expand_right_down",
+      "verdict": "PASS",
+      "detail": {
+        "input": [
+          2,
+          2,
+          7,
+          7
+        ],
+        "canvas": [
+          20,
+          20
+        ],
+        "actual": [
+          2,
+          2,
+          10,
+          10
+        ]
+      }
+    },
+    {
+      "name": "right_and_below_expand_left_up",
+      "verdict": "PASS",
+      "detail": {
+        "input": [
+          13,
+          13,
+          18,
+          18
+        ],
+        "canvas": [
+          20,
+          20
+        ],
+        "actual": [
+          10,
+          10,
+          18,
+          18
+        ]
+      }
+    },
+    {
+      "name": "tie_expand_right_down",
+      "verdict": "PASS",
+      "detail": {
+        "input": [
+          7,
+          7,
+          13,
+          13
+        ],
+        "canvas": [
+          20,
+          20
+        ],
+        "actual": [
+          7,
+          7,
+          15,
+          15
+        ]
+      }
+    },
+    {
+      "name": "preferred_boundary_remainder",
+      "verdict": "PASS",
+      "detail": {
+        "input": [
+          1,
+          1,
+          18,
+          18
+        ],
+        "canvas": [
+          20,
+          20
+        ],
+        "actual": [
+          0,
+          0,
+          20,
+          20
+        ]
+      }
+    },
+    {
+      "name": "pure_B_parent",
+      "verdict": "PASS",
+      "detail": {
+        "C2_C4_Q": [
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "name": "one_T_promotes_entire_parent",
+      "verdict": "PASS",
+      "detail": {
+        "C2_C4_Q": [
+          4,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "one_A_promotes_B_only_subcells",
+      "verdict": "PASS",
+      "detail": {
+        "C2_C4_Q": [
+          4,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "mixed_ATTT_query",
+      "verdict": "PASS",
+      "detail": {
+        "C2_C4_Q": [
+          4,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "anchor_precedes_target",
+      "verdict": "PASS",
+      "detail": {
+        "4": 12,
+        "1": 4
+      }
+    },
+    {
+      "name": "impossible_alignment_rejects",
+      "verdict": "PASS",
+      "detail": "5x5 canvas fully occupied; no padding/crop fallback"
+    }
+  ],
+  "global_general_path_evidence": [
+    {
+      "canvas_hw": [
+        68,
+        120
+      ],
+      "full_cells": 510,
+      "partial_cells": 0,
+      "valid_count_histogram": {
+        "16": 510
+      },
+      "compressed_grid": [
+        17,
+        30
+      ],
+      "R4_target_hw": [
+        68,
+        120
+      ],
+      "R4_axis_ratio": [
+        4.0,
+        4.0
+      ]
+    },
+    {
+      "canvas_hw": [
+        17,
+        20
+      ],
+      "full_cells": 20,
+      "partial_cells": 5,
+      "valid_count_histogram": {
+        "16": 20,
+        "4": 5
+      },
+      "compressed_grid": [
+        5,
+        5
+      ],
+      "R4_target_hw": [
+        17,
+        20
+      ],
+      "R4_axis_ratio": [
+        3.4,
+        4.0
+      ],
+      "all_K4_K5_adaptive_prerequisite_layouts_constructible": true
+    }
+  ],
+  "cuda_initialized": false,
+  "model_instances_constructed": 0,
+  "model_forward_calls": 0,
+  "visualizations": {
+    "individual": 41,
+    "contact_sheets": 3
+  }
+}

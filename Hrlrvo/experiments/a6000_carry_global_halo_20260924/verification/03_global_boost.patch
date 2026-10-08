@@ -1,0 +1,33 @@
+diff -ru '--exclude=__pycache__' Hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/01_baseline/source/main/src/ltx_outpaint/inference.py Hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/03_global_boost/source/main/src/ltx_outpaint/inference.py
+--- Hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/01_baseline/source/main/src/ltx_outpaint/inference.py	2026-09-23 20:33:28.757282000 +0900
++++ Hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/03_global_boost/source/main/src/ltx_outpaint/inference.py	2026-09-24 00:18:07.700364000 +0900
+@@ -77,26 +77,19 @@
+ 
+ _EARLY_GLOBAL_BOOST_START_SCALE = 1.4
+ _EARLY_GLOBAL_BOOST_DURATION_STEPS = 10
+-_EARLY_GLOBAL_BOOST_CURVE = "smoothstep"
++_EARLY_GLOBAL_BOOST_CURVE = "constant_then_legacy"
+ _SEED_PREVIEW_FULL_STEPS = 30
+ _SEED_PREVIEW_STEP = 10
+ _SEED_PREVIEW_FRAMES = (0, 32, 64)
+ 
+ 
+ def _early_global_boost_scale(step_index: int) -> float | None:
+-    """Return the reported schedule scale for one zero-based denoise step."""
++    """Return the fixed boost for the first ten zero-based denoise steps."""
+     if type(step_index) is not int or step_index < 0:
+         raise ValueError("step_index must be a non-negative integer")
+     if step_index >= _EARLY_GLOBAL_BOOST_DURATION_STEPS:
+         return None
+-    if step_index == _EARLY_GLOBAL_BOOST_DURATION_STEPS - 1:
+-        # Keep the final scheduled value exact, then bypass gate arithmetic.
+-        return 1.0
+-    progress = step_index / (_EARLY_GLOBAL_BOOST_DURATION_STEPS - 1)
+-    smooth = progress * progress * (3.0 - 2.0 * progress)
+-    return _EARLY_GLOBAL_BOOST_START_SCALE + (
+-        1.0 - _EARLY_GLOBAL_BOOST_START_SCALE
+-    ) * smooth
++    return _EARLY_GLOBAL_BOOST_START_SCALE
+ 
+ 
+ def _early_global_boost_metadata(enabled: bool) -> dict[str, Any]:

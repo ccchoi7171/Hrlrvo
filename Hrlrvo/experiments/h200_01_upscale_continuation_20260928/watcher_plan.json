@@ -1,0 +1,11 @@
+{
+  "production_root": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K",
+  "config_sha256": "b91399d8878b08fdd3bf656e39d735000aa2c0728af74945fbe4b39ed1244cd9",
+  "predecessor_state": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/verification/continuation_state.json",
+  "outpaint_pid": 1945850,
+  "outpaint_start_ticks": "1318824727",
+  "outpaint_python": "/home/work/ai-graphics_33/miniconda3/envs/Hrlrvo/bin/python",
+  "flash_python": "/home/work/ai-graphics_33/miniconda3/envs/Hrlrvo-FlashVSR/bin/python",
+  "expected_outpaint_frames": 1952,
+  "expected_final": "data/03_Upscale_16K_15360x8640/01/final/01_Certification_Final_16K_16fps.mp4"
+}

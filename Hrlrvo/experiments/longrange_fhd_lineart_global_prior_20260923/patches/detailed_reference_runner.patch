@@ -1,0 +1,24 @@
+--- /home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/patches/run_lineart_chain.before_detailed_selection.py	2026-09-24 01:54:05.737194000 +0900
++++ /home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/source/VideoOutpainting_test/main/scripts/run_lineart_chain.py	2026-09-24 02:45:59.952061000 +0900
+@@ -92,8 +92,12 @@
+     identity_request={'mode':a.mode,'anchor':str(ANCHOR),'anchor_sha256':file_sha256(ANCHOR),'baseline_checkpoint':str(checkpoint),'baseline_prompt':baseline['positive_prompt'],'baseline_negative_prompt':baseline['negative_prompt'],'base_seed':config.seed,'steps':config.inference_steps,'baseline_fingerprint':json.loads(BASELINE.read_text())['request_fingerprint'],'visible_canvas':[1920,1080],'encoded_canvas':[1920,1152],'rebase_temporal_position':a.rebase_temporal_position,'use_latent_carry':a.use_latent_carry,'generated_prefix_strength':a.generated_prefix_strength,'experiment_source_sha256':file_sha256(Path(inf.__file__))}
+     from ltx_core.components.schedulers import LTX2Scheduler
+     sigma_by_step=tuple(float(x) for x in LTX2Scheduler().execute(steps=config.inference_steps)[:-1])
+-    reference_path=ROOT/'reference/global_line_strength.npy'
+     line_config=json.loads((ROOT/'configs/inference_lineart_global.json').read_text())['lineart_global_prior']
++    reference_path=(ROOT/line_config['reference_map']).resolve()
++    if not reference_path.is_relative_to(ROOT/'reference'):
++        raise RuntimeError('Reference map must remain inside this experiment')
++    if file_sha256(reference_path)!=line_config['reference_sha256']:
++        raise RuntimeError('Selected reference map hash changed')
+     line_config.update(enabled=a.lineart_global_prior,bias_scale=a.lineart_bias_scale)
+     prior=LineArtGlobalPrior(torch.from_numpy(np.load(reference_path,allow_pickle=False)),sigma_by_step,
+                             enabled=a.lineart_global_prior,bias_scale=a.lineart_bias_scale)
+@@ -101,6 +105,7 @@
+         'global_attention_sha256':file_sha256(Path(global_module.__file__)),
+         'prior_module_sha256':file_sha256(Path(prior_module.__file__))}
+     atomic_json(ROOT/'configs'/f'effective_{a.mode}_lineart.json',identity_request['lineart_global_prior'])
++    print(json.dumps({'event':'lineart_reference','path':str(reference_path),**identity_request['lineart_global_prior']},sort_keys=True),flush=True)
+     store=SegmentedOutputStore(segments)
+     store.prepare({'request':identity_request,'request_fingerprint':session_fingerprint(identity_request)},resume=a.resume)
+     if a.bootstrap_c0:

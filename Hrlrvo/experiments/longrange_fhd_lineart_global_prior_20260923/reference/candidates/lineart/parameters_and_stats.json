@@ -1,0 +1,357 @@
+{
+  "candidates": {
+    "balanced": {
+      "component_stats": {
+        "kept": 317,
+        "total": 623
+      },
+      "filtered_native_edge_fraction": 0.023532021790742874,
+      "global_density": {
+        "max": 0.135009765625,
+        "mean": 0.022061269730329514,
+        "min": 0.0
+      },
+      "global_strength": {
+        "max": 1.0,
+        "mean": 0.33044523000717163,
+        "min": 0.0,
+        "nonzero_cells": 80,
+        "one_cells": 23,
+        "percentiles": {
+          "0": 0.0,
+          "10": 0.0,
+          "100": 1.0,
+          "25": 0.0,
+          "50": 0.09033203125,
+          "75": 0.6475830078125,
+          "90": 1.0
+        },
+        "std": 0.39318645000457764,
+        "zero_cells": 55
+      },
+      "parameters": {
+        "canny_high": 140,
+        "canny_low": 50,
+        "clahe": null,
+        "gaussian_kernel": 5,
+        "gaussian_sigma": 1.2,
+        "min_component_pixels": 20,
+        "min_component_span": 18
+      },
+      "raw_edge_fraction": 0.02650511188271605
+    },
+    "clahe_lowlight": {
+      "component_stats": {
+        "kept": 640,
+        "total": 1114
+      },
+      "filtered_native_edge_fraction": 0.04213300719857216,
+      "global_density": {
+        "max": 0.1597900390625,
+        "mean": 0.03949969261884689,
+        "min": 0.0
+      },
+      "global_strength": {
+        "max": 1.0,
+        "mean": 0.48697373270988464,
+        "min": 0.0,
+        "nonzero_cells": 96,
+        "one_cells": 47,
+        "percentiles": {
+          "0": 0.0,
+          "10": 0.0,
+          "100": 1.0,
+          "25": 0.0,
+          "50": 0.37353515625,
+          "75": 1.0,
+          "90": 1.0
+        },
+        "std": 0.44248950481414795,
+        "zero_cells": 39
+      },
+      "parameters": {
+        "canny_high": 145,
+        "canny_low": 55,
+        "clahe": {
+          "clip_limit": 1.5,
+          "tile_grid_size": [
+            8,
+            8
+          ]
+        },
+        "gaussian_kernel": 5,
+        "gaussian_sigma": 1.0,
+        "min_component_pixels": 18,
+        "min_component_span": 16
+      },
+      "raw_edge_fraction": 0.04627459490740741
+    },
+    "detailed": {
+      "component_stats": {
+        "kept": 805,
+        "total": 1542
+      },
+      "filtered_native_edge_fraction": 0.04536747559905052,
+      "global_density": {
+        "max": 0.18719482421875,
+        "mean": 0.04253200814127922,
+        "min": 0.0
+      },
+      "global_strength": {
+        "max": 1.0,
+        "mean": 0.487827330827713,
+        "min": 0.0,
+        "nonzero_cells": 99,
+        "one_cells": 49,
+        "percentiles": {
+          "0": 0.0,
+          "10": 0.0,
+          "100": 1.0,
+          "25": 0.0,
+          "50": 0.37841796875,
+          "75": 1.0,
+          "90": 1.0
+        },
+        "std": 0.44639086723327637,
+        "zero_cells": 36
+      },
+      "parameters": {
+        "canny_high": 100,
+        "canny_low": 35,
+        "clahe": null,
+        "gaussian_kernel": 3,
+        "gaussian_sigma": 0.8,
+        "min_component_pixels": 12,
+        "min_component_span": 12
+      },
+      "raw_edge_fraction": 0.048892264660493824
+    },
+    "very_detailed": {
+      "component_stats": {
+        "kept": 1528,
+        "total": 3138
+      },
+      "filtered_native_edge_fraction": 0.07556423544883728,
+      "global_density": {
+        "max": 0.25018310546875,
+        "mean": 0.0708414688706398,
+        "min": 0.0
+      },
+      "global_strength": {
+        "max": 1.0,
+        "mean": 0.6083062291145325,
+        "min": 0.0,
+        "nonzero_cells": 115,
+        "one_cells": 64,
+        "percentiles": {
+          "0": 0.0,
+          "10": 0.0,
+          "100": 1.0,
+          "25": 0.181884765625,
+          "50": 0.948486328125,
+          "75": 1.0,
+          "90": 1.0
+        },
+        "std": 0.42470431327819824,
+        "zero_cells": 20
+      },
+      "parameters": {
+        "canny_high": 70,
+        "canny_low": 20,
+        "clahe": null,
+        "gaussian_kernel": 3,
+        "gaussian_sigma": 0.5,
+        "min_component_pixels": 8,
+        "min_component_span": 8
+      },
+      "raw_edge_fraction": 0.07957658179012346
+    }
+  },
+  "constraints": {
+    "cpu_only": true,
+    "dilation": false,
+    "learned_model": false,
+    "morphology": false,
+    "native_resolution_canny": true,
+    "note": "Native 1-pixel edge coverage is not directly comparable with the earlier 4-pixel nearest-upsampled coarse coverage.",
+    "resize_before_edge_detection": false
+  },
+  "crops_xyxy": {
+    "centerstage": [
+      640,
+      260,
+      1280,
+      900
+    ],
+    "floor": [
+      480,
+      760,
+      1440,
+      1080
+    ],
+    "leftwindow": [
+      0,
+      320,
+      480,
+      850
+    ],
+    "rightwindow": [
+      1440,
+      320,
+      1920,
+      850
+    ]
+  },
+  "files": {
+    "balanced.npy": {
+      "bytes": 8294528,
+      "sha256": "cf25cf325e29b05f87b5583e3d4aa607035b7e3841d6e90d1c72b99848555e20"
+    },
+    "balanced.png": {
+      "bytes": 53184,
+      "sha256": "7a8b95cec29447ea1dd3ad806e9caa5a7afeeb8842171d10234596f16fae1f46"
+    },
+    "balanced_black_on_white.png": {
+      "bytes": 54015,
+      "sha256": "aa43f1b02c6c8026e098941074b54c68fd545a8cac80d6de8172804e688f884c"
+    },
+    "balanced_global_line_density.npy": {
+      "bytes": 668,
+      "sha256": "1f2b251d98b3bea7423f905d7da1415be85c7d581652602d10321c6bc323bc03"
+    },
+    "balanced_global_line_strength.npy": {
+      "bytes": 668,
+      "sha256": "04267685d25535b92a34dfaeed98a61f92fb531bec1e708fe33e40a9e4ae87cb"
+    },
+    "balanced_global_line_strength_heatmap.png": {
+      "bytes": 10076,
+      "sha256": "bf816e929e1172808937732c84e425e937346b360730a16e9339d5aa8befb1db"
+    },
+    "balanced_overlay.png": {
+      "bytes": 2703582,
+      "sha256": "b2b8248d6099ab32c8015723f906d8bc844a252d0a83116bbb30cd4ac2c5e287"
+    },
+    "clahe_lowlight.npy": {
+      "bytes": 8294528,
+      "sha256": "f07d4ed81196e2e2554f32c1990fba7e1fb7a701c27ad241089a5ab0c1c2752e"
+    },
+    "clahe_lowlight.png": {
+      "bytes": 83645,
+      "sha256": "50c3347ff62086be968fffd9f360a94126e8096bc0ec2f0c029b8c67d4ce65a5"
+    },
+    "clahe_lowlight_black_on_white.png": {
+      "bytes": 83885,
+      "sha256": "1127ce5d8fefa299faf0c0d58c2254bf90b840ef5be3d08c43a0a189870f034b"
+    },
+    "clahe_lowlight_global_line_density.npy": {
+      "bytes": 668,
+      "sha256": "6704d266ed79d5b5a9ab02e820deb88bb30b1a0f8ad90e60a968018b8ec78b9b"
+    },
+    "clahe_lowlight_global_line_strength.npy": {
+      "bytes": 668,
+      "sha256": "efb178e8c9c8d1359e62d540d3acb52220237c26130d128c9c21ef42988f5ba6"
+    },
+    "clahe_lowlight_global_line_strength_heatmap.png": {
+      "bytes": 9924,
+      "sha256": "157b5a0f197ff8a053479ea79676631e8300398442eb1954d2bfd99984e1c52a"
+    },
+    "clahe_lowlight_overlay.png": {
+      "bytes": 2743527,
+      "sha256": "01bb4b3f0417fe58456ede73f3920af1a382032ec343892e3f768086b24225c3"
+    },
+    "contact_sheet_crops.png": {
+      "bytes": 195994,
+      "sha256": "51bca36e5a1fb44a81abaae7314d84470393b6d584f58e5e46d9caa987a8fff2"
+    },
+    "contact_sheet_fullview.png": {
+      "bytes": 136063,
+      "sha256": "43dcd4f58f29c6d3125d897d98c90967a8275452dc960fd297f98ec9823288ea"
+    },
+    "detailed.npy": {
+      "bytes": 8294528,
+      "sha256": "80215168a272a3bdf9e557381d8591561a9526fd8246a0d4cd9fd19bb3ecca69"
+    },
+    "detailed.png": {
+      "bytes": 88591,
+      "sha256": "868ef5b50e585e5fbdfb2fa870821b8e6c89d41609edb304afd09ec8641ea257"
+    },
+    "detailed_black_on_white.png": {
+      "bytes": 88728,
+      "sha256": "1d36fc6d4456766a685b1e7f77dbf2c8b86e81924cf296dd6dd6b0d18098fdfe"
+    },
+    "detailed_global_line_density.npy": {
+      "bytes": 668,
+      "sha256": "300655ce36a4b5ac39971b80f437c7868be224b7ff24168eb9f3f1dedb9a9e0e"
+    },
+    "detailed_global_line_strength.npy": {
+      "bytes": 668,
+      "sha256": "86a5a5a1b8e832939c5387d7a54c042a7c8f58a980eb2ac80976017d81e4f628"
+    },
+    "detailed_global_line_strength_heatmap.png": {
+      "bytes": 10045,
+      "sha256": "50fb4554d97d91066aa90d8943091454e6e9c80f1fc52941b710260ed68f7f32"
+    },
+    "detailed_overlay.png": {
+      "bytes": 2745387,
+      "sha256": "8269453f828a6f0f988a472e08e04535421f5d23c683a201f603d09799f9d227"
+    },
+    "very_detailed.npy": {
+      "bytes": 8294528,
+      "sha256": "05f196d9f3e2c66146691ea414e984b48f59435aaccccd4cd1ac429df3ef67d8"
+    },
+    "very_detailed.png": {
+      "bytes": 133062,
+      "sha256": "bca1bcc58536d687e4dcf739d10f8011c2c09b913415a8732df77f299f65a455"
+    },
+    "very_detailed_black_on_white.png": {
+      "bytes": 132944,
+      "sha256": "64184e1f8727b296d53f465d6e1fc9e453efb9d0b2f57e799e118b590bbc591b"
+    },
+    "very_detailed_global_line_density.npy": {
+      "bytes": 668,
+      "sha256": "a39d548357a6fae920f9291b1e6fd4a51300fe6bccbec017923e1b40cdc20519"
+    },
+    "very_detailed_global_line_strength.npy": {
+      "bytes": 668,
+      "sha256": "ec1f3e6cba02b6a2cdf1aa66c7b5e3f65ed183ce2f551248ff4a6a585af02c43"
+    },
+    "very_detailed_global_line_strength_heatmap.png": {
+      "bytes": 9799,
+      "sha256": "b053e229d7521894a4cb6b8c8106f9563a2f0eeb5eb83086a8c4b946c29268ae"
+    },
+    "very_detailed_overlay.png": {
+      "bytes": 2817490,
+      "sha256": "36f43083a6dd4118fcbb9dec5e3aa4ace8b31d24742b188f4578de9599c37cb7"
+    }
+  },
+  "mapping": {
+    "density_normalizer": 0.05,
+    "encoded_hw": [
+      1152,
+      1920
+    ],
+    "global_hw": [
+      9,
+      15
+    ],
+    "latent_hw": [
+      36,
+      60
+    ],
+    "strength_formula": "clip(global_density / 0.05, 0, 1)",
+    "warning": "Pixel-thin edge detail is substantially collapsed by 128x128-pixel Global cells; g_i*g_j retains only per-cell density, not line connectivity/orientation.",
+    "zero_pad_y": [
+      36,
+      36
+    ]
+  },
+  "source": {
+    "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/c0_frame000.png",
+    "sha256": "46d09b0325141b42783047144cfb9aae4d6fbad9127ec3c3c18f311ff27edf5d",
+    "shape_hwc": [
+      1080,
+      1920,
+      3
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "a6000_final_only_overlay/v2",
+  "files": {
+    "final_only.py": "ed0bdc01242c7199fc44ac1c3dd078f219bea4911a55daf53958989561ea7d00",
+    "parallel_renderer.py": "515e1a7a27de1ab320057ba1748cb5ad57819c932093a2f83fc7b5844477e03a",
+    "coordinate_v2.py": "6edaad4ef1dca3c43adfbe7250f147c553dcad722fb0290665715f708d2ac53f"
+  },
+  "baseline_code_manifest_sha256": "5f2a5784c6347db524d5665ada9447cd9dc4f809d7a31d5be46aafe67350fd60",
+  "source_proof": {
+    "path": "verification/source_transfer_verification.json",
+    "sha256": "167dba3c91304907b3ddf0a5633f0c73838d86f38b9070790ff4c627981bf187"
+  },
+  "benchmark": {
+    "path": "verification/final_only_v2_bench/benchmark_decision.json",
+    "sha256": "88153b450b9e18f442b14e66b6539c9576bd289155fc5450cdf38c08b337e41f"
+  },
+  "policy": {
+    "renderer": "threaded",
+    "compose_workers": 8,
+    "max_parallel_videos": 2
+  }
+}

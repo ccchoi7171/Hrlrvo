@@ -1,0 +1,28 @@
+diff -ru '--exclude=__pycache__' Hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/01_baseline/source/main/src/ltx_outpaint/inference.py Hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/02_no_carry/source/main/src/ltx_outpaint/inference.py
+--- Hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/01_baseline/source/main/src/ltx_outpaint/inference.py	2026-09-23 20:33:28.757282000 +0900
++++ Hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/02_no_carry/source/main/src/ltx_outpaint/inference.py	2026-09-24 00:18:07.696465000 +0900
+@@ -895,14 +895,16 @@
+             prefix_latent = prefix_latent.clone()
+             prefix_latent[:, :, :1] = first_latent
+         condition[:, :, prefix_slice] = prefix_latent
+-        if prefix_latent_override is not None:
+-            # Hybrid carry: generated region is direct final latent; the exact
+-            # current anchor encoding remains authoritative inside its known box.
+-            condition[
+-                :, :, prefix_slice,
+-                latent_anchor_rect.y0:latent_anchor_rect.y1,
+-                latent_anchor_rect.x0:latent_anchor_rect.x1,
+-            ] = anchor_latent[:, :, prefix_slice]
++        # Keep the independently encoded current anchor authoritative inside
++        # its known box for both prefix sources.  In this arm the generated
++        # prefix is deliberately sourced only through RGB -> VAE encoding;
++        # allowing that full-canvas encode to replace the anchor would change
++        # a second variable in addition to disabling latent carry.
++        condition[
++            :, :, prefix_slice,
++            latent_anchor_rect.y0:latent_anchor_rect.y1,
++            latent_anchor_rect.x0:latent_anchor_rect.x1,
++        ] = anchor_latent[:, :, prefix_slice]
+         if generated_prefix_strength != 1.0:
+             # Upstream strength=0.8 would set denoise_mask=0.2 and regenerate
+             # the prefix. Attenuate only the fixed side-context latent instead.

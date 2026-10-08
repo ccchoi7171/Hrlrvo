@@ -1,0 +1,7 @@
+{
+  "completed_upscale_chunks": 0,
+  "public_output_restored": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Output/03_16K",
+  "restored_frame_count": 21,
+  "status": "USER_STOPPED",
+  "stopped_at_utc": "2026-09-29T17:31:43+00:00"
+}

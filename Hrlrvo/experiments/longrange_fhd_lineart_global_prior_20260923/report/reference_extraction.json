@@ -1,0 +1,153 @@
+{
+  "coverage_and_distribution": {
+    "encoded_edge_fraction": 0.046969037503004074,
+    "filtered_work_edge_fraction": 0.05010030864197531,
+    "global_density_max": 0.2197265625,
+    "global_density_mean": 0.046969037503004074,
+    "global_density_min": 0.0,
+    "global_strength_max": 1.0,
+    "global_strength_mean": 0.4627314805984497,
+    "global_strength_min": 0.0,
+    "global_strength_nonzero_cells": 75,
+    "global_strength_one_cells": 47,
+    "global_strength_percentiles": {
+      "0": 0.0,
+      "10": 0.0,
+      "100": 1.0,
+      "25": 0.0,
+      "50": 0.41015625,
+      "75": 1.0,
+      "90": 1.0
+    },
+    "global_strength_std": 0.4619908928871155,
+    "global_strength_zero_cells": 60,
+    "raw_work_edge_fraction": 0.05611111111111111,
+    "visible_edge_fraction": 0.050100307911634445
+  },
+  "extractor": {
+    "canny_aperture": 3,
+    "canny_high": 110,
+    "canny_l2gradient": true,
+    "canny_low": 40,
+    "component_connectivity": 8,
+    "component_keep_rule": "area >= 10 AND max(width,height) >= 12 at 480x270",
+    "components_kept": 84,
+    "components_total": 140,
+    "cpu_only": true,
+    "deterministic": true,
+    "gaussian_border": "BORDER_REFLECT_101",
+    "gaussian_kernel": [
+      5,
+      5
+    ],
+    "gaussian_sigma": 1.4,
+    "grayscale": "cv2.COLOR_RGB2GRAY",
+    "name": "OpenCV grayscale/downscale/Gaussian/Canny/component-filter",
+    "output_dtype": "float32",
+    "output_values": [
+      0.0,
+      1.0
+    ],
+    "resize_interpolation": "INTER_AREA",
+    "upsample_interpolation": "INTER_NEAREST",
+    "upsample_size_wh": [
+      1920,
+      1080
+    ],
+    "work_size_wh": [
+      480,
+      270
+    ]
+  },
+  "mapping": {
+    "area_average": "exact reshape mean at both reductions",
+    "density_normalizer": 0.05,
+    "encoded_hw": [
+      1152,
+      1920
+    ],
+    "global_hw": [
+      9,
+      15
+    ],
+    "latent_hw": [
+      36,
+      60
+    ],
+    "latent_per_global_cell_hw": [
+      4,
+      4
+    ],
+    "pixel_per_global_cell_hw": [
+      128,
+      128
+    ],
+    "pixel_per_latent_cell_hw": [
+      32,
+      32
+    ],
+    "strength_formula": "clip(global_edge_density / 0.05, 0, 1)",
+    "visible_hw": [
+      1080,
+      1920
+    ],
+    "zero_padding_top_bottom": [
+      36,
+      36
+    ]
+  },
+  "outputs": {
+    "c0_frame000.png": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/c0_frame000.png",
+      "sha256": "46d09b0325141b42783047144cfb9aae4d6fbad9127ec3c3c18f311ff27edf5d"
+    },
+    "c0_frame000_lineart.npy": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/c0_frame000_lineart.npy",
+      "sha256": "baee161121c323dd1d00f11ba03da877ea510f58ea12b6709c6eb534688a2133"
+    },
+    "c0_frame000_lineart.png": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/c0_frame000_lineart.png",
+      "sha256": "01f48f3a2ef4312317aa6c027095d67351696447ed5c5f29533720ba8ad7f996"
+    },
+    "c0_frame000_lineart_overlay.png": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/c0_frame000_lineart_overlay.png",
+      "sha256": "3f23f81a6404f078bd86f3242d991e2a76351b82bbdf0dce8fb5904eaa1ff68c"
+    },
+    "global_line_density.npy": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/global_line_density.npy",
+      "sha256": "0af29c43d6bd8de5c6982fd772c18419cae35993884adc047d4941fdd4cb99fe"
+    },
+    "global_line_strength.npy": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/global_line_strength.npy",
+      "sha256": "2767180edd3eec6ee95aff6834581ada784d3e2ed29feabc68e57de9fc9f174b"
+    },
+    "global_line_strength_heatmap.png": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/global_line_strength_heatmap.png",
+      "sha256": "29d3898d4369cf9dd86cd8243d6d58880e16d5bb0a41e638b8269fc9f631f176"
+    },
+    "latent_line_density.npy": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/latent_line_density.npy",
+      "sha256": "54d20a4971304e35745952a79b5759fcfd076b6d9276da35a6dd80bfac7910ce"
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.6",
+    "opencv": "4.11.0",
+    "python": "3.11.15 (main, Jun 11 2026, 15:20:16) [GCC 14.3.0]"
+  },
+  "source": {
+    "array_dtype": "uint8",
+    "array_shape": [
+      65,
+      1080,
+      1920,
+      3
+    ],
+    "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/chunks/strength_1p0/segment_000000.npy",
+    "png_exact_rgb_roundtrip": true,
+    "saved_rgb_path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/c0_frame000.png",
+    "saved_rgb_sha256": "46d09b0325141b42783047144cfb9aae4d6fbad9127ec3c3c18f311ff27edf5d",
+    "selected_frame_index": 0,
+    "sha256": "6f024ce9ba588b34ef6597cdc6838c77ecbfd78d25225833f5ea38ce198b0cab"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "bsa_ampere_build/v1",
+  "status": "SAFE_TO_TRANSFER_FOR_A6000_SMOKE",
+  "production_validated": false,
+  "gpu_operations_performed": false,
+  "installed_into_local_environment": false,
+  "build_exit_code": 0,
+  "wheel": {
+    "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/wheelhouse/block_sparse_attn-0.0.2-cp311-cp311-linux_x86_64.whl",
+    "size_bytes": 62531199,
+    "sha256": "7f617e49b8c65879585a0be0ae8df93ff43e9a4ad75be2c09b8afb6a3329164d",
+    "filename": "block_sparse_attn-0.0.2-cp311-cp311-linux_x86_64.whl",
+    "integrity_test": "PASS"
+  },
+  "extension": {
+    "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/inspect/block_sparse_attn_cuda.cpython-311-x86_64-linux-gnu.so",
+    "size_bytes": 139736208,
+    "sha256": "c20a5184e37d2ff6ec648c465b396e8813d01ef126b04a0722b2575e3dd6a231",
+    "needed_libraries": [
+      "libc10.so",
+      "libtorch_cpu.so",
+      "libtorch_python.so",
+      "libcudart.so.12",
+      "libc10_cuda.so",
+      "libtorch_cuda.so",
+      "libstdc++.so.6",
+      "libgcc_s.so.1",
+      "libc.so.6"
+    ]
+  },
+  "architecture_proof": {
+    "requested_source_variable": {
+      "BLOCK_SPARSE_ATTN_CUDA_ARCHS": "80"
+    },
+    "sm_80_cubin_count": 24,
+    "compute_80_ptx_count": 24,
+    "other_cubin_architectures": [],
+    "a6000_compute_capability": "8.6",
+    "compatibility_basis": "Ampere sm_80 SASS plus compute_80 PTX; actual A6000 load/kernel smoke remains required"
+  },
+  "abi_compatibility": {
+    "target_remote_os": "Ubuntu 22.04",
+    "target_remote_glibc": "2.35",
+    "required_glibc_versions": [
+      "2.2.5",
+      "2.3.4",
+      "2.4",
+      "2.14",
+      "2.32"
+    ],
+    "max_required_glibc": "2.32",
+    "glibc_compatible": true,
+    "required_glibcxx_versions": [
+      "3.4",
+      "3.4.9",
+      "3.4.11",
+      "3.4.18",
+      "3.4.29",
+      "3.4.32"
+    ],
+    "max_required_glibcxx": "3.4.32",
+    "copied_environment_libstdcxx": "/home/work/ai-graphics_33/miniconda3/envs/Hrlrvo-FlashVSR/lib/libstdc++.so.6.0.34",
+    "copied_environment_max_glibcxx": "3.4.34",
+    "copied_environment_libstdcxx_compatible": true,
+    "python_tag": "cp311-cp311",
+    "torch_build": "2.6.0+cu124",
+    "torch_cuda": "12.4",
+    "build_cuda": "12.8.93",
+    "cuda_minor_mismatch_warning_recorded": true
+  },
+  "source_provenance": {
+    "packaged_source": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/Block-Sparse-Attention",
+    "isolated_copy": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/source",
+    "repository": "https://github.com/mit-han-lab/Block-Sparse-Attention",
+    "claimed_commit": "49d6c39e4dc0303442cda3bb758b3925d4399c49",
+    "installed_version": "0.0.2",
+    "setup_py_sha256": "97106167d7138c2cea5ffc0f65b3cbee93614b0c84351393203d481e17ac0f49",
+    "source_file_manifest": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/source_files.sha256",
+    "source_file_manifest_sha256": "edc0dd5e23bc005c7b73685c05c74171c336787dab0d2747aa898017a539d3bc",
+    "source_file_count": 5701,
+    "packaged_source_match_check": "PASS (5701/5701)",
+    "isolated_source_unchanged_check": "PASS (5701/5701)",
+    "note": "Packaged snapshot has no nested .git metadata; commit is provenance declared by MODEL_INFO.json and file identity is independently recorded."
+  },
+  "build": {
+    "command": "CUDA_HOME=/usr/local/cuda-12.8 PATH=$CUDA_HOME/bin:$PATH MAX_JOBS=4 NVCC_THREADS=1 CMAKE_BUILD_PARALLEL_LEVEL=4 BLOCK_SPARSE_ATTN_FORCE_BUILD=TRUE BLOCK_SPARSE_ATTN_CUDA_ARCHS=80 /home/work/ai-graphics_33/miniconda3/envs/Hrlrvo-FlashVSR/bin/python setup.py bdist_wheel --dist-dir ../wheelhouse",
+    "working_directory": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/source",
+    "python": "/home/work/ai-graphics_33/miniconda3/envs/Hrlrvo-FlashVSR/bin/python",
+    "python_version": "3.11.13",
+    "max_jobs": 4,
+    "nvcc_threads": 1,
+    "log": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/logs/build_bsa_ampere.log",
+    "log_sha256": "fd73b5b71569b59af80b49da8f5cea70f237ef07fa98c6fd04dcdba01e313d46",
+    "cuda_home": "/usr/local/cuda-12.8",
+    "nvcc_version": "Build cuda_12.8.r12.8/compiler.35583870_0",
+    "copied_environment_libstdcxx_sha256": "9ac7e2ec283e4a4a9a1ffdf0a17d688ca90e7f9d020cb8f372af7fa5194618f0",
+    "source_manifest_actual_count": 5701
+  },
+  "proof_files": {
+    "cuobjdump_elf": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/cuobjdump_elf.txt",
+    "cuobjdump_ptx": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/cuobjdump_ptx.txt",
+    "readelf_versions": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/readelf_versions.txt",
+    "readelf_dynamic": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/readelf_dynamic.txt",
+    "wheel_integrity": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/wheel_integrity.txt",
+    "source_integrity": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/source_integrity_check.txt",
+    "packaged_source_match": "/home/work/ai-graphics_33/Hrlrvo/experiments/a6000_flashvsr_0304_20260926/build/bsa_ampere/packaged_source_match.txt"
+  },
+  "limitations": [
+    "No local GPU execution was performed.",
+    "Remote A6000 import and representative 29-frame tile smoke must PASS before full workers.",
+    "CUDA 12.8 compiler vs torch cu124 emitted the standard minor-version mismatch warning; no compile/link failure occurred."
+  ],
+  "build_host": {
+    "os_release": "Ubuntu 24.04.1 LTS",
+    "glibc": "glibc 2.39",
+    "gcc": "13.3.0",
+    "platform": "Linux-6.8.0-100-generic-x86_64-with-glibc2.39"
+  }
+}

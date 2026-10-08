@@ -1,0 +1,196 @@
+{
+  "created_at": "2026-09-23T23:13:43.369562+00:00",
+  "purpose": "C0-preserving C1+ recurrence integration; original source manifests remain historical",
+  "files": [
+    {
+      "path": "run_cert.py",
+      "before_sha256": "d9e85638640d9129aaeb06b594ac298011d9d993276344c9c35744b76795b170",
+      "after_sha256": "5568e7fb6cad47fd51d9b1d62ed937de16d3d4aed5cf1011a62b371ed4d57dd5"
+    },
+    {
+      "path": "src/cert_pipeline/outpaint.py",
+      "before_sha256": "ac9ce6b4837012272324f5dd4a932e4b6aefea6ba7754f149a0bb62febd2d812",
+      "after_sha256": "2c592f8d8eb2dab48637a3c8aa01994681b2e09fef041a680a9db7cbabd89f42"
+    },
+    {
+      "path": "configs/certification/01.json",
+      "before_sha256": "b53f52ccc3b7049d5549f15c7e6e91819a3e952d50f7ca34b5b963106d7f6eb8",
+      "after_sha256": "b91399d8878b08fdd3bf656e39d735000aa2c0728af74945fbe4b39ed1244cd9"
+    },
+    {
+      "path": "configs/certification/02.json",
+      "before_sha256": "3542ae590de29bff01156dbb9df9492947c934d5cefcbc053bce8d4ee066d2d4",
+      "after_sha256": "bcba48df8e08a84ee083bb0b125bd1061134b8904b95e5fd58ef9daf0f0bc246"
+    },
+    {
+      "path": "configs/certification/03.json",
+      "before_sha256": "ce0658a9692949bb36239187beef4c132897cc8ecbf4b861a0181251784a7d78",
+      "after_sha256": "085c138421f3fa66d2b2d322ea50f2647723478888f1046bb94bed06c006cfda"
+    },
+    {
+      "path": "configs/certification/04.json",
+      "before_sha256": "5427182f38c3f02152345705dd0851dd8165300c5ae7e596c6530e4feb291cce",
+      "after_sha256": "5535e76ce491958c777e130e0684f59a840b3c4b88390ee4c97faa622f112181"
+    },
+    {
+      "path": "configs/certification/05.json",
+      "before_sha256": "2788f7eb5e91f0713f8724db056c8b91482332621d633b57ebafb7731efb8ba2",
+      "after_sha256": "547225dbf1cdabe5f54679bbf728ecadcb57fd3d3c2f689416b2cad8b69a4f35"
+    },
+    {
+      "path": "configs/quick/01.json",
+      "before_sha256": "47242393b53b5296f05b8072a9f8769544fd9029569f787b81444780aba45137",
+      "after_sha256": "ff7c02a571c358c5594a0717cd8483fa74857a899a9d1d543054f67e83bc90ac"
+    },
+    {
+      "path": "configs/quick/02.json",
+      "before_sha256": "b788b793cc99a1581924d47d87f637a8823c0f08b58d045eb29cf003e6a71ea7",
+      "after_sha256": "e4530b414a4f5ecb8b0261f60ceaa9f254d0dee4f15a3d7579f6493644fc36bb"
+    },
+    {
+      "path": "configs/quick/03.json",
+      "before_sha256": "82d7a699763e31b33a9f1224bebe60bfdaf7db800e66a15474e4ed7a6d816a7c",
+      "after_sha256": "f78c914d4469fb78449db2c1659926547020e4579df935cf5bf8d300b50a2368"
+    },
+    {
+      "path": "configs/quick/04.json",
+      "before_sha256": "e83818673fd1e5db7c3e54f3191e6021b4ab09bc9ef3246b49b4fe0f6557dbde",
+      "after_sha256": "b74a59069c53867e9afa05a3eacfcb94b5771e49b3667e3acf1b7291cd877dc1"
+    },
+    {
+      "path": "configs/quick/05.json",
+      "before_sha256": "a161d3fb4c109db2cebc64dcc423d3d4fe65f98e17782103b187596b0ab60fd2",
+      "after_sha256": "823532a5f2e584501b236c5e1c946d5ff82cef982eae5193c21e9e3e6421c79e"
+    },
+    {
+      "path": "configs/schemas/job.schema.json",
+      "before_sha256": "4216443816828b69c1a59d724fb034c9652eec2babc337576ab4a3974ca2310d",
+      "after_sha256": "ab62f679e60e1570c3af621e4d5bb4b8d62c3c41437e99c5b5517c3846b87a3c"
+    },
+    {
+      "path": "configs/validation/05.json",
+      "before_sha256": "35085f2d46164e5e0979c92bbd2876f53d4321047a6d390c1efc5d66272d9f9d",
+      "after_sha256": "f29196efcb35762381cea2e17f1ec712042a29bd38a4b714d24b756f06f7b714"
+    },
+    {
+      "path": "configs/validation/preprocess_reproduction/01.json",
+      "before_sha256": "4642a44ad0de9e8ac72bcff6173e283bfe8ef308a47f96f8e56a64ca3716cf5e",
+      "after_sha256": "815f84e48988f2e855342eef18e5ac839c3747e8dc3ff288d84aa44757430501"
+    },
+    {
+      "path": "configs/validation/preprocess_reproduction/02.json",
+      "before_sha256": "36b3f5e1b14d01b3db5c6fa19ef31aaeef8dcd1c8c69fb8bcc751e4d36f10bf7",
+      "after_sha256": "b86572f403bcc9e97765bedaca24cb36357a6bdf5b0fa5371959f355c0dac9a7"
+    },
+    {
+      "path": "configs/validation/preprocess_reproduction/03.json",
+      "before_sha256": "c503fa5d8df9b5abb4294736f2bb49d183365ee6e3a880eb361608128325ffc5",
+      "after_sha256": "067f6b88dc29e227576c85a3bd3186227a3a4cace25d8a3a12ab8138997555a6"
+    },
+    {
+      "path": "configs/validation/preprocess_reproduction/04.json",
+      "before_sha256": "26c5c3e6d9045780a8ee3f3d6a4468a71b176607c838db6336995565fcb31342",
+      "after_sha256": "cae8ef0cb6cbc0d535154e64947274b4f8c4d0d6ec028d5630658ab8598b5432"
+    },
+    {
+      "path": "configs/validation/preprocess_reproduction/05.json",
+      "before_sha256": "995fb70c067e513120ba730361a89184a3bad4cabbdb3cfccba26ba55d873a45",
+      "after_sha256": "77eaa6fa1e4405379713b85b93f84239d1b1147f0ed9bfacaf16dbfb0d43bd01"
+    },
+    {
+      "path": "src/video_outpainting/main/src/ltx_outpaint/global_attention.py",
+      "before_sha256": "1588e9db7d98cfd5537419e33804f09971dd7d4e78c744c731049f55307b9fa5",
+      "after_sha256": "853b54c7db7f0c059154050dd022dec7eeab877763fb0e819b0a91492a9e7759"
+    },
+    {
+      "path": "src/video_outpainting/main/src/ltx_outpaint/inference.py",
+      "before_sha256": "03fc45ebf3b3146a19931d3e71c0387b9cfd21df7797a9e870ac7a7799fb7d59",
+      "after_sha256": "7d181fdb8b6dd933c35f132041bd9de576c502ff66e85fa58331d0918842db0c"
+    },
+    {
+      "path": "src/cert_pipeline/recurrence.py",
+      "before_sha256": null,
+      "after_sha256": "f59e1439e96348e85b08e5f5dac8facd768e2918d0a6f2442c5a3c61ef0fc95e"
+    },
+    {
+      "path": "src/video_outpainting/main/src/ltx_outpaint/lineart_global_prior.py",
+      "before_sha256": null,
+      "after_sha256": "8c8a089917ea6565dc26e8a5c33ff37c6a9c32536861c4f8cb20419cd5d030a1"
+    },
+    {
+      "path": "src/video_outpainting/main/src/ltx_outpaint/lineart_reference.py",
+      "before_sha256": null,
+      "after_sha256": "c0ff295d082bf3899cab9ff64688e19001854705e89dcd50f96e2fa5b471c166"
+    },
+    {
+      "path": "src/video_outpainting/main/src/ltx_outpaint/recurrence_artifacts.py",
+      "before_sha256": null,
+      "after_sha256": "5cd7663efefa2a50f7616e13091a749a46497223a7f54dd428db17fda053ae5b"
+    }
+  ],
+  "read_only_provenance": [
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/source/VideoOutpainting_test/main/src/ltx_outpaint/inference.py",
+      "exists": true,
+      "sha256": "69542830e48229650f8afce87e2240403ab6f78049fd1868252158b9ff97a426"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/source/VideoOutpainting_test/main/scripts/run_strength1_chain.py",
+      "exists": true,
+      "sha256": "3f8c34b4a917a9710393d07bf6bce69a060caa787f1e8aa4af92b86d9ee3dacf"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/patches/inference_fhd_proxy.patch",
+      "exists": true,
+      "sha256": "b25d312ef28091dd3706e4be24e0df6511a90c11546ad13b0469b7893eacb501"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/source/VideoOutpainting_test/main/src/ltx_outpaint/inference.py",
+      "exists": true,
+      "sha256": "69542830e48229650f8afce87e2240403ab6f78049fd1868252158b9ff97a426"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/source/VideoOutpainting_test/main/src/ltx_outpaint/lineart_global_prior.py",
+      "exists": true,
+      "sha256": "f998f3e51864bfe1731c38c243ffa6c7ae069549f74acb69cc80be6636d7caee"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/source/VideoOutpainting_test/main/src/ltx_outpaint/global_attention.py",
+      "exists": true,
+      "sha256": "853b54c7db7f0c059154050dd022dec7eeab877763fb0e819b0a91492a9e7759"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/source/VideoOutpainting_test/main/scripts/run_lineart_chain.py",
+      "exists": true,
+      "sha256": "1d626eb0fcb459118afeae566840f7fbebf7d83108cf70efa0c454a2d9e51a93"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/commands/run_lineart_from_c07.sh",
+      "exists": true,
+      "sha256": "935be0b64a6ff2f7bb7c110eff715ac00f9a730b6a5ed7dfffde74df01ffe3ed"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/configs/effective_strength_1p0_global_lineart_from_c07_lineart.json",
+      "exists": true,
+      "sha256": "01c64094f77dedd04013c7158be124447ed5ff938640e8e20f2e248539e49afd"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/scripts/make_lineart_candidates.py",
+      "exists": true,
+      "sha256": "49ff3561873c6f5a48d1d678d77958059860fa23f60d4d6b5e89ce7d6d392b66"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/candidates/lineart/detailed.png",
+      "exists": true,
+      "sha256": "868ef5b50e585e5fbdfb2fa870821b8e6c89d41609edb304afd09ec8641ea257"
+    }
+  ],
+  "protected_scope_evidence": "state/recurrence_lineart/static_checks.json",
+  "validation_status": "READY FOR FULL QUEUE (code/config/CPU + preserved exact C0 evidence)",
+  "c0_rule": "legacy compute path; acceptance requires exact latent/native/decoded RGB",
+  "diff": "state/recurrence_lineart/integration.patch",
+  "updated_at": "2026-09-24T00:15:38.531501+00:00",
+  "lineart": "direct4K -> native30x17 density, no FHD/interpolation path",
+  "validation_evidence": "state/recurrence_lineart/final_acceptance.json",
+  "c1_gpu_smoke": "CANCELLED_BY_USER; C1 numerical result NOT RUNTIME-VERIFIED"
+}

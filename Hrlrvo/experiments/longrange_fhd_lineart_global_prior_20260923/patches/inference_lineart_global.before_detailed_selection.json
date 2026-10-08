@@ -1,0 +1,33 @@
+{
+  "lineart_global_prior": {
+    "enabled": true,
+    "source": "first_chunk_first_frame",
+    "extractor": "canny",
+    "bias_mode": "token_strength",
+    "bias_scale": 0.5,
+    "apply_branch": "global",
+    "schedule": [
+      {
+        "start_step": 0,
+        "end_step": 9,
+        "multiplier": 1.0
+      },
+      {
+        "start_step": 10,
+        "end_step": 19,
+        "multiplier": 0.6
+      },
+      {
+        "start_step": 20,
+        "end_step": 29,
+        "multiplier": 0.2
+      }
+    ],
+    "step_indexing": "zero_based",
+    "reference_map": "reference/global_line_strength.npy",
+    "query_scope": "new_generated_only",
+    "keys": "all_global_video_tokens",
+    "known_output_preservation": "restore original Global output after decompression on known anchor/prefix",
+    "c0_enabled": false
+  }
+}

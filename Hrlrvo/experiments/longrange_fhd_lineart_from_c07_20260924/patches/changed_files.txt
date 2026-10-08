@@ -1,0 +1,12 @@
+source/VideoOutpainting_test/main/scripts/run_lineart_chain.py
+source/VideoOutpainting_test/tests/test_c07_bootstrap.py
+scripts/prepare_c06_bootstrap.py
+scripts/watch_chunk_previews.py
+scripts/watch_progress_videos.py
+configs/inference_lineart_global.json
+configs/inference_lineart_global.yaml
+commands/env.sh
+commands/run_lineart_from_c07.sh
+commands/supervise_lineart_from_c07.sh
+commands/watch_outputs.sh
+commands/resume_lineart_from_c07.sh

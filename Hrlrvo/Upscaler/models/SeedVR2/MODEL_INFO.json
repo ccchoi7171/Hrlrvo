@@ -1,0 +1,22 @@
+{
+  "name": "SeedVR2-3B",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/ByteDance-Seed/SeedVR",
+  "repository_commit": "e4de8c24441a67e1b7df56abea10645059bb1185",
+  "checkpoint_repository": "https://huggingface.co/ByteDance-Seed/SeedVR2-3B",
+  "checkpoint_revision": "37255ff8cccfb01071b87f635a5948ca8d53117c",
+  "checkpoint_files": [
+    "checkpoint/seedvr2_ema_3b.pth",
+    "checkpoint/ema_vae.pth",
+    "checkpoint/pos_emb.pt",
+    "checkpoint/neg_emb.pt"
+  ],
+  "checkpoint_sha256": {
+    "seedvr2_ema_3b.pth": "6bcc5ac59447e97b100477480aebb01be2ec724c8340bb83faae21f64848604b",
+    "ema_vae.pth": "c7df8a67e68b7f9aca3d5d2153d2ce8ab4373687741a0f9ce87cb356ace51cac",
+    "pos_emb.pt": "fa07a14844314772266b66c3b95deb0027696d8fe7065721263db5176f45d799",
+    "neg_emb.pt": "6a43e5800ef2354f1c156d27535834da055cbec8248298b8923492bba2076581"
+  },
+  "inference_path": "projects.video_diffusion_sr.infer.VideoDiffusionInfer",
+  "training_performed": false
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-07T14:01:07.789017+00:00",
+  "official_code": {
+    "repo": "https://github.com/zhengchen1999/DOVE",
+    "revision": "0cd4240442cb5d122839c279977142cb6d648987"
+  },
+  "checkpoint_assembly": {
+    "reason": "official Stage-2 Google Drive artifact was quota-blocked",
+    "dove_components": {
+      "repo": "ZhengChen1999/DOVE",
+      "revision": "55ea86b7b2fbad77019a300e785b7fe1be065924",
+      "paths": [
+        "transformer",
+        "text_encoder",
+        "tokenizer",
+        "scheduler"
+      ]
+    },
+    "vae_component": {
+      "repo": "zai-org/CogVideoX1.5-5B",
+      "revision": "fdc5267c90b5c06492985b966e43aae984e189e0",
+      "paths": [
+        "vae"
+      ]
+    },
+    "equivalence_note": "Both component publishers are official, but byte-equivalence to the quota-blocked DOVE.zip has not been established."
+  },
+  "files": {
+    "model_index.json": {
+      "bytes": 411,
+      "sha256": "45c0bb2732000ec2d6585c177b418759752f5dfb55e6987b49d374d40bfd1e1e"
+    },
+    "scheduler/scheduler_config.json": {
+      "bytes": 482,
+      "sha256": "8c821359b9f0d625d87d0c9f095343e2c790acdf89b622dd020a2241647090ae"
+    },
+    "text_encoder/config.json": {
+      "bytes": 781,
+      "sha256": "2b64ff3ea7f74ae9b2019daa8d48fc7b89685bdaad548ce541378e22934c3b07"
+    },
+    "text_encoder/model-00001-of-00004.safetensors": {
+      "bytes": 4989319680,
+      "sha256": "8e0e98242fed1de128a73ee6fee174aa30186c66f7d70811c8ebf67d72067f38"
+    },
+    "text_encoder/model-00002-of-00004.safetensors": {
+      "bytes": 4999830656,
+      "sha256": "7309a33cd1780b20e3d84b2e14585d7a64ccea45079aecc86c507e381e00ed14"
+    },
+    "text_encoder/model-00003-of-00004.safetensors": {
+      "bytes": 4865612720,
+      "sha256": "d278bf7cb4de9957cb67d8a92dc9273f88186f0c90e0f2a3de13882217d9a95c"
+    },
+    "text_encoder/model-00004-of-00004.safetensors": {
+      "bytes": 4194506688,
+      "sha256": "69afce9a62402b82095baa1dfef572be92dfd9a4062693d49a5948e4d27585a5"
+    },
+    "text_encoder/model.safetensors.index.json": {
+      "bytes": 19886,
+      "sha256": "a545bb25dc0f423d84be7b577311bba8bb7c6931f1eefcea65fc8b0a61a60a76"
+    },
+    "tokenizer/added_tokens.json": {
+      "bytes": 2593,
+      "sha256": "ea5a91a3234f66ea642c8e672d67f0f493759a9bee6910ae304ea9b9492118b5"
+    },
+    "tokenizer/special_tokens_map.json": {
+      "bytes": 2543,
+      "sha256": "7a1985a994c41886db38c719d2a3d2f40606663cc19d7c5d6a85d349320e06d2"
+    },
+    "tokenizer/spiece.model": {
+      "bytes": 791656,
+      "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+    },
+    "tokenizer/tokenizer_config.json": {
+      "bytes": 20617,
+      "sha256": "9c4f8a92630f7c6cc082831b291d6f46f18455d69d1a2a52c9b5f5303ab01469"
+    },
+    "transformer/config.json": {
+      "bytes": 848,
+      "sha256": "ddf9ab6e764ad55fcc4a1432da8e59ce8845bef06cc8a15c326e0a9d1425fe67"
+    },
+    "transformer/diffusion_pytorch_model-00001-of-00005.safetensors": {
+      "bytes": 4969545712,
+      "sha256": "3b39cd5be3e8f10c7e79ee2788bd0c22e9167d855535d28ac6870ed6aad5fafd"
+    },
+    "transformer/diffusion_pytorch_model-00002-of-00005.safetensors": {
+      "bytes": 4985792256,
+      "sha256": "16e2b442ffc27b0e5a43fde2d76c31830ef5e75c799e80a4c68363c5145a3dda"
+    },
+    "transformer/diffusion_pytorch_model-00003-of-00005.safetensors": {
+      "bytes": 4985756912,
+      "sha256": "944d70d2a42580b4e1a030c66feeadd24e19233d329baf33fdfb87d5a6e9506f"
+    },
+    "transformer/diffusion_pytorch_model-00004-of-00005.safetensors": {
+      "bytes": 4910270480,
+      "sha256": "5459aed1aeeefbc3ec21cbb6a429fd957090b11c75ffe30dea2bb7e3f326155b"
+    },
+    "transformer/diffusion_pytorch_model-00005-of-00005.safetensors": {
+      "bytes": 2431455456,
+      "sha256": "e3886dd9327acd930067d28dcb1724cec18cf910b58ebeda55b157eb5cd909c5"
+    },
+    "transformer/diffusion_pytorch_model.safetensors.index.json": {
+      "bytes": 103073,
+      "sha256": "75a2b96c3536315b307c0697d4d91bdc96c283aae11752f1cefb9b4d6d8893e5"
+    },
+    "vae/config.json": {
+      "bytes": 871,
+      "sha256": "cdc0a3c6c363878ad18920842b001fd16e7d65dceb1810d30a694be062e77e91"
+    },
+    "vae/diffusion_pytorch_model.safetensors": {
+      "bytes": 862388596,
+      "sha256": "a410e48d988c8224cef392b68db0654485cfd41f345f4a3a81d3e6b765bb995e"
+    }
+  }
+}

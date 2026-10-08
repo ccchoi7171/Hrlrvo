@@ -1,0 +1,149 @@
+# Based on official LTX-2.3 packages/ltx-trainer/configs/video_outpainting_lora.yaml.
+model:
+  model_path: /home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors
+  text_encoder_path: /home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/gemma-3-12b
+  training_mode: lora
+  load_checkpoint: null
+
+lora:
+  rank: 32
+  alpha: 32
+  dropout: 0.0
+  # Official config descriptor only: ArchitectureConfig constructs all v6 deltas.
+  # Adaptive/Global QKV rank64 is independent; PEFT must not wrap these again.
+  target_modules: ["attn1.to_q", "attn1.to_k", "attn1.to_v", "attn1.to_out.0", "ff.net.0.proj", "ff.net.2"]
+
+training_strategy:
+  name: flexible
+  video:
+    is_generated: true
+    latents_dir: latents
+    conditions: []
+
+optimization:
+  learning_rate: 1.0e-4
+  steps: 30000  # User-selected budget: 30,000 of 30,024 FIRST clips at effective batch 1.
+  per_device_batch_size: 1
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  optimizer_type: adamw
+  scheduler_type: linear
+  scheduler_params:
+    start_factor: 1.0
+    end_factor: 0.1
+  enable_gradient_checkpointing: true
+
+acceleration:
+  mixed_precision_mode: bf16
+  quantization: null
+  load_text_encoder_in_8bit: false
+  offload_optimizer_during_validation: false
+
+data:
+  preprocessed_data_root: /home/work/ai-graphics_33/Hrlrvo/cache_Data/train
+  num_workers: 2
+
+validation:
+  samples: []
+  negative_prompt: ""  # Fixed-empty on both CFG sides; no official descriptive negative.
+  video_dims: [3840, 2176, 65]
+  frame_rate: 24.0
+  seed: 42
+  inference_steps: 30
+  # Official baseline is 100. Disabled until isolated validation Anchor media exists.
+  interval: null
+  video_cfg_scale: 3.0
+  video_stg_scale: 1.0
+  stg_blocks: [28]
+  guidance_rescale: 0.7
+  generate_audio: false
+  skip_initial_validation: true
+
+checkpoints:
+  interval: 500  # optimizer steps, not individual samples/microbatches
+  keep_last_n: -1
+  # Preserve FP32 trainable adapters exactly when resuming optimizer state.
+  precision: float32
+  no_resume: false
+  save_training_state: full
+
+flow_matching:
+  timestep_sampling_mode: shifted_logit_normal
+  timestep_sampling_params: {}
+
+hub:
+  push_to_hub: false
+  hub_model_id: null
+
+wandb:
+  enabled: false
+  project: ltx-2.3-video-outpainting
+  entity: null
+  tags: [ltx-2.3, outpainting, 4k]
+  log_validation_videos: true
+
+seed: 33333333
+output_dir: /home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_v8
+
+outpainting:
+  cache_root: /home/work/ai-graphics_33/Hrlrvo/cache_Data/train
+  anchor_cache_root: /home/work/ai-graphics_33/Hrlrvo/cache_Data_Anchor_2K/train
+  raw_source_root: /home/work/ai-graphics_33/Hrlrvo/Data/4K/train
+  anchor_size_pixels: [1080, 1920]
+  anchor_vae:
+    device: cuda
+    tile_size: 512
+    tile_overlap: 128
+    offload: true
+  conditions_dir: null
+  constant_prompt: ""
+  validation_anchor_videos: []
+  clip_frames: 65
+  temporal_sampling: first
+  prefix_frames: 17
+  prefix_probability: 0.5
+  canvas_pixels: [2160, 3840]
+  # Exact 1920x1080 center crop in the vertically padded 3840x2176 cache.
+  anchor_rect_pixels: [548, 960, 1628, 2880]
+  provenance:
+    base_model_id: Lightricks/LTX-2.3
+    base_checkpoint: ltx-2.3-22b-dev.safetensors
+    base_sha256: 7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f
+    ltx_source_repo: /home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3
+    ltx_source_revision: 598ab41247a77dbfe29b5186e915bcf4f9040ec7
+  architecture:
+    architecture_version: 8
+    fusion_type: ltx_native_vgate
+    adaptive_attention_type: target_touching_c2_query_only
+    position_type: pma_v2_nominal_grid
+    adaptive_support_policy: c4_first_c2_promotion
+    adaptive_role_priority: anchor_target_bridge
+    adaptive_bbox_alignment: canvas_center_minimal_expand
+    adaptive_restore_policy: per_query_full_cell_target_write
+    adaptive_fusion_policy: target_masked_native_passthrough
+    lora_type: shared_outpainting_plus_branch_specialization
+    lora_conditioning: sentinel_free_native_hrlrvo
+    lora_initialization: peft_kaiming_a_zero_b
+    lora_targets: shared_qkvo_branch_qkv_ffn
+    lora_bias: false
+    lora_dropout: 0.0
+    shared_outpainting_lora_enabled: true
+    shared_outpainting_lora_rank: 32
+    shared_outpainting_lora_alpha: 32
+    native_lora_enabled: false
+    adaptive_lora_enabled: true
+    adaptive_lora_rank: 64
+    adaptive_lora_alpha: 64
+    global_lora_enabled: true
+    global_lora_rank: 64
+    global_lora_alpha: 64
+    ffn_lora_enabled: true
+    ffn_lora_rank: 32
+    ffn_lora_alpha: 32
+    official_outpainting_ic_lora_enabled: false
+    rgb_sentinel_conditioning: false
+    k: 4
+    scale: 4
+    local_fusion_init_native_weight: 0.5
+    global_fusion_init_local_weight: 0.5
+    decompressor_refine_initialization: depthwise_identity

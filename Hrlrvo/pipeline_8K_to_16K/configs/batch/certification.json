@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    "configs/certification/05.json",
+    "configs/certification/04.json",
+    "configs/certification/03.json",
+    "configs/certification/02.json",
+    "configs/certification/01.json"
+  ],
+  "outpaint_workers": 1,
+  "upscale_workers": 1,
+  "queue_policy": "fifo"
+}

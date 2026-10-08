@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="548" height="256" viewBox="0 0 548 256" version="1.1" role="img">
+  <title>06 shared post attention</title>
+  <desc>Editable standalone architecture module; transparent background.</desc>
+  <g transform="translate(-696 -796)">
+    <g id="shared-post-attention">
+      <polyline points="970,872 970,896" fill="none" stroke="#77859B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="970,896 965,886 975,886" fill="#77859B" />
+      <polyline points="970,952 970,976" fill="none" stroke="#77859B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="970,976 965,966 975,966" fill="#77859B" />
+      <g id="shared-output-projection">
+        <rect x="710" y="810" width="520" height="62" rx="13" fill="#FFF5E4" stroke="#EFDCBE" stroke-width="1.6" />
+        <text x="970" y="835" font-family="DejaVu Sans" font-size="23" font-weight="700" fill="#18263D" text-anchor="middle">Shared Output Projection</text>
+        <text x="970" y="859" font-family="DejaVu Sans" font-size="19" font-weight="400" fill="#AD6916" text-anchor="middle">Base O + OP LoRA · r32</text>
+      </g>
+      <g id="native-cross-attention">
+        <rect x="740" y="896" width="460" height="56" rx="13" fill="#F1F4F8" stroke="#D9E1ED" stroke-width="1.6" />
+        <text x="970" y="931" font-family="DejaVu Sans" font-size="24" font-weight="700" fill="#18263D" text-anchor="middle">LTX Cross-Attention</text>
+      </g>
+      <g id="shared-ffn">
+        <rect x="710" y="976" width="520" height="62" rx="13" fill="#F1F4F8" stroke="#D9E1ED" stroke-width="1.6" />
+        <text x="970" y="1001" font-family="DejaVu Sans" font-size="23" font-weight="700" fill="#18263D" text-anchor="middle">LTX FFN</text>
+        <text x="970" y="1025" font-family="DejaVu Sans" font-size="19" font-weight="700" fill="#8760C9" text-anchor="middle">+ F-LoRA · r32</text>
+      </g>
+    </g>
+  </g>
+</svg>

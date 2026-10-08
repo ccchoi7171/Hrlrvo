@@ -1,0 +1,67 @@
+{
+  "matched_conditions": {
+    "anchor_sha256": {
+      "equal": true,
+      "value": "e1bc48bcc19ed6350e86a831f01a01ce31c20535fd8416398a5fc37c816faaed"
+    },
+    "base_seed": {
+      "equal": true,
+      "value": 71634910
+    },
+    "baseline_checkpoint": {
+      "equal": true,
+      "value": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-007500"
+    },
+    "baseline_fingerprint": {
+      "equal": true,
+      "value": "0784f19eceebbbdafdb4ad4f438b3d7702f703413d3b331050709dba34545495"
+    },
+    "baseline_negative_prompt": {
+      "equal": true,
+      "value": "people, person, human, staff, audience, crowd, backstage, seats"
+    },
+    "baseline_prompt": {
+      "equal": true,
+      "value": ""
+    },
+    "encoded_canvas": {
+      "equal": true,
+      "value": [
+        1920,
+        1152
+      ]
+    },
+    "experiment_source_sha256": {
+      "equal": true,
+      "value": "69542830e48229650f8afce87e2240403ab6f78049fd1868252158b9ff97a426"
+    },
+    "generated_prefix_strength": {
+      "equal": true,
+      "value": 1.0
+    },
+    "rebase_temporal_position": {
+      "equal": true,
+      "value": true
+    },
+    "steps": {
+      "equal": true,
+      "value": 30
+    },
+    "use_latent_carry": {
+      "equal": true,
+      "value": true
+    },
+    "visible_canvas": {
+      "equal": true,
+      "value": [
+        1920,
+        1080
+      ]
+    }
+  },
+  "all_17_modified_chunks_prior_active": true,
+  "bootstrap_confounds": [
+    "one-time C06 prefix reconstructed from uint8, not exact original float32"
+  ],
+  "no_new_inference_for_analysis": true
+}

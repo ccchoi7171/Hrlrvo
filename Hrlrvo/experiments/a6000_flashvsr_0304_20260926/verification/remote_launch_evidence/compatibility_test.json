@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "time_utc": "2026-09-26T16:44:21.450417+00:00",
+  "workers": [
+    {
+      "gpu": 0,
+      "video": "04",
+      "global_tile": 0,
+      "receipt": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/smoke/gpu0/shard_receipt.json",
+      "sha256": "54bb78af4ac9b5e2805caa6ff46a948fb5e8de97db947668cd2b51e0e2aada9c",
+      "output_directory": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/smoke/gpu0/scratch/tiles/tile_0000",
+      "frames": 29,
+      "gpu_metrics": {
+        "gpu_name": "NVIDIA RTX A6000",
+        "gpu_total_vram_mb": 49140.0,
+        "peak_process_gpu_memory_mb": 13286.0,
+        "peak_total_gpu_used_memory_mb": 13310.0,
+        "average_gpu_utilization_percent": 21.75,
+        "peak_gpu_utilization_percent": 100.0,
+        "utilization_unavailable_reason": null,
+        "gpu_sample_count": 32,
+        "peak_torch_allocated_mb": 11657.81201171875,
+        "peak_torch_reserved_mb": 12960.0
+      }
+    },
+    {
+      "gpu": 1,
+      "video": "04",
+      "global_tile": 85,
+      "receipt": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/smoke/gpu1/shard_receipt.json",
+      "sha256": "475414f53e2f485b97fb0ae4327e511ad5afb32a075de00074c6c94fd9380d9a",
+      "output_directory": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/smoke/gpu1/scratch/tiles/tile_0085",
+      "frames": 29,
+      "gpu_metrics": {
+        "gpu_name": "NVIDIA RTX A6000",
+        "gpu_total_vram_mb": 49140.0,
+        "peak_process_gpu_memory_mb": 13286.0,
+        "peak_total_gpu_used_memory_mb": 13309.0,
+        "average_gpu_utilization_percent": 18.387096774193548,
+        "peak_gpu_utilization_percent": 100.0,
+        "utilization_unavailable_reason": null,
+        "gpu_sample_count": 31,
+        "peak_torch_allocated_mb": 11656.93701171875,
+        "peak_torch_reserved_mb": 12960.0
+      }
+    },
+    {
+      "gpu": 2,
+      "video": "03",
+      "global_tile": 0,
+      "receipt": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/smoke/gpu2/shard_receipt.json",
+      "sha256": "72af743068ec8ac891046be0aafbf1a0b70349773d6308ce8a76de9e20be9649",
+      "output_directory": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/smoke/gpu2/scratch/tiles/tile_0000",
+      "frames": 29,
+      "gpu_metrics": {
+        "gpu_name": "NVIDIA RTX A6000",
+        "gpu_total_vram_mb": 49140.0,
+        "peak_process_gpu_memory_mb": 13286.0,
+        "peak_total_gpu_used_memory_mb": 13309.0,
+        "average_gpu_utilization_percent": 23.484848484848484,
+        "peak_gpu_utilization_percent": 100.0,
+        "utilization_unavailable_reason": null,
+        "gpu_sample_count": 33,
+        "peak_torch_allocated_mb": 11656.93701171875,
+        "peak_torch_reserved_mb": 12960.0
+      }
+    },
+    {
+      "gpu": 3,
+      "video": "03",
+      "global_tile": 85,
+      "receipt": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/smoke/gpu3/shard_receipt.json",
+      "sha256": "429b2517363a70a31a2cd0ecff465dec0f85abd98e2d49ffacd8e925670d1dfb",
+      "output_directory": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/smoke/gpu3/scratch/tiles/tile_0085",
+      "frames": 29,
+      "gpu_metrics": {
+        "gpu_name": "NVIDIA RTX A6000",
+        "gpu_total_vram_mb": 49140.0,
+        "peak_process_gpu_memory_mb": 13286.0,
+        "peak_total_gpu_used_memory_mb": 13374.0,
+        "average_gpu_utilization_percent": 18.1875,
+        "peak_gpu_utilization_percent": 99.0,
+        "utilization_unavailable_reason": null,
+        "gpu_sample_count": 32,
+        "peak_torch_allocated_mb": 11656.93701171875,
+        "peak_torch_reserved_mb": 12960.0
+      }
+    }
+  ],
+  "environment_receipt_sha256": "e61ac3931f2fb733292455b112bdbae742628aae8a351bebf30ab868cf8197d7",
+  "scope": "29-frame warm-up plus steady-state original causal inference per representative tile",
+  "full_1952_frame_validation_run": false
+}

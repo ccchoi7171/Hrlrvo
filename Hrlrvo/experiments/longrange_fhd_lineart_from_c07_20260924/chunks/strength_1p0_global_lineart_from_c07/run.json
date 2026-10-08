@@ -1,0 +1,66 @@
+{
+  "request": {
+    "anchor": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/input/05_anchor_960x540_24fps_1169f.mkv",
+    "anchor_sha256": "e1bc48bcc19ed6350e86a831f01a01ce31c20535fd8416398a5fc37c816faaed",
+    "base_seed": 71634910,
+    "baseline_checkpoint": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-007500",
+    "baseline_fingerprint": "0784f19eceebbbdafdb4ad4f438b3d7702f703413d3b331050709dba34545495",
+    "baseline_negative_prompt": "people, person, human, staff, audience, crowd, backstage, seats",
+    "baseline_prompt": "",
+    "bootstrap_provenance_sha256": "5407d2de328b9074fbc47a4b8ef305fe3cdc54906fe52f2d93314e5fbd496cd8",
+    "encoded_canvas": [
+      1920,
+      1152
+    ],
+    "experiment_source_sha256": "69542830e48229650f8afce87e2240403ab6f78049fd1868252158b9ff97a426",
+    "generated_prefix_strength": 1.0,
+    "lineart_global_prior": {
+      "apply_branch": "global",
+      "bias_mode": "token_strength",
+      "bias_scale": 0.5,
+      "c0_enabled": false,
+      "candidate": "detailed",
+      "enabled": true,
+      "extractor": "canny",
+      "global_attention_sha256": "853b54c7db7f0c059154050dd022dec7eeab877763fb0e819b0a91492a9e7759",
+      "keys": "all_global_video_tokens",
+      "known_output_preservation": "restore original Global output after decompression on known anchor/prefix",
+      "mapping": "pad_y_36_each_then_32x32_area_mean_then_C4_area_mean_clip_density_div_0.05",
+      "prior_module_sha256": "f998f3e51864bfe1731c38c243ffa6c7ae069549f74acb69cc80be6636d7caee",
+      "query_scope": "new_generated_only",
+      "reference_image": "reference/candidates/lineart/detailed.png",
+      "reference_image_sha256": "868ef5b50e585e5fbdfb2fa870821b8e6c89d41609edb304afd09ec8641ea257",
+      "reference_map": "reference/candidates/lineart/detailed_global_line_strength.npy",
+      "reference_sha256": "86a5a5a1b8e832939c5387d7a54c042a7c8f58a980eb2ac80976017d81e4f628",
+      "schedule": [
+        {
+          "end_step": 9,
+          "multiplier": 1.0,
+          "start_step": 0
+        },
+        {
+          "end_step": 19,
+          "multiplier": 0.6,
+          "start_step": 10
+        },
+        {
+          "end_step": 29,
+          "multiplier": 0.2,
+          "start_step": 20
+        }
+      ],
+      "source": "first_chunk_first_frame",
+      "step_indexing": "zero_based"
+    },
+    "mode": "strength_1p0_global_lineart_from_c07",
+    "rebase_temporal_position": true,
+    "steps": 30,
+    "use_latent_carry": true,
+    "visible_canvas": [
+      1920,
+      1080
+    ]
+  },
+  "request_fingerprint": "484f61fe230f8b423c24efbb79bfcf612a62f2a1dff3cfd41e3a87a837569c64",
+  "schema_version": 1
+}

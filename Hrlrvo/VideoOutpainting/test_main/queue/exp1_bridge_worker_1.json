@@ -1,0 +1,17 @@
+{
+  "name": "exp1_bridge_worker_1",
+  "experiment": 1,
+  "argv": [
+    "/home/work/ai-graphics_33/miniconda3/envs/Hrlrvo/bin/python",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/run_bridge_worker.py",
+    "--worker",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridge_workers/worker_1.json"
+  ],
+  "reservation_mib": 35840,
+  "priority": 11,
+  "requires": [
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridge_workers/worker_1.json"
+  ],
+  "max_group_processes": 2,
+  "worker_script_sha256": "8c150da14b356428eaf17b77778c0785dae684a9871ce669bcff253cf7f57b1e"
+}

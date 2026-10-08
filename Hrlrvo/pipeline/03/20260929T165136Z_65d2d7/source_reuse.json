@@ -1,0 +1,7 @@
+{
+  "purpose": "Upscale only from previously accepted 65-frame outpaint chunk 0",
+  "reused_by_hardlink": true,
+  "source_outpaint": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/outpaint/final/03_Outpaint_4K.mp4",
+  "source_outpaint_sha256": "ce44979d3e634a944692a9502e7d95a8221a731fbee138f0735d309e87626d6c",
+  "source_run": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37"
+}

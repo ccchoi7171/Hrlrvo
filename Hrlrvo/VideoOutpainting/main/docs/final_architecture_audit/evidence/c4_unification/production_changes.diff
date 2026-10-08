@@ -1,0 +1,140 @@
+--- before/src/ltx_outpaint/geometry.py
++++ after/src/ltx_outpaint/geometry.py
+@@ -94,8 +94,8 @@
+ class Cell:
+     """One token's exact support and offsets in its learned depthwise kernel.
+ 
+-    `indices` are canonical flat indices, never packed positions. Global may
+-    retain partial canvas-edge cells. Adaptive cells are always full C2/C4:
++    `indices` are canonical flat indices, never packed positions. Both Global
++    and Adaptive cells are full spatial footprints, never partial edge cells:
+     `pixel_roles` preserves A > T > B ownership, while `role` is their bitwise
+     union, NOT an exclusive label for the entire mixed-role token.
+     """
+@@ -122,20 +122,22 @@
+ 
+ 
+ def cells_for_rect(rect, width, scale, role):
+-    """Global rectangular lattice, including its unchanged partial edge cells."""
++    """Full-cell rectangular lattice; invalid extents fail before any cell exists."""
++    if scale < 1:
++        raise ValueError("Compression scale must be positive")
++    if rect.height % scale or rect.width % scale:
++        raise ValueError(
++            f"C{scale} full-cell grid requires H/W divisible by {scale}; "
++            f"got {rect.height}x{rect.width}. No partial cells, padding or remainder drop."
++        )
++    if rect.x1 > width:
++        raise ValueError("Compression rectangle is outside the canonical canvas width")
+     cells = []
+     for y in range(rect.y0, rect.y1, scale):
+         for x in range(rect.x0, rect.x1, scale):
+-            support = []
+-            for dy in range(min(scale, rect.y1 - y)):
+-                for dx in range(min(scale, rect.x1 - x)):
+-                    support.append((y + dy, x + dx, dy * scale + dx))
+-            ys = [item[0] for item in support]
+-            xs = [item[1] for item in support]
+-            indices = tuple(cy * width + cx for cy, cx, _ in support)
+-            offsets = tuple(offset for _, _, offset in support)
+-            bounds = (min(ys), min(xs), max(ys) + 1, max(xs) + 1)
+-            cells.append(Cell(scale, role, y, x, indices, offsets, bounds))
++            indices = tuple((y + dy) * width + x + dx for dy in range(scale) for dx in range(scale))
++            cells.append(Cell(scale, role, y, x, indices, tuple(range(scale * scale)),
++                              (y, x, y + scale, x + scale)))
+     return tuple(cells)
+ 
+ 
+@@ -243,4 +245,5 @@
+ 
+ @lru_cache(maxsize=32)
+ def global_cells(height: int, width: int, scale: int) -> tuple[Cell, ...]:
++    """Global shares the full-cell compressor; nondivisible canvas sizes are invalid."""
+     return cells_for_rect(Rect(0, 0, height, width), width, scale, 0)
+--- before/src/ltx_outpaint/compression.py
++++ after/src/ltx_outpaint/compression.py
+@@ -1,10 +1,8 @@
+-"""UltraGen spatial depthwise C/R, extended to exact, unpadded footprints.
++"""Shared full-cell spatial compression and fixed spatial reconstruction.
+ 
+-Upstream 4f9ec33 has *no* custom C/R initializer. Hrlrvo explicitly initializes
+-C as an average and R's refinement as identity; their operators stay unchanged.
++C2/C4 use one depthwise convolution primitive on real full cells only.
++Hrlrvo initializes C as an average and R's refinement as identity.
+ """
+-
+-from collections import defaultdict
+ 
+ import torch
+ from torch import nn
+@@ -22,36 +20,28 @@
+     def forward(self, grid: torch.Tensor, cells: tuple) -> torch.Tensor:
+         """[B,T,H,W,D] -> [B,T,N,D] over explicit canonical cell footprints.
+ 
+-        Equal support shapes are batched. Full cells execute the actual stride-s
+-        depthwise Conv2d. Adaptive supplies only full C2/C4 cells (which may
+-        contain multiple pixel roles). A Global canvas-edge cell uses valid taps
+-        and normalizes by its represented area, exactly matching average pooling
+-        at initialization. No zero-filled spatial cells are manufactured.
++        Every cell executes the same stride-s depthwise Conv2d. Adaptive and
++        Global reuse this primitive and its learned weights without role-based
++        modes. Partial, masked, or noncanonical cell descriptors are rejected.
+         """
+-        b, t, _, _, d = grid.shape
++        b, t, h, w, d = grid.shape
+         if not cells:
+             return grid.new_empty(b, t, 0, d)
+-        buckets = defaultdict(list)
+-        for i, cell in enumerate(cells):
+-            if cell.scale != self.scale:
+-                raise ValueError("A compressor may only consume cells at its own density")
+-            buckets[cell.offsets].append((i, cell.indices))
+-        flat = grid.flatten(2, 3)
+-        result = grid.new_empty(b, t, len(cells), d)
+-        for offsets, items in buckets.items():
+-            order = torch.tensor([i for i, _ in items], device=grid.device)
+-            indices = torch.tensor([indices for _, indices in items], device=grid.device)
+-            values = flat[:, :, indices, :]
+-            if len(offsets) == self.scale**2:
+-                spatial = values.permute(0, 1, 2, 4, 3).reshape(-1, d, self.scale, self.scale)
+-                out = self.conv(spatial).reshape(b, t, len(items), d)
+-            else:
+-                taps = torch.tensor(offsets, device=grid.device)
+-                weight = self.conv.weight.flatten(1).index_select(1, taps).to(values.dtype)
+-                out = torch.einsum("btnkc,ck->btnc", values, weight)
+-                out = out * (self.scale**2 / len(offsets)) + self.conv.bias.to(out.dtype)
+-            result = result.index_copy(2, order, out.to(result.dtype))
+-        return result
++        s = self.scale
++        for cell in cells:
++            if (cell.scale != s or cell.valid_count != s * s
++                    or cell.offsets != tuple(range(s * s))):
++                raise ValueError(f"C{s} accepts only complete {s}x{s} cells with every kernel tap")
++            if (cell.y < 0 or cell.x < 0 or cell.y + s > h or cell.x + s > w
++                    or cell.bounds != (cell.y, cell.x, cell.y + s, cell.x + s)):
++                raise ValueError(f"C{s} cell footprint must lie inside the current hidden canvas")
++            expected = tuple((cell.y + dy) * w + cell.x + dx for dy in range(s) for dx in range(s))
++            if cell.indices != expected:
++                raise ValueError(f"C{s} must read exactly its full canonical spatial footprint")
++        indices = torch.tensor([cell.indices for cell in cells], device=grid.device)
++        values = grid.flatten(2, 3)[:, :, indices, :]
++        spatial = values.permute(0, 1, 2, 4, 3).reshape(-1, d, s, s)
++        return self.conv(spatial).reshape(b, t, len(cells), d).to(grid.dtype)
+ 
+ 
+ class SpatialDecompressor(nn.Module):
+--- before/src/ltx_outpaint/global_attention.py
++++ after/src/ltx_outpaint/global_attention.py
+@@ -1,6 +1,4 @@
+ """The only full-canvas peer of the Local System; no W_O in this view."""
+-
+-from math import ceil
+ 
+ from .geometry import global_cells
+ from .native_local_attention import attend
+@@ -15,4 +13,4 @@
+     pe = phase_rope(context, cells, s, grid.dtype)
+     output = attend(attention, compressed.reshape(b, -1, d), pe, attention.global_lora)
+     return attention.decompressors[str(s)](
+-        output.reshape(b, t, len(cells), d), (ceil(h / s), ceil(w / s)), (h, w))
++        output.reshape(b, t, len(cells), d), (h // s, w // s), (h, w))

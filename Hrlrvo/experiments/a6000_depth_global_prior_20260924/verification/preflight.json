@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "physical_gpu": 0,
+  "cuda_inference_performed": false,
+  "frozen_module_count": 23,
+  "baseline_modified_modules": [
+    "ltx_outpaint/global_attention.py"
+  ],
+  "new_module": "ltx_outpaint/lineart_global_prior.py (unchanged H200 implementation)",
+  "reference_sha256": "396a92079aaaf3f8baaa4814f7c58692f8dc6b8a9329a6845c6bc53c41a82fb9",
+  "reference_min_max": [
+    0.0004479440103750676,
+    0.625184178352356
+  ],
+  "seed": 71634910,
+  "strength": 1.0,
+  "latent_carry": true,
+  "temporal_rebase": true,
+  "c0_source_arm": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/01_baseline",
+  "first_generated_chunk": 1,
+  "runner_sha256": "c28d28fe6feba56249b3e442e8fc95d82abd68d6e3e0914311003deb914f6ad5",
+  "settings_sha256": "8113d899343bdb1dc42101b46974a2691c04f62898c6f2f778d04e01fe92350a"
+}

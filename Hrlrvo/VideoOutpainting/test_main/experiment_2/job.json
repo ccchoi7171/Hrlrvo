@@ -1,0 +1,32 @@
+{
+  "name": "experiment_2_phase_rebase_full1025",
+  "experiment": 2,
+  "variant": "gpu_clean_anchor_phase_aligned_last2_temporal_rebase",
+  "backend": "native",
+  "config": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/native_65f_resume.yaml",
+  "input": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/clean_anchor_1025f.mkv",
+  "input_sha256": "1f18cc5aee11b2f22de1108c5874e7fb91a66fc5cb291f401e23c6cf33c1bc77",
+  "output": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/output/generated.mp4",
+  "checkpoint": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-013000",
+  "seed": 33333333,
+  "steps": 30,
+  "frames": 1025,
+  "memory_fraction": 0.49,
+  "recurrence": {
+    "reduced_geometry": true,
+    "temporal_rebase": true
+  },
+  "attention": {
+    "collect_branch_stats": false
+  },
+  "prompt": "",
+  "source_frame_start": 0,
+  "source_frame_end_inclusive": 1024,
+  "local_absolute_start_frame": 0,
+  "restore_original_anchor_after_inference": false,
+  "requires_inverse_registration": false,
+  "latent_carry_mode": "exterior_last2_keep_native_row0",
+  "producer_script": "run_full_phase_rebase.py",
+  "clean_preparation_manifest": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/preparation_manifest.json",
+  "clean_preparation_manifest_sha256": "16ea3044993eb67a31b68cddffd301bb6e12a80c7f5cf8bf82e69c2c826bf92c"
+}

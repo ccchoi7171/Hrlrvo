@@ -1,0 +1,15 @@
+{
+  "baseline": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923",
+  "c0_record": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/chunks/strength_1p0/chunk_000000.json",
+  "prefix_state": "Recovered bit-identically by frozen-source C0 replay; serialized digest includes FP32 prefix plus CPU/CUDA RNG.",
+  "verification": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/report/c0_recovery_verification.json",
+  "reason": "Original run kept only alternating latest-prefix slots. Never bootstrap recurrence from MP4 or uint8 prefix.",
+  "files": {
+    "chunk_000000.json": "786ead5159ca1d84fa7e55f9a1d2096f6dfb46a903d2e83d63dc0b204990daf7",
+    "segment_000000.npy": "6f024ce9ba588b34ef6597cdc6838c77ecbfd78d25225833f5ea38ce198b0cab",
+    "previous_prefix_0.pt": "e009f96656081d11ced2346dc6112fb40b833d430bfbf3efbdd30dd145ef0563",
+    "carry_000000.pt": "36175533fdaf6ace2038116b643b91b9516e9e2c67c0b783e36b0f5ee32a59ed",
+    "model_ready.json": "325f698cdeea07288e4a449e347ecf759a2a21e9bd1cd5281988eea6f3f0d501",
+    "C00_full65.mp4": "ee496d9d887e85379d4d40d45d4e605f47b8e0d619d75ca4de2b91f3fef563c8"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "request": {
+    "adapter_artifact": {
+      "content_sha256": "1acabcbf9c6b81282639d9e5f745487191f5854452d75fc93350ba78a70ae951",
+      "mtime_ns": 1789710186795534000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-007500/adapter_model.safetensors",
+      "size_bytes": 1121680096
+    },
+    "base_model_artifact": {
+      "content_sha256": "7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f",
+      "mtime_ns": 1787103029137062000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors",
+      "size_bytes": 46149344974
+    },
+    "bootstrap_first_chunk_artifact": {
+      "content_sha256": "85cd586b3bbafeeedbd3f5be537cac1a9401e64fa0d53207cf3203c25607b23d",
+      "mtime_ns": 1790052865447876000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline/data/03_fullCheck_65f_30step/05/05_71634910_65f_30step.mp4",
+      "size_bytes": 4787679
+    },
+    "checkpoint_argument": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-007500",
+    "early_global_boost": false,
+    "inference_steps": 30,
+    "initialized_adapters": false,
+    "input_fps": 24.0,
+    "input_frame_count": 1952,
+    "input_height": 1080,
+    "input_mtime_ns": 1790003797118033000,
+    "input_path": "/home/work/ai-graphics_33/Hrlrvo/pipeline/data/01_PreProc_2K_1920x1080/05_PreProc_2K.mp4",
+    "input_sha256": "751c3e53c0df078e7c5b4ba821d55b9c4b78fb12423bf2b2acff9db5447f8400",
+    "input_size_bytes": 81412211,
+    "input_width": 1920,
+    "negative_prompt": "people, person, human, staff, audience, crowd, backstage, seats",
+    "output_path": "/home/work/ai-graphics_33/Hrlrvo/pipeline/data/02_VideoOutPaint_4K_3840x2160/05_VideoOutPaint_4K.mp4",
+    "positive_prompt": "",
+    "requested_frames": 1952,
+    "seed": 71634910,
+    "settings": {
+      "architecture": {
+        "adaptive_attention_type": "target_touching_c2_query_only",
+        "adaptive_bbox_alignment": "canvas_center_minimal_expand",
+        "adaptive_fusion_policy": "target_masked_native_passthrough",
+        "adaptive_lora_alpha": 64,
+        "adaptive_lora_enabled": true,
+        "adaptive_lora_rank": 64,
+        "adaptive_restore_policy": "per_query_full_cell_target_write",
+        "adaptive_role_priority": "anchor_target_bridge",
+        "adaptive_support_policy": "c4_first_c2_promotion",
+        "architecture_version": 8,
+        "compression_scale": 4,
+        "decompressor_refine_initialization": "depthwise_identity",
+        "ffn_lora_alpha": 32,
+        "ffn_lora_enabled": true,
+        "ffn_lora_rank": 32,
+        "fusion_type": "ltx_native_vgate",
+        "global_fusion_init_local_weight": 0.5,
+        "global_lora_alpha": 64,
+        "global_lora_enabled": true,
+        "global_lora_rank": 64,
+        "local_fusion_init_native_weight": 0.5,
+        "local_partition_k": 4,
+        "lora_bias": false,
+        "lora_conditioning": "sentinel_free_native_hrlrvo",
+        "lora_dropout": 0.0,
+        "lora_initialization": "peft_kaiming_a_zero_b",
+        "lora_targets": "shared_qkvo_branch_qkv_ffn",
+        "lora_type": "shared_outpainting_plus_branch_specialization",
+        "native_lora_enabled": false,
+        "official_outpainting_ic_lora_enabled": false,
+        "position_type": "pma_v2_nominal_grid",
+        "rgb_sentinel_conditioning": false,
+        "shared_outpainting_lora_alpha": 32,
+        "shared_outpainting_lora_enabled": true,
+        "shared_outpainting_lora_rank": 32
+      },
+      "long_range": {
+        "clip_frames": 65,
+        "final_chunk_policy": "repeat_last",
+        "prefix_frames": 17,
+        "stride_frames": 48
+      },
+      "ltx_repo": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3",
+      "memory_optimization": {
+        "ffn_chunk_tokens": 8192,
+        "ffn_token_chunking": false,
+        "vae_decode_streaming": true,
+        "video_only_gpu_weights": true
+      },
+      "model": {
+        "adapter_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_v8/checkpoints/checkpoint-030000/adapter_model.safetensors",
+        "base_model_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors",
+        "text_encoder_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/gemma-3-12b",
+        "video_vae_path": null
+      },
+      "provenance": {
+        "base_checkpoint": "ltx-2.3-22b-dev.safetensors",
+        "base_model_id": "Lightricks/LTX-2.3",
+        "base_sha256": "7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f",
+        "ltx_source_repo": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3",
+        "ltx_source_revision": "598ab41247a77dbfe29b5186e915bcf4f9040ec7"
+      },
+      "runtime": {
+        "device": "cuda",
+        "dtype": "bfloat16"
+      },
+      "sampling": {
+        "cfg_scale": 3.0,
+        "guidance_rescale": 0.7,
+        "inference_steps": 30,
+        "negative_prompt": "",
+        "seed": 33333333,
+        "stg_blocks": [
+          28
+        ],
+        "stg_scale": 1.0
+      },
+      "video": {
+        "boundary_blend_width_pixels": 16,
+        "canvas": [
+          3840,
+          2160
+        ],
+        "enforce_expected_anchor": false,
+        "expected_anchor": [
+          1920,
+          1080
+        ],
+        "fps": 24.0,
+        "fps_tolerance": 0.001
+      }
+    },
+    "video_vae_artifact": {
+      "content_sha256": "7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f",
+      "mtime_ns": 1787103029137062000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors",
+      "size_bytes": 46149344974
+    }
+  },
+  "request_fingerprint": "0784f19eceebbbdafdb4ad4f438b3d7702f703413d3b331050709dba34545495",
+  "schema_version": 1
+}

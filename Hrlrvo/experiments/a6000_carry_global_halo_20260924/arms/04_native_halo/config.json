@@ -1,0 +1,19 @@
+{
+  "name": "04_native_halo",
+  "physical_gpu": 3,
+  "base_seed": 71634910,
+  "seed_rule": "base_seed + absolute_start_frame",
+  "generated_prefix_strength": 1.0,
+  "rebase_temporal_position": true,
+  "use_latent_carry": true,
+  "early_global_boost": false,
+  "global_boost_scale": 1.0,
+  "global_boost_steps": 0,
+  "global_boost_schedule": "off",
+  "native_halo_radius_tokens": 1,
+  "native_token_rgb_stride": 32,
+  "anchor_prefix_authority": "current_anchor_encoding",
+  "start_policy": "fresh_C0",
+  "end_chunk": 23,
+  "halo_user_requirement": "exactly one Native spatial token; explicitly not two"
+}

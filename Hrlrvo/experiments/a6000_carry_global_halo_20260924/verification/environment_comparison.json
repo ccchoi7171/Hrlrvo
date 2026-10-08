@@ -1,0 +1,12 @@
+{
+  "baseline_local_versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.14.1",
+    "safetensors": "0.8.0",
+    "av": "18.1.0",
+    "numpy": "2.4.6"
+  },
+  "all_four_remote_versions_match": true,
+  "arm_count": 4,
+  "halo_native_tokens": 1
+}

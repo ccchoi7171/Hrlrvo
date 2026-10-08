@@ -1,0 +1,13 @@
+{
+  "alpha_feather_px": 16,
+  "chunk_count": 1,
+  "fps_resampling": false,
+  "frame_count_preserved": true,
+  "original_requested_frames": 1952,
+  "processing_fps": 24,
+  "reference_entrypoint": "ltx_outpaint.inference.sample_long_range",
+  "requested_frames": 65,
+  "runtime_config": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/video_outpainting/main/configs/inference_4k.yaml",
+  "stop_requested": true,
+  "stored_fps": 16
+}

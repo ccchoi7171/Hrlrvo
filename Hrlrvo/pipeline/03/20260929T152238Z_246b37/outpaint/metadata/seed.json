@@ -1,0 +1,5 @@
+{
+  "reference_chunk_seed": "base_seed + absolute_start_frame",
+  "seed": 33333333,
+  "seed_mode": "global_rng_and_reference_chunk_seed"
+}

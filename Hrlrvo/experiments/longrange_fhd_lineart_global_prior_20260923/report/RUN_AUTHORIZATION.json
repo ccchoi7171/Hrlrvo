@@ -1,0 +1,17 @@
+{
+  "utc": "2026-09-23T17:47:24.803453+00:00",
+  "user_explicitly_authorized": true,
+  "reference": "detailed.png",
+  "first_generated_chunk": 1,
+  "last_generated_chunk": 23,
+  "reuse_c0": true,
+  "latent_carry_unchanged": true,
+  "milestone_chunks": [
+    4,
+    9,
+    14,
+    19,
+    23
+  ],
+  "supersedes": "INFERENCE_STOPPED.superseded.json"
+}

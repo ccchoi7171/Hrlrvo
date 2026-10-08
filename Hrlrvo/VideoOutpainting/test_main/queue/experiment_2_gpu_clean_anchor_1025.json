@@ -1,0 +1,22 @@
+{
+  "name": "experiment_2_gpu_clean_anchor_1025",
+  "experiment": 2,
+  "argv": [
+    "/home/work/ai-graphics_33/miniconda3/envs/Hrlrvo/bin/python",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/prepare_clean_anchor_gpu.py",
+    "--batch-size",
+    "8"
+  ],
+  "reservation_mib": 24000,
+  "priority": 100,
+  "requires": [
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/autonomous_013000_20261006/inputs/longrange_960x540_1025f.mkv",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/canonical_background_013000_20261007/semantic_masks/weights/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/canonical_background_013000_20261007/foreground_preparation/registered_semantic_v2/original_to_canonical_1025x3x3_float32.npy",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/canonical_background_013000_20261007/foreground_preparation/registered_semantic_v2/canonical_to_original_1025x3x3_float32.npy",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/canonical_background_013000_20261007/input_controls/full_upper_equipment_removed_v1/upper_equipment_masks_1025x540x960_uint8.npy",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/canonical_background_013000_20261007/foreground_preparation/registered_semantic_v2/semantic_donor_plate.npy"
+  ],
+  "max_group_processes": 2,
+  "script_sha256": "56341b1e5586a9b293443cb24c706abed4b1e3f2447b1c1a178943fe68e92160"
+}

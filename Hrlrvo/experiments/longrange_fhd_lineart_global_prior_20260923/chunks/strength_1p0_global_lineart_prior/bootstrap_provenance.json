@@ -1,0 +1,32 @@
+{
+  "c0_lineart_enabled": false,
+  "same_rgb_prefix_carry_rng": true,
+  "source": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/bootstrap/c0",
+  "verification": {
+    "checks": {
+      "carry_sha256": {
+        "actual": "36175533fdaf6ace2038116b643b91b9516e9e2c67c0b783e36b0f5ee32a59ed",
+        "actual_file_sha256": "36175533fdaf6ace2038116b643b91b9516e9e2c67c0b783e36b0f5ee32a59ed",
+        "expected": "36175533fdaf6ace2038116b643b91b9516e9e2c67c0b783e36b0f5ee32a59ed",
+        "match": true
+      },
+      "next_prefix_state_sha256": {
+        "actual": "e009f96656081d11ced2346dc6112fb40b833d430bfbf3efbdd30dd145ef0563",
+        "actual_file_sha256": "e009f96656081d11ced2346dc6112fb40b833d430bfbf3efbdd30dd145ef0563",
+        "expected": "e009f96656081d11ced2346dc6112fb40b833d430bfbf3efbdd30dd145ef0563",
+        "match": true
+      },
+      "segment_file_bytes": {
+        "actual": "6f024ce9ba588b34ef6597cdc6838c77ecbfd78d25225833f5ea38ce198b0cab",
+        "expected": "6f024ce9ba588b34ef6597cdc6838c77ecbfd78d25225833f5ea38ce198b0cab",
+        "match": true
+      },
+      "segment_pixel_sha256": {
+        "actual": "049a9fe6e3d073e1d54a5d6d28b5f7f2e2aefd7e50c990cdf961b3143dd57da6",
+        "expected": "049a9fe6e3d073e1d54a5d6d28b5f7f2e2aefd7e50c990cdf961b3143dd57da6",
+        "match": true
+      }
+    },
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "status": "PASS",
+  "output": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/generated.mp4",
+  "output_sha256": "c04d8584f2916415b9776b389f19e33b53fb8658961c3108ea846254cb7bf4cf",
+  "frames": 1025,
+  "fps": 24,
+  "lineage": [
+    {
+      "kind": "bridge",
+      "id": "B00",
+      "output_range": [
+        0,
+        9
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I00",
+      "output_range": [
+        9,
+        73
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B01",
+      "output_range": [
+        73,
+        82
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I01",
+      "output_range": [
+        82,
+        146
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B02",
+      "output_range": [
+        146,
+        155
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I02",
+      "output_range": [
+        155,
+        219
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B03",
+      "output_range": [
+        219,
+        228
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I03",
+      "output_range": [
+        228,
+        292
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B04",
+      "output_range": [
+        292,
+        301
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I04",
+      "output_range": [
+        301,
+        365
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B05",
+      "output_range": [
+        365,
+        374
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I05",
+      "output_range": [
+        374,
+        438
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B06",
+      "output_range": [
+        438,
+        447
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I06",
+      "output_range": [
+        447,
+        511
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B07",
+      "output_range": [
+        511,
+        520
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I07",
+      "output_range": [
+        520,
+        584
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B08",
+      "output_range": [
+        584,
+        593
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I08",
+      "output_range": [
+        593,
+        657
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B09",
+      "output_range": [
+        657,
+        666
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I09",
+      "output_range": [
+        666,
+        730
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B10",
+      "output_range": [
+        730,
+        739
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I10",
+      "output_range": [
+        739,
+        803
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B11",
+      "output_range": [
+        803,
+        812
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I11",
+      "output_range": [
+        812,
+        876
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B12",
+      "output_range": [
+        876,
+        885
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I12",
+      "output_range": [
+        885,
+        949
+      ]
+    },
+    {
+      "kind": "bridge",
+      "id": "B13",
+      "output_range": [
+        949,
+        958
+      ]
+    },
+    {
+      "kind": "middle",
+      "id": "I13",
+      "output_range": [
+        958,
+        1022
+      ]
+    },
+    {
+      "kind": "bridge_tail",
+      "id": "B14",
+      "output_range": [
+        1022,
+        1025
+      ],
+      "cropped_virtual_frames": 6
+    }
+  ],
+  "ffprobe": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 1920,
+        "height": 1080,
+        "avg_frame_rate": "24/1",
+        "nb_frames": "1025"
+      }
+    ]
+  },
+  "duplicate_count": 0,
+  "gap_count": 0
+}

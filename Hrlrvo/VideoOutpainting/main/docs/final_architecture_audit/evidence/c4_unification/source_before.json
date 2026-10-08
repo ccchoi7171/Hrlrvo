@@ -1,0 +1,28 @@
+{
+  "files": {
+    "src/ltx_outpaint/inference.py": "c42070e6c3dda761bff640a32618b3a072b77d69ec230484264113db2307f6cc",
+    "src/ltx_outpaint/data.py": "99626f7c742ba9baba4e91678142e25b02585014836a311a409725bdc62fc792",
+    "src/ltx_outpaint/__init__.py": "49c50eb0627aa45cb7395346b2b1679ab5ccb4617d4957e2156d3e0fd7762ecb",
+    "src/ltx_outpaint/geometry.py": "4cd2b6fa7719e396e88da97f5b1bd19a41d3aa32b034f9f99b4ffb13a162eccc",
+    "src/ltx_outpaint/compression.py": "22aae0086e2ef9fbc95557e3b729e2f7604d0b5b5326d32cda88eb391f89ebd6",
+    "src/ltx_outpaint/native_local_attention.py": "51c8a9b6e6e79b9ad50ce729324458f524462d46f3c82e24ded968098253da63",
+    "src/ltx_outpaint/position.py": "98bc9506f67cc9a72b6ea7b858433f7398e61e7c1ec38d779b3256bd464ad79a",
+    "src/ltx_outpaint/adaptive_local_attention.py": "476e508851d3d61d92838b537e4a920414ef05788baadf033c23dd3b27e5a315",
+    "src/ltx_outpaint/global_attention.py": "65075fc15215d5b2baf2a723e4f8c2b14248aa504c7e4c97b301f35233c54f1d",
+    "src/ltx_outpaint/train.py": "179c741debdf0efb2a66bab2bb1d73942edc2dadab5c587160279049cf9938ea",
+    "src/ltx_outpaint/model.py": "2ffc413b8582dc9cc56255f82854b44a36c90da295bc3c8d62983f231dd3dddf",
+    "src/ltx_outpaint/lora.py": "f37a714fb877b212c1351bcd6e4c055be0e0e08b24d009e1ceb9aaf447997946",
+    "src/ltx_outpaint/anchor_cache.py": "d1c0f1d888bb99e6c757d289671c2b23844c1e67b625bd7efc269254c2840f34",
+    "src/ltx_outpaint/outpainting_adapter.py": "4f36ef98f2b39e0208846b8f589bcaacfba3288ae58b8b4de577f1d57cc9c89e",
+    "src/for_cache/precache_anchor_2k.py": "dd65724b0f3945d93b5a6772b7898fab975990483eec55581c7bb13b946cf167",
+    "src/for_cache/cache_anchor_2k_supervisor.py": "c8254f3b4f7a3045dd780b11ab20fd49cfba0f41de3361e7afbc90c67f5d38ef",
+    "src/for_cache/cache_anchor_2k_parallel_supervisor.py": "4830fafb517a8f67e768d9c6c12059c5921f8ccba9b4b1271c017f02a96adfc7",
+    "src/diagnostics/check_fullft_vram.py": "2c3130e2f0bd83b1173f00d1e89df4cd457ce53b716affbe0a3f8273769d2b36",
+    "tests/test_anchor_conditioning_rect.py": "89cc5771953318049dfa9d457697b5410c195dba423e3bdac1e0e7874c6a4760",
+    "tests/test_empty_text_conditioning.py": "93c29cb4a3120bd5d2fbe86a93c1802d6ca4970efa05ee6494f3d4850f718441",
+    "tests/test_adaptive_promotion.py": "fd9a5c93965082a225207d9f7085a84a82968e824938cc88104f670d61b604d4",
+    "configs/inference_4k.yaml": "9920570166b315df4c7e674e094246d00ca8799d7132c98e1b53508a8b5a3ee2",
+    "configs/train_4k.yaml": "a6ef720f74528e59fa5749e7fb0bc7c55cd2e5fc4c627f11d3e694317edc9492",
+    "README.md": "9e479ff1a1183c21028e46427242ff72c1d35137e0bcaf8813cef3569273f377"
+  }
+}

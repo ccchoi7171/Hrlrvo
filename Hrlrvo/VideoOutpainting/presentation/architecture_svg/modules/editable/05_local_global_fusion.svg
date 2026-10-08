@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="428" height="86" viewBox="0 0 428 86" version="1.1" role="img">
+  <title>05 local global fusion</title>
+  <desc>Editable standalone architecture module; transparent background.</desc>
+  <g transform="translate(-756 -710)">
+    <g id="local-global-fusion">
+      <rect x="770" y="724" width="400" height="58" rx="14" fill="#F2F6FC" stroke="#CFDAE9" stroke-width="1.6" />
+      <circle cx="799" cy="753" r="15" fill="#304F75" />
+      <text x="799" y="759" font-family="DejaVu Sans" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+      <text x="985.0" y="749" font-family="DejaVu Sans" font-size="22" font-weight="700" fill="#304F75" text-anchor="middle">Local–Global Fusion</text>
+      <text x="985.0" y="770" font-family="DejaVu Sans" font-size="16" font-weight="400" fill="#69768B" text-anchor="middle">learned gate</text>
+    </g>
+  </g>
+</svg>

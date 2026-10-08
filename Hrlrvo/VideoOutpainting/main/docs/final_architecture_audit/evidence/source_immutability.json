@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-09-10T22:22:34.175694+00:00",
+  "project_files_checked": 24,
+  "pinned_files_checked": 205,
+  "changed_files": [],
+  "missing_files": [],
+  "new_source_config_files": [],
+  "source_modifications": 0,
+  "verdict": "PASS",
+  "production_source_written": false,
+  "model_gpu_execution_performed": false,
+  "main_git_status": "not a git repository; SHA256 file comparison used",
+  "pinned_revision": "598ab41247a77dbfe29b5186e915bcf4f9040ec7"
+}

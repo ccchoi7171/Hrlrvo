@@ -1,0 +1,41 @@
+{
+  "depth_global_prior": {
+    "enabled": true,
+    "source": "A6000_baseline_C0_frame0",
+    "extractor": "D5_v2_base_518",
+    "bias_mode": "token_strength_outer_product",
+    "bias_scale": 0.5,
+    "apply_branch": "global",
+    "schedule": [
+      {
+        "start_step": 0,
+        "end_step": 9,
+        "multiplier": 1.0
+      },
+      {
+        "start_step": 10,
+        "end_step": 19,
+        "multiplier": 0.6
+      },
+      {
+        "start_step": 20,
+        "end_step": 29,
+        "multiplier": 0.2
+      }
+    ],
+    "step_indexing": "zero_based",
+    "reference_map": "reference/global_depth_strength.npy",
+    "reference_sha256": "396a92079aaaf3f8baaa4814f7c58692f8dc6b8a9329a6845c6bc53c41a82fb9",
+    "reference_extraction_sha256": "c6777e96f669f4f788ad125dddb6cf6d59db5f5a378cb6e2e26abc603364de77",
+    "query_scope": "new_generated_only",
+    "keys": "all_global_video_tokens",
+    "known_output_preservation": "restore original Global output after decompression on anchor/prefix",
+    "c0_enabled": false,
+    "depth_orientation": "relative_inverse_depth_white_near",
+    "mapping": "percentile_0.5_99.5_normalize_then_zero_pad_y36_then_mean32_then_mean4",
+    "lineart_density_divisor_used": false,
+    "formula": "B_ij=lambda_step*g_i*g_j",
+    "c0_frame0_pixel_sha256": "b3c3af6246f7a17cc564826f33c8ac838a48184dc80350c38dfaa7b8472d1f50",
+    "semantic_limit": "Depth salience outer product, not same-depth similarity or learned depth conditioning"
+  }
+}

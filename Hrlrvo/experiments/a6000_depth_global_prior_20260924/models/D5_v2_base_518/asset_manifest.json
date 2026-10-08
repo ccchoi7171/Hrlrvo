@@ -1,0 +1,9 @@
+{
+  "model_id": "depth-anything/Depth-Anything-V2-Base-hf",
+  "revision": "b1958afc87fb45a9e3746cb387596094de553ed8",
+  "sha256": {
+    "config.json": "1f616484953fbbddcc14da69ab81ef834fd58c11be04fa2f2eecf5696b2f7389",
+    "preprocessor_config.json": "d41175c0d889477ca8fc67191e540faef14baf6275157b3fdecf78469e6bbf84",
+    "model.safetensors": "9996d15c334d264cfcc29f4318d7d3789a006ecc444782c2fb82f7eaa1acb8bf"
+  }
+}

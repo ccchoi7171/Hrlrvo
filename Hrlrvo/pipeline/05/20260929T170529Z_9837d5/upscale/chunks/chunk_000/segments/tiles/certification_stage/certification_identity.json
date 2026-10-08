@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "request_sha256": "4dbd859d81cf39c6d1f537ddd6ba225b7ed8c188b2ebaece89fa662ac944ec6e",
+  "input_path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/05/20260929T170529Z_9837d5/outpaint/final/05_Outpaint_4K.mp4",
+  "frame_count": 21,
+  "tile_size": 320,
+  "tile_overlap": 32
+}

@@ -1,0 +1,141 @@
+{
+  "contract": {
+    "lineart_bias_schedule": [
+      {
+        "end_step": 9,
+        "start_step": 0,
+        "strength": 0.5
+      },
+      {
+        "end_step": 19,
+        "start_step": 10,
+        "strength": 0.3
+      },
+      {
+        "end_step": 29,
+        "start_step": 20,
+        "strength": 0.1
+      }
+    ],
+    "lineart_density_method": "direct_4k_global_footprint_density",
+    "lineart_density_normalizer": 0.05,
+    "lineart_density_padding": {
+      "bottom": 8,
+      "left": 0,
+      "right": 0,
+      "top": 8,
+      "value": 0
+    },
+    "lineart_extraction": {
+      "L2gradient": true,
+      "aperture": 3,
+      "border": "BORDER_REFLECT_101",
+      "canny_high": 100,
+      "canny_low": 35,
+      "clahe": false,
+      "component_connectivity": 8,
+      "component_min_long_span": 12,
+      "component_min_pixels": 12,
+      "dilation": false,
+      "gaussian_kernel": [
+        3,
+        3
+      ],
+      "gaussian_sigma": 0.8,
+      "grayscale": "RGB2GRAY",
+      "morphology": false,
+      "thinning": false
+    },
+    "lineart_global_map": [
+      30,
+      17
+    ],
+    "lineart_global_prior": true,
+    "lineart_reference_resolution": [
+      3840,
+      2160
+    ],
+    "lineart_source": "chunk00_first_final_rgb_frame",
+    "lineart_source_resize": "none",
+    "lineart_start_chunk": 1
+  },
+  "density_method": "direct mean over 128x128px footprints; zero line evidence in 8px top/bottom VAE padding; no resize",
+  "density_normalizer": 0.05,
+  "files": {
+    "global_line_density.npy": {
+      "sha256": "3e866fa0d02afeca41e0c36a621ec0047396325894129766672e08fe70aca126",
+      "size_bytes": 2168
+    },
+    "global_line_strength.npy": {
+      "sha256": "47a58ab8307497d9c0ea4c393db271d4af7ac5b576106d7d97fd5249a0bc8022",
+      "size_bytes": 2168
+    },
+    "lineart_4k.png": {
+      "sha256": "e53335c9d8b5a118ed1ee2d5045911c2a867103ce7a28504b1bedd9c4c0e5699",
+      "size_bytes": 272222
+    },
+    "source_frame_4k.png": {
+      "sha256": "36e590a60e8dd76fcd20f9e6324b454bfff18f8a48b2500e30f089fe529d648d",
+      "size_bytes": 8961993
+    }
+  },
+  "global_grid": [
+    30,
+    17
+  ],
+  "lambda_schedule": [
+    {
+      "end_step": 9,
+      "start_step": 0,
+      "strength": 0.5
+    },
+    {
+      "end_step": 19,
+      "start_step": 10,
+      "strength": 0.3
+    },
+    {
+      "end_step": 29,
+      "start_step": 20,
+      "strength": 0.1
+    }
+  ],
+  "lineart_resolution": [
+    3840,
+    2160
+  ],
+  "nonzero_source_cells": 347,
+  "opencv_version": "4.11.0",
+  "reference_shape": [
+    2160,
+    3840,
+    3
+  ],
+  "runtime_global_hw": [
+    17,
+    30
+  ],
+  "source": "chunk00 final RGB frame 0",
+  "source_frame_index": 0,
+  "source_global_hw": [
+    17,
+    30
+  ],
+  "source_identity": {
+    "adapter_sha256": "1acabcbf9c6b81282639d9e5f745487191f5854452d75fc93350ba78a70ae951",
+    "c0_segment_pixel_sha256": "bf40e4f4d7d09bfa4c42518d35d09b6f4224044c04484916f0b48685b494a8f7",
+    "input_sha256": "1748eac82beb98953e5515b1321ac64cc4332d8e105599b2af09b7cb047aa00e",
+    "seed": 33333333
+  },
+  "source_resolution": [
+    3840,
+    2160
+  ],
+  "source_rgb_sha256": "268b7b1147a52994021a2ce8d77eeffdfeab6fc7c0b1328ef3b3f06690fd3654",
+  "source_segment": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/outpaint/chunks/native/segment_000000.npy",
+  "source_shape": [
+    2160,
+    3840,
+    3
+  ]
+}

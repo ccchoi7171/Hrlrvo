@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "state": "COMPLETE",
+  "tile": {
+    "index": 2,
+    "x": 576,
+    "y": 0,
+    "width": 320,
+    "height": 320
+  },
+  "tile_seed": 33333335,
+  "frame_count": 21,
+  "request_sha256": "134bc32ef07b68d2560a789960b6ccb2ba0c7f57152fc0029ab1de0c6b4c325b",
+  "png_files": [
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000000.png",
+      "size_bytes": 1038887,
+      "sha256": "98100f6c17262a64ebad07b68358461836e6504cfffee444fcc132ae9e215603"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000001.png",
+      "size_bytes": 1024941,
+      "sha256": "8839cb1023e55404214f07cdddb75ef484ac7031ffb74803d4952ddc09abb268"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000002.png",
+      "size_bytes": 1024635,
+      "sha256": "d4dcbbd736443b5574d718f99806d4a0f2f5ae43c526cab0403d5eebdc23f561"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000003.png",
+      "size_bytes": 1004575,
+      "sha256": "1c85fcc42a4eb6e08757faa9117564a5ada9dd8dede460e66327cf734b5be072"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000004.png",
+      "size_bytes": 1014279,
+      "sha256": "58857fcd2f7f3e00d8d20554733f8407c7b35e56211c61411056517b32163fff"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000005.png",
+      "size_bytes": 970380,
+      "sha256": "85029d2848fca637e7c2bf14a298139e9596c7ab08746288bb0d8e6458185713"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000006.png",
+      "size_bytes": 979793,
+      "sha256": "07b4d77bbe0ace7c93c90b5432f976a18daa3792bf0a297cd9177c195267fadb"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000007.png",
+      "size_bytes": 982950,
+      "sha256": "b18c0b22e0f60be67b2a7a5de3d93447ac5bf9c67a4a593dec4fca847b2742f3"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000008.png",
+      "size_bytes": 1007696,
+      "sha256": "c93e10317fafb3bca747030769ab52805b3b3291ae92b029d012fdebd41436b5"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000009.png",
+      "size_bytes": 967693,
+      "sha256": "cd81657f50fb3d25b76cdca6690636c7627c728794fe2800de1bd60eeb3ef581"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000010.png",
+      "size_bytes": 974428,
+      "sha256": "d48386dd70e0829a227559db0be7d3a628567f9f67d30138a4a0c8084db8c399"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000011.png",
+      "size_bytes": 981240,
+      "sha256": "a9da72aaf086325d9cd442041cb4f388af38e9a1b3f0a4c8263b6faef22bfc76"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000012.png",
+      "size_bytes": 971068,
+      "sha256": "791e7c211af0d405dc164d17b9d203fab2de61d566ea1d24bbccc3d29ef03fec"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000013.png",
+      "size_bytes": 958407,
+      "sha256": "8a015c19e2221fcc744b93b7bc39395a7b9c363afe01da6ed37f9bff1b99174f"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000014.png",
+      "size_bytes": 961000,
+      "sha256": "69bc53d75bfcdc32413944bd4d2beb589674b01384b8aa23bb4823a884124f9b"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000015.png",
+      "size_bytes": 958750,
+      "sha256": "21d67ed12c75b72a45e23c94206010b9f6853c8ca633ef1c30d21278bbdae1ad"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000016.png",
+      "size_bytes": 968051,
+      "sha256": "0ff9fb883a070d48bff3a408d4c16e29da3216d728e33f67c30dc306df2c6928"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000017.png",
+      "size_bytes": 947821,
+      "sha256": "ce80ff3b32ef9babbf8a04fe0ad446fcedceb200e13005882adc9fca99a38fbe"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000018.png",
+      "size_bytes": 948297,
+      "sha256": "581d98803e2a5ca17ab3117a9d8002b6c61ac3f8d04202fa41d45970d7d72962"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000019.png",
+      "size_bytes": 957079,
+      "sha256": "03050a011569c85dba94ab49553842751f6e4ebac035e87f633b8c1622a78c13"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/tiles/certification_stage/tiles/tile_0002/000000020.png",
+      "size_bytes": 954258,
+      "sha256": "7f44766ae7c6db7851884eb27b9f77a3313a30ac96100f8c6936c751316517ea"
+    }
+  ],
+  "temporal_unit_metadata": [
+    "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/chunks/chunk_001/segments/metadata/attempt_001_1790699395385277667/tile_0002_emission_0000_frames_000000000_000000020.json"
+  ],
+  "temporal_unit_hashes": [
+    "e49fd5f5df95d9382d07b6b82ed4b44e372e78f756fd95a4f5da7d9ee6476675"
+  ]
+}

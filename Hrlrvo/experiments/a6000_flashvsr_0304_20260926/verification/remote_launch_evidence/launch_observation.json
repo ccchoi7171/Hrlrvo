@@ -1,0 +1,301 @@
+{
+  "time_utc": "2026-09-26T16:49:45.199129+00:00",
+  "status": "FOUR_FULL_WORKERS_EMITTING_1952_FRAME_SEQUENCES",
+  "launch": {
+    "status": "LAUNCHED",
+    "time_utc": "2026-09-26T16:44:31.037843+00:00",
+    "gpu_uuids": [
+      "GPU-663910bc-7de7-0749-de7f-593439c81349",
+      "GPU-fbc56149-7397-6edf-4b3e-3d3619470ec2",
+      "GPU-1e943e02-7abf-2f73-9f52-dfb8202d7a46",
+      "GPU-89722209-d8f0-c647-98cf-a60c3c4beb35"
+    ],
+    "assignments": {
+      "0": [
+        "04",
+        0,
+        84
+      ],
+      "1": [
+        "04",
+        85,
+        169
+      ],
+      "2": [
+        "03",
+        0,
+        84
+      ],
+      "3": [
+        "03",
+        85,
+        169
+      ]
+    },
+    "windows": [
+      {
+        "window": "flashvsr_0304_20260926:gpu0_v04",
+        "command": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "-I",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/remote_control.py",
+          "supervise",
+          "--gpu",
+          "0",
+          "--launch-token",
+          "ab79dc4b09df43c200f698602e1a0ef1"
+        ],
+        "log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/logs/gpu0_v04.log"
+      },
+      {
+        "window": "flashvsr_0304_20260926:gpu1_v04",
+        "command": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "-I",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/remote_control.py",
+          "supervise",
+          "--gpu",
+          "1",
+          "--launch-token",
+          "ab79dc4b09df43c200f698602e1a0ef1"
+        ],
+        "log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/logs/gpu1_v04.log"
+      },
+      {
+        "window": "flashvsr_0304_20260926:gpu2_v03",
+        "command": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "-I",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/remote_control.py",
+          "supervise",
+          "--gpu",
+          "2",
+          "--launch-token",
+          "ab79dc4b09df43c200f698602e1a0ef1"
+        ],
+        "log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/logs/gpu2_v03.log"
+      },
+      {
+        "window": "flashvsr_0304_20260926:gpu3_v03",
+        "command": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "-I",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/remote_control.py",
+          "supervise",
+          "--gpu",
+          "3",
+          "--launch-token",
+          "ab79dc4b09df43c200f698602e1a0ef1"
+        ],
+        "log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/logs/gpu3_v03.log"
+      },
+      {
+        "window": "flashvsr_0304_20260926:post_v04",
+        "command": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "-I",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/remote_control.py",
+          "coordinate",
+          "--video",
+          "04",
+          "--launch-token",
+          "ab79dc4b09df43c200f698602e1a0ef1"
+        ],
+        "log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/logs/post_v04.log"
+      },
+      {
+        "window": "flashvsr_0304_20260926:post_v03",
+        "command": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "-I",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/remote_control.py",
+          "coordinate",
+          "--video",
+          "03",
+          "--launch-token",
+          "ab79dc4b09df43c200f698602e1a0ef1"
+        ],
+        "log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/logs/post_v03.log"
+      }
+    ],
+    "compatibility_receipt_sha256": "dd32f022e400420f14f56e2cd1e9053b69dbd00131ee9501ca8f3f952075d215"
+  },
+  "compatibility_status": "PASS",
+  "compatibility_time": "2026-09-26T16:44:21.450417+00:00",
+  "asset_verification_status": "PASS",
+  "verified_files": 6202,
+  "model_commit": "cf910c61a60733e610e9c6e8b607f80c3a6c202b",
+  "checkpoint_revision": "27561b186ded3402d7c975f4fd722e2885b6135f",
+  "environment_status": "PASS",
+  "matched_package_count": 102,
+  "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "bsa_extension_sha256": "c20a5184e37d2ff6ec648c465b396e8813d01ef126b04a0722b2575e3dd6a231",
+  "smoke_peak_process_vram_mib": {
+    "0": 13286.0,
+    "1": 13286.0,
+    "2": 13286.0,
+    "3": 13286.0
+  },
+  "workers": [
+    {
+      "gpu": 0,
+      "video": "04",
+      "assignment": {
+        "tile_end": 84,
+        "tile_start": 0
+      },
+      "status": "RUNNING",
+      "started_utc": "2026-09-26T16:44:30.851886+00:00",
+      "supervisor_pid": 1870225,
+      "worker_pid": 1870282,
+      "inference_pid": 1870485,
+      "process_vram_mib": 13286.0,
+      "gpu_utilization_percent": 98.0,
+      "last_emission_global_tile": 0,
+      "last_emitted_frame_end_exclusive": 405,
+      "initial_recent_tile_fps": 4.90809325443749,
+      "speed_basis": "last 8 causal emissions; tile inference and PNG staging only, excludes model/input-cache/merge/encode",
+      "input_basename": "04_Outpaint_4K.mp4",
+      "anchor_basename": "04_Input_8K.mp4",
+      "parameters": {
+        "base_seed": 71634910,
+        "benchmark_mode": "full",
+        "encoder": "libx265",
+        "ffmpeg_threads": 32,
+        "local_range": 11,
+        "max_frames": null,
+        "precision": "torch.bfloat16 (original implementation)",
+        "sparse_ratio": 2.0,
+        "tile_overlap": 32,
+        "tile_size": 256
+      },
+      "work_dir": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu0",
+      "worker_log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu0/worker.log"
+    },
+    {
+      "gpu": 1,
+      "video": "04",
+      "assignment": {
+        "tile_end": 169,
+        "tile_start": 85
+      },
+      "status": "RUNNING",
+      "started_utc": "2026-09-26T16:44:30.699734+00:00",
+      "supervisor_pid": 1870230,
+      "worker_pid": 1870281,
+      "inference_pid": 1870504,
+      "process_vram_mib": 13286.0,
+      "gpu_utilization_percent": 60.0,
+      "last_emission_global_tile": 85,
+      "last_emitted_frame_end_exclusive": 389,
+      "initial_recent_tile_fps": 4.920994821842732,
+      "speed_basis": "last 8 causal emissions; tile inference and PNG staging only, excludes model/input-cache/merge/encode",
+      "input_basename": "04_Outpaint_4K.mp4",
+      "anchor_basename": "04_Input_8K.mp4",
+      "parameters": {
+        "base_seed": 71634910,
+        "benchmark_mode": "full",
+        "encoder": "libx265",
+        "ffmpeg_threads": 32,
+        "local_range": 11,
+        "max_frames": null,
+        "precision": "torch.bfloat16 (original implementation)",
+        "sparse_ratio": 2.0,
+        "tile_overlap": 32,
+        "tile_size": 256
+      },
+      "work_dir": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu1",
+      "worker_log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu1/worker.log"
+    },
+    {
+      "gpu": 2,
+      "video": "03",
+      "assignment": {
+        "tile_end": 84,
+        "tile_start": 0
+      },
+      "status": "RUNNING",
+      "started_utc": "2026-09-26T16:44:30.851908+00:00",
+      "supervisor_pid": 1870235,
+      "worker_pid": 1870283,
+      "inference_pid": 1870324,
+      "process_vram_mib": 13286.0,
+      "gpu_utilization_percent": 0.0,
+      "last_emission_global_tile": 0,
+      "last_emitted_frame_end_exclusive": 469,
+      "initial_recent_tile_fps": 4.935899184638423,
+      "speed_basis": "last 8 causal emissions; tile inference and PNG staging only, excludes model/input-cache/merge/encode",
+      "input_basename": "03_Outpaint_4K.mp4",
+      "anchor_basename": "03_Input_8K.mp4",
+      "parameters": {
+        "base_seed": 71634910,
+        "benchmark_mode": "full",
+        "encoder": "libx265",
+        "ffmpeg_threads": 32,
+        "local_range": 11,
+        "max_frames": null,
+        "precision": "torch.bfloat16 (original implementation)",
+        "sparse_ratio": 2.0,
+        "tile_overlap": 32,
+        "tile_size": 256
+      },
+      "work_dir": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu2",
+      "worker_log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu2/worker.log"
+    },
+    {
+      "gpu": 3,
+      "video": "03",
+      "assignment": {
+        "tile_end": 169,
+        "tile_start": 85
+      },
+      "status": "RUNNING",
+      "started_utc": "2026-09-26T16:44:30.877169+00:00",
+      "supervisor_pid": 1870240,
+      "worker_pid": 1870284,
+      "inference_pid": 1870332,
+      "process_vram_mib": 13286.0,
+      "gpu_utilization_percent": 0.0,
+      "last_emission_global_tile": 85,
+      "last_emitted_frame_end_exclusive": 437,
+      "initial_recent_tile_fps": 4.83029975786675,
+      "speed_basis": "last 8 causal emissions; tile inference and PNG staging only, excludes model/input-cache/merge/encode",
+      "input_basename": "03_Outpaint_4K.mp4",
+      "anchor_basename": "03_Input_8K.mp4",
+      "parameters": {
+        "base_seed": 71634910,
+        "benchmark_mode": "full",
+        "encoder": "libx265",
+        "ffmpeg_threads": 32,
+        "local_range": 11,
+        "max_frames": null,
+        "precision": "torch.bfloat16 (original implementation)",
+        "sparse_ratio": 2.0,
+        "tile_overlap": 32,
+        "tile_size": 256
+      },
+      "work_dir": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu3",
+      "worker_log": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu3/worker.log"
+    }
+  ],
+  "coordinators": {
+    "04": {
+      "status": "WAITING_FOR_TWO_SHARDS",
+      "pid": 1870245,
+      "time_utc": "2026-09-26T16:44:28.828269+00:00"
+    },
+    "03": {
+      "status": "WAITING_FOR_TWO_SHARDS",
+      "pid": 1870250,
+      "time_utc": "2026-09-26T16:44:28.828222+00:00"
+    }
+  },
+  "tmux_panes": [
+    "0:gpu0_v04 pane=%73 pid=1870223 dead=0",
+    "1:gpu1_v04 pane=%74 pid=1870228 dead=0",
+    "2:gpu2_v03 pane=%75 pid=1870233 dead=0",
+    "3:gpu3_v03 pane=%76 pid=1870238 dead=0",
+    "4:post_v04 pane=%77 pid=1870243 dead=0",
+    "5:post_v03 pane=%78 pid=1870248 dead=0"
+  ]
+}

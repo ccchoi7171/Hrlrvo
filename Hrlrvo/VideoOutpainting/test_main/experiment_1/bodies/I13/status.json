@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "pid": 3221880,
+  "ordinal": 1,
+  "worker_id": 1,
+  "body": {
+    "index": 13,
+    "body_id": "I13",
+    "global_start": 949,
+    "global_stop": 1030,
+    "left_bridge": "B13",
+    "right_bridge": "B14",
+    "middle_global_start": 958,
+    "middle_global_stop": 1022,
+    "visible_middle_stop": 1022
+  },
+  "started_utc": "2026-10-08T02:49:51.598329+00:00",
+  "ended_utc": "2026-10-08T03:27:42.161094+00:00",
+  "sample_seconds": 2169.1917464677244,
+  "noise": {
+    "generator_seed": 33334282,
+    "shape": [
+      1,
+      23760,
+      128
+    ],
+    "dtype": "torch.bfloat16",
+    "sha256": "35fc9441c1a1f74d064c733fbd96d0474308beefbdacb1b1f3480972d72de459"
+  },
+  "output_sha256": "17c962389eee18227cdc101d6951af6b7f4af21c4da735c0c2f62831a59b7352",
+  "suffix_latent_sha256": "69c81e54ab4d2b7913c66ef15f5ba8746051cf463dc778cbda2ca1b243cde421",
+  "known_mask_sha256": "210cf32b4b25d37fae0c4b0ac1353492b5242a19920d4571b0400b825e389fd2",
+  "reference_cache_sha256": "b93e63d00f6b0b0d7daf18d2bdea04f15cf904afdcd451d40b405f845904d2ab",
+  "recurrence_events": [
+    {
+      "chunk": 16,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 16,
+      "action": "temporal_rebase",
+      "seconds_removed": 33.458333333333336
+    },
+    {
+      "chunk": 19,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 19,
+      "action": "temporal_rebase",
+      "seconds_removed": 39.541666666666664
+    }
+  ],
+  "peak_cuda_allocated_bytes": 32771043840,
+  "peak_cuda_reserved_bytes": 35404120064
+}

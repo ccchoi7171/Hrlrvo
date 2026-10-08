@@ -1,0 +1,89 @@
+{
+  "alpha": 0.1,
+  "anchor_yxyx_excluded_from_sharpness": [
+    270,
+    480,
+    810,
+    1440
+  ],
+  "artifacts": [
+    {
+      "exterior_laplacian_variance": 1758.67578960368,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_00_frame_0009.png",
+      "sha256": "25cbca7fd7399733de004cafae52d9ef0a6797d17153007d6181deae579c2b21",
+      "source_frame": 9,
+      "stratum": [
+        0,
+        16
+      ],
+      "vae_encoded_separately": true
+    },
+    {
+      "exterior_laplacian_variance": 1693.6978520261625,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_01_frame_0017.png",
+      "sha256": "228c2e7728333868600e134885a00383c318a79048c0b8f8bbb99c0fb0a54933",
+      "source_frame": 17,
+      "stratum": [
+        16,
+        32
+      ],
+      "vae_encoded_separately": true
+    },
+    {
+      "exterior_laplacian_variance": 1902.1317024952511,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_02_frame_0045.png",
+      "sha256": "7f912d62eda64fdc86bc0024fab03e1327243c8a7e50de1c86b75a8ef90a754b",
+      "source_frame": 45,
+      "stratum": [
+        32,
+        49
+      ],
+      "vae_encoded_separately": true
+    },
+    {
+      "exterior_laplacian_variance": 1960.1362082455887,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_03_frame_0053.png",
+      "sha256": "de802dcccb10807afa463d54a50c05a464703a49d79c43e137d6ba7ed3ca52a1",
+      "source_frame": 53,
+      "stratum": [
+        49,
+        65
+      ],
+      "vae_encoded_separately": true
+    }
+  ],
+  "attention": "Global target Q reads immutable per-block reference K/V",
+  "image_conversion": "clip FP32 [0,1], round(value*255), RGB PNG",
+  "reference_count": 4,
+  "schema": "hrlrvo_four_image_reference_memory_v1",
+  "selection": "maximum exterior Laplacian variance per fixed temporal stratum; earliest wins ties",
+  "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/longrange_bridge_013000_20261007/outputs/independent_start_0000/generated_65f_fp32.npy",
+  "source_sha256": "177741eef5a092902e15552540161e9311d22ff1e15c3953f8be617c6b479dfe",
+  "source_shape": [
+    65,
+    3,
+    1080,
+    1920
+  ],
+  "strata": [
+    [
+      0,
+      16
+    ],
+    [
+      16,
+      32
+    ],
+    [
+      32,
+      49
+    ],
+    [
+      49,
+      65
+    ]
+  ],
+  "stream": "frozen checkpoint clean-timestep sigma=0",
+  "temporal_policy": "spatial coordinates retained; target time copied to reference K",
+  "vae_policy": "body worker encodes each PNG independently as one frame"
+}

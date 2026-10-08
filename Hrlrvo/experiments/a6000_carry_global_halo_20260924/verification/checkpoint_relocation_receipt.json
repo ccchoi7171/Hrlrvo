@@ -1,0 +1,22 @@
+{
+  "target_sha256": "36f416db6dfaaf8f55c23594b2ee4fde2af0e5330de7ef8ce9e65a41efee4c20",
+  "source": "/home/oem/hrlrvo/portable_fhd/models/checkpoint-007500/adapter_model.safetensors",
+  "target": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/shared/checkpoint-007500/adapter_model.safetensors",
+  "tensor_payload_sha256": "8f47434a13aeabad0b78789c39266f4334e7cb19510ac98324b719b9f9ae022e",
+  "tensor_layout_identical": true,
+  "tensor_bytes_identical": true,
+  "metadata_changed_fields": [
+    "base_model_path",
+    "provenance.ltx_source_repo"
+  ],
+  "original_metadata": {
+    "architecture": "{\"architecture_version\": 8, \"fusion_type\": \"ltx_native_vgate\", \"adaptive_attention_type\": \"target_touching_c2_query_only\", \"position_type\": \"pma_v2_nominal_grid\", \"adaptive_support_policy\": \"c4_first_c2_promotion\", \"adaptive_role_priority\": \"anchor_target_bridge\", \"adaptive_bbox_alignment\": \"canvas_center_minimal_expand\", \"adaptive_restore_policy\": \"per_query_full_cell_target_write\", \"adaptive_fusion_policy\": \"target_masked_native_passthrough\", \"lora_type\": \"shared_outpainting_plus_branch_specialization\", \"lora_conditioning\": \"sentinel_free_native_hrlrvo\", \"lora_initialization\": \"peft_kaiming_a_zero_b\", \"lora_targets\": \"shared_qkvo_branch_qkv_ffn\", \"lora_bias\": false, \"lora_dropout\": 0.0, \"shared_outpainting_lora_enabled\": true, \"shared_outpainting_lora_rank\": 32, \"shared_outpainting_lora_alpha\": 32, \"native_lora_enabled\": false, \"adaptive_lora_enabled\": true, \"adaptive_lora_rank\": 64, \"adaptive_lora_alpha\": 64, \"global_lora_enabled\": true, \"global_lora_rank\": 64, \"global_lora_alpha\": 64, \"ffn_lora_enabled\": true, \"ffn_lora_rank\": 32, \"ffn_lora_alpha\": 32, \"official_outpainting_ic_lora_enabled\": false, \"rgb_sentinel_conditioning\": false, \"k\": 4, \"scale\": 4, \"local_fusion_init_native_weight\": 0.5, \"global_fusion_init_local_weight\": 0.5, \"decompressor_refine_initialization\": \"depthwise_identity\"}",
+    "provenance": "{\"base_checkpoint\": \"ltx-2.3-22b-dev.safetensors\", \"base_model_id\": \"Lightricks/LTX-2.3\", \"base_sha256\": \"7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f\", \"ltx_source_repo\": \"/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3\", \"ltx_source_revision\": \"598ab41247a77dbfe29b5186e915bcf4f9040ec7\"}",
+    "base_model_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors"
+  },
+  "runtime_metadata": {
+    "architecture": "{\"architecture_version\": 8, \"fusion_type\": \"ltx_native_vgate\", \"adaptive_attention_type\": \"target_touching_c2_query_only\", \"position_type\": \"pma_v2_nominal_grid\", \"adaptive_support_policy\": \"c4_first_c2_promotion\", \"adaptive_role_priority\": \"anchor_target_bridge\", \"adaptive_bbox_alignment\": \"canvas_center_minimal_expand\", \"adaptive_restore_policy\": \"per_query_full_cell_target_write\", \"adaptive_fusion_policy\": \"target_masked_native_passthrough\", \"lora_type\": \"shared_outpainting_plus_branch_specialization\", \"lora_conditioning\": \"sentinel_free_native_hrlrvo\", \"lora_initialization\": \"peft_kaiming_a_zero_b\", \"lora_targets\": \"shared_qkvo_branch_qkv_ffn\", \"lora_bias\": false, \"lora_dropout\": 0.0, \"shared_outpainting_lora_enabled\": true, \"shared_outpainting_lora_rank\": 32, \"shared_outpainting_lora_alpha\": 32, \"native_lora_enabled\": false, \"adaptive_lora_enabled\": true, \"adaptive_lora_rank\": 64, \"adaptive_lora_alpha\": 64, \"global_lora_enabled\": true, \"global_lora_rank\": 64, \"global_lora_alpha\": 64, \"ffn_lora_enabled\": true, \"ffn_lora_rank\": 32, \"ffn_lora_alpha\": 32, \"official_outpainting_ic_lora_enabled\": false, \"rgb_sentinel_conditioning\": false, \"k\": 4, \"scale\": 4, \"local_fusion_init_native_weight\": 0.5, \"global_fusion_init_local_weight\": 0.5, \"decompressor_refine_initialization\": \"depthwise_identity\"}",
+    "provenance": "{\"base_checkpoint\": \"ltx-2.3-22b-dev.safetensors\", \"base_model_id\": \"Lightricks/LTX-2.3\", \"base_sha256\": \"7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f\", \"ltx_source_repo\": \"/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/shared/LTX2.3\", \"ltx_source_revision\": \"598ab41247a77dbfe29b5186e915bcf4f9040ec7\"}",
+    "base_model_path": "/home/oem/hrlrvo/portable_fhd/models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors"
+  }
+}

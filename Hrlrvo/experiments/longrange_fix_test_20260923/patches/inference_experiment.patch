@@ -1,0 +1,170 @@
+--- a/main/src/ltx_outpaint/inference.py
++++ b/main/src/ltx_outpaint/inference.py
+@@ -756,6 +756,9 @@
+     runner: Any,
+     device: torch.device,
+     dtype: torch.dtype,
++    *,
++    prefix_latent_override: torch.Tensor | None = None,
++    generated_prefix_strength: float = 1.0,
+ ) -> tuple[torch.Tensor, Rect]:
+     """Return observed-only conditioning and its one actual encoded Anchor extent."""
+     from ltx_core.model.video_vae.video_vae import (
+@@ -783,6 +786,10 @@
+             raise ValueError("Previous prefix must cover the entire requested canvas")
+         if (previous_prefix.shape[0] - 1) % scale_factors.time:
+             raise ValueError("Previous prefix frame count is not VAE-temporally aligned")
++    if prefix_latent_override is not None and previous_prefix is None:
++        raise ValueError("Latent carry requires an RGB prefix for exact visible output")
++    if not math.isfinite(generated_prefix_strength) or not 0.0 <= generated_prefix_strength <= 1.0:
++        raise ValueError("generated_prefix_strength must be finite and in [0,1]")
+     y0, x0, y1, x1 = anchor_rect
+     if (y1 - y0, x1 - x0) != tuple(anchor.shape[-2:]):
+         raise ValueError("Anchor rectangle and RGB dimensions differ; resizing is forbidden")
+@@ -837,16 +844,6 @@
+     ] = anchor_latent
+ 
+     if previous_prefix is not None:
+-        prefix_input = _reflect_pad_rgb(
+-            previous_prefix,
+-            top=boundary.top,
+-            bottom=boundary.encoded_height - boundary.bottom,
+-            left=boundary.left,
+-            right=boundary.encoded_width - boundary.right,
+-        )
+-        prefix_latent = _encode_condition_rgb(
+-            prefix_input, vae_encoder, runner, device
+-        ).to(device=device, dtype=dtype)
+         prefix_slice, _ = map_temporal_interval_to_latent(
+             0, previous_prefix.shape[0], 0, 0, scale_factors.time
+         )
+@@ -857,9 +854,37 @@
+             latent_shape.height,
+             latent_shape.width,
+         )
++        if prefix_latent_override is None:
++            prefix_input = _reflect_pad_rgb(
++                previous_prefix,
++                top=boundary.top,
++                bottom=boundary.encoded_height - boundary.bottom,
++                left=boundary.left,
++                right=boundary.encoded_width - boundary.right,
++            )
++            prefix_latent = _encode_condition_rgb(
++                prefix_input, vae_encoder, runner, device
++            ).to(device=device, dtype=dtype)
++        else:
++            if prefix_latent_override.device.type != "cpu" or prefix_latent_override.dtype != dtype:
++                raise TypeError("Carried latent must be CPU and match inference dtype")
++            prefix_latent = prefix_latent_override.to(device=device)
+         if tuple(prefix_latent.shape) != expected_prefix:
+             raise RuntimeError("Independent prefix latent does not map to canonical geometry")
+         condition[:, :, prefix_slice] = prefix_latent
++        if prefix_latent_override is not None:
++            # Hybrid carry: generated region is direct final latent; the exact
++            # current anchor encoding remains authoritative inside its known box.
++            condition[
++                :, :, prefix_slice,
++                latent_anchor_rect.y0:latent_anchor_rect.y1,
++                latent_anchor_rect.x0:latent_anchor_rect.x1,
++            ] = anchor_latent[:, :, prefix_slice]
++        if generated_prefix_strength != 1.0:
++            # Upstream strength=0.8 would set denoise_mask=0.2 and regenerate
++            # the prefix. Attenuate only the fixed side-context latent instead.
++            condition[:, :, prefix_slice, :, :latent_anchor_rect.x0].mul_(generated_prefix_strength)
++            condition[:, :, prefix_slice, :, latent_anchor_rect.x1:].mul_(generated_prefix_strength)
+     return condition, latent_anchor_rect
+ 
+ 
+@@ -1028,6 +1053,10 @@
+     vae_decode_streaming: bool = False,
+     preview_step: int | None = None,
+     preview_frame_indices: tuple[int, ...] | None = None,
++    rebase_temporal_position: bool = False,
++    prefix_latent_override: torch.Tensor | None = None,
++    generated_prefix_strength: float = 1.0,
++    latent_carry_out: list[torch.Tensor] | None = None,
+ ) -> torch.Tensor:
+     """Sample one config-sized chunk through the official LTX Euler/CFG/STG loop.
+ 
+@@ -1039,6 +1068,8 @@
+         raise ValueError(
+             "preview_step and preview_frame_indices must be supplied together"
+         )
++    if latent_carry_out is not None and preview_step is not None:
++        raise ValueError("Final latent carry cannot be captured from a partial preview")
+     if allow_nonempty_text:
+         _validate_inference_text_conditioning(runner._config)
+     else:
+@@ -1061,18 +1092,18 @@
+         fps=runner._config.frame_rate,
+     )
+     latent_shape = VideoLatentShape.from_pixel_shape(pixel_shape, scale_factors=sf)
+-    condition_latent, latent_anchor_rect = _condition_latents(
+-        anchor_frames,
+-        previous_prefix,
+-        boundary,
+-        anchor_rect,
+-        latent_shape,
+-        sf,
+-        vae_encoder,
+-        runner,
+-        device,
+-        dtype,
++    condition_args = (
++        anchor_frames, previous_prefix, boundary, anchor_rect, latent_shape,
++        sf, vae_encoder, runner, device, dtype,
+     )
++    if prefix_latent_override is None and generated_prefix_strength == 1.0:
++        condition_latent, latent_anchor_rect = _condition_latents(*condition_args)
++    else:
++        condition_latent, latent_anchor_rect = _condition_latents(
++            *condition_args,
++            prefix_latent_override=prefix_latent_override,
++            generated_prefix_strength=generated_prefix_strength,
++        )
+     tools = VideoLatentTools(
+         patchifier=VideoLatentPatchifier(patch_size=1),
+         target_shape=latent_shape,
+@@ -1097,7 +1128,8 @@
+     )
+     # LTX positions are pixel-coordinate bounds in seconds. Preserve absolute
+     # source time across LongRange chunks instead of restarting each chunk at 0.
+-    state.positions[:, 0] += absolute_start_frame / runner._config.frame_rate
++    if not rebase_temporal_position:
++        state.positions[:, 0] += absolute_start_frame / runner._config.frame_rate
+     clean_state = state
+     seed = int(runner._config.seed) + absolute_start_frame
+     state = GaussianNoiser(generator=torch.Generator(device=device).manual_seed(seed))(
+@@ -1147,6 +1179,16 @@
+     latent_finite = bool(torch.isfinite(state.latent).all().item())
+     if not latent_finite:
+         raise FloatingPointError("Denoised video latent contains NaN or Inf")
++    if latent_carry_out is not None:
++        prefix_frames = 0 if previous_prefix is None else previous_prefix.shape[0]
++        if prefix_frames == 0:
++            raise ValueError("Latent carry requires a recurrent RGB prefix")
++        prefix_latent_frames = (prefix_frames - 1) // sf.time + 1
++        final_clean = tools.unpatchify(tools.clear_conditioning(state)).latent
++        carry = final_clean[:, :, -prefix_latent_frames:].detach().to("cpu").clone()
++        if carry.dtype != dtype or not bool(torch.isfinite(carry).all().item()):
++            raise RuntimeError("Final clean latent carry has incompatible dtype or values")
++        latent_carry_out.append(carry)
+     preview_decode_metrics: dict[str, Any] = {}
+     decode_fn = runner._decode_video
+     if preview_frame_indices is not None:
+@@ -1240,6 +1282,14 @@
+                 **preview_decode_metrics,
+             }
+         )
++        if rebase_temporal_position or prefix_latent_override is not None or generated_prefix_strength != 1.0:
++            runtime_metrics.update(
++                {
++                    "experimental_rebase_temporal_position": rebase_temporal_position,
++                    "experimental_latent_carry_input": prefix_latent_override is not None,
++                    "experimental_generated_prefix_strength": generated_prefix_strength,
++                }
++            )
+     return decoded.cpu()
+ 
+ 

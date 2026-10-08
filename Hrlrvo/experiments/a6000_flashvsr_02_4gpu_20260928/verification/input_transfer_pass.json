@@ -1,0 +1,21 @@
+{
+  "anchor_sha256": "c192abcb6426be964a9a258c0c06fb22a81317eb8771d46fd81085a2172981b1",
+  "files": {
+    "02_Input_8K.mp4": {
+      "remote_path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_02_4gpu_20260928/inputs/02_Input_8K.mp4",
+      "sha256": "c192abcb6426be964a9a258c0c06fb22a81317eb8771d46fd81085a2172981b1",
+      "size": 694119810
+    },
+    "02_Outpaint_4K.mp4": {
+      "remote_path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_02_4gpu_20260928/inputs/02_Outpaint_4K.mp4",
+      "sha256": "3978d52e91d99d08296d1bb8e8768dfa8c76005b61aff979bfe6f3df4e0cad7f",
+      "size": 1962411248
+    }
+  },
+  "outpaint_sha256": "3978d52e91d99d08296d1bb8e8768dfa8c76005b61aff979bfe6f3df4e0cad7f",
+  "remote_root": "/home/oem/hrlrvo/experiments/a6000_flashvsr_02_4gpu_20260928",
+  "schema": "a6000_video02_input_transfer/v1",
+  "status": "PASS",
+  "verified_utc": "2026-09-27T16:38:41.252183+00:00",
+  "video_id": "02"
+}

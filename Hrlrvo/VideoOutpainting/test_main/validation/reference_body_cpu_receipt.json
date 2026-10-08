@@ -1,0 +1,32 @@
+{
+  "status": "PROFILE_LAUNCH_READY",
+  "scope": "Experiment 1 reference-conditioned body generation",
+  "files": {
+    "reference_memory.py": "1fd54cbf15597b7616c458c066606ce90d46a96b01981dc5aa01e20a77ee0071",
+    "reference_select.py": "131ec9931f9ec5be0a3e1dd89dc8494b02876891c5610de4e7df6afa1bc148bd",
+    "run_body_worker.py": "c0a6ebdb764d883bf5a6fc51a7c7a77a8deb02fdba9b6a985563ececca7e5fc0",
+    "body_conditioning.py": "86dbe6b9b1b1b75213e337c114ce2901f1810a0148d410ced984ead0ab0f2fc7",
+    "prepare_body_workers.py": "f7e7548d5bd8800743a2cfa409ee63d3b38cbd29d39c91714137c0f36c9b528a",
+    "prepare_jobs.py": "a064be204f07daed5f82995397e1d0fd5e0433dcd520fd9ea61c2abb778431b4",
+    "reference_memory_test.py": "83905856461e20b717fcd2b45328827605d116ab15bf5a4c37162d311aa23b84",
+    "reference_body_worker_test.py": "cd5ab9be59b9c4b501fdc7ff83a5b0d5e21a316698eb129bc637386c9fa17f84"
+  },
+  "payloads": {
+    "profile_worker_0_I00.json": "0169d675f5fee7c9f35422adc94e877beb6567fa0b911713a5bb82ec63aba91f",
+    "worker_0.json": "fdfae2119ae7db7758d1fa98c2e3b78e4baea4e4672fbe59b3dacb51194d3c51",
+    "worker_1.json": "3f4ecbf6d295196339d59b28d929553a9485926214d952f64a5b33c3ce7e0a16"
+  },
+  "reference_manifest_sha256": "6452dcfa9b0015e0d6ea5a36d703d18b37bddf4fb8719cf9f9bedb8c5512906a",
+  "cpu_validation": {
+    "pytest": "11 passed",
+    "ruff": "pass",
+    "py_compile": "pass",
+    "actual_manifest_parse": "pass",
+    "two_worker_coverage": "14 unique bodies, parity 7+7",
+    "endpoint_mask": "first two and last one latent rows full-canvas known; center Anchor known all rows",
+    "temporal_rebase": true,
+    "absolute_seed_identity_preserved": true,
+    "bridge_provenance": "requires matching PASS status and context tensor hash before body use"
+  },
+  "gpu_gate": "Run real I00 as the first body and use measured peak memory before enabling the second full parity worker."
+}

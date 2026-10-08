@@ -1,0 +1,859 @@
+{
+  "status": "PASS",
+  "body_count": 14,
+  "bridge_count": 15,
+  "video_count": 44,
+  "cpu_workers": 4,
+  "gallery": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/component_videos.html",
+  "bodies": [
+    {
+      "body": {
+        "index": 0,
+        "body_id": "I00",
+        "global_start": 0,
+        "global_stop": 81,
+        "left_bridge": "B00",
+        "right_bridge": "B01",
+        "middle_global_start": 9,
+        "middle_global_stop": 73,
+        "visible_middle_stop": 73
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I00/generated_81f_fp32.npy",
+      "source_tensor_sha256": "c1aaf1e92a5256c12a7328f3deca717e05fc82f03e7c23ebd5cb8e9db33dd426",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I00/generated_81f.mp4",
+        "sha256": "ad6ee033e19ca217e797270d480f8d0f83fe34cd02d331a462696c2eaba8a264",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 1,
+        "body_id": "I01",
+        "global_start": 73,
+        "global_stop": 154,
+        "left_bridge": "B01",
+        "right_bridge": "B02",
+        "middle_global_start": 82,
+        "middle_global_stop": 146,
+        "visible_middle_stop": 146
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I01/generated_81f_fp32.npy",
+      "source_tensor_sha256": "f16eb5a0afd9ece834ade8d4de6b2d3193d9f81a6cbb7a0e2332f240558cdb99",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I01/generated_81f.mp4",
+        "sha256": "86f5f798d195f2c1c1202d91b391013dec1a86935d1e8d365c12b7878a7dff5e",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 2,
+        "body_id": "I02",
+        "global_start": 146,
+        "global_stop": 227,
+        "left_bridge": "B02",
+        "right_bridge": "B03",
+        "middle_global_start": 155,
+        "middle_global_stop": 219,
+        "visible_middle_stop": 219
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I02/generated_81f_fp32.npy",
+      "source_tensor_sha256": "0cd8c61366577e98d3c17490865dccd7e94f2c8fe5d26317fea3bfe284fd4937",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I02/generated_81f.mp4",
+        "sha256": "a100420438d079acbc7bed689dd3bfd4104972f92573c916647799a999dc8251",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 3,
+        "body_id": "I03",
+        "global_start": 219,
+        "global_stop": 300,
+        "left_bridge": "B03",
+        "right_bridge": "B04",
+        "middle_global_start": 228,
+        "middle_global_stop": 292,
+        "visible_middle_stop": 292
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I03/generated_81f_fp32.npy",
+      "source_tensor_sha256": "7a508cddba3b29c6a8cb50a5a5d3b35684aff87fdb1586a622bd6f18633aa2fb",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I03/generated_81f.mp4",
+        "sha256": "67ab79238928a88c63c7325ffd8555bcb4e9e20d375c260253333cbfa0f4a63c",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 4,
+        "body_id": "I04",
+        "global_start": 292,
+        "global_stop": 373,
+        "left_bridge": "B04",
+        "right_bridge": "B05",
+        "middle_global_start": 301,
+        "middle_global_stop": 365,
+        "visible_middle_stop": 365
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I04/generated_81f_fp32.npy",
+      "source_tensor_sha256": "6665e4f508c6d55bf078205d5e6276bcb61da0eded3ff8903f63604d3f080daf",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I04/generated_81f.mp4",
+        "sha256": "36b40377590276ca55007f0ba9f314100a1553175978b8bdb840ad23a86bb745",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 5,
+        "body_id": "I05",
+        "global_start": 365,
+        "global_stop": 446,
+        "left_bridge": "B05",
+        "right_bridge": "B06",
+        "middle_global_start": 374,
+        "middle_global_stop": 438,
+        "visible_middle_stop": 438
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I05/generated_81f_fp32.npy",
+      "source_tensor_sha256": "9616ecf56367d30ca9c5f450122162709d3a5f01ddac6387d5575daa46782d7c",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I05/generated_81f.mp4",
+        "sha256": "728bdd3f67ab4db7ccd92b8e018a92c10b10099be51b16a1a8cebc594775ffe2",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 6,
+        "body_id": "I06",
+        "global_start": 438,
+        "global_stop": 519,
+        "left_bridge": "B06",
+        "right_bridge": "B07",
+        "middle_global_start": 447,
+        "middle_global_stop": 511,
+        "visible_middle_stop": 511
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I06/generated_81f_fp32.npy",
+      "source_tensor_sha256": "c673614614158c21c153259321575797c56781fa6f42c171ec899c288419f476",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I06/generated_81f.mp4",
+        "sha256": "8b7fc5d1ed4609a65544bc54ade9a67f4671fb7a9a20b6f23ebfe372b24fc265",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 7,
+        "body_id": "I07",
+        "global_start": 511,
+        "global_stop": 592,
+        "left_bridge": "B07",
+        "right_bridge": "B08",
+        "middle_global_start": 520,
+        "middle_global_stop": 584,
+        "visible_middle_stop": 584
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I07/generated_81f_fp32.npy",
+      "source_tensor_sha256": "c479e05bc615899c0ffcad7678eb903eafda91dc03307151e4589de37faa615f",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I07/generated_81f.mp4",
+        "sha256": "23c1eb3ed5c2e493a4679df5b6efd9e974e32e72c10fa0f7b7fdf425c282c1e4",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 8,
+        "body_id": "I08",
+        "global_start": 584,
+        "global_stop": 665,
+        "left_bridge": "B08",
+        "right_bridge": "B09",
+        "middle_global_start": 593,
+        "middle_global_stop": 657,
+        "visible_middle_stop": 657
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I08/generated_81f_fp32.npy",
+      "source_tensor_sha256": "373b40a022278ea24c1776268894b351ea3df6121e0e0d4d6370138af5068e49",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I08/generated_81f.mp4",
+        "sha256": "3086104d42678a8696b507431530eab0fc529cb43fd1f6efb3092aa5c9d1bac9",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 9,
+        "body_id": "I09",
+        "global_start": 657,
+        "global_stop": 738,
+        "left_bridge": "B09",
+        "right_bridge": "B10",
+        "middle_global_start": 666,
+        "middle_global_stop": 730,
+        "visible_middle_stop": 730
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I09/generated_81f_fp32.npy",
+      "source_tensor_sha256": "7a4644e5853946b9118a76323bda290f0d06747ef4fa889bbe543a7dfcf74b58",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I09/generated_81f.mp4",
+        "sha256": "f55a1809fd956cdd73fa4b07bf0fd01b6026c19f4e567c0fcc9c5b5646663e73",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 10,
+        "body_id": "I10",
+        "global_start": 730,
+        "global_stop": 811,
+        "left_bridge": "B10",
+        "right_bridge": "B11",
+        "middle_global_start": 739,
+        "middle_global_stop": 803,
+        "visible_middle_stop": 803
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I10/generated_81f_fp32.npy",
+      "source_tensor_sha256": "a28d2d6fce9f6048327a0591f05a73e98320768a024026810e835285da347c62",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I10/generated_81f.mp4",
+        "sha256": "15c0db54306a0abe8d00ec397f1bc03f06ec09bb24cb5c8cf425306589c66b0b",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 11,
+        "body_id": "I11",
+        "global_start": 803,
+        "global_stop": 884,
+        "left_bridge": "B11",
+        "right_bridge": "B12",
+        "middle_global_start": 812,
+        "middle_global_stop": 876,
+        "visible_middle_stop": 876
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I11/generated_81f_fp32.npy",
+      "source_tensor_sha256": "1ea34294aa81ead49cd966fed1d7b65b32b4c775b6cf7a82bf6e45d818665cf1",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I11/generated_81f.mp4",
+        "sha256": "c9d22f29d410a2d2dd79c1bcf3e8ec927ad560d61ed2fea1c35cc23b66495cb7",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 12,
+        "body_id": "I12",
+        "global_start": 876,
+        "global_stop": 957,
+        "left_bridge": "B12",
+        "right_bridge": "B13",
+        "middle_global_start": 885,
+        "middle_global_stop": 949,
+        "visible_middle_stop": 949
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I12/generated_81f_fp32.npy",
+      "source_tensor_sha256": "626a4a96772a41dfd5b17e0ade269b3360f4aa89c80f5df708693c714345c9cc",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I12/generated_81f.mp4",
+        "sha256": "5bf78764d2c7faf2f1fd4a194f28cc3898ff4b3e80e332197d5234ef13bb4a9c",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    },
+    {
+      "body": {
+        "index": 13,
+        "body_id": "I13",
+        "global_start": 949,
+        "global_stop": 1030,
+        "left_bridge": "B13",
+        "right_bridge": "B14",
+        "middle_global_start": 958,
+        "middle_global_stop": 1022,
+        "visible_middle_stop": 1022
+      },
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I13/generated_81f_fp32.npy",
+      "source_tensor_sha256": "17c962389eee18227cdc101d6951af6b7f4af21c4da735c0c2f62831a59b7352",
+      "video": {
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I13/generated_81f.mp4",
+        "sha256": "d96b576b4b69ab6c7f039e5c3f1c9d2d919f9458b431263546d813202be75242",
+        "width": 1920,
+        "height": 1080,
+        "fps": "24/1",
+        "frames": 81
+      }
+    }
+  ],
+  "bridges": [
+    {
+      "bridge_id": "B00",
+      "global_bridge_range": [
+        0,
+        9
+      ],
+      "context_range": [
+        0,
+        65
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B00/context_65f.mp4",
+          "sha256": "6138ecdeb7aecdff6031d63ea0bd4124d7ca6bf4b8dd56197c8a937cb3a9f005",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B00/bridge_9f.mp4",
+          "sha256": "cd37f8885e0a78e41387e3aba5dd89803b30ed94351bda0171e1aea564795acf",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B01",
+      "global_bridge_range": [
+        73,
+        82
+      ],
+      "context_range": [
+        48,
+        113
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B01/context_65f.mp4",
+          "sha256": "54ae23751292577af1f5a606f15dd7bfd6e866bf0ad4052bf5bea797d3651291",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B01/bridge_9f.mp4",
+          "sha256": "11040426454ef68443f5323d57d945e65268d637462fccf79b94bbb1966ef862",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B02",
+      "global_bridge_range": [
+        146,
+        155
+      ],
+      "context_range": [
+        121,
+        186
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B02/context_65f.mp4",
+          "sha256": "a7ee0db9208ed0a4db724ca04924572019f9b6140ca662e965946fc84e61eedd",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B02/bridge_9f.mp4",
+          "sha256": "4c3be1f7fd440a251472c4f64e1134279083a14187e5e75f5810a040d0ceea6e",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B03",
+      "global_bridge_range": [
+        219,
+        228
+      ],
+      "context_range": [
+        194,
+        259
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B03/context_65f.mp4",
+          "sha256": "d79353d8fb7cbe068a7f7e475ff3e4348495c848b7ce473aa14f6b6e2e3a180e",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B03/bridge_9f.mp4",
+          "sha256": "dabe44c3d4502ac8f3c3b33f617789d889103f5814fec3fc20812b0fa52bda5d",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B04",
+      "global_bridge_range": [
+        292,
+        301
+      ],
+      "context_range": [
+        267,
+        332
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B04/context_65f.mp4",
+          "sha256": "16e00efae20b83697f310247bb360e25597f005e1041dbe141856963db6493d4",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B04/bridge_9f.mp4",
+          "sha256": "278c7a7afe420dd6430159b7b44bc0f21bdaeb26e56e3fa62574cc9209e74fd5",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B05",
+      "global_bridge_range": [
+        365,
+        374
+      ],
+      "context_range": [
+        340,
+        405
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B05/context_65f.mp4",
+          "sha256": "1609c25f94fbb2e39b381107573a1b0d1d2af3dddba3d567c4786bc69fe219ed",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B05/bridge_9f.mp4",
+          "sha256": "b9c7822f28b073faa89609690144b3bbd5afec6077bc18b6167e9228f42a236f",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B06",
+      "global_bridge_range": [
+        438,
+        447
+      ],
+      "context_range": [
+        413,
+        478
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B06/context_65f.mp4",
+          "sha256": "cca85123df134596ad216175857bad4668500c644db765d9315c83dbf043d58a",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B06/bridge_9f.mp4",
+          "sha256": "949af82801cac8dafa95d9c4f9007e3599483b13488e686bed9cc26927aee722",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B07",
+      "global_bridge_range": [
+        511,
+        520
+      ],
+      "context_range": [
+        486,
+        551
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B07/context_65f.mp4",
+          "sha256": "ef8f2b10b3695dac338a55edbe2bd3890ce673f87759bde49712ce0678a4e8e2",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B07/bridge_9f.mp4",
+          "sha256": "db788a98a1c3eebc3836edea4c0332d0992e2d2d8eed7c9354929430830e6887",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B08",
+      "global_bridge_range": [
+        584,
+        593
+      ],
+      "context_range": [
+        559,
+        624
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B08/context_65f.mp4",
+          "sha256": "efdb9a975a0abdadcf67cd1dbb651dc9f9110f016d48127039a7307bf88c7fa8",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B08/bridge_9f.mp4",
+          "sha256": "842e6dd4d33e877491c8d6e0844814fc539cb811dbcb31b969227bb21613c8d6",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B09",
+      "global_bridge_range": [
+        657,
+        666
+      ],
+      "context_range": [
+        632,
+        697
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B09/context_65f.mp4",
+          "sha256": "28604f6110406246e31f190e234db80c0721ec7a9e53be588d3d0cdb61352fdc",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B09/bridge_9f.mp4",
+          "sha256": "ee6a6885e575902e4ceb43321269ea751e6f3da5ec9de2529c1a14ee36554396",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B10",
+      "global_bridge_range": [
+        730,
+        739
+      ],
+      "context_range": [
+        705,
+        770
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B10/context_65f.mp4",
+          "sha256": "25bec53e54aa75b7a1fd7dfa007bdb0cb4df1922aa0500d5294d4a4086620ad5",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B10/bridge_9f.mp4",
+          "sha256": "1a8b01b4faf579b86f0607b62410d15435bf14e97522194b3b7b19fe4f1fbe74",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B11",
+      "global_bridge_range": [
+        803,
+        812
+      ],
+      "context_range": [
+        778,
+        843
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B11/context_65f.mp4",
+          "sha256": "816678aa9398c4075f2964c8b0d87f7820ae14a84bc015950b14e63265033145",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B11/bridge_9f.mp4",
+          "sha256": "2d3a91b629741cf10a4a504fa993af47a71992daf1928733bd257e4db89905aa",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B12",
+      "global_bridge_range": [
+        876,
+        885
+      ],
+      "context_range": [
+        851,
+        916
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B12/context_65f.mp4",
+          "sha256": "c0ad132ffbee5465d79c343f035cec2fcd29b815f4a4402d330e8b15df4deaae",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B12/bridge_9f.mp4",
+          "sha256": "3ecd04830e17ad873dad4e4a8dfa08baaa0566ce456b615b3d7eb0d0fc006139",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B13",
+      "global_bridge_range": [
+        949,
+        958
+      ],
+      "context_range": [
+        924,
+        989
+      ],
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B13/context_65f.mp4",
+          "sha256": "5fd2d3f49318911c2ee82f8168badfa0c66589d662d3f2686aa67658e0ed94fd",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B13/bridge_9f.mp4",
+          "sha256": "6ec34bcd9f31e9061d596361b45cf0681f9601841a65015495f60c5ff1bc6dc7",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/bridge_9f.mp4"
+        }
+      }
+    },
+    {
+      "bridge_id": "B14",
+      "global_bridge_range": [
+        1022,
+        1031
+      ],
+      "context_range": [
+        997,
+        1062
+      ],
+      "padding": {
+        "left": 0,
+        "right": 37
+      },
+      "videos": {
+        "context_65f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B14/context_65f.mp4",
+          "sha256": "7db82c160b4315dc4078131e68d8f7fec37735a998af714741bb8e108c8898d5",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/context_65f.mp4"
+        },
+        "bridge_9f_mp4": {
+          "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B14/bridge_9f.mp4",
+          "sha256": "2d61690269121dd6262887232d4bffaccba9429db9f51f83bb08b5d8e901a703",
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9,
+          "reused_from": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/bridge_9f.mp4"
+        }
+      }
+    }
+  ]
+}

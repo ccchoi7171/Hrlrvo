@@ -1,0 +1,42 @@
+{
+  "status": "IMPLEMENTATION_READY",
+  "scope": "Experiment 1 body-only four-image inference reference conditioning",
+  "model": "Hrlrvo checkpoint-013000 with existing VAE, transformer, Global LoRA and C4 compressor",
+  "training": false,
+  "reference_count": 4,
+  "reference_frames": [9, 17, 45, 53],
+  "reference_manifest": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_manifest.json",
+  "reference_manifest_sha256": "6452dcfa9b0015e0d6ea5a36d703d18b37bddf4fb8719cf9f9bedb8c5512906a",
+  "implementation": {
+    "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_memory.py",
+    "sha256": "1fd54cbf15597b7616c458c066606ce90d46a96b01981dc5aa01e20a77ee0071",
+    "reference_stream": "four separately VAE-encoded one-frame full-canvas samples, B=4 T=1 sigma=0, one frozen transformer forward",
+    "cache": "projected block-local Global K/V, immutable CPU storage, current block copied to accelerator",
+    "target_read": "target Q to reference K/V in Global branch only",
+    "local_adaptive": "unchanged",
+    "temporal_policy": "repeat each reference spatial lattice at every target latent time using that target time's RoPE",
+    "blend": "compressed Global target output lerp reference-attended output alpha=0.1",
+    "write_mask": "apply only to generated tokens; center Anchor and left/right endpoint tokens use target-only Global output"
+  },
+  "selection_tool": {
+    "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_select.py",
+    "sha256": "131ec9931f9ec5be0a3e1dd89dc8494b02876891c5610de4e7df6afa1bc148bd",
+    "policy": "sharpest exterior frame in each of four fixed B00 temporal strata"
+  },
+  "validation": {
+    "test_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/validation/reference_memory_test.py",
+    "test_sha256": "83905856461e20b717fcd2b45328827605d116ab15bf5a4c37162d311aa23b84",
+    "pytest": "5 passed",
+    "combined_experiment_1_pytest": "11 passed",
+    "ruff": "pass",
+    "py_compile": "pass",
+    "proved": [
+      "four distinct content-hashed references and separate-one-frame VAE contract",
+      "target-time reference RoPE replication",
+      "all block cache capture and CPU immutability",
+      "Anchor and explicit endpoint known-mask preservation",
+      "alpha=0 exact target-only return"
+    ]
+  },
+  "open_quality_limit": "The checkpoint was not trained for this reference role; the full 1025-frame run is the empirical test."
+}

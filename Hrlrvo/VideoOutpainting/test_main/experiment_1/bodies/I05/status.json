@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "pid": 2634821,
+  "ordinal": 2,
+  "worker_id": 1,
+  "body": {
+    "index": 5,
+    "body_id": "I05",
+    "global_start": 365,
+    "global_stop": 446,
+    "left_bridge": "B05",
+    "right_bridge": "B06",
+    "middle_global_start": 374,
+    "middle_global_stop": 438,
+    "visible_middle_stop": 438
+  },
+  "started_utc": "2026-10-08T01:49:52.103557+00:00",
+  "ended_utc": "2026-10-08T02:11:35.327186+00:00",
+  "sample_seconds": 1277.2354996912181,
+  "noise": {
+    "generator_seed": 33333698,
+    "shape": [
+      1,
+      23760,
+      128
+    ],
+    "dtype": "torch.bfloat16",
+    "sha256": "33626dd01af3fd46034d5ebea2ac781abc747ee00ee08b83a3531e3a62cef9a5"
+  },
+  "output_sha256": "9616ecf56367d30ca9c5f450122162709d3a5f01ddac6387d5575daa46782d7c",
+  "suffix_latent_sha256": "c1ca779f66ef6b4a30b04daf15dbd1582ccf82e1cdca3d205161dcc1f2bb3c21",
+  "known_mask_sha256": "210cf32b4b25d37fae0c4b0ac1353492b5242a19920d4571b0400b825e389fd2",
+  "reference_cache_sha256": "b93e63d00f6b0b0d7daf18d2bdea04f15cf904afdcd451d40b405f845904d2ab",
+  "recurrence_events": [
+    {
+      "chunk": 1,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 1,
+      "action": "temporal_rebase",
+      "seconds_removed": 3.0416666666666665
+    },
+    {
+      "chunk": 4,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 4,
+      "action": "temporal_rebase",
+      "seconds_removed": 9.125
+    },
+    {
+      "chunk": 7,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 7,
+      "action": "temporal_rebase",
+      "seconds_removed": 15.208333333333334
+    }
+  ],
+  "peak_cuda_allocated_bytes": 32771043840,
+  "peak_cuda_reserved_bytes": 35404120064
+}

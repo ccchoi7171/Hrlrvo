@@ -1,0 +1,35 @@
+from pathlib import Path
+from types import SimpleNamespace
+import json, torch, yaml
+from ltx_outpaint.inference import _install_official_sources
+from ltx_outpaint.geometry import Rect, CanvasGeometry, adaptive_layout
+r=Path('/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main')
+cfg=yaml.safe_load((r/'configs/inference_4k.yaml').read_text());_install_official_sources(Path(cfg['ltx_repo']))
+from ltx_trainer.model_loader import read_video_scale_factors
+from ltx_core.components.patchifiers import VideoLatentPatchifier,get_pixel_coords
+from ltx_core.types import VideoLatentShape
+from ltx_outpaint.position import target_query_positions
+sf=read_video_scale_factors(cfg['model']['base_model_path']);results=[]
+for ah,aw,th,tw,H,W in [(2,2,8,12,12,16),(3,3,10,13,16,20),(5,7,12,16,20,24)]:
+ a=Rect(ah,aw,ah+4,aw+4); t=Rect(th,tw,th+4,tw+4)
+ g=CanvasGeometry(3,H,W,(a,)); layout=adaptive_layout(a,t,H,W)
+ bounds=VideoLatentPatchifier(1).get_patch_grid_bounds(VideoLatentShape(1,128,3,H,W),device=torch.device('cpu'))
+ p=get_pixel_coords(bounds,sf,causal_fix=True).double();p[:,0]/=24
+ ctx=SimpleNamespace(geometry=g,positions=p)
+ out=target_query_positions(ctx,layout.cells,2)
+ idx=torch.tensor([frame*H*W+c.indices[0] for frame in range(3) for c in layout.cells])
+ assert torch.equal(out[:,0],p[:,0].index_select(1,idx))
+ expected=torch.tensor([[c.y/2+.5,c.x/2+.5] for c in layout.cells],dtype=torch.float64).repeat(3,1)
+ e=max((out[:,1,:,0]-expected[:,0]*sf.height).abs().max().item(),(out[:,2,:,0]-expected[:,1]*sf.width).abs().max().item())
+ assert e==0
+ assert torch.equal(out[:,:,:,0][:,1:],out[:,:,:,1][:,1:])
+ results.append({'anchor_yx':[ah,aw],'target_yx':[th,tw],'canvas_hw':[H,W],
+ 'support':list(vars(layout.rectangle).values()),'cell_count':len(layout.cells),
+ 'C2':sum(c.scale==2 for c in layout.cells),'C4':sum(c.scale==4 for c in layout.cells),
+ 'max_spatial_phase_error':e,'native_temporal_bounds_exact':True,'equal_spatial_phase_endpoints':True})
+assert not torch.cuda.is_initialized()
+result={'verdict':'PASS','cases':results,'scope':'Pure coordinate helper only; no RoPE attention/model forward/backward',
+ 'max_numerical_error':max(q['max_spatial_phase_error'] for q in results),'cuda_initialized':False}
+(r/'docs/final_architecture_audit/evidence/pma_coordinate_results.json').write_text(json.dumps(result,indent=2)+'\n')
+(r/'docs/final_architecture_audit/evidence/pma_coordinate_script.txt').write_text(Path(__file__).read_text())
+print(json.dumps(result,indent=2))

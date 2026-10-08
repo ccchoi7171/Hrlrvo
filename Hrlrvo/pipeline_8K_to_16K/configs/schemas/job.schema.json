@@ -1,0 +1,320 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "job_name",
+    "output_root",
+    "input",
+    "seed",
+    "frames",
+    "preprocess",
+    "outpainting",
+    "upscale",
+    "final",
+    "verification",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "job_name": {
+      "type": "string",
+      "pattern": "^0[1-5]_(certification|quick|legacy_raw|validation|preprocess_reproduction|recurrence_c0|recurrence_c1)$"
+    },
+    "output_root": {
+      "type": "string",
+      "pattern": "^state/runs/0[1-5]_(certification|quick|legacy_raw|validation|preprocess_reproduction|recurrence_c0|recurrence_c1)$"
+    },
+    "input": {
+      "type": "object",
+      "required": [
+        "video_id",
+        "path"
+      ],
+      "properties": {
+        "video_id": {
+          "enum": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^data/00_Input_8K_7680x4320/0[1-5]_Input_8K\\.mp4$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "seed": {
+      "type": "integer",
+      "enum": [
+        50374151,
+        25621683,
+        33333333,
+        71634910
+      ]
+    },
+    "frames": {
+      "type": "object",
+      "required": [
+        "outpaint",
+        "upscale"
+      ],
+      "properties": {
+        "outpaint": {
+          "oneOf": [
+            {
+              "const": "all"
+            },
+            {
+              "type": "integer",
+              "minimum": 1
+            }
+          ]
+        },
+        "upscale": {
+          "oneOf": [
+            {
+              "const": "all"
+            },
+            {
+              "type": "integer",
+              "minimum": 1
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "preprocess": {
+      "const": {
+        "source_fps": 16,
+        "processing_fps": 24,
+        "source_resolution": [
+          7680,
+          4320
+        ],
+        "output_resolution": [
+          1920,
+          1080
+        ],
+        "resize": "lanczos",
+        "video_codec": "libx265",
+        "pixel_format": "yuv420p10le",
+        "crf": 18,
+        "audio_tempo": 1.5,
+        "video_filter": "scale=1920:1080:flags=lanczos:in_range=pc:out_range=pc,setsar=1,setpts=PTS*2/3,fps=24",
+        "fps_mode": "passthrough",
+        "preset": "fast",
+        "decoder_threads": 8,
+        "x265_params": "log-level=error:pools=8",
+        "color_range": "pc",
+        "colorspace": "bt709",
+        "color_primaries": "bt709",
+        "color_transfer": null,
+        "video_tag": "hvc1",
+        "video_track_timescale": 24576,
+        "metadata_map": 0,
+        "stream_mapping": [
+          "0:v:0",
+          "0:a:0"
+        ],
+        "audio_codec": "aac",
+        "audio_bitrate": "192k",
+        "input_audio_streams": 1,
+        "ffmpeg_loglevel": "error",
+        "overwrite_partial": false
+      }
+    },
+    "outpainting": {
+      "const": {
+        "runtime_config": "src/video_outpainting/main/configs/inference_4k.yaml",
+        "checkpoint": "src/models/outpaint_checkpoint_007500",
+        "steps": 30,
+        "positive_prompt": "",
+        "negative_prompt": "people, person, human, staff, audience, crowd, backstage, seats",
+        "input_resolution": [
+          1920,
+          1080
+        ],
+        "output_resolution": [
+          3840,
+          2160
+        ],
+        "alpha_feather_px": 16,
+        "processing_fps": 24,
+        "stored_fps": 16,
+        "memory_optimization": {
+          "video_only_gpu_weights": true,
+          "vae_decode_streaming": true,
+          "ffn_token_chunking": false
+        },
+        "recurrence": {
+          "rebase_temporal_position": true,
+          "use_latent_carry": true,
+          "generated_prefix_strength": 1.0,
+          "lineart_global_prior": true,
+          "lineart_bias_schedule": [
+            {
+              "start_step": 0,
+              "end_step": 9,
+              "strength": 0.5
+            },
+            {
+              "start_step": 10,
+              "end_step": 19,
+              "strength": 0.3
+            },
+            {
+              "start_step": 20,
+              "end_step": 29,
+              "strength": 0.1
+            }
+          ],
+          "lineart_source": "chunk00_first_final_rgb_frame",
+          "lineart_start_chunk": 1,
+          "lineart_reference_resolution": [
+            3840,
+            2160
+          ],
+          "lineart_source_resize": "none",
+          "lineart_global_map": [
+            30,
+            17
+          ],
+          "lineart_density_method": "direct_4k_global_footprint_density",
+          "lineart_density_padding": {
+            "top": 8,
+            "bottom": 8,
+            "left": 0,
+            "right": 0,
+            "value": 0
+          },
+          "lineart_density_normalizer": 0.05,
+          "lineart_extraction": {
+            "grayscale": "RGB2GRAY",
+            "gaussian_kernel": [
+              3,
+              3
+            ],
+            "gaussian_sigma": 0.8,
+            "border": "BORDER_REFLECT_101",
+            "canny_low": 35,
+            "canny_high": 100,
+            "aperture": 3,
+            "L2gradient": true,
+            "component_connectivity": 8,
+            "component_min_pixels": 12,
+            "component_min_long_span": 12,
+            "clahe": false,
+            "morphology": false,
+            "dilation": false,
+            "thinning": false
+          }
+        }
+      }
+    },
+    "upscale": {
+      "type": "object",
+      "required": ["model", "runtime", "scale", "input_resolution", "output_resolution", "fps", "tile_size", "tile_overlap", "min_tile_size", "sparse_ratio", "local_range", "gpu_index", "ffmpeg_threads", "encoder"],
+      "properties": {
+        "model": {"const": "src/models/flashvsr_v1_1"},
+        "runtime": {"const": "src/flashvsr/architect/FlashVSR_v1.1/upscale.py"},
+        "scale": {"const": 4},
+        "input_resolution": {"const": [3840, 2160]},
+        "output_resolution": {"const": [15360, 8640]},
+        "fps": {"const": 16},
+        "tile_size": {"const": "auto"},
+        "tile_overlap": {"const": "auto"},
+        "min_tile_size": {"const": 128},
+        "sparse_ratio": {"const": 2.0},
+        "local_range": {"const": 11},
+        "gpu_index": {"const": 0},
+        "ffmpeg_threads": {"const": 32},
+        "encoder": {"const": "libx265"},
+        "output_mode": {"enum": ["final_only", "legacy_raw"]}
+      },
+      "additionalProperties": false
+    },
+    "final": {
+      "type": "object",
+      "required": [
+        "fps",
+        "center_original_8k",
+        "center_feather_px",
+        "filename",
+        "audio_source"
+      ],
+      "properties": {
+        "fps": {
+          "const": 16
+        },
+        "center_original_8k": {
+          "const": true
+        },
+        "center_feather_px": {
+          "const": 64
+        },
+        "filename": {
+          "type": "string",
+          "pattern": "^[^/\\\\]+\\.mp4$"
+        },
+        "audio_source": {
+          "const": "original_8k"
+        }
+      },
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "full_decode"
+      ],
+      "properties": {
+        "full_decode": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "object",
+      "required": [
+        "preprocess",
+        "preprocess_metadata",
+        "outpaint",
+        "upscale"
+      ],
+      "properties": {
+        "preprocess": {
+          "type": "string",
+          "pattern": "^data/[^\\x00]+$"
+        },
+        "preprocess_metadata": {
+          "type": "string",
+          "pattern": "^data/[^\\x00]+$"
+        },
+        "outpaint": {
+          "type": "string",
+          "pattern": "^data/[^\\x00]+$"
+        },
+        "upscale": {
+          "type": "string",
+          "pattern": "^data/[^\\x00]+$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation": {
+      "const": {
+        "native_outpaint_only": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

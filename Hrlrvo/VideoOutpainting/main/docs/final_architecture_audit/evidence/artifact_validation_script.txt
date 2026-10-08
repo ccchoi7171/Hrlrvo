@@ -1,0 +1,34 @@
+from pathlib import Path
+import json,re,hashlib
+from PIL import Image
+root=Path('/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main/docs/final_architecture_audit')
+expected=['01_TRAINING_SPEC.md','02_INFERENCE_SPEC.md','03_NATIVE_LOCAL_BRANCH.md','04_ADAPTIVE_LOCAL_BRANCH.md','05_GLOBAL_BRANCH.md','06_FUSION_SPEC.md','07_COMPRESSION_DECOMPRESSION_SPEC.md','08_FULL_ARCHITECTURE_FLOW.md','09_ADAPTIVE_GRID_GEOMETRY_AUDIT.md','10_FINAL_ARCHITECTURE_AUDIT.md']
+missing=[n for n in expected if not (root/n).is_file()];links=[];fences=[]
+for n in expected:
+ p=root/n;s=p.read_text()
+ if sum(line.startswith('```') for line in s.splitlines())%2:fences.append(n)
+ prose=re.sub(r'^```[^\n]*\n.*?^```[^\n]*$', '',s,flags=re.S|re.M)
+ for link in re.findall(r'!?\[[^\]\n]*\]\(([^)\n]+)\)',prose):
+  if link.startswith(('http://','https://','#')):continue
+  link=link.split('#')[0]
+  if not (p.parent/link).exists():links.append({'document':n,'link':link})
+vis=root/'adaptive_grid_visualizations'
+expimg={f'grid{k}_local_{i:02d}.png' for k in (4,5) for i in range(k*k)}
+actimg={p.name for p in vis.glob('grid?_local_*.png')};assert expimg==actimg
+allpng=list(vis.glob('*.png'));size_errors=[]
+for p in allpng:
+ with Image.open(p) as im:
+  if p.name in expimg and im.size!=(5020,2160):size_errors.append(p.name)
+  im.verify()
+assert len(allpng)==44
+r={'verdict':'PASS' if not (missing or links or fences or size_errors) else 'FAIL',
+ 'markdown_count':len(expected),'missing_markdown':missing,'broken_local_links':links,'unbalanced_fences':fences,
+ 'individual_png_count':len(actimg),'contact_sheet_count':len(allpng)-len(actimg),'image_integrity':'PASS','image_size_errors':size_errors,
+ 'markdown_lines':{n:len((root/n).read_text().splitlines()) for n in expected},
+ 'render_review':['grid4_local_00.png','grid5_all_25.png'],
+ 'render_review_result':'Visible canvas/role colors/full-cell subdivisions/annotations visually inspected'}
+(root/'evidence/artifact_validation.json').write_text(json.dumps(r,indent=2)+'\n')
+(root/'evidence/artifact_validation_script.txt').write_text(Path(__file__).read_text())
+print(json.dumps(r,indent=2));assert r['verdict']=='PASS'
+manifest={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob('*') if p.is_file() and p.name!='artifact_manifest.json'}
+(root/'evidence/artifact_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')

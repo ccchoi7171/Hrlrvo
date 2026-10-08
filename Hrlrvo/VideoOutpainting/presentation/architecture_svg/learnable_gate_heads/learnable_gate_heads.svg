@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1740" height="510" viewBox="0 0 1740 510" version="1.1" role="img">
+  <title>Timestep-conditioned learnable fusion gates</title>
+  <desc>The existing pretrained LTX MSA gate supplies conditioning to two independent learnable heads, which produce the local fusion weight alpha_1 and the local-global fusion weight alpha_2. The enclosing box is a grouping, not an additional shared trainable layer. The timestep-to-MSA arrow abstracts the existing timestep embedding and AdaLN path. Each head uses its own learned channel-wise affine parameters and a sigmoid; no extra timestep encoder is added.</desc>
+  <g id="timestep-input">
+    <circle cx="145" cy="250" r="57" fill="#FFFFFF" stroke="#CAD3DF" stroke-width="2.4" />
+    <text x="145" y="267" font-family="DejaVu Sans" font-size="55" font-weight="400" fill="#243448" text-anchor="middle">t</text>
+    <text x="145" y="350" font-family="DejaVu Sans" font-size="36" font-weight="400" fill="#243448" text-anchor="middle">Timestep</text>
+  </g>
+  <g id="pretrained-msa-gate">
+    <rect x="325" y="180" width="300" height="140" rx="13" fill="#F1F4F8" stroke="#BBC7D5" stroke-width="2.4" />
+    <text x="475" y="240" font-family="DejaVu Sans" font-size="40" font-weight="600" fill="#243448" text-anchor="middle">MSA Gate</text>
+    <text x="475" y="285" font-family="DejaVu Sans" font-size="32" font-weight="400" fill="#66778C" text-anchor="middle">vgate_msa</text>
+    <text x="475" y="363" font-family="DejaVu Sans" font-size="32" font-weight="400" fill="#66778C" text-anchor="middle">Pretrained · Frozen</text>
+  </g>
+  <g id="learnable-gate-heads-group">
+    <rect x="765" y="45" width="680" height="420" rx="17" fill="#FFFFFF" stroke="#C7D2E0" stroke-width="2.4" />
+    <text x="1105" y="102" font-family="DejaVu Sans" font-size="40" font-weight="600" fill="#243448" text-anchor="middle">Learnable Gate Heads</text>
+    <g id="independent-local-fusion-head">
+      <rect x="825" y="140" width="565" height="105" rx="12" fill="#EFF4FF" stroke="#8CA8D7" stroke-width="2.4" />
+      <text x="1107.5" y="206" font-family="DejaVu Sans" font-size="38" font-weight="600" fill="#315FAD" text-anchor="middle">Local Fusion Gate</text>
+    </g>
+    <g id="independent-local-global-fusion-head">
+      <rect x="825" y="315" width="565" height="105" rx="12" fill="#EDF8F5" stroke="#80B9B1" stroke-width="2.4" />
+      <text x="1107.5" y="381" font-family="DejaVu Sans" font-size="36" font-weight="600" fill="#197B76" text-anchor="middle">Local–Global Fusion Gate</text>
+    </g>
+  </g>
+  <g id="conditioning-fanout">
+    <polyline points="202,250 325,250" fill="none" stroke="#66778C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="325,250 315,255 315,245" fill="#66778C" />
+    <polyline points="625,250 700,250" fill="none" stroke="#66778C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    <polyline points="700,192.5 700,367.5" fill="none" stroke="#66778C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="700" cy="250" r="5.5" fill="#66778C" />
+    <polyline points="700,192.5 825,192.5" fill="none" stroke="#66778C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="825,192.5 815,197.5 815,187.5" fill="#66778C" />
+    <polyline points="700,367.5 825,367.5" fill="none" stroke="#66778C" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="825,367.5 815,372.5 815,362.5" fill="#66778C" />
+  </g>
+  <g id="fusion-weight-outputs">
+    <text x="1595" y="102" font-family="DejaVu Sans" font-size="32" font-weight="400" fill="#66778C" text-anchor="middle">Fusion weights</text>
+    <polyline points="1390,192.5 1540,192.5" fill="none" stroke="#315FAD" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="1540,192.5 1530,197.5 1530,187.5" fill="#315FAD" />
+    <polyline points="1390,367.5 1540,367.5" fill="none" stroke="#197B76" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="1540,367.5 1530,372.5 1530,362.5" fill="#197B76" />
+    <text x="1595" y="211" font-family="DejaVu Sans" font-size="55" font-weight="400" fill="#315FAD" text-anchor="middle">α₁</text>
+    <text x="1595" y="386" font-family="DejaVu Sans" font-size="55" font-weight="400" fill="#197B76" text-anchor="middle">α₂</text>
+  </g>
+</svg>

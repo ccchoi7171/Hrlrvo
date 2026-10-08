@@ -1,0 +1,7 @@
+{
+  "error": "RuntimeError: remote video02 failed: RuntimeError: final-only composition/encoding failed",
+  "pid": 2521964,
+  "schema": "h200_video02_migration_watcher/v1",
+  "status": "FAILED",
+  "updated_utc": "2026-09-28T12:12:30.781448+00:00"
+}

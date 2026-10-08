@@ -1,0 +1,102 @@
+{
+  "created_utc": "2026-09-26T16:41:55.547663+00:00",
+  "scope": "isolated reviewed runtime code plus exact source package versions and native build proof",
+  "files": {
+    "package/src/cert_pipeline/__init__.py": {
+      "bytes": 53,
+      "sha256": "17d71459fc6c240acae171be507dcdb607b759d685492b15f461727a9acf64c0"
+    },
+    "package/src/cert_pipeline/flash_composite.py": {
+      "bytes": 78615,
+      "sha256": "e9257a03b063f8ffd68036b3cae0028ae2eb251586e7e1268d3390ebe959330c"
+    },
+    "package/src/cert_pipeline/outpaint.py": {
+      "bytes": 35967,
+      "sha256": "2c592f8d8eb2dab48637a3c8aa01994681b2e09fef041a680a9db7cbabd89f42"
+    },
+    "package/src/cert_pipeline/preprocess.py": {
+      "bytes": 24346,
+      "sha256": "c46dd3442cf0a76320d94440f025cd1fed0eca2320d2140ca25c40f83a84484d"
+    },
+    "package/src/cert_pipeline/recurrence.py": {
+      "bytes": 2386,
+      "sha256": "f59e1439e96348e85b08e5f5dac8facd768e2918d0a6f2442c5a3c61ef0fc95e"
+    },
+    "package/src/flashvsr/architect/FlashVSR_v1.1/upscale.py": {
+      "bytes": 73779,
+      "sha256": "3db9c0524418070a87b26b948612f8988cd47f007c6e7739a89d3911ed0d703d"
+    },
+    "package/src/flashvsr/architect/common/__init__.py": {
+      "bytes": 76,
+      "sha256": "01aa5440a4bd12a8ccb576aca79f56f82e4723a5abaa15239d634d54110f059b"
+    },
+    "package/src/flashvsr/architect/common/gpu_monitor.py": {
+      "bytes": 6071,
+      "sha256": "60bedc8050828883b5147555c62e37e845ffde461d48ec170077ac8ff8b7121a"
+    },
+    "package/src/flashvsr/architect/common/media_utils.py": {
+      "bytes": 22502,
+      "sha256": "3144503876f5190c0ae96fbcdc09829091aadeb2bccb8ab6220274113c07b8a9"
+    },
+    "package/src/flashvsr/architect/common/metrics.py": {
+      "bytes": 14658,
+      "sha256": "b4e923fca1efca9b54c8ca80a2725ee9e370a629133de324e3a834041dc8faa4"
+    },
+    "package/src/video_outpainting/main/configs/inference_4k.yaml": {
+      "bytes": 3568,
+      "sha256": "c62aa0bbf06a658e0110a302bd0c6040651568048d73a5ec358a765899cea9ec"
+    },
+    "tests/test_outpaint_continuation.py": {
+      "bytes": 2957,
+      "sha256": "fe96903def8e8615b07a99d4198795b2969ec1d95e3792aee1d375ed9a2ffcef"
+    },
+    "tests/test_postprocess_validation.py": {
+      "bytes": 6316,
+      "sha256": "c6017950f9d9b1e211bc3a2ba3dee63df5873f43609306ba894c7cf0f2940782"
+    },
+    "tests/test_remote_control.py": {
+      "bytes": 12529,
+      "sha256": "f0d7abdc5415957c4af5877b83f4edb0271ec0b2e0f13d0f45749a65ae607acc"
+    },
+    "tests/test_tile_sharding.py": {
+      "bytes": 9874,
+      "sha256": "ed84a12a797615d550be98b745597e695533d89d3c6974fdae411e7bea892691"
+    },
+    "tools/merge_shards.py": {
+      "bytes": 16592,
+      "sha256": "468451336dafb98cf2b4b4a9b190e270ce1f4efc8456c8635915c84b0263cfe9"
+    },
+    "tools/outpaint_continuation.py": {
+      "bytes": 6870,
+      "sha256": "3b5cd50cf5176fb14e7614404324b8526bc8734b4458afc204dd0058090a2955"
+    },
+    "tools/postprocess_video.py": {
+      "bytes": 2091,
+      "sha256": "82f7c8434446050162ef1fcdc2a61d8df004fdc5f24648b6f67fc37eca6eecea"
+    },
+    "tools/remote_control.py": {
+      "bytes": 27011,
+      "sha256": "36d55fb5045c274b241f5aad5a3d6f98d0d70d20923f5d251dd2a57ee4683298"
+    },
+    "tools/remote_prepare.sh": {
+      "bytes": 4811,
+      "sha256": "85c67b0f29fe2a8a42a8ffb9735d37c17274ca4a08e2a4ca3307e9652dd1de8d"
+    },
+    "tools/tile_worker.py": {
+      "bytes": 18724,
+      "sha256": "4ff8e0d25ca52159ce104b4348975db4a38c682f0b99135c2190d26033b844a4"
+    },
+    "verification/bsa_ampere_build.json": {
+      "bytes": 6010,
+      "sha256": "1b553372b1f597444df6270779bd60f81a86cfeeacadb100869ef1fe8f6ea3ff"
+    },
+    "verification/code_review.json": {
+      "bytes": 448,
+      "sha256": "2c407db453d18468efa345a78bb9ee55cb5648081d25c508283bf4f5bbae81cb"
+    },
+    "verification/source_environment_versions.json": {
+      "bytes": 2669,
+      "sha256": "c877f5b96880454122c05e7dd966839331ad486f592538b487380185f361b568"
+    }
+  }
+}

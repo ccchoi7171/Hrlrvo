@@ -1,0 +1,32 @@
+{
+  "utc": "2026-09-23T17:49:55.191319+00:00",
+  "producer_pid": 247702,
+  "tmux_session": "hrlrvo_lineart_detailed",
+  "status": "STOPPED_REPLACED_BY_C07_BRANCH",
+  "first_generated_chunk": 1,
+  "end_chunk": 23,
+  "model_ready_completed_chunks": 1,
+  "reference": "detailed.png",
+  "generated_prefix_strength": 1.0,
+  "lineart_lambda": [
+    0.5,
+    0.3,
+    0.1
+  ],
+  "latent_carry": "unchanged causal-safe hybrid (first prefix keyframe RGB encode; final two clean latent slices directly carried)",
+  "c0_reused": true,
+  "milestone_frames": {
+    "C4": 257,
+    "C9": 497,
+    "C14": 737,
+    "C19": 977,
+    "C23": 1169
+  },
+  "progress_index": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/outputs/strength_1p0_global_lineart_prior/progress/index.html",
+  "model_tests_passed": 11,
+  "progress_tests_passed": 4,
+  "production_files_written": false,
+  "baseline_files_written": false,
+  "replacement_workspace": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924",
+  "stop_detail": "report/SWITCH_TO_C07.json"
+}

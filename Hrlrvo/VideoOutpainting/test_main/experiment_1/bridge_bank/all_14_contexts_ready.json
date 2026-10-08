@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "bridges": [
+    {
+      "id": "B01",
+      "context_sha256": "9363411c066dcbb9965a07ab6819eb30f5ac89e0f04d92caba52a5f443504ea7",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B01/context_65f_fp32.npy"
+    },
+    {
+      "id": "B02",
+      "context_sha256": "4741f334a1db1bac175934ad87d377b484c900e6806918ee11cb67f755380de1",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B02/context_65f_fp32.npy"
+    },
+    {
+      "id": "B03",
+      "context_sha256": "4e82b6fd6cd76691e498038ad1152582072f4e77b7c5366d1b99645e70000e74",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B03/context_65f_fp32.npy"
+    },
+    {
+      "id": "B04",
+      "context_sha256": "edecfd19661e058bd00f887e96969573a240ccb0f54163e3d1011eb412fe847d",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B04/context_65f_fp32.npy"
+    },
+    {
+      "id": "B05",
+      "context_sha256": "0cbed5c5e12241de34fe23634a6bead56eba7a456a7ae3c3874fa98f4840f44f",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B05/context_65f_fp32.npy"
+    },
+    {
+      "id": "B06",
+      "context_sha256": "d482f7b1ac67d9d831e66c4f008c1fc45d684616186347babd7684f7565cd92b",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B06/context_65f_fp32.npy"
+    },
+    {
+      "id": "B07",
+      "context_sha256": "b09bc96bcc3662c15788e4e1d0b3de7f1e535d62e7202161f3ef6ca0425e0a60",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B07/context_65f_fp32.npy"
+    },
+    {
+      "id": "B08",
+      "context_sha256": "8b92250e4490c7b1429b507edf6cf5ff65493f2f92d911ce7d4a3358feace3c5",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B08/context_65f_fp32.npy"
+    },
+    {
+      "id": "B09",
+      "context_sha256": "72f07d440bf4bec6cdd545843e34f33ae539917ef0be926d5e1ad7b32e5c09cb",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B09/context_65f_fp32.npy"
+    },
+    {
+      "id": "B10",
+      "context_sha256": "dc4a9701e7dd1713b935d541a6fd985a3d3d2a880a9c9facc46500c13b97df9b",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B10/context_65f_fp32.npy"
+    },
+    {
+      "id": "B11",
+      "context_sha256": "f271e5207b06429208f43b6c9dfaf8195513f07c1edbea3d1a15cb3c952d3885",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B11/context_65f_fp32.npy"
+    },
+    {
+      "id": "B12",
+      "context_sha256": "49cdf55d18db5c0eec92801624b4f2217ab9ae68c0241b475ab431dfed68202f",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B12/context_65f_fp32.npy"
+    },
+    {
+      "id": "B13",
+      "context_sha256": "8c05ca40470301db6ad97babcd42a52f89f532ffa83e18407d01c3842116596d",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B13/context_65f_fp32.npy"
+    },
+    {
+      "id": "B14",
+      "context_sha256": "691377574f748dc6feb2dc3eb158e89f5e65361c8cf112ecd173a2ecbfee91e4",
+      "context": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B14/context_65f_fp32.npy"
+    }
+  ]
+}

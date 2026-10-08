@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1840" height="940" viewBox="0 0 1840 940" version="1.1" role="img">
+  <title>Video Outpainting — Core Architecture</title>
+  <desc>Presentation abstraction of each LTX-2.3 transformer block. Native and Adaptive are fused per local window, then assembled; the Local result is fused with Global. Shared OP QKV LoRA has the same weights across all three views. A/G LoRA specialize the two branches. A single shared O projection is followed by native cross-attention and FFN. Native normalization, residuals, head gates, compression/restoration and guidance are omitted for clarity.</desc>
+  <g transform="translate(-40 -145)">
+    <g id="local-global-hierarchy">
+      <rect x="64" y="162" width="1148" height="542" rx="24" fill="#FCFDFF" stroke="#D9E1ED" stroke-width="1.6" />
+      <text x="96" y="205" font-family="DejaVu Sans" font-size="26" font-weight="700" fill="#18263D" text-anchor="start">Local System</text>
+      <text x="1180" y="203" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="end">per local window</text>
+      <rect x="1250" y="162" width="606" height="542" rx="24" fill="#FCFEFE" stroke="#D9E1ED" stroke-width="1.6" />
+      <text x="1282" y="205" font-family="DejaVu Sans" font-size="26" font-weight="700" fill="#18263D" text-anchor="start">Global</text>
+      <text x="1824" y="203" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="end">full canvas</text>
+    </g>
+    <g id="flow-connectors">
+      <polyline points="346,532 346,550 638,550 638,566" fill="none" stroke="#326BD1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="638,566 633,556 643,556" fill="#326BD1" />
+      <polyline points="930,532 930,550 638,550" fill="none" stroke="#8760C9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polyline points="638,624 638,646" fill="none" stroke="#77859B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="638,646 633,636 643,636" fill="#77859B" />
+      <polyline points="638,688 638,753 770,753" fill="none" stroke="#77859B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="770,753 760,758 760,748" fill="#77859B" />
+      <polyline points="1553,532 1553,753 1170,753" fill="none" stroke="#188982" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="1170,753 1180,748 1180,758" fill="#188982" />
+      <polyline points="970,782 970,810" fill="none" stroke="#77859B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="970,810 965,800 975,800" fill="#77859B" />
+    </g>
+    <g id="native-local">
+      <rect x="96" y="232" width="500" height="300" rx="18" fill="#FFFFFF" stroke="#D9E1ED" stroke-width="1.6" />
+      <rect x="120" y="256" width="5" height="35" rx="2" fill="#326BD1" />
+      <text x="140" y="283" font-family="DejaVu Sans" font-size="29" font-weight="700" fill="#18263D" text-anchor="start">Native</text>
+      <text x="140" y="311" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="start">Local detail</text>
+      <rect x="122" y="331" width="448" height="69" rx="10" fill="#F1F4F8" />
+      <text x="346.0" y="360" font-family="DejaVu Sans" font-size="24" font-weight="700" fill="#18263D" text-anchor="middle">LTX Self-Attention</text>
+      <text x="346.0" y="385" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="middle">Base Q / K / V</text>
+      <text x="346.0" y="421" font-family="DejaVu Sans" font-size="23" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="122" y="433" width="448" height="40" rx="9" fill="#FFF5E4" />
+      <text x="346.0" y="459" font-family="DejaVu Sans" font-size="21" font-weight="700" fill="#AD6916" text-anchor="middle">Shared OP LoRA · r32</text>
+    </g>
+    <g id="adaptive-local">
+      <rect x="680" y="232" width="500" height="300" rx="18" fill="#FFFFFF" stroke="#D9E1ED" stroke-width="1.6" />
+      <rect x="704" y="256" width="5" height="35" rx="2" fill="#8760C9" />
+      <text x="724" y="283" font-family="DejaVu Sans" font-size="29" font-weight="700" fill="#18263D" text-anchor="start">Adaptive</text>
+      <text x="724" y="311" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="start">Anchor–Target context</text>
+      <rect x="706" y="331" width="448" height="69" rx="10" fill="#F1F4F8" />
+      <text x="930.0" y="360" font-family="DejaVu Sans" font-size="24" font-weight="700" fill="#18263D" text-anchor="middle">LTX Self-Attention</text>
+      <text x="930.0" y="385" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="middle">Base Q / K / V</text>
+      <text x="930.0" y="421" font-family="DejaVu Sans" font-size="23" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="706" y="433" width="448" height="40" rx="9" fill="#FFF5E4" />
+      <text x="930.0" y="459" font-family="DejaVu Sans" font-size="21" font-weight="700" fill="#AD6916" text-anchor="middle">Shared OP LoRA · r32</text>
+      <text x="930.0" y="492" font-family="DejaVu Sans" font-size="21" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="706" y="500" width="448" height="28" rx="8" fill="#F7F2FF" />
+      <text x="930.0" y="521" font-family="DejaVu Sans" font-size="20" font-weight="700" fill="#8760C9" text-anchor="middle">A-LoRA · r64</text>
+    </g>
+    <g id="global-attention">
+      <rect x="1282" y="232" width="542" height="300" rx="18" fill="#FFFFFF" stroke="#D9E1ED" stroke-width="1.6" />
+      <rect x="1306" y="256" width="5" height="35" rx="2" fill="#188982" />
+      <text x="1326" y="283" font-family="DejaVu Sans" font-size="29" font-weight="700" fill="#18263D" text-anchor="start">Global</text>
+      <text x="1326" y="311" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="start">Canvas-wide context</text>
+      <rect x="1308" y="331" width="490" height="69" rx="10" fill="#F1F4F8" />
+      <text x="1553.0" y="360" font-family="DejaVu Sans" font-size="24" font-weight="700" fill="#18263D" text-anchor="middle">LTX Self-Attention</text>
+      <text x="1553.0" y="385" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="middle">Base Q / K / V</text>
+      <text x="1553.0" y="421" font-family="DejaVu Sans" font-size="23" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="1308" y="433" width="490" height="40" rx="9" fill="#FFF5E4" />
+      <text x="1553.0" y="459" font-family="DejaVu Sans" font-size="21" font-weight="700" fill="#AD6916" text-anchor="middle">Shared OP LoRA · r32</text>
+      <text x="1553.0" y="492" font-family="DejaVu Sans" font-size="21" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="1308" y="500" width="490" height="28" rx="8" fill="#EFFAF8" />
+      <text x="1553.0" y="521" font-family="DejaVu Sans" font-size="20" font-weight="700" fill="#188982" text-anchor="middle">G-LoRA · r64</text>
+    </g>
+    <g id="local-fusion">
+      <rect x="458" y="566" width="360" height="58" rx="14" fill="#F2F6FC" stroke="#CFDAE9" stroke-width="1.6" />
+      <circle cx="487" cy="595" r="15" fill="#304F75" />
+      <text x="487" y="601" font-family="DejaVu Sans" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">1</text>
+      <text x="653.0" y="591" font-family="DejaVu Sans" font-size="22" font-weight="700" fill="#304F75" text-anchor="middle">Local Fusion</text>
+      <text x="653.0" y="612" font-family="DejaVu Sans" font-size="16" font-weight="400" fill="#69768B" text-anchor="middle">learned gate · Target-masked</text>
+    </g>
+    <g id="local-window-assembly">
+      <rect x="458" y="646" width="360" height="42" rx="10" fill="#FFFFFF" stroke="#D9E1ED" stroke-width="1.6" />
+      <text x="638" y="673" font-family="DejaVu Sans" font-size="20" font-weight="400" fill="#69768B" text-anchor="middle">Window Assembly</text>
+    </g>
+    <g id="local-global-fusion">
+      <rect x="770" y="724" width="400" height="58" rx="14" fill="#F2F6FC" stroke="#CFDAE9" stroke-width="1.6" />
+      <circle cx="799" cy="753" r="15" fill="#304F75" />
+      <text x="799" y="759" font-family="DejaVu Sans" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
+      <text x="985.0" y="749" font-family="DejaVu Sans" font-size="22" font-weight="700" fill="#304F75" text-anchor="middle">Local–Global Fusion</text>
+      <text x="985.0" y="770" font-family="DejaVu Sans" font-size="16" font-weight="400" fill="#69768B" text-anchor="middle">learned gate</text>
+    </g>
+    <g id="shared-post-attention">
+      <polyline points="970,872 970,896" fill="none" stroke="#77859B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="970,896 965,886 975,886" fill="#77859B" />
+      <polyline points="970,952 970,976" fill="none" stroke="#77859B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <polygon points="970,976 965,966 975,966" fill="#77859B" />
+      <g id="shared-output-projection">
+        <rect x="710" y="810" width="520" height="62" rx="13" fill="#FFF5E4" stroke="#EFDCBE" stroke-width="1.6" />
+        <text x="970" y="835" font-family="DejaVu Sans" font-size="23" font-weight="700" fill="#18263D" text-anchor="middle">Shared Output Projection</text>
+        <text x="970" y="859" font-family="DejaVu Sans" font-size="19" font-weight="400" fill="#AD6916" text-anchor="middle">Base O + OP LoRA · r32</text>
+      </g>
+      <g id="native-cross-attention">
+        <rect x="740" y="896" width="460" height="56" rx="13" fill="#F1F4F8" stroke="#D9E1ED" stroke-width="1.6" />
+        <text x="970" y="931" font-family="DejaVu Sans" font-size="24" font-weight="700" fill="#18263D" text-anchor="middle">LTX Cross-Attention</text>
+      </g>
+      <g id="shared-ffn">
+        <rect x="710" y="976" width="520" height="62" rx="13" fill="#F1F4F8" stroke="#D9E1ED" stroke-width="1.6" />
+        <text x="970" y="1001" font-family="DejaVu Sans" font-size="23" font-weight="700" fill="#18263D" text-anchor="middle">LTX FFN</text>
+        <text x="970" y="1025" font-family="DejaVu Sans" font-size="19" font-weight="700" fill="#8760C9" text-anchor="middle">+ F-LoRA · r32</text>
+      </g>
+    </g>
+    <g id="weight-sharing-notes">
+      <rect x="96" y="817" width="4" height="115" rx="2" fill="#AD6916" />
+      <text x="116" y="841" font-family="DejaVu Sans" font-size="17" font-weight="700" fill="#AD6916" text-anchor="start">SHARED OP WEIGHTS</text>
+      <text x="116" y="878" font-family="DejaVu Sans" font-size="21" font-weight="400" fill="#18263D" text-anchor="start">Same Q/K/V LoRA in</text>
+      <text x="116" y="911" font-family="DejaVu Sans" font-size="21" font-weight="400" fill="#18263D" text-anchor="start">Native · Adaptive · Global</text>
+      <text x="1430" y="842" font-family="DejaVu Sans" font-size="17" font-weight="700" fill="#69768B" text-anchor="start">LTX BASE FROZEN</text>
+      <text x="1430" y="879" font-family="DejaVu Sans" font-size="20" font-weight="400" fill="#18263D" text-anchor="start">Shared O, Cross-Attention</text>
+      <text x="1430" y="912" font-family="DejaVu Sans" font-size="20" font-weight="400" fill="#18263D" text-anchor="start">and FFN run once per block</text>
+    </g>
+    <polyline points="970,1038 970,1063" fill="none" stroke="#77859B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="970,1063 965,1053 975,1053" fill="#77859B" />
+  </g>
+</svg>

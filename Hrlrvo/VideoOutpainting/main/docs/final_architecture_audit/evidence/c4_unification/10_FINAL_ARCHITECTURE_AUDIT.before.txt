@@ -1,0 +1,330 @@
+# 10. 최종 Architecture Audit
+
+## 감사 요약
+
+**FAIL — implementation differs from the finalized architecture**
+
+현재 코드의 **Native/Adaptive/Global hierarchy, LoRA ownership, Target-only Adaptive
+write, Train/Inference 공통 forward는 코드상 일치**한다. 그러나 이번 요청의 엄격한
+C/R single-operation 정의와 **Global C4의 일반 edge 경로 및 Global R4 primitive**가
+다르다. 이를 문서상 PASS로 맞추거나 소스를 변경하지 않았다.
+
+이 FAIL은 새로 학습/추론을 실행해서 발견한 OOM/NaN/품질 실패가 아니다.
+**현재 실행문을 기준으로 한 contract mismatch**다. 기본 4K geometry에서는
+C4 partial 경로가 발동하지 않는다는 사실도 구분한다.
+
+---
+
+## 1. 실제 감사 범위와 source of truth
+
+- Project: `/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main`
+- 현재 normalized architecture metadata: **version 8**.
+- v7에서 확정된 OP/A/G/F-LoRA와 neutral hierarchical Fusion을 유지하면서,
+  최신 Adaptive C4-first/C2-promotion 및 Target-only scatter/masked fusion semantics는
+  version 8로 식별된다. 과거 v7/partial-support 문서로 현재 코드를 대체하지 않았다.
+- Pinned LTX revision: `598ab41247a77dbfe29b5186e915bcf4f9040ec7`.
+- 현재 production `src/ltx_outpaint`, train/inference YAML, pinned trainer/core source,
+  checkpoint **header**, selected cache **shape/provenance**를 읽었다.
+- 생성/수정 범위: `docs/final_architecture_audit/`의 audit 문서·evidence·PNG만.
+  `/tmp` one-off audit script는 별도 임시파일이다.
+
+### 이번에 실행한 것
+
+1. 실제 geometry helpers로 K4/K5 41 layouts 계산.
+2. role, token support, Q eligibility, write addresses, Local coverage 검사.
+3. 작은 좌표라벨 CPU tensor를 실제 write indices로 scatter하여 canonical 주소 검증.
+4. 작은 CPU PMA coordinate helper 3 cases; spatial error0.0, native temporal exact.
+5. safetensors JSON header와 source formula로 parameter count 정적 계산.
+6. Python `compile()` 21 files, YAML/config inspection, Ruff.
+7. PIL geometry PNG/contact sheets 및 Markdown 문서 생성.
+8. source/config/pinned SHA256 전후 대조.
+
+### 실행하지 않은 것
+
+**Model/meta-model construction, Training, Inference pipeline, attention/model forward,
+backward, optimizer step, VAE encode/decode, generation, GPU benchmark 모두 미실행.**
+계산 과정의 `torch.cuda.is_initialized()`는 False였다. 기존 cache/precache job 및
+다른 process는 중단·재설정하지 않았다.
+
+---
+
+## 2. 상세 문서 안내
+
+| 문서 | 내용 |
+|---|---|
+| [01_TRAINING_SPEC.md](01_TRAINING_SPEC.md) | cache/dataset/known mask/noise/timestep/connector/model/final loss/optimizer/checkpoint |
+| [02_INFERENCE_SPEC.md](02_INFERENCE_SPEC.md) | Anchor preparation/empty prompt/known state/native denoiser/long-range/decode/train parity |
+| [03_NATIVE_LOCAL_BRANCH.md](03_NATIVE_LOCAL_BRANCH.md) | K4/K5, canonical window/RoPE, base+OP QKV, O 이전 core |
+| [04_ADAPTIVE_LOCAL_BRANCH.md](04_ADAPTIVE_LOCAL_BRANCH.md) | A>T>B, alignment, full-cell promotion, Q/KV, PMA, per-cell R2, Target-only Local scatter |
+| [05_GLOBAL_BRANCH.md](05_GLOBAL_BRANCH.md) | shared C4, Global QKV, R4, default/general geometry 및 strict mismatch |
+| [06_FUSION_SPEC.md](06_FUSION_SPEC.md) | mask-gated Local fusion, normalized assemble, Local–Global fusion, native gate/O |
+| [07_COMPRESSION_DECOMPRESSION_SPEC.md](07_COMPRESSION_DECOMPRESSION_SPEC.md) | C2/C4/R2/R4 primitive/ownership/initialization, active-vs-legacy path |
+| [08_FULL_ARCHITECTURE_FLOW.md](08_FULL_ARCHITECTURE_FLOW.md) | one canonical hidden의 block-level 전체 흐름과48 blocks/denoising steps 구분 |
+| [09_ADAPTIVE_GRID_GEOMETRY_AUDIT.md](09_ADAPTIVE_GRID_GEOMETRY_AUDIT.md) | 실제41 cases 표, coordinate projection, overlap/count 통계, PNG |
+| 현재 문서 | 종합 PASS/FAIL/INCONCLUSIVE 및 evidence/변경 범위 |
+
+## 3. Train / Inference의 실제 공통 call graph
+
+### Training
+
+```text
+src/ltx_outpaint/train.py::main
+  -> OutpaintingTrainer (pinned LtxvTrainer subclass).train / DataLoader
+  -> OutpaintingCacheDataset + collate_outpainting
+  -> OutpaintingTrainer._training_step
+       -> LazyAnchorCache.complete_batch
+       -> send_to_device + fixed-empty video/audio preconnector feature supply
+       -> super()._training_step (pinned LtxvTrainer)
+  -> EmbeddingsProcessor.create_embeddings(video_features, audio_features, mask)
+  -> OutpaintingStrategy.prepare_training_inputs
+  -> installed LTXModel.forward
+  -> LTXModel._process_transformer_blocks
+  -> 48 BasicAVTransformerBlock instances
+  -> _forward_with_native_gate
+  -> BasicAVTransformerBlock.forward
+  -> MultiViewSelfAttention.forward
+  -> native SA residual / frozen Text CA / shared FFN
+  -> final video prediction
+  -> native FlexibleStrategy.compute_loss (single masked flow loss)
+```
+
+### Inference
+
+```text
+src/ltx_outpaint/inference.py::main / sample_long_range
+  -> _load_models
+  -> same load_transformer + install_outpainting + load_adapter
+  -> inference.sample_chunk (module-level function)
+  -> GeometryValidationRunner (_Runner) + native ValidationRunner._run_denoising
+  -> same installed LTXModel.forward
+  -> same 48 BasicAVTransformerBlock instances / native-gate wrapper
+  -> same MultiViewSelfAttention.forward
+  -> same native residual / Text CA / FFN
+  -> native Euler scheduler + known state post_process_latent
+  -> native VAE decode / visible-boundary crop / source compositing
+```
+
+`train.py`나 `inference.py`에 별도 Adaptive tokenization/restoration/Fusion 사본은 없다.
+두 entrypoint는 immutable `CanvasGeometry`를 공급하고 실제 block에서 공통 geometry
+helper를 호출한다. 차이는 데이터 생성/conditioning 공급, training loss vs scheduler,
+autocast/eval dtype policy와 CFG/STG이지 별도의 attention architecture가 아니다.
+
+**정밀한 예외:** production inference는 official STG가 설정되어 있다. perturbation
+pass의 `all_perturbed` block에서는 native V-bypass를 보존하므로 hierarchy를 건너뛴다.
+이것은 별도 inference용 Adaptive 구현이 아니라 **동일 MultiViewSelfAttention의
+명시적 guidance control path**다. 따라서 “모든 denoising model call에서48개 block의
+모든 branch가 무조건 실행된다”는 주장은 하지 않는다. 정상 denoising pass는 위
+공통 hierarchy를 사용하고, O는 bypass에서도 같은 마지막 단일 호출이다.
+
+## 4. 요구 항목별 최종 판정
+
+`PASS`는 이 audit에서 허용된 source/static/pure-geometry 범위의 판정이다.
+full runtime numerical correctness/gradient/성능 PASS로 읽으면 안 된다.
+
+| 항목 | 판정 | 핵심 근거/범위 |
+|---|---|---|
+| Training specification | PASS | FIRST cache→known/noisy→single final flow loss;01 |
+| Inference specification | PASS | native sampler/known reinjection/empty text/common model;02 |
+| Train/Inference architecture parity | PASS | same installer, native block wrapper, shared branch functions |
+| Native Local branch | PASS | canonical window; base+OP only; O 미호출;03 |
+| Adaptive Local branch | PASS | full C4/C2 promotion→Target Q→R2→Target write;04/09 |
+| Global branch | **FAIL** | M1/M2 C4/R4 strict primitive mismatch; QKV/hierarchy 자체는 PASS |
+| Local Fusion | PASS | `where(M_T,lerp(A,N,alpha_L),N)`; non-T exact Native |
+| Local–Global Fusion | PASS | restored LocalFull/GlobalFull의 `lerp(G,L,alpha_G)` |
+| shared O exactly once | PASS | `MultiViewSelfAttention.forward` 최종 sole `self.to_out(fused)` |
+| Cross-Attention position | PASS | native SA residual 이후 shared frozen Text CA |
+| FFN position | PASS | Text CA residual 이후 native shared FFN+F-LoRA |
+| C2 single-operation invariant | PASS | active C2 caller는 full2×2 only, runtime guard |
+| C4 single-operation invariant | **FAIL** | Adaptive/default Global full; general Global edge partial reachable |
+| R2 single-operation invariant | PASS | query cell-as-batch 1×1→2×2; 이후 T mask |
+| R4 single-operation invariant | **FAIL** | whole compressed grid→bilinear full canvas, token-local primitive 아님 |
+| A > T > B ownership | PASS | `resolve_adaptive_roles`; full Anchor wins overlapping Local |
+| C4-first/C2-promotion | PASS | parent A/T touch이면 정확히 full C2 네 개 |
+| Target-query-only | PASS | T-touching C2만 packed Q prefix; KV는 모든 cell |
+| Target-only Adaptive write | PASS | exact source tap/destination indices + Local mask |
+| resolved-T empty early exit | PASS |41개 중5개: bbox/cells/Q/write 없이 return/continue |
+| PMA mixed-resolution coordinates | PASS | canonical origins/nominal scale; CPU pure-coordinate error0.0 |
+| 4×4 geometry | PASS |16 windows; full coverage, zero overlap; all layouts pass |
+| 5×5 geometry | PASS |25 windows; minimal row27/54 overlap; normalized assemble |
+| 41-case visualization audit | PASS | actual helper41 cases, PNG41+contact3 |
+| checkpoint/architecture metadata consistency | PASS | normalized35 fields identical; strict architecture/key/shape/provenance loader |
+| parameter category/count static inspection | PASS | header+source formula;280,363,008 trainable |
+| source/config/pinned immutability | PASS | project24/pinned205 file hashes unchanged |
+| real trained checkpoint load/roundtrip | INCONCLUSIVE | request forbids model execution; default artifact absent |
+| real forward/backward/inference quality/VRAM | INCONCLUSIVE | intentionally not executed |
+
+## 5. 실제 MISMATCH 상세
+
+### M1 — Global C4의 nondivisible edge에서 partial 연산이 활성화됨
+
+- **Severity:** MAJOR / architecture-contract mismatch.
+- **File/symbol:**
+  - `src/ltx_outpaint/geometry.py::global_cells`, `cells_for_rect`
+  - `src/ltx_outpaint/global_attention.py::global_attention`
+  - `src/ltx_outpaint/compression.py::SpatialCompressor.forward`의 partial `else`
+  - `geometry.CanvasGeometry.__post_init__`에는 H/W%4 제한이 없다.
+- **Expected:** 모든 C4는 actual full4×4 hidden16개→한 token, operation mode 한 가지.
+- **Actual:** `min(scale,remaining)`으로 마지막 cell의 support가 줄어들고,
+  full Conv2d 대신 selected kernel taps의 `einsum` 및 `16/valid_count` 보정을 한다.
+- **재현(pure geometry만 실행):** `global_cells(17,20,4)`는 full20개와
+  `1×4` partial5개를 만든다. 동일17×20 canvas에서 Anchor `[4:13,5:15)`와 K4/K5의
+  모든 Adaptive layout도 구성 가능하여 항상 upstream failure로 막히는 dead path가 아니다.
+- **기본 production 68×120:**510개 모두 full; partial0. 기본4K sample에서 partial이
+  발생한다고 보고하지 않는다.
+- **영향:** 현재 shared C4가 geometry에 따라 full-conv와 support-normalized aggregation의
+  두 의미를 수행할 수 있다. 최신 strict single-operation 요구에는 FAIL이다.
+- **증거:** `evidence/geometry_results.json::global_general_path_evidence`,05/07 문서.
+- **조치:** 수정 없음. geometry/normalization/call site를 그대로 보존했다.
+
+### M2 — Global R4가 one-token/full4×4 primitive가 아닌 전체-grid reconstruction임
+
+- **Severity:** MAJOR / architecture-contract mismatch.
+- **File/symbol:**
+  - `src/ltx_outpaint/global_attention.py::global_attention`
+  - `src/ltx_outpaint/compression.py::SpatialDecompressor.forward`
+- **Expected(이번 strict 요청):** one C4-resolution representation→그 token의 corresponding
+  full4×4 footprint라는 restore primitive. R2처럼 per-token footprint 의미가 명확해야 한다.
+- **Actual:** 모든 Global tokens를 `[ceil(H/4),ceil(W/4)]` grid로 reshape하고
+  `F.interpolate(size=(H,W),bilinear,align_corners=False,antialias=True)` 후
+  **전체 canvas**에 depthwise3D refinement를 적용한다.
+- **기본68×120:** `17×30→68×120`의 비율은4배가 맞고 output shape도 맞지만,
+  bilinear가 인접 coarse cells를 함께 사용하므로 각 token의 독립4×4 restore와 동일하지 않다.
+  refinement center-identity initialization도 앞의 bilinear mixing을 없애지 않는다.
+- **일반17×20:** `5×5→17×20`; y scale은3.4여서 fixed4×4 의미도 성립하지 않는다.
+- **영향:** R2의 query-as-batch/full2×2 primitive와 R4의 whole-grid primitive는
+  호출·경계·neighbor mixing 의미가 다르다. 단순히 둘 다 `SpatialDecompressor`라는
+  class를 쓴다는 이유로 strict same-footprint 정의를 만족한다고 할 수 없다.
+- **주의:** 현재 R4가 일관된 whole-grid upsampler라는 사실 자체를 수치 오류라고
+  주장하는 것이 아니다. **요청한 per-token single-operation 정의와 다른 구현**이라는 판정이다.
+- **증거:**05/07의 operator/shape/call-site 표. 이 audit에서는 R4/model forward 미실행.
+- **조치:** 수정 없음. interpolation/refinement/Global architecture를 바꾸지 않았다.
+
+## 6. 불일치가 아닌 차이/주의사항
+
+1. **version8 vs v7:** 최신 Adaptive 변경을 반영한 정당한 checkpoint identity이며
+   train/inference35개 normalized architecture field가 정확히 같다.
+2. **YAML aliases:** Train은 `k/scale`, Inference는 `local_partition_k/compression_scale`이다.
+   `inference._load_models`가 명시적으로 rename한 뒤 같은 `ArchitectureConfig`를 만든다.
+   raw YAML key equality가 아니라 이 실제 parser 의미를 비교했다. unknown legacy
+   architecture key를 silent-ignore하는 필터는 없다.
+3. **known extent:** actual Anchor `[17:51,30:90)`를 geometry/mask/placement에 쓴다.
+   cache 안 old `[17:50)` metadata key는 active mask source가 아니다.
+4. **RGB vs latent footprint:**1080 RGB content와 native padded1088 footprint가 다르다.
+   시각화는 native coordinate helper+visible boundary crop을 사용했다.
+5. **spatial compression vs temporal mixing:** C2/C4는 T를 줄이지 않는다. R2/R4의
+   depthwise3D kernel은 T 길이를 유지하면서 temporal neighbors를 혼합할 수 있다.
+6. **source preservation:** Adaptive write가 Anchor를 바꾸지 않는 것과 모든 DiT hidden
+   layer의 Anchor feature가 변하지 않는 것은 다른 주장이다. Native/Global/CA/FFN은
+   known 위치 hidden도 문맥 처리하고 diffusion state는 known reinjection/t=0로 보존한다.
+7. **dtype:** Training FP32 adapter masters+BF16 autocast와 Inference eval BF16 cast는
+   같은 parameter topology이며 bitwise 동일 intermediate를 의미하지 않는다.
+8. **legacy 설명:** `compression.py`의 이전 프로젝트 docstring 및 `phase_rope`의
+   현재 caller에서 미발동하는 mixed-scale branches가 남아 있다. 이를 새로운
+   Adaptive path라고 문서화하지 않았다. active partial Global은 M1과 별도 구분한다.
+
+## 7. Parameter ownership / count
+
+실제 checkpoint의 **JSON header만** 읽어 hidden dimension4096, FFN inner16384,
+block48 및 tensor shape/key를 확인했다. 모델/메타모델을 만들거나 base tensor를
+GPU/CPU에 materialize하여 count하지 않았다.
+
+| category | 정적 count | ownership |
+|---|---:|---|
+| shared OP QKVO r32 | 50,331,648 | block별; QKV는 N/A/G 공유, O는 최종1회 |
+| Adaptive QKV r64 | 75,497,472 | block별; Local별 duplication 없음 |
+| Global QKV r64 | 75,497,472 | block별 |
+| shared FFN r32 | 62,914,560 | native FFN 두 Linear |
+| C2/C4 | 4,325,376 | density별/block별; C4는 Adaptive+Global 공유 |
+| R2/R4 | 11,010,048 | 서로 독립 instance/block별 |
+| Local Fusion | 393,216 | gamma/beta/block별 |
+| Local–Global Fusion | 393,216 | gamma/beta/block별 |
+| **Trainable total** | **280,363,008** | adapter-only save set |
+| Frozen transformer base | **18,988,838,144** | base SA/CA/FFN/modulation/output 및 native AV machinery |
+| **Installed total** | **19,269,201,152** | frozen+trainable |
+
+Header frozen count식:
+`21,005,004,544 - 1,612,546,304 - 403,620,096 = 18,988,838,144`.
+뺀 두 항은 installed transformer 밖의 video/audio text embedding connector다.
+이 count를 “audio machinery를 모두 제거한 순수 video-only parameter subset”이라고
+부르면 부정확하다. generation modality가 `audio=None`이라는 것과 구별한다.
+
+`install_outpainting`의 freeze-all 후 새 delta/C/R/Fusion 설치,
+`_outpainting_parameter_names`, `_setup_lora`의 trainable collection 및
+`parameter_counts()` whitelist를 source로 대조했다. **실제 gradients/optimizer
+parameter updates는 본 audit에 포함하지 않았다.**
+
+증거: [parameter_static_inspection.json](evidence/parameter_static_inspection.json).
+
+## 8. Geometry / visualization 결과 요약
+
+- K4:16 windows; K5:25 windows; 총41개 exact layout.
+- nonempty36, early-exit5(K4=4,K5=1).
+- read-support 외부/canvas 외부 index0.
+- Adaptive partial C2/C4/C1=0/0/0.
+- role overlap/hole=0/0.
+- token read-support drop/duplication=0/0.
+- Target write outside/drop/duplication=0/0/0.
+- 최대 spatial KV372, Q135;9 latent frames에서는3348/1215.
+- K4 canonical Local overlap0.
+- K5 row27/54,240 positions가2번 read되며 count-normalized assembly.
+- PNG **41개**, contact sheets **3개**.
+- actual PMA coordinate helper3-case 최대 spatial error **0.0**, temporal exact.
+
+전체표와통계: [09 문서](09_ADAPTIVE_GRID_GEOMETRY_AUDIT.md).
+전체한눈보기: [all_41_cases.png](adaptive_grid_visualizations/all_41_cases.png).
+
+## 9. Checkpoint compatibility와 runtime prerequisite
+
+`model.adapter_state_dict()`는 `_outpainting_parameter_names`만 저장한다.
+`OutpaintingTrainer._save_checkpoint()`가 architecture/provenance를 함께 기록하고,
+Inference도 동일 `load_adapter()`를 쓴다.
+
+`load_adapter`의 `strict=False`는 frozen base 전체를 adapter 파일에 요구하지 않기
+위한 것이다. 그 앞에서 adapter expected-key set과 실제 key set을 **exact equality**로
+검사하므로 missing/unexpected adapter tensor를 허용하는 silent partial load가 아니다.
+base path, architecture, provenance, shape/type도 각각 reject한다.
+
+- **static save/load contract: PASS**.
+- config version5/6/7 rejection은 작은 config dataclass validation으로 확인.
+- actual checkpoint roundtrip/key mapping 실행: **미실행/INCONCLUSIVE**. 이 작업에서
+  missing/unexpected tensor count를 런타임0으로 측정했다고 주장하지 않는다.
+- configured inference adapter:
+  `outputs/train_4k/checkpoints/checkpoint-002000/adapter_model.safetensors`
+  는 **현재 stat상 없다**. 학습 후 생성해야 할 artifact이며 architecture bug로 판정하지 않는다.
+  fake adapter 생성, 다른 checkpoint로 path 변경, 자동 변환을 하지 않았다.
+
+## 10. Compile/lint/immutability와 evidence
+
+| 검사 | 결과 | 증거 |
+|---|---|---|
+| source syntax compile | PASS,21 Python files | [compile_and_config.log](evidence/compile_and_config.log) |
+| normalized architecture config parity | PASS,35 fields/version8 | [config_inspection.json](evidence/config_inspection.json) |
+| Ruff | PASS,`All checks passed!` | [ruff.log](evidence/ruff.log) |
+| project source/config/README hash | PASS,24 files unchanged | [source_immutability.json](evidence/source_immutability.json) |
+| pinned source hash | PASS,205 files unchanged | 同上 |
+| pinned revision | expected hash, git status empty | [pinned_revision.log](evidence/pinned_revision.log) |
+| source writes/new source files | 0/0 | source hash/inventory comparison |
+| model/GPU execution | 0 | geometry/position evidence + audit scope |
+| 문서/PNG/link integrity | PASS,10 MD /41 case PNG+3 sheets /broken links0 | [artifact_validation.json](evidence/artifact_validation.json) |
+
+`main`은 Git worktree가 아니므로 `git status`가 불가능하다. git-clean이라고
+표현하지 않고 SHA256 source freeze snapshot으로 비교했다:
+[git_status_main.log](evidence/git_status_main.log),
+[source_snapshot_before.json](evidence/source_snapshot_before.json).
+
+`.pyc` 생성 대신 `compile()`로 syntax만 확인했고 Ruff는 `--no-cache`로 실행했다.
+이 저장소 unit tests에는 forward/backward를 수행하는 test도 있으므로 전체 pytest를
+실행하지 않았다. static inspection/geometry-only 검증과 runtime 검증의 경계를 지켰다.
+
+## 11. 종료 상태
+
+요청된10개 상세 문서,41개 case PNG와3개 contact sheet를 생성했다.
+불일치 M1/M2를 발견했지만 source/config/parameter ownership/architecture를
+수정하지 않았다. cache/data/pinned LTX 및 실행 중인 process에도 개입하지 않았다.
+
+### ARCHITECTURE VERDICT
+
+**FAIL — implementation differs from the finalized architecture**
+
+구체적 실패 범위는 **Global의 strict C4/R4 single-operation contract**다.
+Native/Adaptive/공통 Train–Inference hierarchy 자체는 static/code-level PASS다.

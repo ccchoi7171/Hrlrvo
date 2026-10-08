@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "analysis_summary": {
+    "representative_frame_index": 24,
+    "representative_time_seconds": 1.0,
+    "alignment_verdict": "The requested 1920x1080 input is pixel-identical to the geometric center crop of the requested 3840x2160 output at the same decoded frame index for all 94 frames.",
+    "best_temporal_offset_frames": 0,
+    "best_spatial_crop": {
+      "coordinate_convention": "half-open [x0, y0, x1, y1] in decoded output pixels",
+      "x0": 960,
+      "y0": 540,
+      "x1": 2880,
+      "y1": 1620,
+      "width": 1920,
+      "height": 1080
+    },
+    "provenance": {
+      "status": "unknown",
+      "bounded_repository_evidence": "The exact test_set path is listed as an anchor input by main/scripts/run_step6000_test_suite.sh. No source file found by the bounded search establishes that this MP4 is a generated model output. The later modification time of the anchor MP4 and exact decoded center-crop equality are consistent with the anchor having been derived from the 4K file, but that remains an inference.",
+      "safe_figure_label": "4K target / reference",
+      "user_requested_label": "Output"
+    }
+  },
+  "sources": {
+    "input": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/input/anchor/ef334007-aa0b-432d-a7e8-76a3eeeec252.mp4",
+      "requested_role": "Input",
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "average_frame_rate": "24/1",
+      "nominal_frame_rate": "24/1",
+      "time_base": "1/12288",
+      "start_time_seconds": 0.0,
+      "duration_seconds": 3.916667,
+      "decoded_frame_count": 94,
+      "sha256": "d8823db44b7bcb99028a0e7f5fd6f2474eef45a8f90256dff3760615c4a76834"
+    },
+    "output": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/input/test_set/ef334007-aa0b-432d-a7e8-76a3eeeec252.mp4",
+      "requested_role": "Output",
+      "verified_provenance": "unknown; repository usage treats this exact test_set path as an inference input",
+      "width": 3840,
+      "height": 2160,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "average_frame_rate": "24/1",
+      "nominal_frame_rate": "24/1",
+      "time_base": "1/24000",
+      "start_time_seconds": 0.0,
+      "duration_seconds": 3.916667,
+      "decoded_frame_count": 94,
+      "sha256": "2bbfe3c4ffd26c489a81454b36e3545f950a70be4939b1d9455bbcddb4a9468b"
+    }
+  },
+  "selected_frames": [
+    {
+      "frame_index": 0,
+      "time_seconds": 0.0,
+      "input_pts": 0,
+      "output_pts": 0,
+      "input_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/input_frame_000.png",
+      "output_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_frame_000.png",
+      "output_center_crop_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_center_crop_frame_000.png",
+      "center_crop_comparison": {
+        "mae_rgb_8bit": 0.0,
+        "mse_rgb_8bit": 0.0,
+        "psnr_rgb_db": "infinity",
+        "ssim_grayscale": 1.0,
+        "pixel_exact": true
+      }
+    },
+    {
+      "frame_index": 24,
+      "time_seconds": 1.0,
+      "input_pts": 12288,
+      "output_pts": 24000,
+      "input_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/input_frame_024.png",
+      "output_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_frame_024.png",
+      "output_center_crop_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_center_crop_frame_024.png",
+      "center_crop_comparison": {
+        "mae_rgb_8bit": 0.0,
+        "mse_rgb_8bit": 0.0,
+        "psnr_rgb_db": "infinity",
+        "ssim_grayscale": 1.0,
+        "pixel_exact": true
+      }
+    },
+    {
+      "frame_index": 48,
+      "time_seconds": 2.0,
+      "input_pts": 24576,
+      "output_pts": 48000,
+      "input_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/input_frame_048.png",
+      "output_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_frame_048.png",
+      "output_center_crop_png": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_center_crop_frame_048.png",
+      "center_crop_comparison": {
+        "mae_rgb_8bit": 0.0,
+        "mse_rgb_8bit": 0.0,
+        "psnr_rgb_db": "infinity",
+        "ssim_grayscale": 1.0,
+        "pixel_exact": true
+      }
+    }
+  ],
+  "all_frame_center_crop_check": {
+    "frames_compared": 94,
+    "pixel_exact_frames": 94,
+    "maximum_mae_rgb_8bit": 0.0,
+    "mean_mae_rgb_8bit": 0.0
+  },
+  "temporal_offset_search": {
+    "method": "Mean absolute error after grayscale conversion and area downsampling to 240x135. Offset means output_index = input_index + offset.",
+    "offset_range_frames": [-8, 8],
+    "results": [
+      {"offset_frames": -8, "mean_mae": 14.442921716, "pairs": 86},
+      {"offset_frames": -7, "mean_mae": 13.371878492, "pairs": 87},
+      {"offset_frames": -6, "mean_mae": 12.217360031, "pairs": 88},
+      {"offset_frames": -5, "mean_mae": 10.950129670, "pairs": 89},
+      {"offset_frames": -4, "mean_mae": 9.531268883, "pairs": 90},
+      {"offset_frames": -3, "mean_mae": 7.902564798, "pairs": 91},
+      {"offset_frames": -2, "mean_mae": 5.889037850, "pairs": 92},
+      {"offset_frames": -1, "mean_mae": 3.303680480, "pairs": 93},
+      {"offset_frames": 0, "mean_mae": 0.0, "pairs": 94},
+      {"offset_frames": 1, "mean_mae": 3.303680480, "pairs": 93},
+      {"offset_frames": 2, "mean_mae": 5.889037850, "pairs": 92},
+      {"offset_frames": 3, "mean_mae": 7.902564798, "pairs": 91},
+      {"offset_frames": 4, "mean_mae": 9.531268883, "pairs": 90},
+      {"offset_frames": 5, "mean_mae": 10.950129670, "pairs": 89},
+      {"offset_frames": 6, "mean_mae": 12.217360031, "pairs": 88},
+      {"offset_frames": 7, "mean_mae": 13.371878492, "pairs": 87},
+      {"offset_frames": 8, "mean_mae": 14.442921716, "pairs": 86}
+    ]
+  },
+  "artifacts": [
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/input_frame_000.png", "width": 1920, "height": 1080, "sha256": "60f3b6a07c8f4cf04d904c6890870382290a7e35a2ba990fb86dad23d458b2e1"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/input_frame_024.png", "width": 1920, "height": 1080, "sha256": "deae647a5ab8ca838fbb882069c0cc99d0f545cac678e0a06fd51d2734f0765a"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/input_frame_048.png", "width": 1920, "height": 1080, "sha256": "8267620bc2490238b14eab9343bfc3df76393e1a8725533810445dd3dd7edf39"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_frame_000.png", "width": 3840, "height": 2160, "sha256": "f96b73e5b1b1093686eadadd308bc7d5b2a4b7a040b9fface834695f205e8284"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_frame_024.png", "width": 3840, "height": 2160, "sha256": "f8c42a2a77b7c1373b213baaa82830a2ae71ee516becc1030ec107ec15f414cc"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_frame_048.png", "width": 3840, "height": 2160, "sha256": "810b96a60b8a3f1c1ca67abe324ed0e7bd4eb48e3abe0e1f288e601b529eafc8"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_center_crop_frame_000.png", "width": 1920, "height": 1080, "sha256": "60f3b6a07c8f4cf04d904c6890870382290a7e35a2ba990fb86dad23d458b2e1"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_center_crop_frame_024.png", "width": 1920, "height": 1080, "sha256": "deae647a5ab8ca838fbb882069c0cc99d0f545cac678e0a06fd51d2734f0765a"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_center_crop_frame_048.png", "width": 1920, "height": 1080, "sha256": "8267620bc2490238b14eab9343bfc3df76393e1a8725533810445dd3dd7edf39"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/input_contact_sheet.png", "width": 1968, "height": 384, "sha256": "7b1909682d86d5f8f03df76efd98212230a876384833305774fe3607b20f0426"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/output_contact_sheet.png", "width": 1968, "height": 384, "sha256": "aa98a7792c35e0bd62158d3655c030b18651ba7de02e11c6e713720e6aedfaa5"},
+    {"path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/presentation/architecture_svg/paper_figure1_v3/media/input_output_contact_sheet.png", "width": 1968, "height": 768, "sha256": "34aec958fa85df3a41fd941f11298dbbfcba266fb5998b3e15a90195acec251f"}
+  ]
+}

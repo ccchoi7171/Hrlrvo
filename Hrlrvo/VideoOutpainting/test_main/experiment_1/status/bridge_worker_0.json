@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "pid": 3723622,
+  "worker": 0,
+  "jobs": 7,
+  "model_load_seconds": 72.55809401720762,
+  "started_utc": "2026-10-07T19:35:49.271309+00:00",
+  "completed": [
+    {
+      "bridge_id": "B01",
+      "status": "PASS",
+      "sample_seconds": 1030.7482296247035
+    },
+    {
+      "bridge_id": "B03",
+      "status": "PASS",
+      "sample_seconds": 1362.629286190495
+    },
+    {
+      "bridge_id": "B05",
+      "status": "PASS",
+      "sample_seconds": 1384.8353624939919
+    },
+    {
+      "bridge_id": "B07",
+      "status": "PASS",
+      "sample_seconds": 1386.6190709359944
+    },
+    {
+      "bridge_id": "B09",
+      "status": "PASS",
+      "sample_seconds": 1386.5358835626394
+    },
+    {
+      "bridge_id": "B11",
+      "status": "PASS",
+      "sample_seconds": 1386.326808270067
+    },
+    {
+      "bridge_id": "B13",
+      "status": "PASS",
+      "sample_seconds": 1382.992047464475
+    }
+  ],
+  "ended_utc": "2026-10-07T22:11:30.831736+00:00",
+  "runtime_seconds": 9414.118606511503
+}

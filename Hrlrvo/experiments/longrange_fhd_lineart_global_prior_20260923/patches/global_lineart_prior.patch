@@ -1,0 +1,735 @@
+--- a/main/src/ltx_outpaint/global_attention.py
++++ b/main/src/ltx_outpaint/global_attention.py
+@@ -1,6 +1,15 @@
+ """The only full-canvas peer of the Local System; no W_O in this view."""
+ 
++import torch
++
+ from .geometry import global_cells
++from .lineart_global_prior import (
++    build_attention_bias,
++    build_fine_write_mask,
++    current_prior,
++    record_backends,
++)
++from .lora import project_with_loras
+ from .native_local_attention import attend
+ from .position import phase_rope
+ 
+@@ -11,6 +20,44 @@
+     cells = global_cells(h, w, s)
+     compressed = attention.compressors[str(s)](grid, cells)
+     pe = phase_rope(context, cells, s, grid.dtype)
+-    output = attend(attention, compressed.reshape(b, -1, d), pe, attention.global_lora)
+-    return attention.decompressors[str(s)](
+-        output.reshape(b, t, len(cells), d), (h // s, w // s), (h, w))
++    active = current_prior(context)
++    if active is None:
++        # Exact pre-experiment route: no masked backend, duplicate decompression,
++        # masks, QKV projection changes, or floating-point selection.
++        output = attend(attention, compressed.reshape(b, -1, d), pe, attention.global_lora)
++        return attention.decompressors[str(s)](
++            output.reshape(b, t, len(cells), d), (h // s, w // s), (h, w))
++
++    prior, state, _step, strength = active
++    x = compressed.reshape(b, -1, d)
++    shared = attention.shared_outpainting_lora
++    q, k, v = (
++        project_with_loras(
++            getattr(attention, f"to_{name}"), x, (shared[name], attention.global_lora[name])
++        )
++        for name in ("q", "k", "v")
++    )
++    q, k = attention.preattention_function(q, k, attention, None, pe, None)
++
++    # Preserve the configured fast/unmasked backend for the canonical result.
++    original_tokens = attention.attention_function(q, k, v, attention.heads)
++    bias, eligible_rows = build_attention_bias(
++        prior, state, context, cells, q.dtype, q.device, strength
++    )
++    biased_tokens = attention.masked_attention_function(q, k, v, attention.heads, bias)
++    record_backends(state, attention.attention_function, attention.masked_attention_function)
++
++    # Select only eligible compressed query rows before learned decompression.
++    selected_tokens = torch.where(eligible_rows[..., None], biased_tokens, original_tokens)
++    decompressor = attention.decompressors[str(s)]
++    shape = (b, t, len(cells), d)
++    original_full = decompressor(
++        original_tokens.reshape(shape), (h // s, w // s), (h, w)
++    )
++    selected_full = decompressor(
++        selected_tokens.reshape(shape), (h // s, w // s), (h, w)
++    )
++    # Conv3D refinement can leak selected token changes across time/space. Restore
++    # the canonical Global output at every prefix/anchor fine position afterward.
++    fine_write = build_fine_write_mask(state, context, grid.device)
++    return torch.where(fine_write, selected_full, original_full)
+--- /dev/null
++++ b/main/src/ltx_outpaint/lineart_global_prior.py
+@@ -0,0 +1,253 @@
++"""Inference-only structural bias for the Global outpainting attention view.
++
++The prior is deliberately scoped with a ContextVar so importing this module, or
++constructing a disabled prior, cannot change the model's normal attention path.
++It owns no learned parameters and never changes latent/prefix conditioning.
++"""
++
++from __future__ import annotations
++
++from contextlib import contextmanager
++from contextvars import ContextVar
++from dataclasses import dataclass, field
++import math
++from typing import Iterator
++
++import torch
++
++_CURRENT: ContextVar[tuple["LineArtGlobalPrior", "_ChunkState"] | None] = ContextVar(
++    "ltx_outpaint_lineart_global_prior", default=None
++)
++
++
++@dataclass
++class _ChunkState:
++    chunk_index: int
++    prefix_latent_frames: int
++    cache: dict = field(default_factory=dict)
++    calls: int = 0
++    active_calls: int = 0
++    calls_by_step: dict[int, int] = field(default_factory=dict)
++    bias_min: float | None = None
++    bias_max: float | None = None
++    original_backend: str | None = None
++    biased_backend: str | None = None
++    sigma_context: object | None = None
++    sigma_step: int | None = None
++
++
++class LineArtGlobalPrior:
++    """Fixed C4 line-strength prior used only by Global self-attention.
++
++    ``sigma_by_step`` must contain the exact 30 scheduler sigmas used by the
++    runner. A call is rejected rather than silently assigned to the wrong step
++    when its batch contains mixed sigmas or no scheduler match.
++    """
++
++    def __init__(
++        self,
++        token_strength: torch.Tensor,
++        sigma_by_step: tuple[float, ...],
++        enabled: bool = True,
++        bias_scale: float = 0.5,
++    ) -> None:
++        if not isinstance(token_strength, torch.Tensor):
++            raise TypeError("token_strength must be a CPU float32 torch.Tensor")
++        if token_strength.device.type != "cpu" or token_strength.dtype != torch.float32:
++            raise TypeError("token_strength must be CPU float32")
++        if token_strength.shape != (9, 15):
++            raise ValueError("FHD Global C4 token_strength must have shape [9,15]")
++        if not torch.isfinite(token_strength).all():
++            raise ValueError("token_strength contains NaN/Inf")
++        if (token_strength < 0).any() or (token_strength > 1).any():
++            raise ValueError("token_strength must be normalized to [0,1]")
++        if len(sigma_by_step) != 30 or not all(math.isfinite(float(x)) for x in sigma_by_step):
++            raise ValueError("sigma_by_step must contain 30 finite scheduler values")
++        if len(set(float(x) for x in sigma_by_step)) != len(sigma_by_step):
++            raise ValueError("sigma_by_step values must be unique")
++        if not math.isfinite(float(bias_scale)) or bias_scale < 0:
++            raise ValueError("bias_scale must be finite and nonnegative")
++        self.token_strength = token_strength.detach().clone().contiguous()
++        self._has_lines = bool(torch.count_nonzero(self.token_strength))
++        self.sigma_by_step = tuple(float(x) for x in sigma_by_step)
++        self.enabled = bool(enabled)
++        self.bias_scale = float(bias_scale)
++        self._last_summary: dict = {
++            "chunk_index": None,
++            "enabled": self.enabled,
++            "bias_scale": self.bias_scale,
++            "calls": 0,
++            "active_calls": 0,
++        }
++
++    @contextmanager
++    def chunk_scope(self, chunk_index: int, prefix_latent_frames: int = 3) -> Iterator["LineArtGlobalPrior"]:
++        if type(chunk_index) is not int or chunk_index < 0:
++            raise ValueError("chunk_index must be a nonnegative integer")
++        if type(prefix_latent_frames) is not int or prefix_latent_frames < 0:
++            raise ValueError("prefix_latent_frames must be a nonnegative integer")
++        if _CURRENT.get() is not None:
++            raise RuntimeError("LineArtGlobalPrior chunk scopes cannot be nested")
++        state = _ChunkState(chunk_index, prefix_latent_frames)
++        token = _CURRENT.set((self, state))
++        try:
++            yield self
++        finally:
++            # Never retain device tensors (or an autograd graph) across chunks.
++            state.cache.clear()
++            self._last_summary = self._state_summary(state)
++            _CURRENT.reset(token)
++
++    def summary(self) -> dict:
++        current = _CURRENT.get()
++        if current is not None and current[0] is self:
++            return self._state_summary(current[1])
++        return dict(self._last_summary)
++
++    def _state_summary(self, state: _ChunkState) -> dict:
++        return {
++            "chunk_index": state.chunk_index,
++            "enabled": self.enabled,
++            "bias_scale": self.bias_scale,
++            "schedule": {
++                "steps_0_9": self.bias_scale,
++                "steps_10_19": self.bias_scale * 0.6,
++                "steps_20_29": self.bias_scale * 0.2,
++            },
++            "calls": state.calls,
++            "active_calls": state.active_calls,
++            "calls_by_step": dict(sorted(state.calls_by_step.items())),
++            "bias_min": state.bias_min,
++            "bias_max": state.bias_max,
++            "configured_original_backend": state.original_backend,
++            "configured_biased_backend": state.biased_backend,
++            "runtime_kernel_note": "configured callable identity only; fused runtime kernel requires profiler evidence",
++        }
++
++    def _step_for_sigma(self, sigma: torch.Tensor) -> int:
++        values = sigma.detach().float().reshape(-1).cpu()
++        if values.numel() == 0 or not torch.isfinite(values).all():
++            raise ValueError("Global prior received empty or nonfinite sigma")
++        first = float(values[0])
++        # CFG duplicates are valid; different sigma values in one batch are not.
++        tolerance = max(1e-7, abs(first) * 2e-6)
++        if not torch.allclose(values, values.new_full(values.shape, first), rtol=2e-6, atol=tolerance):
++            raise ValueError("Global prior received mixed sigma values in one batch")
++        differences = [abs(first - candidate) for candidate in self.sigma_by_step]
++        step = min(range(len(differences)), key=differences.__getitem__)
++        candidate = self.sigma_by_step[step]
++        if differences[step] > max(1e-7, abs(candidate) * 2e-6):
++            raise ValueError(f"Global prior sigma {first!r} is not in the configured scheduler")
++        return step
++
++    def _lambda_for_step(self, step: int) -> float:
++        # Immutable zero-based 30-step inference schedule.
++        if step <= 9:
++            return self.bias_scale
++        if step <= 19:
++            return self.bias_scale * 0.6
++        return self.bias_scale * 0.2
++
++
++def current_prior(context):
++    """Return an active call descriptor, or ``None`` for the exact old route."""
++    bound = _CURRENT.get()
++    if bound is None:
++        return None
++    prior, state = bound
++    state.calls += 1
++    # C0 defines the reference and is intentionally byte-for-byte baseline.
++    if (not prior.enabled or prior.bias_scale == 0.0 or state.chunk_index == 0
++            or not prior._has_lines):
++        return None
++    # Every transformer block in one denoiser forward shares this immutable
++    # ViewContext. Hold the object itself (not only id) to avoid id reuse and
++    # synchronize its GPU sigma only once per forward.
++    if state.sigma_context is context:
++        step = state.sigma_step
++    else:
++        step = prior._step_for_sigma(context.sigma)
++        state.sigma_context = context
++        state.sigma_step = step
++    state.calls_by_step[step] = state.calls_by_step.get(step, 0) + 1
++    strength = prior._lambda_for_step(step)
++    if strength == 0.0:
++        return None
++    state.active_calls += 1
++    return prior, state, step, strength
++
++
++def _backend_name(callable_) -> str:
++    label = getattr(callable_, "label", None)
++    return str(label) if label is not None else type(callable_).__name__
++
++
++def build_attention_bias(prior, state, context, cells, dtype, device, strength):
++    """Build additive [B,N,N] bias and compressed-row eligibility.
++
++    Flattening is time-major, identical to ``compressed.reshape(B,-1,D)``.
++    A coarse query cell is eligible when it contains any generated pixel, while
++    every spatial/time token remains available as a key.
++    """
++    g = context.geometry
++    if g.frames <= state.prefix_latent_frames:
++        raise ValueError("prefix_latent_frames leaves no newly generated latent slices")
++    if len(cells) != 9 * 15 or (g.height, g.width) != (36, 60):
++        raise ValueError("LineArtGlobalPrior is validated only for FHD latent 36x60 / Global C4 9x15")
++    batch_size = context.sigma.reshape(-1).numel()
++    key = ("bias", device.type, device.index, dtype, batch_size, g.frames, tuple(g.anchors), strength)
++    cached = state.cache.get(key)
++    if cached is not None:
++        return cached
++
++    spatial = prior.token_strength.flatten().to(device=device, dtype=dtype)
++    temporal = spatial.repeat(g.frames)  # [t0 cells..., t1 cells...] exactly.
++    query_rows = []
++    for anchor in g.batch_anchors(batch_size):
++        generated_cell = torch.tensor(
++            [any(not anchor.contains(y, x)
++                 for y in range(cell.y, cell.y + cell.scale)
++                 for x in range(cell.x, cell.x + cell.scale))
++             for cell in cells],
++            device=device,
++            dtype=torch.bool,
++        )
++        time_ok = torch.arange(g.frames, device=device) >= state.prefix_latent_frames
++        query_rows.append((time_ok[:, None] & generated_cell[None, :]).flatten())
++    eligible = torch.stack(query_rows)
++    # A zero-strength query has an all-zero additive row. Keep it on the exact
++    # configured unmasked backend instead of accepting masked-backend rounding.
++    line_query = (spatial > 0).repeat(g.frames)
++    eligible &= line_query[None, :]
++    bias = strength * temporal[None, :, None] * temporal[None, None, :]
++    bias = bias.expand(eligible.shape[0], -1, -1).clone()
++    bias.masked_fill_(~eligible[:, :, None], 0)
++    state.bias_min = min(state.bias_min if state.bias_min is not None else 0.0, float(bias.min().item()))
++    state.bias_max = max(state.bias_max if state.bias_max is not None else 0.0, float(bias.max().item()))
++    result = bias, eligible
++    state.cache[key] = result
++    return result
++
++
++def build_fine_write_mask(state, context, device):
++    """[B,T,H,W,1] true only for new, generated fine latent positions."""
++    g = context.geometry
++    batch_size = context.sigma.reshape(-1).numel()
++    key = ("fine", device.type, device.index, batch_size, g.frames, g.height, g.width, tuple(g.anchors))
++    cached = state.cache.get(key)
++    if cached is not None:
++        return cached
++    masks = []
++    for anchor in g.batch_anchors(batch_size):
++        spatial = torch.ones(g.height, g.width, device=device, dtype=torch.bool)
++        spatial[anchor.y0:anchor.y1, anchor.x0:anchor.x1] = False
++        temporal = torch.arange(g.frames, device=device) >= state.prefix_latent_frames
++        masks.append(temporal[:, None, None] & spatial[None, :, :])
++    result = torch.stack(masks)[..., None]
++    state.cache[key] = result
++    return result
++
++
++def record_backends(state, original, biased):
++    state.original_backend = _backend_name(original)
++    state.biased_backend = _backend_name(biased)
+--- /dev/null
++++ b/main/scripts/run_lineart_chain.py
+@@ -0,0 +1,184 @@
++"""Independent FHD C0-first LongRange chain. Writes only inside experiment root."""
++from __future__ import annotations
++import argparse, json, os, sys, time, shutil
++import numpy as np
++from ltx_outpaint.lineart_global_prior import LineArtGlobalPrior
++from ltx_outpaint import global_attention as global_module
++from ltx_outpaint import lineart_global_prior as prior_module
++from copy import deepcopy
++from pathlib import Path
++import torch
++from ltx_outpaint import inference as inf
++from ltx_outpaint.streaming_video import SegmentedOutputStore, StreamingAnchorReader, encode_segments, file_sha256, probe_video, session_fingerprint
++
++ROOT=Path(__file__).resolve().parents[4]
++COPY_SRC=ROOT/'source/VideoOutpainting_test/main/src'
++ANCHOR=ROOT/'input/05_anchor_960x540_24fps_1169f.mkv'
++BASELINE=ROOT/'configs/baseline_05_run.readonly_copy.json'
++FRAMES=1169
++
++def atomic_json(path, value):
++    path.parent.mkdir(parents=True,exist_ok=True)
++    tmp=path.with_name('.'+path.name+'.partial')
++    with tmp.open('w') as f:
++        json.dump(value,f,indent=2,sort_keys=True);f.write('\n');f.flush();os.fsync(f.fileno())
++    os.replace(tmp,path)
++
++def save_carry(path, tensor, index):
++    tmp=path.with_name('.'+path.name+'.partial')
++    with tmp.open('wb') as f:
++        torch.save({'chunk_index':index,'latent':tensor},f);f.flush();os.fsync(f.fileno())
++    digest=file_sha256(tmp);os.replace(tmp,path)
++    return digest
++
++def load_carry(path, record, expected_shape):
++    if not path.is_file() or file_sha256(path)!=record['carry_sha256']:
++        raise RuntimeError('Committed carry missing or corrupt')
++    payload=torch.load(path,map_location='cpu',weights_only=True)
++    value=payload['latent']
++    if payload['chunk_index']!=record['chunk_index'] or value.device.type!='cpu' or value.dtype!=torch.bfloat16 or tuple(value.shape)!=expected_shape or not bool(torch.isfinite(value).all()):
++        raise RuntimeError('Resume carry representation mismatch')
++    return value
++
++def main():
++    p=argparse.ArgumentParser(description=__doc__)
++    p.add_argument('--mode',choices=('strength_1p0_global_lineart_prior','lineart_off_control'),required=True)
++    p.add_argument('--end-chunk',type=int,choices=(4,19,23),required=True)
++    p.add_argument('--rebase-temporal-position',action=argparse.BooleanOptionalAction,default=False)
++    p.add_argument('--use-latent-carry',action=argparse.BooleanOptionalAction,default=False)
++    p.add_argument('--generated-prefix-strength',type=float,default=1.0)
++    p.add_argument('--resume',action='store_true')
++    p.add_argument('--bootstrap-c0',action='store_true')
++    p.add_argument('--lineart-global-prior',action=argparse.BooleanOptionalAction,default=False)
++    p.add_argument('--lineart-bias-scale',type=float,default=0.5)
++    a=p.parse_args()
++    if not 0<=a.generated_prefix_strength<=1:p.error('strength must be in [0,1]')
++    if ROOT.name!='longrange_fhd_lineart_global_prior_20260923' or not Path(inf.__file__).resolve().is_relative_to(COPY_SRC):
++        raise RuntimeError('Copied experiment source must be imported, never production source')
++    print(json.dumps({'event':'import_proof','module_file':str(Path(inf.__file__).resolve()),'pythonpath':os.environ.get('PYTHONPATH'),'cwd':os.getcwd(),'experiment_root':str(ROOT)},sort_keys=True),flush=True)
++    for module in (global_module, prior_module):
++        if not Path(module.__file__).resolve().is_relative_to(COPY_SRC):
++            raise RuntimeError('Line-art source isolation violated')
++    if not (a.rebase_temporal_position and a.use_latent_carry and a.generated_prefix_strength == 1.0):
++        raise RuntimeError('Line-art experiment must retain strength_1p0 recurrence parameters')
++    if a.resume and a.bootstrap_c0:raise RuntimeError('Choose resume OR initial C0 bootstrap')
++    if not a.resume and not a.bootstrap_c0:raise RuntimeError('Reuse validated exact C0; do not generate a new branch C0')
++    if not ANCHOR.is_file():raise FileNotFoundError(ANCHOR)
++    baseline=json.loads(BASELINE.read_text())['request']
++    settings=deepcopy(baseline['settings'])
++    settings['video']['canvas']=[1920,1080]
++    settings['video']['expected_anchor']=[960,540]
++    settings['video']['enforce_expected_anchor']=True
++    if settings['runtime']['dtype']!='bfloat16' or settings['runtime']['device']!='cuda':raise RuntimeError('Baseline device/dtype changed')
++    inf._install_official_sources(Path(settings['ltx_repo']))
++    from ltx_trainer.model_loader import read_video_scale_factors
++    meta=probe_video(ANCHOR)
++    if (meta.frame_count,meta.fps,meta.width,meta.height)!=(FRAMES,24.0,960,540):raise RuntimeError(f'Anchor mismatch: {meta}')
++    vae_path=Path(settings['model'].get('video_vae_path') or settings['model']['base_model_path'])
++    sf=read_video_scale_factors(vae_path)
++    spec=inf.LongRangeSpec(**settings['long_range']);spec.validate(sf.time)
++    boundary=inf._vae_boundary(1080,1920,sf.height,sf.width,height_alignment_pixels=128)
++    anchor_rect=inf._center_anchor(boundary,meta.height,meta.width)
++    if (boundary.encoded_width,boundary.encoded_height,boundary.top,anchor_rect)!=(1920,1152,36,(306,480,846,1440)):
++        raise RuntimeError('FHD proxy pad/anchor geometry changed')
++    records=[r for r in inf._iter_long_range_chunks(FRAMES,spec,temporal_factor=sf.time) if r['chunk_index']<=a.end_chunk]
++    if len(records)!=a.end_chunk+1 or any(r['working_frame_count']!=65 for r in records):raise RuntimeError('Chunk plan mismatch')
++    config=inf._make_validation_config(settings,baseline['positive_prompt'],boundary,65,negative_prompt=baseline['negative_prompt'])
++    config.seed=int(baseline['seed']);config.inference_steps=int(baseline['inference_steps'])
++    checkpoint=Path(baseline['checkpoint_argument'])
++    memory=inf._memory_optimization_settings(settings)
++    outputs=ROOT/'outputs'/a.mode;segments=ROOT/'chunks'/a.mode;latent_root=ROOT/'latent_states'/a.mode
++    outputs.mkdir(parents=True,exist_ok=True);latent_root.mkdir(parents=True,exist_ok=True)
++    identity_request={'mode':a.mode,'anchor':str(ANCHOR),'anchor_sha256':file_sha256(ANCHOR),'baseline_checkpoint':str(checkpoint),'baseline_prompt':baseline['positive_prompt'],'baseline_negative_prompt':baseline['negative_prompt'],'base_seed':config.seed,'steps':config.inference_steps,'baseline_fingerprint':json.loads(BASELINE.read_text())['request_fingerprint'],'visible_canvas':[1920,1080],'encoded_canvas':[1920,1152],'rebase_temporal_position':a.rebase_temporal_position,'use_latent_carry':a.use_latent_carry,'generated_prefix_strength':a.generated_prefix_strength,'experiment_source_sha256':file_sha256(Path(inf.__file__))}
++    from ltx_core.components.schedulers import LTX2Scheduler
++    sigma_by_step=tuple(float(x) for x in LTX2Scheduler().execute(steps=config.inference_steps)[:-1])
++    reference_path=ROOT/'reference/global_line_strength.npy'
++    line_config=json.loads((ROOT/'configs/inference_lineart_global.json').read_text())['lineart_global_prior']
++    line_config.update(enabled=a.lineart_global_prior,bias_scale=a.lineart_bias_scale)
++    prior=LineArtGlobalPrior(torch.from_numpy(np.load(reference_path,allow_pickle=False)),sigma_by_step,
++                            enabled=a.lineart_global_prior,bias_scale=a.lineart_bias_scale)
++    identity_request['lineart_global_prior']={**line_config,'reference_sha256':file_sha256(reference_path),
++        'global_attention_sha256':file_sha256(Path(global_module.__file__)),
++        'prior_module_sha256':file_sha256(Path(prior_module.__file__))}
++    atomic_json(ROOT/'configs'/f'effective_{a.mode}_lineart.json',identity_request['lineart_global_prior'])
++    store=SegmentedOutputStore(segments)
++    store.prepare({'request':identity_request,'request_fingerprint':session_fingerprint(identity_request)},resume=a.resume)
++    if a.bootstrap_c0:
++        archive=ROOT/'bootstrap/c0'
++        verification=json.loads((ROOT/'report/c0_recovery_verification.json').read_text())
++        if verification['status']!='PASS':raise RuntimeError('C0 exact replay verification not PASS')
++        source_record=json.loads((archive/'chunk_000000.json').read_text())
++        for name in (source_record['segment_file'],source_record['next_prefix_file'],'model_ready.json'):
++            shutil.copy2(archive/name,segments/name)
++        shutil.copy2(archive/source_record['carry_file'],latent_root/source_record['carry_file'])
++        preview_dir=outputs/'chunk_previews';preview_dir.mkdir(parents=True,exist_ok=True)
++        shutil.copy2(archive/'C00_full65.mp4',preview_dir/'C00_full65.mp4')
++        atomic_json(segments/'bootstrap_provenance.json',{'source':str(archive),'verification':verification,
++                    'c0_lineart_enabled':False,'same_rgb_prefix_carry_rng':True})
++        atomic_json(segments/'chunk_000000.json',source_record)
++    atomic_json(ROOT/'configs'/f'effective_{a.mode}_settings.json',settings)
++    completed=[]
++    carry_shape=(1,128,3,36,60)
++    for expected in records:
++        actual=store.load_record(expected,output_height=1080,output_width=1920,chunk_seed=config.seed+expected['absolute_start_frame'])
++        if actual is None:break
++        if a.use_latent_carry:load_carry(latent_root/actual['carry_file'],actual,carry_shape)
++        completed.append(actual)
++    if any((segments/f"chunk_{r['chunk_index']:06d}.json").exists() for r in records[len(completed):]):raise RuntimeError('Resume journal gap')
++    if completed and len(completed)<len(records):
++        latest=completed[-1]
++        resume=store.load_resume_state(latest['chunk_index'],prefix_frames=17,output_height=1080,output_width=1920)
++        previous_prefix=resume.previous_prefix
++        carry_input=load_carry(latent_root/latest['carry_file'],latest,carry_shape) if a.use_latent_carry else None
++    else:
++        previous_prefix=None;carry_input=None
++    if len(completed)<len(records):
++        if not torch.cuda.is_available():raise RuntimeError('CUDA unavailable')
++        transformer,runner,vae_encoder,adapter_report=inf._load_models(settings,config,boundary,checkpoint_path=checkpoint,memory_optimization=memory)
++        store.record_model_ready(adapter_report)
++        if completed:inf._restore_post_chunk_rng(resume.cpu_rng_state,resume.cuda_rng_state,resume.cuda_device,expected_device='cuda')
++        print(json.dumps({'event':'model_ready','completed':len(completed),'adapter':adapter_report},sort_keys=True),flush=True)
++        with StreamingAnchorReader(ANCHOR,stride_frames=48) as reader:
++            for record in records[len(completed):]:
++                index=int(record['chunk_index']);start=int(record['absolute_start_frame'])
++                anchor=reader.read_chunk(record)
++                if anchor.shape!=(65,3,540,960):raise RuntimeError('Anchor chunk shape mismatch')
++                carried=[] if a.use_latent_carry else None
++                metrics={};torch.cuda.reset_peak_memory_stats(torch.device('cuda'))
++                print(json.dumps({'event':'chunk_started','chunk_index':index,'absolute_start_frame':start,'time':time.time()}),flush=True)
++                with prior.chunk_scope(index,prefix_latent_frames=3):
++                    generated=inf.sample_chunk(transformer=transformer,runner=runner,vae_encoder=vae_encoder,anchor_frames=anchor,previous_prefix=previous_prefix,boundary=boundary,anchor_rect=anchor_rect,absolute_start_frame=start,runtime_metrics=metrics,boundary_blend_width_pixels=inf._inference_boundary_blend_width(settings),allow_nonempty_text=True,vae_decode_streaming=bool(memory['vae_decode_streaming']),rebase_temporal_position=a.rebase_temporal_position,prefix_latent_override=carry_input,generated_prefix_strength=a.generated_prefix_strength,latent_carry_out=carried,latent_carry_frames=17 if a.use_latent_carry else None)
++                    metrics['lineart_global_prior']=prior.summary()
++                if generated.shape!=(65,3,1080,1920) or not bool(torch.isfinite(generated).all()):raise RuntimeError('Visible output invalid')
++                if previous_prefix is not None and not torch.equal(generated[:17],previous_prefix):raise RuntimeError('Fixed RGB prefix changed')
++                if not torch.equal(generated[:,:,540,960],anchor[:,:,270,480]):raise RuntimeError('Visible center anchor changed')
++                cpu_rng,cuda_rng,cuda_device=inf._capture_post_chunk_rng('cuda')
++                metrics['peak_cuda_allocated_bytes']=torch.cuda.max_memory_allocated(torch.device('cuda'))
++                metrics['peak_cuda_reserved_bytes']=torch.cuda.max_memory_reserved(torch.device('cuda'))
++                next_prefix=generated[-17:].clone()
++                offset=0 if index==0 else 17
++                emitted=generated[offset:offset+record['output_appended_count']]
++                if emitted.shape[0]!=(65 if index==0 else 48):raise RuntimeError('Output emission count mismatch')
++                record['runtime']=metrics;record['emitted_tensor_range']=[offset,offset+len(emitted)]
++                if a.use_latent_carry:
++                    if carried is None or len(carried)!=1 or tuple(carried[0].shape)!=carry_shape:raise RuntimeError('Final clean latent carry invalid')
++                    path=latent_root/f'carry_{index:06d}.pt'
++                    record['carry_file']=path.name;record['carry_sha256']=save_carry(path,carried[0],index)
++                    record['carry_shape']=list(carried[0].shape);record['carry_dtype']=str(carried[0].dtype)
++                    carry_input=carried[0]
++                else:carry_input=None
++                committed=store.commit_chunk(record,emitted,next_prefix,chunk_seed=config.seed+start,cpu_rng_state=cpu_rng,cuda_rng_state=cuda_rng,cuda_device=cuda_device)
++                completed.append(committed);previous_prefix=next_prefix
++                print(json.dumps({'event':'chunk_committed','chunk_index':index,'range':record['new_output_frame_range'],'metrics':metrics},sort_keys=True),flush=True)
++                del generated,emitted,anchor,carried
++    if len(completed)!=len(records):raise RuntimeError('Incomplete requested chain')
++    expected_frames=65+a.end_chunk*48
++    output=outputs/f'C0_C{a.end_chunk}_{expected_frames}f_1920x1080.mp4'
++    if not output.is_file():
++        encoded=encode_segments(completed,segments,output,fps=24.0,width=1920,height=1080,expected_frames=expected_frames)
++        if encoded!=expected_frames:raise RuntimeError('Stitch frame accounting mismatch')
++    atomic_json(outputs/f'C0_C{a.end_chunk}_manifest.json',{'mp4':str(output),'frames':expected_frames,'fps':24,'visible_canvas':[1920,1080],'encoded_canvas':[1920,1152],'chunks':list(range(a.end_chunk+1)),'flags':identity_request})
++    print(json.dumps({'event':'run_complete','last_chunk':a.end_chunk,'frames':expected_frames,'mp4':str(output)},sort_keys=True),flush=True)
++
++if __name__=='__main__':
++    with torch.inference_mode():main()
+--- /dev/null
++++ b/tests/test_lineart_global_prior.py
+@@ -0,0 +1,223 @@
++import importlib
++from types import SimpleNamespace
++
++import pytest
++import torch
++from torch import nn
++
++from ltx_outpaint.geometry import CanvasGeometry, Rect, global_cells
++from ltx_outpaint.lineart_global_prior import (
++    LineArtGlobalPrior,
++    build_attention_bias,
++    build_fine_write_mask,
++    current_prior,
++)
++
++
++def sigmas():
++    # Unique values deliberately include a nonuniform schedule.
++    return tuple(float(x) for x in torch.linspace(1.0, 0.01, 30))
++
++
++def context(sigma, anchor=Rect(9, 15, 27, 45), frames=9):
++    return SimpleNamespace(
++        sigma=torch.tensor(sigma, dtype=torch.float32),
++        geometry=CanvasGeometry(frames, 36, 60, (anchor,)),
++    )
++
++
++def prior(scale=0.5, enabled=True):
++    strength = torch.arange(135, dtype=torch.float32).reshape(9, 15) / 134
++    return LineArtGlobalPrior(strength, sigmas(), enabled=enabled, bias_scale=scale)
++
++
++def test_schedule_boundaries_and_repeated_cfg_do_not_advance_step():
++    p = prior()
++    expected = {9: 0.5, 10: 0.3, 19: 0.3, 20: 0.1, 29: 0.1}
++    with p.chunk_scope(1):
++        for step, value in expected.items():
++            active = current_prior(context([sigmas()[step], sigmas()[step]]))
++            assert active[2] == step
++            assert active[3] == pytest.approx(value)
++        # A repeat is another model/block call at the same scheduler step, not
++        # an implicit counter increment.
++        assert current_prior(context([sigmas()[10], sigmas()[10]]))[2] == 10
++        assert p.summary()["calls_by_step"][10] == 2
++    assert p.summary()["active_calls"] == 6
++
++
++def test_unknown_and_mixed_sigma_fail():
++    p = prior()
++    with p.chunk_scope(1):
++        with pytest.raises(ValueError, match="mixed"):
++            current_prior(context([sigmas()[3], sigmas()[4]]))
++        with pytest.raises(ValueError, match="not in"):
++            current_prior(context([100.0, 100.0]))
++
++
++def test_bias_math_time_major_token_order_and_query_gating():
++    p = prior()
++    ctx = context([sigmas()[0]], anchor=Rect(1, 1, 35, 59), frames=9)
++    cells = global_cells(36, 60, 4)
++    with p.chunk_scope(1, prefix_latent_frames=3):
++        active = current_prior(ctx)
++        bias, eligible = build_attention_bias(p, active[1], ctx, cells, torch.float32, torch.device("cpu"), active[3])
++        g = p.token_strength.flatten().repeat(9)
++        assert bias.shape == (1, 1215, 1215)
++        # Prefix rows are untouched, while their tokens are still full-strength keys.
++        assert not eligible[0, : 3 * 135].any()
++        assert torch.count_nonzero(bias[0, : 3 * 135]) == 0
++        # C4(0,0) overlaps but is not wholly inside the anchor: generated-any query.
++        q = 3 * 135 + 1
++        assert eligible[0, q]
++        assert torch.allclose(bias[0, q], 0.5 * g[q] * g)
++        # C4(4,4) is wholly anchor-owned and cannot be a biased query.
++        contained = 3 * 135 + 1 * 15 + 1
++        assert not eligible[0, contained]
++        assert torch.count_nonzero(bias[0, contained]) == 0
++        # Exact row-major spatial ordering followed by time-major repetition.
++        assert g[0] == p.token_strength[0, 0]
++        assert g[14] == p.token_strength[0, 14]
++        assert g[15] == p.token_strength[1, 0]
++        assert g[135] == p.token_strength[0, 0]
++
++
++def test_fine_write_mask_preserves_prefix_and_anchor_exactly():
++    p = prior()
++    ctx = context([sigmas()[0]], anchor=Rect(9, 15, 27, 45), frames=9)
++    with p.chunk_scope(1, prefix_latent_frames=3):
++        active = current_prior(ctx)
++        mask = build_fine_write_mask(active[1], ctx, torch.device("cpu"))
++        assert mask.shape == (1, 9, 36, 60, 1)
++        assert not mask[:, :3].any()
++        assert not mask[:, 3:, 9:27, 15:45].any()
++        assert mask[:, 3:, :, :15].all()
++        assert mask[:, 3:, :, 45:].all()
++
++
++class FakeCompressor(nn.Module):
++    def forward(self, grid, cells):
++        return grid[:, :, ::4, ::4, :]
++
++
++class LeakyDecompressor(nn.Module):
++    def forward(self, tokens, compressed_shape, target_shape):
++        b, t, n, d = tokens.shape
++        x = tokens.reshape(b, t, 9, 15, d).repeat_interleave(4, 2).repeat_interleave(4, 3)
++        # Learned Conv3D-like support: eligible changes bleed one step/cell into
++        # otherwise unselected positions unless the final fine mask restores them.
++        y = torch.nn.functional.avg_pool3d(
++            x.permute(0, 4, 1, 2, 3), kernel_size=3, stride=1, padding=1
++        )
++        return y.permute(0, 2, 3, 4, 1)
++
++
++class FakeAttention:
++    scale = 4
++    heads = 1
++    shared_outpainting_lora = {"q": None, "k": None, "v": None}
++    global_lora = {"q": None, "k": None, "v": None}
++
++    def __init__(self):
++        self.compressors = {"4": FakeCompressor()}
++        self.decompressors = {"4": LeakyDecompressor()}
++        self.to_q = self.to_k = self.to_v = nn.Identity()
++        self.original_calls = 0
++        self.masked_calls = 0
++
++    def preattention_function(self, q, k, attention, mask, pe, k_pe):
++        assert mask is None and k_pe is None
++        return q, k
++
++    def attention_function(self, q, k, v, heads):
++        self.original_calls += 1
++        return torch.zeros_like(v)
++
++    def masked_attention_function(self, q, k, v, heads, mask):
++        self.masked_calls += 1
++        assert mask.ndim == 3
++        return torch.ones_like(v)
++
++
++def install_test_shims(monkeypatch):
++    module = importlib.import_module("ltx_outpaint.global_attention")
++    monkeypatch.setattr(module, "phase_rope", lambda context, cells, scale, dtype: object())
++    monkeypatch.setattr(
++        module,
++        "project_with_loras",
++        lambda linear, x, loras: linear(x),
++    )
++    monkeypatch.setattr(
++        module, "attend",
++        lambda attention, x, pe, lora: attention.attention_function(x, x, x, attention.heads),
++    )
++    return module
++
++
++@pytest.mark.parametrize("mode", ["unbound", "disabled", "scale0", "c0"])
++def test_off_routes_exact_original_backend_without_mask(monkeypatch, mode):
++    module = install_test_shims(monkeypatch)
++    attn = FakeAttention()
++    grid = torch.randn(1, 9, 36, 60, 1)
++    ctx = context([sigmas()[0]])
++    if mode == "unbound":
++        got = module.global_attention(attn, grid, ctx)
++    else:
++        p = prior(enabled=mode != "disabled", scale=0.0 if mode == "scale0" else 0.5)
++        with p.chunk_scope(0 if mode == "c0" else 1):
++            got = module.global_attention(attn, grid, ctx)
++    assert attn.original_calls == 1
++    assert attn.masked_calls == 0
++    assert torch.count_nonzero(got) == 0
++
++
++def test_dual_decompression_restores_prefix_and_anchor_after_leakage(monkeypatch):
++    module = install_test_shims(monkeypatch)
++    attn = FakeAttention()
++    grid = torch.zeros(1, 9, 36, 60, 1)
++    ctx = context([sigmas()[0]])
++    p = prior()
++    with p.chunk_scope(1, prefix_latent_frames=3):
++        got = module.global_attention(attn, grid, ctx)
++        summary = p.summary()
++    assert attn.original_calls == 1 and attn.masked_calls == 1
++    # Leaky decompressor would contaminate t=2 and anchor borders. Final restore
++    # guarantees canonical Global output there anyway.
++    assert torch.count_nonzero(got[:, :3]) == 0
++    assert torch.count_nonzero(got[:, 3:, 9:27, 15:45]) == 0
++    assert got[:, 3:, :, :15].max() > 0
++    assert summary["configured_original_backend"] == "method"
++    assert summary["configured_biased_backend"] == "method"
++
++
++def test_zero_line_map_is_exact_unmasked_route(monkeypatch):
++    module = install_test_shims(monkeypatch)
++    attn = FakeAttention()
++    grid = torch.randn(1, 9, 36, 60, 1)
++    empty = LineArtGlobalPrior(torch.zeros(9, 15), sigmas(), bias_scale=0.5)
++    with empty.chunk_scope(1):
++        got = module.global_attention(attn, grid, context([sigmas()[0]]))
++    assert attn.original_calls == 1
++    assert attn.masked_calls == 0
++    assert torch.count_nonzero(got) == 0
++
++
++def test_sigma_lookup_cached_by_held_context_identity(monkeypatch):
++    p = prior()
++    ctx = context([sigmas()[7], sigmas()[7]])
++    calls = 0
++    original = p._step_for_sigma
++
++    def counted(value):
++        nonlocal calls
++        calls += 1
++        return original(value)
++
++    monkeypatch.setattr(p, "_step_for_sigma", counted)
++    with p.chunk_scope(1):
++        assert current_prior(ctx)[2] == 7
++        assert current_prior(ctx)[2] == 7
++        assert calls == 1
++        # Equal contents in a different ViewContext must be independently checked.
++        assert current_prior(context([sigmas()[7], sigmas()[7]]))[2] == 7
++        assert calls == 2

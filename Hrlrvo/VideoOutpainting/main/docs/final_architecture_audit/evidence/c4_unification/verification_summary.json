@@ -1,0 +1,145 @@
+{
+  "timestamp_utc": "2026-09-11T01:49:21.429783+00:00",
+  "verdict": "PASS — architecture is fully specified and code-consistent",
+  "scope": "source/static + selected CPU unit/geometry/Conv tests only; no LTX/attention forward, real training/inference/GPU/optimizer step",
+  "architecture_version": 8,
+  "global_partial_c4_active_path_count": 0,
+  "valid_count_normalization_active_path_count": 0,
+  "c4_shared_per_block_module_parameter_identity": "PASS",
+  "c2_c4_distinct_and_interblock_c4_distinct": "PASS",
+  "duplicate_parameter_or_optimizer_or_c4_state_destination_count": 0,
+  "c4_attention_interpretation": "Adaptive K/V uses OP+A; Global Q/K/V uses OP+G, unchanged",
+  "gradient_ownership": {
+    "source_final_loss_shared_c4_connection": "PASS (static)",
+    "cpu_compressor_two_consumer_gradient_sum": "PASS",
+    "rtol": 1e-12,
+    "atol": 1e-12,
+    "production_backward_executed": false
+  },
+  "canonical_global": {
+    "input_hw": [
+      68,
+      120
+    ],
+    "compressed_hw": [
+      17,
+      30
+    ],
+    "full_c4_count": 510,
+    "partial_count": 0,
+    "drop": 0,
+    "duplication": 0,
+    "average_init_output_exact": true
+  },
+  "invalid_global_geometries_rejected": [
+    [
+      5,
+      5
+    ],
+    [
+      17,
+      20
+    ],
+    [
+      67,
+      120
+    ],
+    [
+      68,
+      119
+    ],
+    [
+      1,
+      4
+    ]
+  ],
+  "malformed_direct_cell_rejected": [
+    "partial",
+    "masked",
+    "duplicate",
+    "bounds",
+    "outside",
+    "scale"
+  ],
+  "adaptive_regression": {
+    "case_count": 41,
+    "partial_c2": 0,
+    "partial_c4": 0,
+    "support_loss": 0,
+    "support_duplication": 0,
+    "target_write_loss": 0,
+    "target_write_duplication": 0,
+    "k4_C2_C4_Q_empty": [
+      3616,
+      224,
+      1620,
+      4
+    ],
+    "k5_C2_C4_Q_empty": [
+      4456,
+      362,
+      1590,
+      1
+    ]
+  },
+  "tests": {
+    "passed": 62,
+    "failed": 0,
+    "scope": "new full-cell CPU unit file plus selected prior pure geometry/PMA/config tests",
+    "full_suite_executed": false
+  },
+  "compile_python_files": 22,
+  "lint": "PASS",
+  "import_config": "PASS",
+  "preservation": {
+    "spatial_decompressor_class_byte_identical": true,
+    "decompressor_class_sha256": "ef83da42653592d07b1c0d4d62afb3595e3ff43f49f39def33c164af17450df6",
+    "compressor_constructor_initialization_byte_identical": true,
+    "adaptive_geometry_symbols_byte_identical": [
+      "Rect",
+      "CanvasGeometry",
+      "partition_axis",
+      "local_windows",
+      "anchor_patch",
+      "AdaptiveLayout",
+      "align_adaptive_support",
+      "resolve_adaptive_roles",
+      "build_adaptive_multires_tokens",
+      "adaptive_layout"
+    ],
+    "other_existing_source_config_hashes_unchanged": true,
+    "pinned_source_hash_count": 205,
+    "pinned_source_changed_count": 0,
+    "visualization_changed_count": 0,
+    "cache_dataset_write_operations": 0,
+    "external_process_management_operations": 0
+  },
+  "parameter_count_unchanged": {
+    "trainable": 280363008,
+    "frozen_base": 18988838144,
+    "installed": 19269201152,
+    "evidence": "unchanged constructors/ownership/init; previous checkpoint-header/formula audit; no full-model construction"
+  },
+  "changed_existing_source_tests_readme": [
+    "README.md",
+    "src/ltx_outpaint/compression.py",
+    "src/ltx_outpaint/geometry.py",
+    "src/ltx_outpaint/global_attention.py",
+    "tests/test_adaptive_promotion.py"
+  ],
+  "new_tests": [
+    "tests/test_shared_full_cell_compression.py"
+  ],
+  "updated_audit_documents": [
+    "01_TRAINING_SPEC.md",
+    "04_ADAPTIVE_LOCAL_BRANCH.md",
+    "05_GLOBAL_BRANCH.md",
+    "07_COMPRESSION_DECOMPRESSION_SPEC.md",
+    "08_FULL_ARCHITECTURE_FLOW.md",
+    "09_ADAPTIVE_GRID_GEOMETRY_AUDIT.md",
+    "10_FINAL_ARCHITECTURE_AUDIT.md"
+  ],
+  "c4_checkpoint_namespace": "transformer_blocks.i.attn1.compressors.4.conv.{weight,bias}",
+  "version_rationale": "Same v8 full-cell weight/init/output semantics and parameter namespaces; only invalid Global geometry fallback removed. Strict metadata/key/provenance loader unchanged.",
+  "remaining_c4_r4_mismatches": []
+}

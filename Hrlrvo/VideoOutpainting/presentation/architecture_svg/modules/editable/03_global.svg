@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="570" height="336" viewBox="0 0 570 336" version="1.1" role="img">
+  <title>03 global</title>
+  <desc>Editable standalone architecture module; transparent background.</desc>
+  <g transform="translate(-1268 -218)">
+    <g id="global-attention">
+      <rect x="1282" y="232" width="542" height="300" rx="18" fill="#FFFFFF" stroke="#D9E1ED" stroke-width="1.6" />
+      <rect x="1306" y="256" width="5" height="35" rx="2" fill="#188982" />
+      <text x="1326" y="283" font-family="DejaVu Sans" font-size="29" font-weight="700" fill="#18263D" text-anchor="start">Global</text>
+      <text x="1326" y="311" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="start">Canvas-wide context</text>
+      <rect x="1308" y="331" width="490" height="69" rx="10" fill="#F1F4F8" />
+      <text x="1553.0" y="360" font-family="DejaVu Sans" font-size="24" font-weight="700" fill="#18263D" text-anchor="middle">LTX Self-Attention</text>
+      <text x="1553.0" y="385" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="middle">Base Q / K / V</text>
+      <text x="1553.0" y="421" font-family="DejaVu Sans" font-size="23" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="1308" y="433" width="490" height="40" rx="9" fill="#FFF5E4" />
+      <text x="1553.0" y="459" font-family="DejaVu Sans" font-size="21" font-weight="700" fill="#AD6916" text-anchor="middle">Shared OP LoRA · r32</text>
+      <text x="1553.0" y="492" font-family="DejaVu Sans" font-size="21" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="1308" y="500" width="490" height="28" rx="8" fill="#EFFAF8" />
+      <text x="1553.0" y="521" font-family="DejaVu Sans" font-size="20" font-weight="700" fill="#188982" text-anchor="middle">G-LoRA · r64</text>
+    </g>
+  </g>
+</svg>

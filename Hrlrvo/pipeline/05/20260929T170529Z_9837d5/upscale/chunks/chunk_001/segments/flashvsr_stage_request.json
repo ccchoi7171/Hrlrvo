@@ -1,0 +1,135 @@
+{
+  "configuration": {
+    "center_bbox_yx": [
+      2160,
+      3840,
+      6480,
+      11520
+    ],
+    "direct_jpeg_output": true,
+    "encoder": "libx265",
+    "expected_frames": 21,
+    "feather_method": "inward_nearest_edge_smoothstep_alpha",
+    "feather_width_pixels": 64,
+    "ffmpeg_threads": 32,
+    "input_4k_fps": "16/1",
+    "input_start_frame": 21,
+    "jpeg_codec": "mjpeg",
+    "jpeg_filename_pattern": "{frame_index}.jpg",
+    "jpeg_pixel_format": "yuvj420p",
+    "jpeg_quality": 2,
+    "local_range": 11,
+    "min_tile_size": 320,
+    "omit_original_audio": true,
+    "original_8k_fps": "16/1",
+    "outpainting_config": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/video_outpainting/main/configs/inference_4k.yaml",
+    "output_fps": "16/1",
+    "output_mode": "jpeg_sequence",
+    "scale": 4,
+    "seed": 71634910,
+    "selected_range": true,
+    "sparse_ratio": 2.0,
+    "tile_overlap": "32",
+    "tile_size": "320"
+  },
+  "flashvsr_reference": {
+    "mtime_ns": 1790171496615857000,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/flashvsr/architect/FlashVSR_v1.1/upscale.py",
+    "sha256": "3db9c0524418070a87b26b948612f8988cd47f007c6e7739a89d3911ed0d703d",
+    "size": 73779
+  },
+  "input_4k": {
+    "mtime_ns": 1790703060156036000,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/05/20260929T170529Z_9837d5/outpaint/final/05_Outpaint_4K.mp4",
+    "sha256": "776405588b22f90f550cd9ce8b838a86aaed2642269a070f83342019947c96b0",
+    "size": 42708924
+  },
+  "input_4k_metadata": {
+    "avg_frame_rate": "16/1",
+    "codec_name": "h264",
+    "color_primaries": null,
+    "color_space": null,
+    "color_transfer": null,
+    "decoded_frame_count_performed": false,
+    "duration": 4.0625,
+    "fps": 16.0,
+    "frame_count": 65,
+    "height": 2160,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/05/20260929T170529Z_9837d5/outpaint/final/05_Outpaint_4K.mp4",
+    "pix_fmt": "yuv420p",
+    "r_frame_rate": "16/1",
+    "start_time": "0.000000",
+    "time_base": "1/16384",
+    "width": 3840
+  },
+  "model_assets": [
+    {
+      "mtime_ns": 1788519138852390000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/repository/diffsynth/pipelines/flashvsr_tiny_long.py",
+      "size": 24566
+    },
+    {
+      "mtime_ns": 1788519139915405000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/repository/examples/WanVSR/utils/utils.py",
+      "size": 9403
+    },
+    {
+      "mtime_ns": 1788519139913355000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/repository/examples/WanVSR/utils/TCDecoder.py",
+      "size": 12560
+    },
+    {
+      "mtime_ns": 1788519139904914000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/repository/examples/WanVSR/prompt_tensor/posi_prompt.pth",
+      "size": 4195504
+    },
+    {
+      "mtime_ns": 1788519205240597000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/checkpoint/diffusion_pytorch_model_streaming_dmd.safetensors",
+      "size": 5676070392
+    },
+    {
+      "mtime_ns": 1788519162356658000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/checkpoint/LQ_proj_in.ckpt",
+      "size": 575694948
+    },
+    {
+      "mtime_ns": 1788519162724707000,
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1/checkpoint/TCDecoder.ckpt",
+      "size": 189018333
+    }
+  ],
+  "model_root": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/models/flashvsr_v1_1",
+  "original_8k": {
+    "mtime_ns": 1789999808734866000,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/05_Input_8K.mp4",
+    "sha256": "684b400a0057478295e22ddf7aa5caf5b5ad1a4fb77fafdbf9a5c74baa2cb454",
+    "size": 854767123
+  },
+  "original_8k_metadata": {
+    "avg_frame_rate": "16/1",
+    "codec_name": "hevc",
+    "color_primaries": "bt709",
+    "color_space": "bt709",
+    "color_transfer": null,
+    "decoded_frame_count_performed": false,
+    "duration": 122.0,
+    "fps": 16.0,
+    "frame_count": 1952,
+    "height": 4320,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/05_Input_8K.mp4",
+    "pix_fmt": "yuv420p10le",
+    "r_frame_rate": "16/1",
+    "start_time": "0.000000",
+    "time_base": "1/16384",
+    "width": 7680
+  },
+  "outpainting_config": {
+    "mtime_ns": 1790168537266826000,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/src/video_outpainting/main/configs/inference_4k.yaml",
+    "sha256": "c62aa0bbf06a658e0110a302bd0c6040651568048d73a5ec358a765899cea9ec",
+    "size": 3568
+  },
+  "schema_version": 1,
+  "video_id": "05"
+}

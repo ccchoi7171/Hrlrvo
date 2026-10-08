@@ -1,0 +1,22 @@
+{
+  "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/source/VideoOutpainting_test/main/src/ltx_outpaint/inference.py": {
+    "size": 107961,
+    "mtime_ns": 1790163208757282000,
+    "sha256": "69542830e48229650f8afce87e2240403ab6f78049fd1868252158b9ff97a426"
+  },
+  "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/source/VideoOutpainting_test/main/src/ltx_outpaint/global_attention.py": {
+    "size": 639,
+    "mtime_ns": 1789090834832074000,
+    "sha256": "1588e9db7d98cfd5537419e33804f09971dd7d4e78c744c731049f55307b9fa5"
+  },
+  "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main/src/ltx_outpaint/inference.py": {
+    "size": 102693,
+    "mtime_ns": 1790064186807345000,
+    "sha256": "55525cd3fad501caf57fc1928104240521390bc0a9b7faa063f7f04625340286"
+  },
+  "/home/work/ai-graphics_33/Hrlrvo/pipeline/data/02_VideoOutPaint_4K_3840x2160/05_VideoOutPaint_4K.mp4": {
+    "size": 215711720,
+    "mtime_ns": 1790121509336039000,
+    "sha256": null
+  }
+}

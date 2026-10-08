@@ -1,0 +1,56 @@
+{
+  "name": "D5_v2_base_518",
+  "model_id": "depth-anything/Depth-Anything-V2-Base-hf",
+  "model_revision": "b1958afc87fb45a9e3746cb387596094de553ed8",
+  "source": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/c0_frame000.png",
+  "source_sha256": "46d09b0325141b42783047144cfb9aae4d6fbad9127ec3c3c18f311ff27edf5d",
+  "device": "cpu",
+  "dtype": "float32",
+  "model_class": "DepthAnythingForDepthEstimation",
+  "processor_class": "DPTImageProcessor",
+  "weights": "pretrained safetensors; no training or diffusion",
+  "parameter_count": 97470785,
+  "requested_processor_size": 518,
+  "actual_input_shape": [
+    1,
+    3,
+    518,
+    924
+  ],
+  "prediction_kind": "relative",
+  "raw_network_output_shape": [
+    1,
+    518,
+    924
+  ],
+  "saved_depth_shape": [
+    1080,
+    1920
+  ],
+  "load_seconds": 6.637120703235269,
+  "inference_and_postprocess_seconds": 2.5592040717601776,
+  "raw_min_max": [
+    0.25741952657699585,
+    28.96257209777832
+  ],
+  "display_percentile_clip": [
+    0.5,
+    99.5
+  ],
+  "display_clip_values": [
+    0.3397704856097698,
+    28.07073811531066
+  ],
+  "display_note": "Normalized independently per model; grayscale white=near, black=far. Relative models have no meters; metric-indoor model values are unvalidated model distance estimates, not measured ground truth. Color/inverted versions are the SAME prediction, not additional models.",
+  "artifacts": [
+    "depth_color.png",
+    "depth_gray.png",
+    "depth_gray_16bit.png",
+    "depth_overlay.png",
+    "depth_raw.npy",
+    "depth_white_far.png",
+    "model_config.json",
+    "prediction_display_normalized.npy",
+    "processor_config"
+  ]
+}

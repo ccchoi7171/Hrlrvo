@@ -1,0 +1,68 @@
+{
+  "schema": "a6000_final_only_benchmark_decision/v2",
+  "status": "PASS",
+  "time_utc": "2026-09-26T17:45:52.201521+00:00",
+  "pixel_equality_pass": true,
+  "selected_policy": {
+    "renderer": "threaded",
+    "compose_workers": 8,
+    "max_parallel_videos": 2
+  },
+  "evidence": {
+    "concurrent_video_comparison": {
+      "serial_seconds": 54.66699069458991,
+      "parallel_seconds": 31.757914111949503,
+      "makespan_gain_percent": 41.90659901260596,
+      "frames_per_video_per_run": 4,
+      "actual_encoder": "libx265 fast crf14 yuv420p10le hvc1 pools32",
+      "subprocess_exit_codes": {
+        "03": 0,
+        "04": 0
+      },
+      "per_video_parallel_slowdown": {
+        "03": 1.043854636830597,
+        "04": 1.0680877837198952
+      }
+    },
+    "rgb_equality": {
+      "03": {
+        "baseline_full16k_frame0": "0fc1114e1ebfc424865fa17d066a87a2d5327d480630231c403795b0b9a7ef14",
+        "serial_and_parallel_4frame_hashes": [
+          "0fc1114e1ebfc424865fa17d066a87a2d5327d480630231c403795b0b9a7ef14",
+          "cd987491c8e314e9bf7c53431dadcb08ab419137c3accad9f83fdcbb9e9e8c64",
+          "9629c8107a4c0eee07c876df5861baa4ee770fb12d732d69d7a050d3aa80917d",
+          "56cc55c07d0e1c0ef83071de8954341001f5fcd7c9f7cd6fceda29aa90763cc4"
+        ]
+      },
+      "04": {
+        "baseline_full16k_frame0": "c4159a34ca761bd55506722895f5f323c068d5aea68d3143cf8b9476cca67f88",
+        "serial_and_parallel_4frame_hashes": [
+          "c4159a34ca761bd55506722895f5f323c068d5aea68d3143cf8b9476cca67f88",
+          "415a991d6cd34f3a9250f724b77a4cff58f507e0cae142453d3b1012fe29df89",
+          "a2857aabc8febe3b69278a3ed7fc0139b7441b76c2ba1c1871c5f94c30d22198",
+          "e175986df895c6ab3f6cb322c74252abab819312da6b320ea4350a8a228d0de5"
+        ]
+      }
+    },
+    "render_microbenchmark_seconds": {
+      "1": 14.236965414136648,
+      "4": 8.661822233814746,
+      "8": 8.02753322944045
+    },
+    "original_microbenchmark_seconds": 13.629123941063881,
+    "candidate_renderer_sha256": "515e1a7a27de1ab320057ba1748cb5ad57819c932093a2f83fc7b5844477e03a",
+    "proof_file_hashes": {
+      "verification/final_only_v2_bench/parallel_group_w8.json": "d9c7ba566e5790146b29627c0840195f664b80a3051eaa8d333a09bfdc379bc3",
+      "verification/final_only_v2_bench/serial_v03_w8_4f/result.json": "dd2e8733af360db0daf0ad9d927dc6e664f30092818f951abece9a1231d45dd0",
+      "verification/final_only_v2_bench/serial_v04_w8_4f/result.json": "d970b685848f7323bc7f09bc89e3acc6a9e1b9be41cada69469ababf074565df",
+      "verification/final_only_v2_bench/original03_1f/result.json": "8cb232affc0c95056dc38e452caf80ce3edb78239bf964a08b9ddc92113165c7",
+      "verification/final_only_v2_bench/original04_1f/result.json": "6f517d57a23df6836f138d5ba4862d9ed053752cc87021227014ef846650612e"
+    }
+  },
+  "limitations": [
+    "Bounded full-resolution fixture, not the final production videos. Original global170 layout repeats current committed PNG content, so cache/I/O is not representative of all170 independent tiles.",
+    "Only four frames per video per encoded run; codec startup/GOP and production storage rate limit ETA confidence.",
+    "Source inference still produces every original170 tile with unchanged seeds/temporal parameters. No full1952-frame generation or full16Kdecode used for this benchmark."
+  ],
+  "decision_reason": "Same preencodeRGB, >10% measured combined makespan reduction, no errors, perjobslowdown<1.8; keep original4 GPU workers and choose final-only threaded8 CPU compositors with dual video encoding."
+}

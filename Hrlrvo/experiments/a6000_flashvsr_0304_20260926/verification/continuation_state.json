@@ -1,0 +1,7 @@
+{
+  "time_utc": "2026-09-27T20:04:10.200018+00:00",
+  "status": "01_OUTPAINT_COMPLETE",
+  "pid": 1939579,
+  "output": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/data/02_Outpaint_4K_3840x2160/01/final/01_Outpaint_4K.mp4",
+  "upscale_scheduled": false
+}

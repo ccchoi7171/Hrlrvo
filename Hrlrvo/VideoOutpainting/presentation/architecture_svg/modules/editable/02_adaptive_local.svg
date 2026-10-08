@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="528" height="336" viewBox="0 0 528 336" version="1.1" role="img">
+  <title>02 adaptive local</title>
+  <desc>Editable standalone architecture module; transparent background.</desc>
+  <g transform="translate(-666 -218)">
+    <g id="adaptive-local">
+      <rect x="680" y="232" width="500" height="300" rx="18" fill="#FFFFFF" stroke="#D9E1ED" stroke-width="1.6" />
+      <rect x="704" y="256" width="5" height="35" rx="2" fill="#8760C9" />
+      <text x="724" y="283" font-family="DejaVu Sans" font-size="29" font-weight="700" fill="#18263D" text-anchor="start">Adaptive</text>
+      <text x="724" y="311" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="start">Anchor–Target context</text>
+      <rect x="706" y="331" width="448" height="69" rx="10" fill="#F1F4F8" />
+      <text x="930.0" y="360" font-family="DejaVu Sans" font-size="24" font-weight="700" fill="#18263D" text-anchor="middle">LTX Self-Attention</text>
+      <text x="930.0" y="385" font-family="DejaVu Sans" font-size="18" font-weight="400" fill="#69768B" text-anchor="middle">Base Q / K / V</text>
+      <text x="930.0" y="421" font-family="DejaVu Sans" font-size="23" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="706" y="433" width="448" height="40" rx="9" fill="#FFF5E4" />
+      <text x="930.0" y="459" font-family="DejaVu Sans" font-size="21" font-weight="700" fill="#AD6916" text-anchor="middle">Shared OP LoRA · r32</text>
+      <text x="930.0" y="492" font-family="DejaVu Sans" font-size="21" font-weight="400" fill="#69768B" text-anchor="middle">+</text>
+      <rect x="706" y="500" width="448" height="28" rx="8" fill="#F7F2FF" />
+      <text x="930.0" y="521" font-family="DejaVu Sans" font-size="20" font-weight="700" fill="#8760C9" text-anchor="middle">A-LoRA · r64</text>
+    </g>
+  </g>
+</svg>

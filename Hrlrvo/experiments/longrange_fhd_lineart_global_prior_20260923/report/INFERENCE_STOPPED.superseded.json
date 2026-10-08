@@ -1,0 +1,7 @@
+{
+  "time_utc": "2026-09-23T17:03:37Z",
+  "user_requested_stop": true,
+  "stopped": [],
+  "resume_authorized": false,
+  "note": "CPU line-art revision only; do not restart inference."
+}

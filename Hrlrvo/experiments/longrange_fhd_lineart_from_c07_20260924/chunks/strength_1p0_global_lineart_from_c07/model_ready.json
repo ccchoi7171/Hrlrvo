@@ -1,0 +1,21 @@
+{
+  "adapter_load": {
+    "adapter_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-007500/adapter_model.safetensors",
+    "expected_key_count": 1728,
+    "keys_by_category": {
+      "adaptive_lora": 288,
+      "compressors": 192,
+      "decompressors": 192,
+      "ffn_lora": 192,
+      "global_fusion": 96,
+      "global_lora": 288,
+      "local_fusion": 96,
+      "shared_outpainting_lora": 384
+    },
+    "loaded_key_count": 1728,
+    "missing_key_count": 0,
+    "mode": "checkpoint",
+    "shape_mismatch_count": 0,
+    "unexpected_key_count": 0
+  }
+}

@@ -1,0 +1,8 @@
+source/VideoOutpainting_test/main/src/ltx_outpaint/inference.py — copied inference only: FHD VAE height alignment, temporal rebase, causal-safe hybrid latent carry (first keyframe RGB re-encode + two direct final-clean slices), generated-side 0.8 fixed conditioning.
+source/VideoOutpainting_test/main/scripts/run_fhd_chain.py — new isolated C0-first/resumable runner and RGB segment writer.
+tests/preflight.py — CPU-only geometry, mask, carry and frame-accounting verification.
+commands/run_modified_C4.sh, run_modified_C19.sh, run_modified_C23.sh, run_control_C4.sh — recorded execution commands.
+source/VideoOutpainting_test/main/scripts/run_strength1_chain.py — isolated second-branch runner copy with strength_1p0 mode.
+scripts/compare_chain.py, boundary_metric.py, watch_chunk_previews.py — CPU-only diagnostics/preview generators.
+commands/run_strength_1p0_C23.sh, tmux_strength1_session.sh, tmux_modified_resume_C23.sh, tmux_*_previews*.sh — independent tmux A/B execution and automatic resume commands.
+commands/stop_modified_after_C10.sh, preserve_modified_C10.sh, finalize_strength1_C23.sh and tmux wrappers — evidence-gated 0.8 early stop, 545f archival, and single-branch finalization.

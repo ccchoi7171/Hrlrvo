@@ -1,0 +1,18 @@
+{
+  "name": "03_global_boost",
+  "physical_gpu": 2,
+  "base_seed": 71634910,
+  "seed_rule": "base_seed + absolute_start_frame",
+  "generated_prefix_strength": 1.0,
+  "rebase_temporal_position": true,
+  "use_latent_carry": true,
+  "early_global_boost": true,
+  "global_boost_scale": 1.4,
+  "global_boost_steps": 10,
+  "global_boost_schedule": "constant_first_10_then_off",
+  "native_halo_radius_tokens": 0,
+  "native_token_rgb_stride": 32,
+  "anchor_prefix_authority": "current_anchor_encoding",
+  "start_policy": "fresh_C0",
+  "end_chunk": 23
+}

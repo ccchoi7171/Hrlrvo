@@ -1,0 +1,171 @@
+{
+  "status": "PASS",
+  "pid": 2634821,
+  "worker_id": 1,
+  "job_count": 7,
+  "memory_fraction": 0.245,
+  "memory_reservation_mib": 35840,
+  "recurrence": {
+    "reduced_geometry": true,
+    "reassert_anchor_latents": true,
+    "temporal_rebase": true
+  },
+  "started_utc": "2026-10-08T01:06:57.893487+00:00",
+  "model_load_seconds": 73.10806797258556,
+  "reference_manifest_sha256": "6452dcfa9b0015e0d6ea5a36d703d18b37bddf4fb8719cf9f9bedb8c5512906a",
+  "reference_manifest": {
+    "alpha": 0.1,
+    "anchor_yxyx_excluded_from_sharpness": [
+      270,
+      480,
+      810,
+      1440
+    ],
+    "artifacts": [
+      {
+        "exterior_laplacian_variance": 1758.67578960368,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_00_frame_0009.png",
+        "sha256": "25cbca7fd7399733de004cafae52d9ef0a6797d17153007d6181deae579c2b21",
+        "source_frame": 9,
+        "stratum": [
+          0,
+          16
+        ],
+        "vae_encoded_separately": true
+      },
+      {
+        "exterior_laplacian_variance": 1693.6978520261625,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_01_frame_0017.png",
+        "sha256": "228c2e7728333868600e134885a00383c318a79048c0b8f8bbb99c0fb0a54933",
+        "source_frame": 17,
+        "stratum": [
+          16,
+          32
+        ],
+        "vae_encoded_separately": true
+      },
+      {
+        "exterior_laplacian_variance": 1902.1317024952511,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_02_frame_0045.png",
+        "sha256": "7f912d62eda64fdc86bc0024fab03e1327243c8a7e50de1c86b75a8ef90a754b",
+        "source_frame": 45,
+        "stratum": [
+          32,
+          49
+        ],
+        "vae_encoded_separately": true
+      },
+      {
+        "exterior_laplacian_variance": 1960.1362082455887,
+        "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_03_frame_0053.png",
+        "sha256": "de802dcccb10807afa463d54a50c05a464703a49d79c43e137d6ba7ed3ca52a1",
+        "source_frame": 53,
+        "stratum": [
+          49,
+          65
+        ],
+        "vae_encoded_separately": true
+      }
+    ],
+    "attention": "Global target Q reads immutable per-block reference K/V",
+    "image_conversion": "clip FP32 [0,1], round(value*255), RGB PNG",
+    "reference_count": 4,
+    "schema": "hrlrvo_four_image_reference_memory_v1",
+    "selection": "maximum exterior Laplacian variance per fixed temporal stratum; earliest wins ties",
+    "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/longrange_bridge_013000_20261007/outputs/independent_start_0000/generated_65f_fp32.npy",
+    "source_sha256": "177741eef5a092902e15552540161e9311d22ff1e15c3953f8be617c6b479dfe",
+    "source_shape": [
+      65,
+      3,
+      1080,
+      1920
+    ],
+    "strata": [
+      [
+        0,
+        16
+      ],
+      [
+        16,
+        32
+      ],
+      [
+        32,
+        49
+      ],
+      [
+        49,
+        65
+      ]
+    ],
+    "stream": "frozen checkpoint clean-timestep sigma=0",
+    "temporal_policy": "spatial coordinates retained; target time copied to reference K",
+    "vae_policy": "body worker encodes each PNG independently as one frame"
+  },
+  "reference_cache": {
+    "blocks": 48,
+    "reference_count": 4,
+    "cache_bytes": 424673280,
+    "cache_device": "cpu_pinned_if_cuda_available",
+    "cache_sha256": "b93e63d00f6b0b0d7daf18d2bdea04f15cf904afdcd451d40b405f845904d2ab",
+    "alpha": 0.1,
+    "temporal_policy": "target-time replicated; spatial coordinates preserved",
+    "encoded_reference_latent_sha256": "495a6310c832b886c246395ae9ee790993407b9fb472dba8fb5f820ea6d71d7b"
+  },
+  "adapter_report": {
+    "mode": "checkpoint",
+    "adapter_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-013000/adapter_model.safetensors",
+    "expected_key_count": 1728,
+    "loaded_key_count": 1728,
+    "missing_key_count": 0,
+    "unexpected_key_count": 0,
+    "shape_mismatch_count": 0,
+    "keys_by_category": {
+      "compressors": 192,
+      "shared_outpainting_lora": 384,
+      "global_fusion": 96,
+      "adaptive_lora": 288,
+      "global_lora": 288,
+      "ffn_lora": 192,
+      "decompressors": 192,
+      "local_fusion": 96
+    }
+  },
+  "completed": [
+    {
+      "body_id": "I01",
+      "status": "PASS",
+      "sample_seconds": 1272.7663345970213
+    },
+    {
+      "body_id": "I03",
+      "status": "PASS",
+      "sample_seconds": 1258.2364425212145
+    },
+    {
+      "body_id": "I05",
+      "status": "PASS",
+      "sample_seconds": 1277.2354996912181
+    },
+    {
+      "body_id": "I07",
+      "status": "PASS",
+      "sample_seconds": 2340.353802556172
+    },
+    {
+      "body_id": "I09",
+      "status": "PASS",
+      "sample_seconds": 2139.5073581449687
+    },
+    {
+      "body_id": "I11",
+      "status": "ALREADY_PASS"
+    },
+    {
+      "body_id": "I13",
+      "status": "ALREADY_PASS"
+    }
+  ],
+  "ended_utc": "2026-10-08T03:31:57.924378+00:00",
+  "runtime_seconds": 8779.837088951841
+}

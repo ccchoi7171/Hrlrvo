@@ -1,0 +1,51 @@
+{
+  "status": "READY_FOR_ROOT_SCHEDULER_REVIEW_NO_GPU_LAUNCHED_BY_IMPLEMENTER",
+  "experiment": 2,
+  "frames": 1025,
+  "input_geometry": [960, 540],
+  "output_geometry": [1920, 1080],
+  "fps": 24,
+  "gpu": "NVIDIA H200",
+  "gpu_uuid": "GPU-a01d425d-ffe8-26e3-c637-6c87a4cf0f38",
+  "files": {
+    "prepare_clean_anchor_gpu.py": "56341b1e5586a9b293443cb24c706abed4b1e3f2447b1c1a178943fe68e92160",
+    "prepare_task.json": "9cd151494dc5f6065756df76912bf89a367b3ce2792384c4c5ce1a0162a731b6",
+    "run_full_phase_rebase.py": "b79d9aeda31f14b6e66199d8f96ec1a5c7bc486f181cb7dcdb0850c963b40cf6",
+    "run_task.json": "d1a0d893904007517f6239614f3b831e1c39a2d820101a8b63396230f31aef03",
+    "native_65f_resume.yaml": "a3cad896c92c3fc1dbbd48d8bbb6b1df60909f3a8df1e7d2fa9836898a02c9e2",
+    "test_experiment_2.py": "73f59b4caa301afefcd3657cede2d6d0121381d318b789837dffc0a1719d1564"
+  },
+  "checks": {
+    "unit_tests": "8 PASS",
+    "ruff": "PASS",
+    "py_compile": "PASS",
+    "task_json": "PASS"
+  },
+  "cleanup": {
+    "dense_all_frame_maskrcnn": true,
+    "batch_size": 8,
+    "masked_color_normalized_temporal_donor": true,
+    "known_upper_equipment_masks_excluded_from_donor": true,
+    "gpu_donor_fill_and_color_fit": true,
+    "camera_pose_returned_after_registered_cleanup": true
+  },
+  "generation": {
+    "checkpoint": "checkpoint-013000",
+    "steps": 30,
+    "dtype": "bfloat16",
+    "cfg": 3.0,
+    "stg": 1.0,
+    "stg_block": 28,
+    "guidance_rescale": 0.7,
+    "seed": 33333333,
+    "blend_pixels": 0,
+    "chunks": 21,
+    "phase_carry": "old rows7:9 to new exterior rows1:3; stock row0/current Anchor/future rows unchanged",
+    "temporal_rebase": true,
+    "original_RAW_anchor_post_reinsertion": false,
+    "resume_supported": true
+  },
+  "GPU_launched": false,
+  "common_modified": false,
+  "original_main_modified": false
+}

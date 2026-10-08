@@ -1,0 +1,26 @@
+{
+  "schema": "hrlrvo_body_worker_v1",
+  "worker_id": 1,
+  "jobs": [
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bodies/I01.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bodies/I03.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bodies/I05.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bodies/I07.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bodies/I09.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bodies/I11.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bodies/I13.json"
+  ],
+  "load_model_once": true,
+  "torch_cuda_memory_fraction": 0.245,
+  "memory_reservation_mib": 35840,
+  "expected_peak_gib": 35.0,
+  "aggregate_experiment_1_budget_gib": 70.0,
+  "reference_manifest": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/reference_bank/reference_manifest.json",
+  "reference_alpha": 0.1,
+  "recurrence": {
+    "reduced_geometry": true,
+    "reassert_anchor_latents": true,
+    "temporal_rebase": true
+  },
+  "seed_policy": "33333333 + absolute body global_start; unaffected by temporal rebase"
+}

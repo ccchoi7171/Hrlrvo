@@ -1,0 +1,25 @@
+{
+  "encoder": "libx265",
+  "ffmpeg_threads": 32,
+  "fps": 16,
+  "gpu_index": 0,
+  "input_resolution": [
+    3840,
+    2160
+  ],
+  "local_range": 11,
+  "min_tile_size": 320,
+  "model": "src/models/flashvsr_v1_1",
+  "output_mode": "jpeg_sequence",
+  "output_resolution": [
+    15360,
+    8640
+  ],
+  "runtime": "src/flashvsr/architect/FlashVSR_v1.1/upscale.py",
+  "scale": 4,
+  "sparse_ratio": 2.0,
+  "tile_overlap": 32,
+  "tile_size": 320,
+  "requested_output_mode": "jpeg_sequence",
+  "actual_output_mode": "jpeg_sequence"
+}

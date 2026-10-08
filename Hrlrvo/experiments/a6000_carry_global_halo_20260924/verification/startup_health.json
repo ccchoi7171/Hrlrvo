@@ -1,0 +1,42 @@
+{
+  "launch_verified": true,
+  "completion": false,
+  "halo_native_tokens": 1,
+  "rows": [
+    {
+      "arm": "01_baseline",
+      "pid": 1205972,
+      "alive": true,
+      "queue": "restarting_same_settings",
+      "last_event": "chunk_started",
+      "chunk_started": true
+    },
+    {
+      "arm": "02_no_carry",
+      "pid": 1203845,
+      "alive": true,
+      "queue": "restarting_same_settings",
+      "last_event": "chunk_started",
+      "chunk_started": true
+    },
+    {
+      "arm": "03_global_boost",
+      "pid": 1206052,
+      "alive": true,
+      "queue": "restarting_same_settings",
+      "last_event": "chunk_started",
+      "chunk_started": true
+    },
+    {
+      "arm": "04_native_halo",
+      "pid": 1206190,
+      "alive": true,
+      "queue": "restarting_same_settings",
+      "last_event": "chunk_started",
+      "chunk_started": true
+    }
+  ],
+  "gpu": "index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, NVIDIA RTX A6000, 33622 MiB, 49140 MiB, 100 %\n1, NVIDIA RTX A6000, 33621 MiB, 49140 MiB, 99 %\n2, NVIDIA RTX A6000, 33621 MiB, 49140 MiB, 78 %\n3, NVIDIA RTX A6000, 33686 MiB, 49140 MiB, 85 %\n",
+  "compute_apps": "gpu_uuid, pid, used_gpu_memory [MiB]\nGPU-663910bc-7de7-0749-de7f-593439c81349, 1205972, 33592 MiB\nGPU-fbc56149-7397-6edf-4b3e-3d3619470ec2, 1203845, 33592 MiB\nGPU-1e943e02-7abf-2f73-9f52-dfb8202d7a46, 1206052, 33592 MiB\nGPU-89722209-d8f0-c647-98cf-a60c3c4beb35, 1206190, 33592 MiB\n",
+  "timestamp_utc": "2026-09-23T15:58:42.240162+00:00"
+}

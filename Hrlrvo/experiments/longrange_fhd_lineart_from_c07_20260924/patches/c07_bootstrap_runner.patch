@@ -1,0 +1,162 @@
+--- /home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/patches/source_before_c07_bootstrap/scripts/run_lineart_chain.py	2026-09-24 02:45:59.952061000 +0900
++++ /home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_from_c07_20260924/source/VideoOutpainting_test/main/scripts/run_lineart_chain.py	2026-09-24 03:08:25.020676000 +0900
+@@ -1,15 +1,10 @@
+ """Independent FHD C0-first LongRange chain. Writes only inside experiment root."""
+ from __future__ import annotations
+-import argparse, json, os, sys, time, shutil
++import argparse, hashlib, json, os, sys, time, shutil
+ import numpy as np
+-from ltx_outpaint.lineart_global_prior import LineArtGlobalPrior
+-from ltx_outpaint import global_attention as global_module
+-from ltx_outpaint import lineart_global_prior as prior_module
+ from copy import deepcopy
+ from pathlib import Path
+ import torch
+-from ltx_outpaint import inference as inf
+-from ltx_outpaint.streaming_video import SegmentedOutputStore, StreamingAnchorReader, encode_segments, file_sha256, probe_video, session_fingerprint
+ 
+ ROOT=Path(__file__).resolve().parents[4]
+ COPY_SRC=ROOT/'source/VideoOutpainting_test/main/src'
+@@ -17,6 +12,12 @@
+ BASELINE=ROOT/'configs/baseline_05_run.readonly_copy.json'
+ FRAMES=1169
+ 
++def file_sha256(path):
++    digest=hashlib.sha256()
++    with path.open('rb') as f:
++        for block in iter(lambda:f.read(1024*1024),b''):digest.update(block)
++    return digest.hexdigest()
++
+ def atomic_json(path, value):
+     path.parent.mkdir(parents=True,exist_ok=True)
+     tmp=path.with_name('.'+path.name+'.partial')
+@@ -40,20 +41,84 @@
+         raise RuntimeError('Resume carry representation mismatch')
+     return value
+ 
++def atomic_copy(source, destination):
++    destination.parent.mkdir(parents=True,exist_ok=True)
++    tmp=destination.with_name('.'+destination.name+'.partial')
++    try:
++        with source.open('rb') as src, tmp.open('wb') as dst:
++            shutil.copyfileobj(src,dst);dst.flush();os.fsync(dst.fileno())
++        os.replace(tmp,destination)
++    except BaseException:
++        tmp.unlink(missing_ok=True)
++        raise
++
++def import_baseline_bootstrap(archive, segments, latent_root, bootstrap_through=6):
++    """Validate and atomically publish a contiguous baseline bootstrap journal."""
++    if bootstrap_through!=6:raise ValueError('Only the validated C0-C6 bootstrap is supported')
++    provenance_path=archive/'provenance.json'
++    if not provenance_path.is_file():raise FileNotFoundError(provenance_path)
++    provenance=json.loads(provenance_path.read_text())
++    manifest=provenance.get('file_sha256')
++    if provenance.get('status')!='PASS' or provenance.get('bootstrap_through')!=bootstrap_through or not isinstance(manifest,dict):
++        raise RuntimeError('Bootstrap provenance is not a validated C0-C6 archive')
++    archive_files={path.name for path in archive.iterdir() if path.is_file() and path.name!='provenance.json'}
++    if archive_files!=set(manifest):raise RuntimeError('Bootstrap provenance hash manifest does not cover the archive exactly')
++    for name,digest in manifest.items():
++        source=archive/name
++        if not source.is_file() or not isinstance(digest,str) or file_sha256(source)!=digest:
++            raise RuntimeError(f'Bootstrap archive file missing or corrupt: {name}')
++    records=[]
++    for index in range(bootstrap_through+1):
++        record_name=f'chunk_{index:06d}.json'
++        segment_name=f'segment_{index:06d}.npy'
++        carry_name=f'carry_{index:06d}.pt'
++        record=json.loads((archive/record_name).read_text())
++        if (record.get('chunk_index')!=index or record.get('segment_file')!=segment_name
++                or record.get('carry_file')!=carry_name):
++            raise RuntimeError(f'Bootstrap record {index} does not reference its canonical segment/carry')
++        records.append((record_name,record))
++    latest_prefix=records[-1][1].get('next_prefix_file')
++    if latest_prefix!='previous_prefix_0.pt':raise RuntimeError('C6 bootstrap must publish previous_prefix_0.pt')
++    required={f'segment_{i:06d}.npy' for i in range(bootstrap_through+1)}
++    required|={f'carry_{i:06d}.pt' for i in range(bootstrap_through+1)}
++    required|={f'chunk_{i:06d}.json' for i in range(bootstrap_through+1)}
++    required|={latest_prefix,'model_ready.json'}
++    missing=required-set(manifest)
++    if missing:raise RuntimeError(f'Bootstrap manifest is missing required files: {sorted(missing)}')
++    if any((segments/name).exists() for name in required if not name.startswith('carry_')) or any((latent_root/f'carry_{i:06d}.pt').exists() for i in range(bootstrap_through+1)):
++        raise FileExistsError('Bootstrap destination already contains committed artifacts')
++    # Publish every prerequisite before any completion marker.  C6 is last so a
++    # crash can never make the reconstructed resume state appear committed early.
++    for index in range(bootstrap_through+1):atomic_copy(archive/f'segment_{index:06d}.npy',segments/f'segment_{index:06d}.npy')
++    for index in range(bootstrap_through+1):atomic_copy(archive/f'carry_{index:06d}.pt',latent_root/f'carry_{index:06d}.pt')
++    atomic_copy(archive/latest_prefix,segments/latest_prefix)
++    atomic_copy(archive/'model_ready.json',segments/'model_ready.json')
++    atomic_copy(provenance_path,segments/'bootstrap_provenance.json')
++    for record_name,_ in records[:-1]:atomic_copy(archive/record_name,segments/record_name)
++    atomic_copy(archive/records[-1][0],segments/records[-1][0])
++    return provenance
++
+ def main():
++    from ltx_outpaint.lineart_global_prior import LineArtGlobalPrior
++    from ltx_outpaint import global_attention as global_module
++    from ltx_outpaint import lineart_global_prior as prior_module
++    from ltx_outpaint import inference as inf
++    from ltx_outpaint.streaming_video import SegmentedOutputStore, StreamingAnchorReader, encode_segments, probe_video, session_fingerprint
+     p=argparse.ArgumentParser(description=__doc__)
+-    p.add_argument('--mode',choices=('strength_1p0_global_lineart_prior','lineart_off_control'),required=True)
++    p.add_argument('--mode',choices=('strength_1p0_global_lineart_from_c07',),required=True)
+     p.add_argument('--end-chunk',type=int,choices=(4,19,23),required=True)
+     p.add_argument('--rebase-temporal-position',action=argparse.BooleanOptionalAction,default=False)
+     p.add_argument('--use-latent-carry',action=argparse.BooleanOptionalAction,default=False)
+     p.add_argument('--generated-prefix-strength',type=float,default=1.0)
+-    p.add_argument('--resume',action='store_true')
+-    p.add_argument('--bootstrap-c0',action='store_true')
++    start=p.add_mutually_exclusive_group(required=True)
++    start.add_argument('--resume',action='store_true')
++    start.add_argument('--bootstrap-c0',action='store_true')
++    start.add_argument('--bootstrap-baseline-through',type=int,choices=(6,))
+     p.add_argument('--lineart-global-prior',action=argparse.BooleanOptionalAction,default=False)
+     p.add_argument('--lineart-bias-scale',type=float,default=0.5)
+     a=p.parse_args()
+     if not 0<=a.generated_prefix_strength<=1:p.error('strength must be in [0,1]')
+-    if ROOT.name!='longrange_fhd_lineart_global_prior_20260923' or not Path(inf.__file__).resolve().is_relative_to(COPY_SRC):
++    if ROOT.name!='longrange_fhd_lineart_from_c07_20260924' or not Path(inf.__file__).resolve().is_relative_to(COPY_SRC):
+         raise RuntimeError('Copied experiment source must be imported, never production source')
+     print(json.dumps({'event':'import_proof','module_file':str(Path(inf.__file__).resolve()),'pythonpath':os.environ.get('PYTHONPATH'),'cwd':os.getcwd(),'experiment_root':str(ROOT)},sort_keys=True),flush=True)
+     for module in (global_module, prior_module):
+@@ -61,8 +126,10 @@
+             raise RuntimeError('Line-art source isolation violated')
+     if not (a.rebase_temporal_position and a.use_latent_carry and a.generated_prefix_strength == 1.0):
+         raise RuntimeError('Line-art experiment must retain strength_1p0 recurrence parameters')
+-    if a.resume and a.bootstrap_c0:raise RuntimeError('Choose resume OR initial C0 bootstrap')
+-    if not a.resume and not a.bootstrap_c0:raise RuntimeError('Reuse validated exact C0; do not generate a new branch C0')
++    if a.bootstrap_baseline_through is not None and a.end_chunk<=a.bootstrap_baseline_through:
++        raise RuntimeError('C0-C6 bootstrap must continue with C7 or later')
++    if not a.lineart_global_prior or a.lineart_bias_scale!=0.5:
++        raise RuntimeError('C7 branch requires the fixed detailed line-art prior at strength 0.5')
+     if not ANCHOR.is_file():raise FileNotFoundError(ANCHOR)
+     baseline=json.loads(BASELINE.read_text())['request']
+     settings=deepcopy(baseline['settings'])
+@@ -89,7 +156,10 @@
+     memory=inf._memory_optimization_settings(settings)
+     outputs=ROOT/'outputs'/a.mode;segments=ROOT/'chunks'/a.mode;latent_root=ROOT/'latent_states'/a.mode
+     outputs.mkdir(parents=True,exist_ok=True);latent_root.mkdir(parents=True,exist_ok=True)
+-    identity_request={'mode':a.mode,'anchor':str(ANCHOR),'anchor_sha256':file_sha256(ANCHOR),'baseline_checkpoint':str(checkpoint),'baseline_prompt':baseline['positive_prompt'],'baseline_negative_prompt':baseline['negative_prompt'],'base_seed':config.seed,'steps':config.inference_steps,'baseline_fingerprint':json.loads(BASELINE.read_text())['request_fingerprint'],'visible_canvas':[1920,1080],'encoded_canvas':[1920,1152],'rebase_temporal_position':a.rebase_temporal_position,'use_latent_carry':a.use_latent_carry,'generated_prefix_strength':a.generated_prefix_strength,'experiment_source_sha256':file_sha256(Path(inf.__file__))}
++    bootstrap_archive=ROOT/'bootstrap/c0_c06'
++    bootstrap_provenance=bootstrap_archive/'provenance.json'
++    if not bootstrap_provenance.is_file():raise FileNotFoundError(bootstrap_provenance)
++    identity_request={'mode':a.mode,'anchor':str(ANCHOR),'anchor_sha256':file_sha256(ANCHOR),'baseline_checkpoint':str(checkpoint),'baseline_prompt':baseline['positive_prompt'],'baseline_negative_prompt':baseline['negative_prompt'],'base_seed':config.seed,'steps':config.inference_steps,'baseline_fingerprint':json.loads(BASELINE.read_text())['request_fingerprint'],'visible_canvas':[1920,1080],'encoded_canvas':[1920,1152],'rebase_temporal_position':a.rebase_temporal_position,'use_latent_carry':a.use_latent_carry,'generated_prefix_strength':a.generated_prefix_strength,'experiment_source_sha256':file_sha256(Path(inf.__file__)),'bootstrap_provenance_sha256':file_sha256(bootstrap_provenance)}
+     from ltx_core.components.schedulers import LTX2Scheduler
+     sigma_by_step=tuple(float(x) for x in LTX2Scheduler().execute(steps=config.inference_steps)[:-1])
+     line_config=json.loads((ROOT/'configs/inference_lineart_global.json').read_text())['lineart_global_prior']
+@@ -108,6 +178,15 @@
+     print(json.dumps({'event':'lineart_reference','path':str(reference_path),**identity_request['lineart_global_prior']},sort_keys=True),flush=True)
+     store=SegmentedOutputStore(segments)
+     store.prepare({'request':identity_request,'request_fingerprint':session_fingerprint(identity_request)},resume=a.resume)
++    if a.bootstrap_baseline_through is not None:
++        provenance=import_baseline_bootstrap(bootstrap_archive,segments,latent_root,a.bootstrap_baseline_through)
++        print(json.dumps({'event':'baseline_bootstrap_reused','chunks':list(range(7)),
++            'next_chunk':7,'source':provenance.get('source_root'),
++            'prefix_recovery':provenance.get('rgb_prefix_recovery'),
++            'bit_exact_fp32_prefix':provenance.get('bit_exact_fp32_prefix'),
++            'rgb_error_bound_normalized':provenance.get('rgb_error_bound_normalized'),
++            'latent_carry_exact':provenance.get('latent_carry_exact'),
++            'precision_caveat':'C6 RGB prefix was reconstructed from the lossless uint8 segment tail; it is not the original FP32 prefix.'},sort_keys=True),flush=True)
+     if a.bootstrap_c0:
+         archive=ROOT/'bootstrap/c0'
+         verification=json.loads((ROOT/'report/c0_recovery_verification.json').read_text())

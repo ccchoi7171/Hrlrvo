@@ -1,0 +1,23 @@
+{
+  "schema": "hrlrvo_body_job_v1",
+  "body": {
+    "index": 5,
+    "body_id": "I05",
+    "global_start": 365,
+    "global_stop": 446,
+    "left_bridge": "B05",
+    "right_bridge": "B06",
+    "middle_global_start": 374,
+    "middle_global_stop": 438,
+    "visible_middle_stop": 438
+  },
+  "source_rgb": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/canonical_background_013000_20261007/foreground_preparation/source_rgb.npy",
+  "source_rgb_sha256": "bb555edc3594e546853e4fc1ac661aa7a5cc96b52cbaad317ff2f4f226659f8f",
+  "checkpoint": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-013000",
+  "adapter_sha256": "4e33a738dbed60fd64125e025d740e8b71902424383fd1bc4f2f35ab1905c22e",
+  "seed": 33333333,
+  "steps": 30,
+  "reference_conditioning": true,
+  "output_dir": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bodies/I05",
+  "h200_uuid": "GPU-a01d425d-ffe8-26e3-c637-6c87a4cf0f38"
+}

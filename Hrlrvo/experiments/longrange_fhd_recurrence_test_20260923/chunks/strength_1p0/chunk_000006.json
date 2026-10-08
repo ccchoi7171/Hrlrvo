@@ -1,0 +1,112 @@
+{
+  "absolute_start_frame": 288,
+  "anchor_source_frame_range": [
+    288,
+    353
+  ],
+  "carry_dtype": "torch.bfloat16",
+  "carry_file": "carry_000006.pt",
+  "carry_sha256": "bfef6b5f4e75142daf7de01f652be7aab311cf252ab1858f9ee0e118e01cfa64",
+  "carry_shape": [
+    1,
+    128,
+    3,
+    36,
+    60
+  ],
+  "chunk_index": 6,
+  "chunk_seed": 71635198,
+  "emitted_tensor_range": [
+    17,
+    65
+  ],
+  "final_partial_repeat_last": false,
+  "new_output_frame_range": [
+    305,
+    353
+  ],
+  "next_prefix_byte_size": 423021537,
+  "next_prefix_dtype": "float32",
+  "next_prefix_file": "previous_prefix_0.pt",
+  "next_prefix_shape_fchw": [
+    17,
+    3,
+    1080,
+    1920
+  ],
+  "next_prefix_state_sha256": "587f8c4949c4f66918fc4a2c6a0a16eba1ef92eafe0579820152eea7b367a5c9",
+  "output_appended_count": 48,
+  "prefix_output_frame_range": [
+    288,
+    305
+  ],
+  "real_input_frame_count": 65,
+  "repeat_last_padding_count": 0,
+  "runtime": {
+    "anchor_rgb_shape": [
+      65,
+      3,
+      540,
+      960
+    ],
+    "boundary_blend_width_pixels": 16,
+    "chunk_seed": 71635198,
+    "condition_latent_shape": [
+      1,
+      128,
+      9,
+      36,
+      60
+    ],
+    "conditioning_prefix_frames": 17,
+    "decoded_chunk_finite": true,
+    "decoded_chunk_shape": [
+      65,
+      3,
+      1080,
+      1920
+    ],
+    "denoise_elapsed_seconds": 978.4078102484345,
+    "denoised_latent_finite": true,
+    "experimental_generated_prefix_strength": 1.0,
+    "experimental_latent_carry_input": true,
+    "experimental_rebase_temporal_position": true,
+    "full_generation_latent_shape": [
+      1,
+      128,
+      9,
+      36,
+      60
+    ],
+    "known_anchor_rect_yxyx": [
+      9,
+      15,
+      27,
+      45
+    ],
+    "known_mask_elements": 9720,
+    "known_mask_shape": [
+      1,
+      9,
+      36,
+      60
+    ],
+    "peak_cuda_allocated_bytes": 31699308032,
+    "peak_cuda_reserved_bytes": 36029071360,
+    "preview_frame_indices": null,
+    "preview_latent_source": null,
+    "preview_step": null,
+    "vae_decode_elapsed_seconds": 7.335146484896541
+  },
+  "segment_byte_size": 298598528,
+  "segment_dtype": "uint8",
+  "segment_file": "segment_000006.npy",
+  "segment_pixel_sha256": "529abebceb95f94b14e0e6abc90a89172a2f072d714498d3ea0a361e24cbc27c",
+  "segment_shape_fhwc": [
+    48,
+    1080,
+    1920,
+    3
+  ],
+  "working_frame_count": 65
+}

@@ -1,0 +1,153 @@
+{
+  "architecture_inputs": {
+    "adaptive_rank": 64,
+    "architecture_version": 8,
+    "blocks": 48,
+    "compressor_scales": [
+      2,
+      4
+    ],
+    "decompressor_kernel": [
+      3,
+      3,
+      3
+    ],
+    "ffn_inner_dim": 16384,
+    "ffn_rank": 32,
+    "global_rank": 64,
+    "hidden_dim": 4096,
+    "shared_outpainting_rank": 32
+  },
+  "checkpoint_header": {
+    "diffusion_model_all": {
+      "parameters": 21005004544,
+      "tensor_keys": 4444
+    },
+    "excluded_external_embedding_connectors": {
+      "audio_embeddings_connector": {
+        "parameters": 403620096,
+        "tensor_keys": 129
+      },
+      "video_embeddings_connector": {
+        "parameters": 1612546304,
+        "tensor_keys": 129
+      }
+    },
+    "file_size_bytes": 46149344974,
+    "header_size_bytes": 872432,
+    "model_version": "2.3.0",
+    "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors",
+    "representative_transformer_tensors": {
+      "ffn_in": {
+        "dtype": "BF16",
+        "key": "model.diffusion_model.transformer_blocks.0.ff.net.0.proj.weight",
+        "shape": [
+          16384,
+          4096
+        ]
+      },
+      "ffn_out": {
+        "dtype": "BF16",
+        "key": "model.diffusion_model.transformer_blocks.0.ff.net.2.weight",
+        "shape": [
+          4096,
+          16384
+        ]
+      },
+      "self_k": {
+        "dtype": "BF16",
+        "key": "model.diffusion_model.transformer_blocks.0.attn1.to_k.weight",
+        "shape": [
+          4096,
+          4096
+        ]
+      },
+      "self_o": {
+        "dtype": "BF16",
+        "key": "model.diffusion_model.transformer_blocks.0.attn1.to_out.0.weight",
+        "shape": [
+          4096,
+          4096
+        ]
+      },
+      "self_q": {
+        "dtype": "BF16",
+        "key": "model.diffusion_model.transformer_blocks.0.attn1.to_q.weight",
+        "shape": [
+          4096,
+          4096
+        ]
+      },
+      "self_v": {
+        "dtype": "BF16",
+        "key": "model.diffusion_model.transformer_blocks.0.attn1.to_v.weight",
+        "shape": [
+          4096,
+          4096
+        ]
+      }
+    },
+    "tensor_key_count": 5947
+  },
+  "default_inference_adapter": {
+    "configured_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main/outputs/train_4k/checkpoints/checkpoint-002000/adapter_model.safetensors",
+    "exists": false,
+    "interpretation": "Expected future trained artifact is currently absent; no adapter bytes were read or loaded.",
+    "is_file": false
+  },
+  "frozen_base_parameter_formula": {
+    "calculation": "21005004544 - 1612546304 - 403620096",
+    "equation": "model.diffusion_model - video_embeddings_connector - audio_embeddings_connector",
+    "expected_frozen_base_total": 18988838144,
+    "frozen_base_total": 18988838144,
+    "matches_expected": true,
+    "scope_note": "Installed frozen transformer base. The two text embedding connector submodules live outside the installed transformer object; this count still includes native frozen AV/audio machinery that is part of diffusion_model, so it must not be described as a pure video-only tensor subset."
+  },
+  "installed_parameter_total": {
+    "expected": 19269201152,
+    "frozen_base_plus_v8_trainables": 19269201152,
+    "matches_expected": true
+  },
+  "method": {
+    "checkpoint_tensor_payload_loaded": false,
+    "description": "Safetensors JSON header inspection plus closed-form counts from the current v8 source definitions.",
+    "forward_executed": false,
+    "gpu_used": false,
+    "imports": [
+      "json",
+      "os",
+      "struct",
+      "pathlib"
+    ],
+    "model_or_meta_model_constructed": false
+  },
+  "source_evidence": [
+    "src/ltx_outpaint/lora.py:13-21 (bias-free A/B shapes, alpha/rank, Kaiming A, zero B)",
+    "src/ltx_outpaint/model.py:57-93 (v8 ranks/scales and architecture identity)",
+    "src/ltx_outpaint/model.py:200-231 (per-block QKV/O LoRA, C/R, fusion ownership)",
+    "src/ltx_outpaint/model.py:299-323 (freeze base, install 48 block adapters and shared FFN LoRA)",
+    "src/ltx_outpaint/model.py:326-339 (runtime parameter category ownership checker)",
+    "src/ltx_outpaint/compression.py:14-20 (depthwise C_s parameterization)",
+    "src/ltx_outpaint/compression.py:57-66 (depthwise 3x3x3 R parameterization)"
+  ],
+  "trainable_parameter_formula": {
+    "categories": {
+      "adaptive_lora_qkv_r64": 75497472,
+      "compressors_c2_c4": 4325376,
+      "decompressors_r2_r4": 11010048,
+      "global_fusion_gamma_beta": 393216,
+      "global_lora_qkv_r64": 75497472,
+      "local_fusion_gamma_beta": 393216,
+      "shared_ffn_lora_r32": 62914560,
+      "shared_outpainting_lora_qkvo_r32": 50331648
+    },
+    "compressor_rule": "D * (scale^2 + 1 bias) for each of C2 and C4 per block",
+    "decompressor_rule": "D * (3*3*3 + 1 bias) for each of R2 and R4 per block",
+    "expected_trainable_total": 280363008,
+    "fusion_rule": "2 * D (gamma and beta) per fusion per block",
+    "lora_rule": "rank * (in_features + out_features); A and B are bias-free",
+    "matches_expected": true,
+    "trainable_total": 280363008
+  },
+  "verdict": "PASS"
+}

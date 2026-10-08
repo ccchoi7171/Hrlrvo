@@ -1,0 +1,246 @@
+"""Canonical, half-open latent-grid geometry. No spatial resize or padding.
+
+Resolution cells and observed/generation masks are deliberately independent.
+All immutable layouts are safe to retain in native gradient-checkpointed args.
+"""
+
+from dataclasses import dataclass
+from functools import lru_cache
+from math import ceil
+
+
+@dataclass(frozen=True)
+class Rect:
+    y0: int
+    x0: int
+    y1: int
+    x1: int
+
+    def __post_init__(self):
+        if self.y0 < 0 or self.x0 < 0 or self.y1 <= self.y0 or self.x1 <= self.x0:
+            raise ValueError(f"Invalid half-open rectangle: {self}")
+
+    @property
+    def height(self):
+        return self.y1 - self.y0
+
+    @property
+    def width(self):
+        return self.x1 - self.x0
+
+    def contains(self, y, x):
+        return self.y0 <= y < self.y1 and self.x0 <= x < self.x1
+
+
+@dataclass(frozen=True)
+class CanvasGeometry:
+    frames: int
+    height: int
+    width: int
+    anchors: tuple[Rect, ...]
+
+    def __post_init__(self):
+        if min(self.frames, self.height, self.width) < 1 or not self.anchors:
+            raise ValueError("Canvas dimensions and anchor list must be nonempty")
+        for anchor in self.anchors:
+            if anchor.y1 > self.height or anchor.x1 > self.width:
+                raise ValueError(f"Anchor {anchor} is outside {self.height}x{self.width}; no implicit resize")
+
+    def batch_anchors(self, batch_size):
+        if len(self.anchors) == 1:
+            return self.anchors * batch_size
+        if len(self.anchors) != batch_size:
+            raise ValueError("Provide either one shared anchor rectangle or one per batch sample")
+        return self.anchors
+
+
+def partition_axis(length: int, count: int) -> tuple[tuple[int, int], ...]:
+    """Equal windows; round-half-up starts distribute the minimal total overlap."""
+    if not 1 <= count <= length:
+        raise ValueError(f"Partition count {count} must be between 1 and axis length {length}")
+    size = ceil(length / count)
+    if count == 1:
+        return ((0, length),)
+    span, denominator = length - size, count - 1
+    starts = tuple((j * span + denominator // 2) // denominator for j in range(count))
+    return tuple((start, start + size) for start in starts)
+
+
+@lru_cache(maxsize=32)
+def local_windows(height: int, width: int, count: int) -> tuple[Rect, ...]:
+    return tuple(Rect(y0, x0, y1, x1) for y0, y1 in partition_axis(height, count)
+                 for x0, x1 in partition_axis(width, count))
+
+
+def anchor_patch(anchor: Rect, target: Rect) -> Rect:
+    """Select by anchor-center -> target-center direction, independently per axis."""
+    def axis(a0, a1, t0, t1):
+        size = t1 - t0
+        if size > a1 - a0:
+            raise ValueError("Anchor must fit a patch as large as each target Local; increase K or input anchor size")
+        if a0 <= t0 and t1 <= a1:
+            return max(a0, min(t0, a1 - size))
+        return a1 - size if t0 + t1 >= a0 + a1 else a0
+
+    y = axis(anchor.y0, anchor.y1, target.y0, target.y1)
+    x = axis(anchor.x0, anchor.x1, target.x0, target.x1)
+    return Rect(y, x, y + target.height, x + target.width)
+
+
+ANCHOR, BRIDGE, TARGET = 1, 2, 4
+
+
+@dataclass(frozen=True)
+class Cell:
+    """One token's exact support and offsets in its learned depthwise kernel.
+
+    `indices` are canonical flat indices, never packed positions. Global may
+    retain partial canvas-edge cells. Adaptive cells are always full C2/C4:
+    `pixel_roles` preserves A > T > B ownership, while `role` is their bitwise
+    union, NOT an exclusive label for the entire mixed-role token.
+    """
+    scale: int
+    role: int
+    y: int
+    x: int
+    indices: tuple[int, ...]
+    offsets: tuple[int, ...]
+    bounds: tuple[int, int, int, int]
+    pixel_roles: tuple[int, ...] = ()
+
+    @property
+    def valid_count(self) -> int:
+        return len(self.indices)
+
+    @property
+    def nominal_count(self) -> int:
+        return self.scale * self.scale
+
+    @property
+    def support_ratio(self) -> float:
+        return self.valid_count / self.nominal_count
+
+
+def cells_for_rect(rect, width, scale, role):
+    """Global rectangular lattice, including its unchanged partial edge cells."""
+    cells = []
+    for y in range(rect.y0, rect.y1, scale):
+        for x in range(rect.x0, rect.x1, scale):
+            support = []
+            for dy in range(min(scale, rect.y1 - y)):
+                for dx in range(min(scale, rect.x1 - x)):
+                    support.append((y + dy, x + dx, dy * scale + dx))
+            ys = [item[0] for item in support]
+            xs = [item[1] for item in support]
+            indices = tuple(cy * width + cx for cy, cx, _ in support)
+            offsets = tuple(offset for _, _, offset in support)
+            bounds = (min(ys), min(xs), max(ys) + 1, max(xs) + 1)
+            cells.append(Cell(scale, role, y, x, indices, offsets, bounds))
+    return tuple(cells)
+
+
+@dataclass(frozen=True)
+class AdaptiveLayout:
+    anchor: Rect
+    target: Rect
+    rectangle: Rect | None
+    cells: tuple[Cell, ...]
+    target_count: int
+    roles: tuple[int, ...]
+    write_source_indices: tuple[int, ...]
+    write_target_indices: tuple[int, ...]
+
+
+def align_adaptive_support(box: Rect, height: int, width: int) -> Rect:
+    """Minimally expand toward canvas center; ties go right/down, never pad.
+
+    The resulting origin is not snapped to a global C4 lattice. The full-cell
+    lattice starts at this expanded support's actual canonical origin.
+    """
+    def axis(start, end, limit):
+        if end > limit:
+            raise ValueError("Adaptive support is outside the full canvas")
+        extra = (-(end - start)) % 4
+        positive = start + end <= limit
+        preferred = min(extra, limit - end if positive else start)
+        remaining = extra - preferred
+        if remaining > (start if positive else limit - end):
+            raise ValueError("Cannot expand Adaptive support to full C4 cells inside canvas; no crop or padding")
+        return ((start - remaining, end + preferred) if positive
+                else (start - preferred, end + remaining))
+
+    y0, y1 = axis(box.y0, box.y1, height)
+    x0, x1 = axis(box.x0, box.x1, width)
+    return Rect(y0, x0, y1, x1)
+
+
+def resolve_adaptive_roles(anchor: Rect, target: Rect, support: Rect) -> tuple[int, ...]:
+    """Pixel ownership on support: full source Anchor > raw Local Target > Bridge.
+
+    A includes every known Anchor position in the expanded support, not merely
+    the selected reference patch used to choose the initial bounding box.
+    """
+    return tuple(ANCHOR if anchor.contains(y, x) else TARGET if target.contains(y, x) else BRIDGE
+                 for y in range(support.y0, support.y1) for x in range(support.x0, support.x1))
+
+
+def build_adaptive_multires_tokens(support: Rect, roles: tuple[int, ...], width: int) -> tuple[Cell, ...]:
+    """Full C4 parents: pure Bridge -> C4; any A/T touch -> all four full C2.
+
+    Target-touching C2 tokens lead the packed sequence. Every cell remains K/V;
+    per-pixel roles distinguish its full read footprint from Target-only write.
+    """
+    if support.height % 4 or support.width % 4 or support.x1 > width:
+        raise ValueError("Adaptive tokenization requires in-canvas full C4 parents")
+    if len(roles) != support.height * support.width or any(r not in (ANCHOR, TARGET, BRIDGE) for r in roles):
+        raise ValueError("Adaptive roles must assign exactly one A/T/B owner per spatial position")
+
+    def role_at(y, x):
+        return roles[(y - support.y0) * support.width + x - support.x0]
+
+    queries, context = [], []
+    for y in range(support.y0, support.y1, 4):
+        for x in range(support.x0, support.x1, 4):
+            promoted = any(role_at(y + dy, x + dx) != BRIDGE for dy in range(4) for dx in range(4))
+            scale = 2 if promoted else 4
+            for cy in range(y, y + 4, scale):
+                for cx in range(x, x + 4, scale):
+                    pixels = tuple((cy + dy, cx + dx) for dy in range(scale) for dx in range(scale))
+                    pixel_roles = tuple(role_at(py, px) for py, px in pixels)
+                    cell = Cell(scale, sum(set(pixel_roles)), cy, cx,
+                                tuple(py * width + px for py, px in pixels), tuple(range(scale * scale)),
+                                (cy, cx, cy + scale, cx + scale), pixel_roles)
+                    (queries if TARGET in pixel_roles else context).append(cell)
+    return tuple(queries + context)
+
+
+@lru_cache(maxsize=128)
+def adaptive_layout(anchor: Rect, target: Rect, height: int, width: int, scale: int = 4) -> AdaptiveLayout:
+    if scale != 4:
+        raise ValueError("Adaptive C4-first/C2-promotion requires compression scale S=4")
+    if any(rect.y1 > height or rect.x1 > width for rect in (anchor, target)):
+        raise ValueError("Adaptive Anchor/Target is outside the full canvas")
+    # No generation support: do not even select a patch or align/tokenize a box.
+    if anchor.contains(target.y0, target.x0) and anchor.contains(target.y1 - 1, target.x1 - 1):
+        return AdaptiveLayout(anchor, target, None, (), 0, (), (), ())
+    patch = anchor_patch(anchor, target)
+    box = Rect(min(patch.y0, target.y0), min(patch.x0, target.x0),
+               max(patch.y1, target.y1), max(patch.x1, target.x1))
+    support = align_adaptive_support(box, height, width)
+    roles = resolve_adaptive_roles(anchor, target, support)
+    cells = build_adaptive_multires_tokens(support, roles, width)
+    target_count = sum(TARGET in cell.pixel_roles for cell in cells)
+    source_indices, target_indices = [], []
+    for query, cell in enumerate(cells[:target_count]):
+        for tap, (index, role) in enumerate(zip(cell.indices, cell.pixel_roles, strict=True)):
+            if role == TARGET:
+                y, x = divmod(index, width)
+                source_indices.append(query * 4 + tap)
+                target_indices.append((y - target.y0) * target.width + x - target.x0)
+    return AdaptiveLayout(anchor, target, support, cells, target_count, roles,
+                          tuple(source_indices), tuple(target_indices))
+
+
+@lru_cache(maxsize=32)
+def global_cells(height: int, width: int, scale: int) -> tuple[Cell, ...]:
+    return cells_for_rect(Rect(0, 0, height, width), width, scale, 0)

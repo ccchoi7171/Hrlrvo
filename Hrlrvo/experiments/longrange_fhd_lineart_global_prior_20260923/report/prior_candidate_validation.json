@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "candidates": [
+    {
+      "candidate": "balanced",
+      "type": "lineart",
+      "status": "PASS"
+    },
+    {
+      "candidate": "detailed",
+      "type": "lineart",
+      "status": "PASS"
+    },
+    {
+      "candidate": "very_detailed",
+      "type": "lineart",
+      "status": "PASS"
+    },
+    {
+      "candidate": "clahe_lowlight",
+      "type": "lineart",
+      "status": "PASS"
+    },
+    {
+      "candidate": "D1_v2_small_518",
+      "type": "depth",
+      "status": "PASS"
+    },
+    {
+      "candidate": "D2_v1_small_518",
+      "type": "depth",
+      "status": "PASS"
+    },
+    {
+      "candidate": "D3_v2_metric_indoor_518",
+      "type": "depth",
+      "status": "PASS"
+    },
+    {
+      "candidate": "D4_v2_small_1036",
+      "type": "depth",
+      "status": "PASS"
+    },
+    {
+      "candidate": "D5_v2_base_518",
+      "type": "depth",
+      "status": "PASS"
+    }
+  ],
+  "same_source_sha256": "46d09b0325141b42783047144cfb9aae4d6fbad9127ec3c3c18f311ff27edf5d",
+  "local_gallery_links_valid": true,
+  "protected_files_unchanged": true,
+  "longrange_inference_restarted": false
+}

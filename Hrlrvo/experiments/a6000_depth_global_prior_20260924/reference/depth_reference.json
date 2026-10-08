@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "source": {
+    "baseline_arm": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/01_baseline",
+    "record_path": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/01_baseline/chunks/chunk_000000.json",
+    "record_sha256": "c19cf04cc16899c1672677c42cc8a6eb56bf74af70e2996a4e45bb21862f6e3b",
+    "segment_path": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/01_baseline/chunks/segment_000000.npy",
+    "segment_file_sha256": "2c684003513863a95c1af909814641975ec155718fa4effc5f31add9ca0c0124",
+    "segment_pixel_sha256": "c427021db8c691806f17d18fa4b2bd89919abd54dbaa3ae161af0c6e67ea2ec6",
+    "segment_shape_fhwc": [
+      65,
+      1080,
+      1920,
+      3
+    ],
+    "segment_dtype": "uint8",
+    "frame_index": 0,
+    "frame_pixel_sha256": "b3c3af6246f7a17cc564826f33c8ac838a48184dc80350c38dfaa7b8472d1f50",
+    "chunk_seed": 71634910
+  },
+  "model": {
+    "manifest_path": "/home/oem/hrlrvo/experiments/a6000_depth_global_prior_20260924/models/D5_v2_base_518/asset_manifest.json",
+    "manifest_sha256": "aae7eb075bce7baf3a4d9485e3fdc4f7ca64bca3b292d0be6598e343c3cfaa34",
+    "model_id": "depth-anything/Depth-Anything-V2-Base-hf",
+    "revision": "b1958afc87fb45a9e3746cb387596094de553ed8",
+    "asset_sha256": {
+      "config.json": "1f616484953fbbddcc14da69ab81ef834fd58c11be04fa2f2eecf5696b2f7389",
+      "model.safetensors": "9996d15c334d264cfcc29f4318d7d3789a006ecc444782c2fb82f7eaa1acb8bf",
+      "preprocessor_config.json": "d41175c0d889477ca8fc67191e540faef14baf6275157b3fdecf78469e6bbf84"
+    },
+    "model_class": "DepthAnythingForDepthEstimation",
+    "processor_class": "DPTImageProcessor",
+    "parameter_count": 97470785,
+    "device": "cpu",
+    "dtype": "float32",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "numerics": {
+    "prediction_kind": "relative_inverse_depth_white_near",
+    "requested_processor_size": 518,
+    "actual_input_shape": [
+      1,
+      3,
+      518,
+      924
+    ],
+    "raw_network_output_shape": [
+      1,
+      518,
+      924
+    ],
+    "postprocessed_shape": [
+      1080,
+      1920
+    ],
+    "percentile_clip": [
+      0.5,
+      99.5
+    ],
+    "percentile_values": [
+      0.34056456938385965,
+      26.671579589843745
+    ],
+    "normalization": "clip((inverse_depth-p0.5)/(p99.5-p0.5),0,1)",
+    "pooling": "zero-pad top/bottom 36; mean 32x32 to 36x60; mean 4x4 to 9x15",
+    "pooling_accumulation_dtype": "float64_then_cast_float32_at_each_reduction",
+    "pooling_divisor": null,
+    "gamma": null,
+    "inversion": false,
+    "raw_min_max": [
+      0.26754897832870483,
+      27.46499252319336
+    ]
+  },
+  "timing_seconds": {
+    "model_load": 0.26581740798428655,
+    "inference_postprocess": 4.504731169901788
+  },
+  "artifacts": {
+    "c0_frame000.png": {
+      "sha256": "0d65d6610687c83446d099245b62e2444f7dd285694333547640399f119d4f5c",
+      "size_bytes": 2571593
+    },
+    "depth_raw.npy": {
+      "sha256": "ccaf5901131178adbeb257dcd86add7590f29df74adfd34bad520a432cf71fea",
+      "size_bytes": 8294528
+    },
+    "depth_inverse_normalized.npy": {
+      "sha256": "570be0229a43b5c5b10a7b372cf82b8865807a52ba7a11802c5c74ff8dbe5b0f",
+      "size_bytes": 8294528
+    },
+    "depth_gray.png": {
+      "sha256": "96ba7791f496b243b2f0eb0bbc5b4d730a32a2e9711b1b63803eca2ba6ecd25e",
+      "size_bytes": 71240
+    },
+    "depth_gray_16bit.png": {
+      "sha256": "39249ac51667f5efe0b7fbeb450f2b5a8efb14f0906dccc16c84dacc7d3d8961",
+      "size_bytes": 1084850
+    },
+    "depth_color.png": {
+      "sha256": "3f98b48a9838f56b6c59e9eb929a99ad0cffdcfff21247856d0c5bdf14f1b872",
+      "size_bytes": 192255
+    },
+    "global_depth_strength.npy": {
+      "sha256": "396a92079aaaf3f8baaa4814f7c58692f8dc6b8a9329a6845c6bc53c41a82fb9",
+      "size_bytes": 668
+    }
+  }
+}

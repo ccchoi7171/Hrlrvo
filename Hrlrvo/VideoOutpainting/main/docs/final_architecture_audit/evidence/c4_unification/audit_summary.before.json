@@ -1,0 +1,65 @@
+{
+  "architecture_verdict": "FAIL — implementation differs from the finalized architecture",
+  "architecture_version": 8,
+  "scope": "static source/config/header inspection + CPU pure geometry/position; no model execution",
+  "native": "PASS",
+  "adaptive": "PASS",
+  "global": "FAIL (strict C4/R4 contract)",
+  "C2": "PASS",
+  "C4": "FAIL (general Global edge path; default 68x120 full)",
+  "R2": "PASS",
+  "R4": "FAIL (whole-grid vs per-token footprint)",
+  "train_inference_common_forward": "PASS (static)",
+  "fusion_O_CA_FFN_order": "PASS (static; official STG exception documented)",
+  "geometry_invariants": {
+    "nonempty_alignment_and_layout_cases": 36,
+    "all_case_pass_count": 41,
+    "empty_early_exit_cases": 5
+  },
+  "geometry_violation_counts": {
+    "outside_canvas": 0,
+    "role_overlap": 0,
+    "role_holes": 0,
+    "read_support_drop": 0,
+    "read_support_duplication": 0,
+    "partial_C2": 0,
+    "partial_C4": 0,
+    "C1": 0,
+    "wrong_query": 0,
+    "write_outside_target": 0,
+    "write_drop": 0,
+    "write_duplication": 0
+  },
+  "artifacts": {
+    "markdown": 10,
+    "case_png": 41,
+    "contact_sheets": 3,
+    "verification": "PASS"
+  },
+  "mismatches": [
+    {
+      "id": "M1",
+      "symbols": [
+        "geometry.global_cells",
+        "geometry.cells_for_rect",
+        "compression.SpatialCompressor.forward"
+      ],
+      "actual": "Global nondivisible edge: partial normalized C4 reachable",
+      "default_4k_affected": false
+    },
+    {
+      "id": "M2",
+      "symbols": [
+        "global_attention.global_attention",
+        "compression.SpatialDecompressor.forward"
+      ],
+      "actual": "whole compressed-grid bilinear + full-canvas refinement, not per-token full4x4 primitive",
+      "default_4k_affected": true
+    }
+  ],
+  "source_modifications": 0,
+  "source_hash_files": 24,
+  "pinned_hash_files": 205,
+  "model_forward_backward_optimizer_generation_executions": 0,
+  "output_root": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main/docs/final_architecture_audit"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "IMPLEMENTING_TWO_AUTHORIZED_FULL_EXPERIMENTS",
+  "original_anchor": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/autonomous_013000_20261006/inputs/longrange_960x540_1025f.mkv",
+  "frames": 1025,
+  "fps": 24,
+  "input_size": [
+    960,
+    540
+  ],
+  "output_size": [
+    1920,
+    1080
+  ],
+  "checkpoint": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-013000",
+  "H200_uuid": "GPU-a01d425d-ffe8-26e3-c637-6c87a4cf0f38",
+  "experiment_budget_GiB": 70,
+  "seed": 33333333,
+  "steps": 30,
+  "experiment1": "Original anchor; independent65 bridge contexts; immutable9f bridges; independent9+64+8 bodies; four generated reference images through Global reference-KV attention; assemble1025",
+  "experiment2": "GPU-parallel full-source person/camera/staff removal with observed temporal donors/color correction; native65+48 chronological full1025; phase-aligned exterior latent carry + temporal_rebase; no original anchor reinsert",
+  "quality_policy": "Finish full1025; minor cleanup/appearance findings are diagnostic only; no new exploratory candidate experiments",
+  "reference_read_only": "/home/work/ai-graphics_33/minimax-KBS/MINIMAX/reference_longrange"
+}

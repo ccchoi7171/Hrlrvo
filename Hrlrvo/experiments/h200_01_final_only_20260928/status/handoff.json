@@ -1,0 +1,18 @@
+{
+  "schema": "h200_01_final_only_handoff/v1",
+  "status": "RAW_ENCODE_STOPPED_TILES_PRESERVED",
+  "utc": "2026-09-28T10:54:44.818594+00:00",
+  "old_pgid": 929284,
+  "old_processes": [
+    929284,
+    980035,
+    2505284
+  ],
+  "reason": "User authorized 03/04-style final-only path; completed 112-tile stage and real-frame CPU equivalence PASS; stop redundant raw encode only",
+  "equivalence_path": "/home/work/ai-graphics_33/Hrlrvo/experiments/h200_01_final_only_20260928/verification/final_only_equivalence.json",
+  "stage_manifest": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/data/03_Upscale_16K_15360x8640/01/segments/flashvsr_stage_manifest.json",
+  "updated_utc": "2026-09-28T10:55:59.161579+00:00",
+  "abandoned_partial_raw_encode": "/home/work/ai-graphics_33/Hrlrvo/experiments/h200_01_final_only_20260928/verification/abandoned_partial_raw_encode_01.mp4",
+  "abandoned_partial_size_bytes": 93036386,
+  "old_processes_gone": true
+}

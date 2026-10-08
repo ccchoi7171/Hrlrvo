@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="700" viewBox="0 0 720 700" role="img" aria-label="4K Adaptive Local geometry with 4 by 4 windows">
+  <title>4K Adaptive Local: 4 × 4 windows</title>
+  <desc>Actual 68 × 120 latent grid with the central 34 × 60 Anchor, the upper-right Target Local window, and its Adaptive read support. The dashed blue box is the same-sized Anchor reference patch.</desc>
+  <rect x="0" y="0" width="720" height="700" fill="#FFFFFF" />
+  <text x="52.00" y="49.00" fill="#28252D" font-family="DejaVu Sans, Arial, sans-serif" font-size="29" font-weight="700" text-anchor="start">K = 4  ·  4 × 4 Local windows</text>
+  <text x="52.00" y="82.00" fill="#625D6A" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" font-weight="400" text-anchor="start">4K canvas  ·  120 × 68 latent</text>
+  <rect x="360.00" y="119.00" width="308.00" height="184.80" fill="#F1E8F7" />
+  <rect x="206.00" y="206.27" width="308.00" height="174.53" fill="#CCDAFF" />
+  <rect x="514.00" y="119.00" width="154.00" height="87.27" fill="#FFBAD8" />
+  <line x1="52.00" y1="206.27" x2="668.00" y2="206.27" stroke="#BC9ACA" stroke-width="1.45" />
+  <line x1="52.00" y1="293.53" x2="668.00" y2="293.53" stroke="#BC9ACA" stroke-width="1.45" />
+  <line x1="52.00" y1="380.80" x2="668.00" y2="380.80" stroke="#BC9ACA" stroke-width="1.45" />
+  <line x1="206.00" y1="119.00" x2="206.00" y2="468.07" stroke="#BC9ACA" stroke-width="1.45" />
+  <line x1="360.00" y1="119.00" x2="360.00" y2="468.07" stroke="#BC9ACA" stroke-width="1.45" />
+  <line x1="514.00" y1="119.00" x2="514.00" y2="468.07" stroke="#BC9ACA" stroke-width="1.45" />
+  <rect x="52.00" y="119.00" width="616.00" height="349.07" fill="none" stroke="#8655A8" stroke-width="2.2" />
+  <rect x="360.00" y="119.00" width="308.00" height="184.80" fill="none" stroke="#B888CC" stroke-width="3" stroke-dasharray="8 5" />
+  <rect x="206.00" y="206.27" width="308.00" height="174.53" fill="none" stroke="#5D80DF" stroke-width="2.8" />
+  <rect x="360.00" y="206.27" width="154.00" height="87.27" fill="none" stroke="#5D80DF" stroke-width="2.3" stroke-dasharray="6 4" />
+  <rect x="514.00" y="119.00" width="154.00" height="87.27" fill="none" stroke="#ED559B" stroke-width="4" />
+  <text x="437.00" y="257.90" fill="#5D80DF" font-family="DejaVu Sans, Arial, sans-serif" font-size="29" font-weight="700" text-anchor="middle">A</text>
+  <text x="437.00" y="170.63" fill="#8655A8" font-family="DejaVu Sans, Arial, sans-serif" font-size="29" font-weight="700" text-anchor="middle">B</text>
+  <text x="591.00" y="170.63" fill="#ED559B" font-family="DejaVu Sans, Arial, sans-serif" font-size="29" font-weight="700" text-anchor="middle">T</text>
+  <rect x="53" y="511" width="15" height="15" rx="2" fill="#CCDAFF" stroke="#5D80DF" stroke-width="1.8" />
+  <text x="77.00" y="525.00" fill="#625D6A" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="500" text-anchor="start">Anchor</text>
+  <rect x="237" y="511" width="15" height="15" rx="2" fill="#F1E8F7" stroke="#B888CC" stroke-width="1.8" />
+  <text x="261.00" y="525.00" fill="#625D6A" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="500" text-anchor="start">Bridge</text>
+  <rect x="432" y="511" width="15" height="15" rx="2" fill="#FFBAD8" stroke="#ED559B" stroke-width="1.8" />
+  <text x="456.00" y="525.00" fill="#625D6A" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="500" text-anchor="start">Target</text>
+  <line x1="53" y1="558" x2="98" y2="558" stroke="#B888CC" stroke-width="3" stroke-dasharray="8 5" />
+  <text x="109.00" y="565.00" fill="#625D6A" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="500" text-anchor="start">Adaptive read support</text>
+  <line x1="407" y1="558" x2="452" y2="558" stroke="#5D80DF" stroke-width="2.3" stroke-dasharray="6 4" />
+  <text x="463.00" y="565.00" fill="#625D6A" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="500" text-anchor="start">Selected Anchor patch</text>
+  <rect x="52" y="590" width="616" height="82" rx="10" fill="#F8F5FA" stroke="#E1D4E8" stroke-width="1.4" />
+  <text x="69.00" y="613.00" fill="#28252D" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="start">Anchor reference selection</text>
+  <text x="69.00" y="638.00" fill="#28252D" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">T: x[90,120) y[0,17)   →   A patch: x[60,90) y[17,34)</text>
+  <text x="69.00" y="660.00" fill="#625D6A" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="500" text-anchor="start">T above/right → Anchor top/right edge · same size as T · latent x→, y↓</text>
+</svg>

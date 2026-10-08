@@ -1,0 +1,34 @@
+{
+  "elapsed_seconds": 4092.4,
+  "final_output": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/upscale/final/03_KOCCA_Final_16K_16fps_21f",
+  "final_sha256": "ad76190aabc04717b51cb0b87fed84a1ccdc0748c53b49669ca4460b8cf2f77a",
+  "frames": {
+    "final": 21,
+    "outpaint": 65,
+    "source": 1952,
+    "upscale": 21
+  },
+  "input": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/03_Input_8K.mp4",
+  "input_sha256": "eb1f65fc3f65ab16212f039ea971287d17092f0147866bdc95e3591f1f73ca66",
+  "outpaint_chunks": 1,
+  "outpaint_output": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/outpaint/final/03_Outpaint_4K.mp4",
+  "outpaint_sha256": "ce44979d3e634a944692a9502e7d95a8221a731fbee138f0735d309e87626d6c",
+  "outpaint_stop_requested": true,
+  "outpainting_seed": 33333333,
+  "profile_sha256": "f24eed2cf8593552b066f4aecc3468668dea1c49e2a04617202df28fe9229c09",
+  "published_output": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Output/03_16K",
+  "reproduction_comparison": "FIRST_RUN",
+  "run_id": "20260929T152238Z_246b37",
+  "spec_sha256": "b7f9ca4fae4f742e57f28b228d0e132a7f86dd474180871695f034338d3bf4d9",
+  "status": "PASS",
+  "upscale_chunks": 1,
+  "upscale_seed": 33333333,
+  "upscale_stop_requested": true,
+  "verification": {
+    "ffprobe_count_frames_performed": false,
+    "final_frame_count_evidence": "numbered_jpg_files_and_completed_chunk_encoder_counters",
+    "full_16k_pixel_decode_performed": false,
+    "limitations": "JPG files were counted and checked for nonzero size; each chunk has its own PASS manifest"
+  },
+  "video_id": "03"
+}

@@ -1,0 +1,104 @@
+{
+  "timestamp_utc": "2026-09-23T18:27:31.906042+00:00",
+  "watchers": [
+    {
+      "arm": "02_no_carry",
+      "watcher_pids": [
+        1290422
+      ],
+      "producer": {
+        "state": "running",
+        "pid": 1203845,
+        "gpu": 1,
+        "log": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/02_no_carry/logs/inference_20260923T155220Z.log"
+      },
+      "committed_chunks": 7,
+      "latest_cumulative": {
+        "chunks_included": 5,
+        "disposition": "created",
+        "event": "progress_video",
+        "fps": 24.0,
+        "frame_count": 257,
+        "height": 1080,
+        "milestone_chunk": 4,
+        "mode": "",
+        "path": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/02_no_carry/outputs/progress/C00_C04_257f.mp4",
+        "status": "ready",
+        "width": 1920,
+        "fresh_decode_verified": true
+      },
+      "pane": "%62"
+    },
+    {
+      "arm": "03_global_boost",
+      "watcher_pids": [
+        1290428
+      ],
+      "producer": {
+        "state": "running",
+        "pid": 1206052,
+        "gpu": 2,
+        "log": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/03_global_boost/logs/inference_20260923T155422Z.log"
+      },
+      "committed_chunks": 7,
+      "latest_cumulative": {
+        "chunks_included": 5,
+        "disposition": "created",
+        "event": "progress_video",
+        "fps": 24.0,
+        "frame_count": 257,
+        "height": 1080,
+        "milestone_chunk": 4,
+        "mode": "",
+        "path": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/03_global_boost/outputs/progress/C00_C04_257f.mp4",
+        "status": "ready",
+        "width": 1920,
+        "fresh_decode_verified": true
+      },
+      "pane": "%63"
+    },
+    {
+      "arm": "04_native_halo",
+      "watcher_pids": [
+        1290436
+      ],
+      "producer": {
+        "state": "running",
+        "pid": 1206190,
+        "gpu": 3,
+        "log": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/04_native_halo/logs/inference_20260923T155422Z.log"
+      },
+      "committed_chunks": 7,
+      "latest_cumulative": {
+        "chunks_included": 5,
+        "disposition": "created",
+        "event": "progress_video",
+        "fps": 24.0,
+        "frame_count": 257,
+        "height": 1080,
+        "milestone_chunk": 4,
+        "mode": "",
+        "path": "/home/oem/hrlrvo/experiments/a6000_carry_global_halo_20260924/arms/04_native_halo/outputs/progress/C00_C04_257f.mp4",
+        "status": "ready",
+        "width": 1920,
+        "fresh_decode_verified": true
+      },
+      "pane": "%64"
+    },
+    {
+      "arm": "depth",
+      "watcher_pids": [
+        1290440
+      ],
+      "producer": {
+        "state": "running",
+        "pid": 1299913,
+        "gpu": 0,
+        "log": "/home/oem/hrlrvo/experiments/a6000_depth_global_prior_20260924/logs/inference_20260923T182246Z.log"
+      },
+      "committed_chunks": 1,
+      "latest_cumulative": null,
+      "pane": "%65"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "utc": "2026-09-23T17:47:24.803453+00:00",
+  "selected_image": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/candidates/lineart/detailed.png",
+  "selected_map": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_lineart_global_prior_20260923/reference/candidates/lineart/detailed_global_line_strength.npy",
+  "image_sha256": "868ef5b50e585e5fbdfb2fa870821b8e6c89d41609edb304afd09ec8641ea257",
+  "map_sha256": "86a5a5a1b8e832939c5387d7a54c042a7c8f58a980eb2ac80976017d81e4f628",
+  "shape": [
+    9,
+    15
+  ],
+  "mean": 0.487827330827713,
+  "saturated_cells": 49,
+  "pixel_npy_alignment": "EXACT",
+  "global_mapping": "EXACT",
+  "c0_archive_hashes": "PASS",
+  "protected_snapshot_files": "UNCHANGED",
+  "start_chunk": 1,
+  "end_chunk": 23,
+  "depth_injected": false
+}

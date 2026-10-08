@@ -1,0 +1,16 @@
+{
+  "schema": "hrlrvo_bridge_worker_v1",
+  "worker": 0,
+  "jobs": [
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridges/B01.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridges/B03.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridges/B05.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridges/B07.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridges/B09.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridges/B11.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/bridges/B13.json"
+  ],
+  "expected_peak_gib": 33.5,
+  "torch_cuda_memory_fraction": 0.245,
+  "load_model_once": true
+}

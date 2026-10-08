@@ -1,0 +1,11 @@
+{
+  "chunk_count": 1,
+  "inference_steps": 30,
+  "input_path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/preprocess/03_PreProc_2K.mp4",
+  "original_requested_frames": 1952,
+  "output_path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/outpaint/chunks/native/03_Outpaint_4K_24fps.mp4",
+  "requested_frames": 65,
+  "seed": 33333333,
+  "segment_directory": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/03/20260929T152238Z_246b37/outpaint/chunks/native",
+  "stop_requested": true
+}

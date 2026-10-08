@@ -1,0 +1,31 @@
+{
+  "local_links_checked": 35,
+  "missing_links": [],
+  "evidence_image_dimensions": {
+    "floor_center_40_48.png": [
+      1920,
+      688
+    ],
+    "left_windows_24_40.png": [
+      960,
+      1228
+    ],
+    "right_objects_32_48.png": [
+      960,
+      1228
+    ],
+    "right_windows_42_44.png": [
+      960,
+      1228
+    ]
+  },
+  "identity_checks": {
+    "total_frames": 1169,
+    "whole_frame_identical_count": 353,
+    "first_different_frame": 353,
+    "interior_anchor_identical_count": 1169
+  },
+  "analysis_only": true,
+  "new_inference": false,
+  "production_code_edits": false
+}

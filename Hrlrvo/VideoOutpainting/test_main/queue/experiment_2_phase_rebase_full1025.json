@@ -1,0 +1,19 @@
+{
+  "name": "experiment_2_phase_rebase_full1025",
+  "experiment": 2,
+  "argv": [
+    "/home/work/ai-graphics_33/miniconda3/envs/Hrlrvo/bin/python",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/run_full_phase_rebase.py",
+    "--job",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/job.json"
+  ],
+  "reservation_mib": 50000,
+  "priority": 90,
+  "requires": [
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/job.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/preparation_manifest.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/clean_anchor_1025f.mkv"
+  ],
+  "max_group_processes": 1,
+  "script_sha256": "5f73d2ffc0b36b1de922f86dc8131fc2fcf99407ccb624fc7bfca558316241bf"
+}

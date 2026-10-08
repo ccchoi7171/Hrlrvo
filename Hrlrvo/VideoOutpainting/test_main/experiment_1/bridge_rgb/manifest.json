@@ -1,0 +1,840 @@
+{
+  "status": "PASS",
+  "schema": "hrlrvo_experiment1_bridge_rgb_v1",
+  "conversion": "FP32 CHW clipped to [0,1], round(value*255), uint8 RGB",
+  "video": "H.264 CRF16 medium yuv420p, 1920x1080, 24fps, ffmpeg threads=2",
+  "parallelism": "ThreadPoolExecutor max_workers=4",
+  "overview": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/bridge_overview_3x5.png",
+  "verification": {
+    "mp4_count": 30,
+    "png_count": 135,
+    "all_pass": true
+  },
+  "bridges": [
+    {
+      "bridge_id": "B00",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/longrange_bridge_013000_20261007/outputs/independent_start_0000/generated_65f_fp32.npy",
+      "source_tensor_sha256": "dcd010c1680bd090d739e486cd1d45d696225e6307c7954c6ddfab21b57ec179",
+      "context_start": 0,
+      "context_stop": 65,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        0,
+        9
+      ],
+      "global_bridge_range": [
+        0,
+        9
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 4,
+        "global_frame": 4,
+        "timestamp_seconds": 0.16666666666666666,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B00/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B01",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B01/context_65f_fp32.npy",
+      "source_tensor_sha256": "9363411c066dcbb9965a07ab6819eb30f5ac89e0f04d92caba52a5f443504ea7",
+      "context_start": 48,
+      "context_stop": 113,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        73,
+        82
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 77,
+        "timestamp_seconds": 3.2083333333333335,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B01/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B02",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B02/context_65f_fp32.npy",
+      "source_tensor_sha256": "4741f334a1db1bac175934ad87d377b484c900e6806918ee11cb67f755380de1",
+      "context_start": 121,
+      "context_stop": 186,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        146,
+        155
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 150,
+        "timestamp_seconds": 6.25,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B02/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B03",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B03/context_65f_fp32.npy",
+      "source_tensor_sha256": "4e82b6fd6cd76691e498038ad1152582072f4e77b7c5366d1b99645e70000e74",
+      "context_start": 194,
+      "context_stop": 259,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        219,
+        228
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 223,
+        "timestamp_seconds": 9.291666666666666,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B03/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B04",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B04/context_65f_fp32.npy",
+      "source_tensor_sha256": "edecfd19661e058bd00f887e96969573a240ccb0f54163e3d1011eb412fe847d",
+      "context_start": 267,
+      "context_stop": 332,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        292,
+        301
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 296,
+        "timestamp_seconds": 12.333333333333334,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B04/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B05",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B05/context_65f_fp32.npy",
+      "source_tensor_sha256": "0cbed5c5e12241de34fe23634a6bead56eba7a456a7ae3c3874fa98f4840f44f",
+      "context_start": 340,
+      "context_stop": 405,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        365,
+        374
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 369,
+        "timestamp_seconds": 15.375,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B05/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B06",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B06/context_65f_fp32.npy",
+      "source_tensor_sha256": "d482f7b1ac67d9d831e66c4f008c1fc45d684616186347babd7684f7565cd92b",
+      "context_start": 413,
+      "context_stop": 478,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        438,
+        447
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 442,
+        "timestamp_seconds": 18.416666666666668,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B06/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B07",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B07/context_65f_fp32.npy",
+      "source_tensor_sha256": "b09bc96bcc3662c15788e4e1d0b3de7f1e535d62e7202161f3ef6ca0425e0a60",
+      "context_start": 486,
+      "context_stop": 551,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        511,
+        520
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 515,
+        "timestamp_seconds": 21.458333333333332,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B07/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B08",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B08/context_65f_fp32.npy",
+      "source_tensor_sha256": "8b92250e4490c7b1429b507edf6cf5ff65493f2f92d911ce7d4a3358feace3c5",
+      "context_start": 559,
+      "context_stop": 624,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        584,
+        593
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 588,
+        "timestamp_seconds": 24.5,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B08/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B09",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B09/context_65f_fp32.npy",
+      "source_tensor_sha256": "72f07d440bf4bec6cdd545843e34f33ae539917ef0be926d5e1ad7b32e5c09cb",
+      "context_start": 632,
+      "context_stop": 697,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        657,
+        666
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 661,
+        "timestamp_seconds": 27.541666666666668,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B09/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B10",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B10/context_65f_fp32.npy",
+      "source_tensor_sha256": "dc4a9701e7dd1713b935d541a6fd985a3d3d2a880a9c9facc46500c13b97df9b",
+      "context_start": 705,
+      "context_stop": 770,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        730,
+        739
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 734,
+        "timestamp_seconds": 30.583333333333332,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B10/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B11",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B11/context_65f_fp32.npy",
+      "source_tensor_sha256": "f271e5207b06429208f43b6c9dfaf8195513f07c1edbea3d1a15cb3c952d3885",
+      "context_start": 778,
+      "context_stop": 843,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        803,
+        812
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 807,
+        "timestamp_seconds": 33.625,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B11/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B12",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B12/context_65f_fp32.npy",
+      "source_tensor_sha256": "49cdf55d18db5c0eec92801624b4f2217ab9ae68c0241b475ab431dfed68202f",
+      "context_start": 851,
+      "context_stop": 916,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        876,
+        885
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 880,
+        "timestamp_seconds": 36.666666666666664,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B12/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B13",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B13/context_65f_fp32.npy",
+      "source_tensor_sha256": "8c05ca40470301db6ad97babcd42a52f89f532ffa83e18407d01c3842116596d",
+      "context_start": 924,
+      "context_stop": 989,
+      "padding": {
+        "left": 0,
+        "right": 0
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        949,
+        958
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 953,
+        "timestamp_seconds": 39.708333333333336,
+        "source_padded": false
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B13/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    },
+    {
+      "bridge_id": "B14",
+      "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B14/context_65f_fp32.npy",
+      "source_tensor_sha256": "691377574f748dc6feb2dc3eb158e89f5e65361c8cf112ecd173a2ecbfee91e4",
+      "context_start": 997,
+      "context_stop": 1062,
+      "padding": {
+        "left": 0,
+        "right": 37
+      },
+      "extract_indices_context": [
+        25,
+        34
+      ],
+      "global_bridge_range": [
+        1022,
+        1031
+      ],
+      "central_frame": {
+        "bridge_local_index": 4,
+        "context_index": 29,
+        "global_frame": 1026,
+        "timestamp_seconds": 42.75,
+        "source_padded": true
+      },
+      "outputs": {
+        "context_65f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/context_65f.mp4",
+        "bridge_9f_mp4": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/bridge_9f.mp4",
+        "png_frames": [
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_000.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_001.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_002.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_003.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_004.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_005.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_006.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_007.png",
+          "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_rgb/B14/frames/frame_008.png"
+        ]
+      },
+      "verification": {
+        "context_65f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 65
+        },
+        "bridge_9f_mp4": {
+          "width": 1920,
+          "height": 1080,
+          "fps": "24/1",
+          "frames": 9
+        }
+      }
+    }
+  ]
+}

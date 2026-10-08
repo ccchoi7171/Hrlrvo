@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "bug_reproduced": true,
+  "immutable_middle_exact": true,
+  "immutable_suffix_exact": true,
+  "output_is_regular_tensor": true,
+  "runner_sha256": "d182f70f3faa7f0057d855d17005a5e28dce67d75d5a672736c87816185f67af"
+}

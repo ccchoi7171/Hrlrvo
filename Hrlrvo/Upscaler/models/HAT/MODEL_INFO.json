@@ -1,0 +1,21 @@
+{
+  "model": "Real_HAT_GAN_SRx4",
+  "model_family": "frame-independent image super-resolution",
+  "scale": 4,
+  "official_repository": "https://github.com/XPixelGroup/HAT",
+  "repository_commit": "1638a9a822581657811867bf670717f8371fc3e5",
+  "official_weight_folder": "https://drive.google.com/drive/folders/1HpmReFfoUqUbnAOQ7rvOeNU3uf_m69w0?usp=sharing",
+  "official_weight_file_id": "1Ma12vCWT27P9M99-s2RXnynKN-OQsBrv",
+  "weight_path": "weights/Real_HAT_GAN_SRx4.pth",
+  "weight_sha256": "f5b1e3bbbb05147ca2beefcc715279cb647d7976cbda67d62ea7e6e20d5ffcc7",
+  "checkpoint_key": "params_ema",
+  "license": "Apache-2.0",
+  "inference_policy": {
+    "native_scale_only": true,
+    "checkpoint_variant": "fidelity",
+    "tile_size": 512,
+    "tile_pad": 32,
+    "window_size": 16,
+    "precision": "fp32"
+  }
+}

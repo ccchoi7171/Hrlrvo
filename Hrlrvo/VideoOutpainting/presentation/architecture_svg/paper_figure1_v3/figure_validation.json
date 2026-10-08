@@ -1,0 +1,74 @@
+{
+  "figure1_video_outpainting.svg": {
+    "text_count": 50,
+    "embedded_photo_count": 2,
+    "photo_sha256": [
+      "deae647a5ab8ca838fbb882069c0cc99d0f545cac678e0a06fd51d2734f0765a",
+      "f8c42a2a77b7c1373b213baaa82830a2ae71ee516becc1030ec107ec15f414cc"
+    ],
+    "external_dependencies": 0,
+    "unique_layer_ids": true,
+    "minimum_font_size_svg_units": 33.0,
+    "bytes": 14562821,
+    "sha256": "653711eb318ad5409b64ae3fbc201d07d9c167b9bf7659d747560e322b37b60b"
+  },
+  "figure1_video_outpainting_outlined.svg": {
+    "text_count": 0,
+    "embedded_photo_count": 2,
+    "photo_sha256": [
+      "deae647a5ab8ca838fbb882069c0cc99d0f545cac678e0a06fd51d2734f0765a",
+      "f8c42a2a77b7c1373b213baaa82830a2ae71ee516becc1030ec107ec15f414cc"
+    ],
+    "external_dependencies": 0,
+    "unique_layer_ids": true,
+    "minimum_font_size_svg_units": null,
+    "bytes": 14726402,
+    "sha256": "2aa53fa875adc412f70ae62dad72df27c525a53fbe1184d71fe7ea0d0fd40b33"
+  },
+  "figure1_architecture.svg": {
+    "text_count": 38,
+    "embedded_photo_count": 0,
+    "photo_sha256": [],
+    "external_dependencies": 0,
+    "unique_layer_ids": true,
+    "minimum_font_size_svg_units": 33.0,
+    "bytes": 18049,
+    "sha256": "585ae6dd3a9efa0743a4447ded6d232dd6871f4c41b9faa04a43cd997d7d757f"
+  },
+  "figure1_architecture_outlined.svg": {
+    "text_count": 0,
+    "embedded_photo_count": 0,
+    "photo_sha256": [],
+    "external_dependencies": 0,
+    "unique_layer_ids": true,
+    "minimum_font_size_svg_units": null,
+    "bytes": 125375,
+    "sha256": "f16247fb160d0282443571f58bd92301a1d963ab7d35ec05b535786ce52e95fc"
+  },
+  "figure1_matched_frames.svg": {
+    "text_count": 12,
+    "embedded_photo_count": 2,
+    "photo_sha256": [
+      "deae647a5ab8ca838fbb882069c0cc99d0f545cac678e0a06fd51d2734f0765a",
+      "f8c42a2a77b7c1373b213baaa82830a2ae71ee516becc1030ec107ec15f414cc"
+    ],
+    "external_dependencies": 0,
+    "unique_layer_ids": true,
+    "minimum_font_size_svg_units": 33.0,
+    "bytes": 14546453,
+    "sha256": "648546c118885db823d9acb9c2abd52d64adbd24a6beaae85b2f513f26b064e3"
+  },
+  "figure1_matched_frames_outlined.svg": {
+    "text_count": 0,
+    "embedded_photo_count": 2,
+    "photo_sha256": [
+      "deae647a5ab8ca838fbb882069c0cc99d0f545cac678e0a06fd51d2734f0765a",
+      "f8c42a2a77b7c1373b213baaa82830a2ae71ee516becc1030ec107ec15f414cc"
+    ],
+    "external_dependencies": 0,
+    "unique_layer_ids": true,
+    "minimum_font_size_svg_units": null,
+    "bytes": 14602319,
+    "sha256": "47bfc5c2b385def6eb5a8b8b5c1fd2f47fc75f159f4d78e4b8ffc775133ecc36"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "scripts/watch_progress_videos.py": "af8876cba8253ad2401cb34544fcdf20a794b1581ea6c621a362191d5009e779",
+  "scripts/run_progress_for_arm.py": "585350796e8e6c85fdd257af9a9680120cb50d711e6c0450491e2be4529d2cec",
+  "tests/test_progress_videos.py": "0835af7347c280e648cb177a4df5dc75fd4a931af0f96f5a47995ccb031cb538",
+  "tests/test_progress_arm_wrapper.py": "6954bfd355b10edadc5e27ec95f0a3f793d96064636a7d5a048d7ae0a7d63819"
+}

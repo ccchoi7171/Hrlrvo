@@ -1,0 +1,35 @@
+{
+  "source": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main/src/ltx_outpaint/geometry.py",
+  "source_sha256": "f6943451d12dc50968f7a36e7ef5e9e95d22c03c1542b7559defc8e0a7d2737a",
+  "coordinate_convention": "half-open [y0,x0,y1,x1] in the native spatial latent grid",
+  "grid": [
+    68,
+    120
+  ],
+  "example_partition_count": 4,
+  "anchor": [
+    17,
+    30,
+    51,
+    90
+  ],
+  "target": [
+    0,
+    90,
+    17,
+    120
+  ],
+  "selected_anchor_patch": [
+    17,
+    60,
+    34,
+    90
+  ],
+  "adaptive_read_support": [
+    0,
+    60,
+    36,
+    120
+  ],
+  "spatial_icon_scope": "one representative Local window; time/token resolution omitted"
+}

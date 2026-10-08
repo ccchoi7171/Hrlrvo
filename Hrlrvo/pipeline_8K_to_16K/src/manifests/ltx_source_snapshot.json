@@ -1,0 +1,1312 @@
+{
+  "base_original_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors",
+  "base_sha256": "7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f",
+  "packaged_repo": "src/video_outpainting/models/LTX2.3",
+  "purpose": "validate immutable copied official LTX 2.3 package sources without external Git checkout",
+  "revision": "598ab41247a77dbfe29b5186e915bcf4f9040ec7",
+  "schema_version": 1,
+  "source_file_count": 260,
+  "source_files": [
+    {
+      "path": "packages/ltx-core/src/ltx_core/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/allocator_trim_strategy.py",
+      "sha256": "17c30880ab0de93b45f6d05649254d5484df45a3078bf531d767d825c32cb034",
+      "size_bytes": 329
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/batch_split.py",
+      "sha256": "06d83bdf7cfbb5728fc2727476587dd10adfa7c53b94b2b95467f229933b9c1e",
+      "size_bytes": 4132
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/__init__.py",
+      "sha256": "7d7ba7745bd4f49bb7c9bb4eada4f903924e6228ccaa974bb7a5ed842e56870f",
+      "size_bytes": 874
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/block_fetcher.py",
+      "sha256": "2f9cf27e7b18a280a894bcdabddb517ebc949124b2f2f2925e790b7e25bfdcd0",
+      "size_bytes": 2808
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/builder.py",
+      "sha256": "2a3d9480020ee4230043bd4621aea37d38dd486e532bcb384e539a71206f2e22",
+      "size_bytes": 21630
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/disk.py",
+      "sha256": "f83a3eba153f8f73b979de84d2a6d0fc0b0433c6cabb1b0257cb450e4c325822",
+      "size_bytes": 6900
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/pool.py",
+      "sha256": "af84f913e0fa097a93b4f140c0a4ddc7b34ad6583bc78973ee1520bbeaff3548",
+      "size_bytes": 2599
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/provider.py",
+      "sha256": "01d405113dd0d21730fbf5efb50c8a08f3634bafee9cb698104f0ba4527043e7",
+      "size_bytes": 6953
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/source.py",
+      "sha256": "0fef6727153b46aed16c0ec5fdada251ae4c61dc492c42f4a6b7ac68477cee84",
+      "size_bytes": 6472
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/stream_sync.py",
+      "sha256": "25d9827778eca6f82c85a459a74207788a39b0225a1b5945cda14d8bb98e0dcd",
+      "size_bytes": 5972
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/utils.py",
+      "sha256": "51860b919c0ee39689efc49723e58290b59a1a0b7a173d2f230bc7dbaa55a42a",
+      "size_bytes": 6999
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/block_streaming/wrapper.py",
+      "sha256": "6f270d6db7ba846cd78c772053bcf0346477a9410fd0f70e5983c34215fd92eb",
+      "size_bytes": 3765
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/color/__init__.py",
+      "sha256": "05b51b9a6209ff9bcfd1d49163dfebaa79c763bca0261e2721c038ea0d14233f",
+      "size_bytes": 1430
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/color/audio_mux.py",
+      "sha256": "8361a011042b47e3eb38059515f85638a3cd023e64d9eb711d77a219a3af35ce",
+      "size_bytes": 2988
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/color/hlg.py",
+      "sha256": "f98609108ca07c1f4c6d17248b043702b823f0723bcd696a3d4b1d9222955c41",
+      "size_bytes": 10973
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/color/primaries.py",
+      "sha256": "e691a161cd1c98a4b47d21c8a312fa3ba268f8fd3eb93cec89ae054785c5ea90",
+      "size_bytes": 4352
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/color/yuv.py",
+      "sha256": "0a102ee12e6f1bea7623eb284e3562a014cb0ab50a3d871609c464a74f060a28",
+      "size_bytes": 10203
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/components/__init__.py",
+      "sha256": "a48f5006c52ea1e08f8c463461354d4ddedd50d331c183d5099f5b3bd61f1425",
+      "size_bytes": 514
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/components/diffusion_steps.py",
+      "sha256": "ca865e2fc030c7e35e9b2f37a8f763f8813d201bac6343a781d8f7329ae73d82",
+      "size_bytes": 11047
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/components/guiders.py",
+      "sha256": "fca85e9fa3e45bc2755f1d3d66d91bdb8db04bb4c38a17bf1b0cbaa70fe99e6e",
+      "size_bytes": 15608
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/components/noisers.py",
+      "sha256": "17d208ab2c2e3bd060eecc51c7a17c359299ef2c3e28775b0e8dc1a7b27d2f22",
+      "size_bytes": 1250
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/components/patchifiers.py",
+      "sha256": "1a82c1cc995f6e927b9f3da8f00e4a5510e510e9dd037330fcb9f922848c51ca",
+      "size_bytes": 14550
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/components/protocols.py",
+      "sha256": "d1d79c9507c57b786ff752aedc8fc988b24895ef81eb95f31506cdcb8253dbc3",
+      "size_bytes": 3147
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/components/schedulers.py",
+      "sha256": "ca318b9e9d0e3166e7085b8abf1950a2851790f9427bfdcb8e825cc6a8d06be4",
+      "size_bytes": 4855
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/__init__.py",
+      "sha256": "cbe498b0ba75333c362aa640f7654a3a1670684a3136424b16506464bd4c21f0",
+      "size_bytes": 811
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/exceptions.py",
+      "sha256": "fb618772f349090b17cee84e28f862a42b5273b2da2e9f50f94c9a44692c0585",
+      "size_bytes": 95
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/item.py",
+      "sha256": "0b081dcbb0050dc5e56e8dc89bc5732f6abcf2bbb16ad6f4711c9314862d8509",
+      "size_bytes": 750
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/mask_utils.py",
+      "sha256": "2e7db533aa62f378b751c399cb8a4280145ea9279a03de3dd319b759a90ce9f1",
+      "size_bytes": 10676
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/__init__.py",
+      "sha256": "bd6672ee2b630949b784366b250f64fa28f6dd10aa721cecaef81bcf1eb5edc6",
+      "size_bytes": 930
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/attention_strength_wrapper.py",
+      "sha256": "370279deb618d63d7bdf3d71e6b83fa6fcbdc071cb5d631a51f767c1f4d5dcc6",
+      "size_bytes": 3007
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/keyframe_cond.py",
+      "sha256": "5aecc7124920a8282aa73ac51f2eb77bfa5630c01df34ccf0a62cfb04ef7a860",
+      "size_bytes": 3867
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/keyframe_slots.py",
+      "sha256": "86c1f0cf13ad8afe5a375103f4e9dbaa44fe2f6f5af3bb0b23366a94b3c1a62b",
+      "size_bytes": 8999
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/latent_cond.py",
+      "sha256": "9d5661e7b70686e72457f71ec337b68372f1b33a99281dffcf94ce6f6413aebb",
+      "size_bytes": 1943
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/mask_cond.py",
+      "sha256": "d6923bba05b313704abb6cee2cb0d53f2332db1b791db049c71c49d8ad0b0148",
+      "size_bytes": 2149
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/noise_mask_cond.py",
+      "sha256": "9eb20e1d5c7a32a87b3f7233420a4a8537c688d56042339a93dc043540bf6bbc",
+      "size_bytes": 2353
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/reference_audio_cond.py",
+      "sha256": "6b42ec7c0982be5447b86263267c59feac5fe50eea977e0a0074733423ed5e0c",
+      "size_bytes": 2809
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/conditioning/types/reference_video_cond.py",
+      "sha256": "c677d430cfbfce418ae01027d2fe37024c5bae0939b17893300b056924fbf427",
+      "size_bytes": 5027
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/devices.py",
+      "sha256": "852ab65a476098272ba43e0786d780d808ca6dc93a47339efd02aa56ac5e88e2",
+      "size_bytes": 6312
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/duration_head/__init__.py",
+      "sha256": "e9fc9d521dc2c880b1c9a25b4aa2807fb566246b1a48c98930c41d27d1a06a27",
+      "size_bytes": 374
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/duration_head/duration_head.py",
+      "sha256": "c0987c78394597e2d052f8343a5494571a86fdb51325b2a210cf9aeb1c3d745a",
+      "size_bytes": 5530
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/duration_head/model_configurator.py",
+      "sha256": "c9afcf844690358df648e8ae39370d4df98f20d2b38bae149dfb4e64791b52ce",
+      "size_bytes": 1790
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/guidance/__init__.py",
+      "sha256": "87d78713485160abab95edb4eae52a4a65d037e1f4ab26369fa228ef4e8b294e",
+      "size_bytes": 332
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/guidance/perturbations.py",
+      "sha256": "b7050d59548062fa4d665712e640e40ea3e65b567bb06da3210051a23d1a4981",
+      "size_bytes": 6340
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/hdr.py",
+      "sha256": "7faae6e62f803da0ff68a1b84f926cad0b315a122f2ebc20c98416b1b17a225b",
+      "size_bytes": 5978
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/__init__.py",
+      "sha256": "36ad5474ecd93700d148a5377c7eea1eec684e4ed0d265d845902da3cdfbbdbc",
+      "size_bytes": 1733
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/attention_ops.py",
+      "sha256": "c5d6c96d0d3d42589dc05118367c23aa1a9916a563947c20ae0391435c2a3610",
+      "size_bytes": 1708
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/fuse_loras.py",
+      "sha256": "a9528eae3ce40e817c1abf5d7541d7797ccb6005e8d2ee90dc5cd1c05f897884",
+      "size_bytes": 8124
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/helpers.py",
+      "sha256": "0a02730dd153058d39c8d612bf1df53da3f2dfd84518815fcca7a9800d5871b2",
+      "size_bytes": 3550
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/kernels.py",
+      "sha256": "bb4e5a826d697b7359cc0f4c406b6d34dcc045bbc81f14774ff3e8d00120232e",
+      "size_bytes": 3047
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/module_ops.py",
+      "sha256": "70f4a23a285fd174ddeec90580d0f73322f51ea72c54a40a57a1c99911196db8",
+      "size_bytes": 397
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/primitives.py",
+      "sha256": "fff6626fa3aa232368e8ae7fe6324726bf7aeb2bf52fd5648428bed8d808da15",
+      "size_bytes": 5266
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/registry.py",
+      "sha256": "7b2f3fd98245b47ae67ab6777682b5dc937587b18fda56cf45e8bd30525734ad",
+      "size_bytes": 5193
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/sd_ops.py",
+      "sha256": "f3eb4639dfca1399691363370be6763eb27727907d842c21ddaddd115cda9b1e",
+      "size_bytes": 5025
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/sft_loader.py",
+      "sha256": "d1578a0d2b634f303b59f61d046664d95c1ee2ba5c1a5c27b2aae759a0bfe280",
+      "size_bytes": 3268
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/loader/single_gpu_model_builder.py",
+      "sha256": "6a885e6a25b5440d723cf29f21f7f4327af602dec3ec38014f20160debbe4c99",
+      "size_bytes": 11227
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/modality_tiling.py",
+      "sha256": "4973a7d2280f7d27bdbe2fd347248cada8c2bc8f4304f504f045a932112bd525",
+      "size_bytes": 14231
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/__init__.py",
+      "sha256": "012474a1c36d4fcb6a878b82fa364e7589eb9826a49cdc3a15e3cea50a9f4468",
+      "size_bytes": 277
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/__init__.py",
+      "sha256": "3741027ec23edb22148eb939b3f2343bacb3b153d807e153f344d1f6e5a2ea44",
+      "size_bytes": 884
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/attention.py",
+      "sha256": "8e6d04197b2d92f409e555261eca7be1c6fe177d78c80d3c806d44a2d41d7918",
+      "size_bytes": 2459
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/audio_vae.py",
+      "sha256": "2e25cd5343451dd61dd189e62417987f7a058157e63c0bbae8c86947d1b0be8a",
+      "size_bytes": 20084
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/causal_conv_2d.py",
+      "sha256": "739a4793d9418df48b440b2820decbc95ad4a5d8aa878cc8a65a8fc5d1c4317c",
+      "size_bytes": 3853
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/causality_axis.py",
+      "sha256": "3d37e5bc06ed13c689c822efd25bc8a4743ea2919281cbb0780623a4b3c752a9",
+      "size_bytes": 231
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/downsample.py",
+      "sha256": "9835e1b0b55463a2b9edc49fb73e628ab303d37cb714c32bc6db10436f8531aa",
+      "size_bytes": 3855
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/model_configurator.py",
+      "sha256": "351d4b2bc0aa507ed5118262c4293c88d92a03c87aceb0fad037e56a7704aed1",
+      "size_bytes": 8893
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/ops.py",
+      "sha256": "a3830dacb366dc6414b42754b4b450b71117db65b140b130d8e3eb69b8668321",
+      "size_bytes": 2841
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/resnet.py",
+      "sha256": "00e571dd7f78ba455d94686b8cf1c8610cf24da09167a62fb2e2c4e3d8117c0e",
+      "size_bytes": 5850
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/upsample.py",
+      "sha256": "40dea5e410aa17eb1c070d42a2b13d3da010beef5823170f5549af4068607c5f",
+      "size_bytes": 4074
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py",
+      "sha256": "443d34c61ad5204cefb6adf5d481a02dbb5c7b9115f2ce6f731296044c049489",
+      "size_bytes": 26671
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/common/__init__.py",
+      "sha256": "8b04d2684dd4e483ae35d08dc475c664a4ca6bdea44d5723c4ffa5e7b0083f70",
+      "size_bytes": 207
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/common/normalization.py",
+      "sha256": "e0cc7179f1e00d8a517c8c8a61ee0f2f8dd6476fe21c69175b9fd57bc35e840b",
+      "size_bytes": 1970
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/disposable.py",
+      "sha256": "f8cc9e664b309979a171ca53336782f44acee4b3c861fb6decc61bdcaf9278b4",
+      "size_bytes": 1617
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/model_protocol.py",
+      "sha256": "982363d6bb663685ad66e97be339b6daeeeda757380fa21014e1cf93d376be99",
+      "size_bytes": 1442
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/__init__.py",
+      "sha256": "bb9ee1276c4026a7ed759d3dd1bae1e57f0c5177de4ddf74a8fb7da5ca62a7ba",
+      "size_bytes": 645
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/adaln.py",
+      "sha256": "87be8b1ec9b1395156d2e0f22834ed993af31d684198109d33e61c68f53cd065",
+      "size_bytes": 1732
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/attention.py",
+      "sha256": "6c1a0cdccf3a553f795f81f172a842859678e1e6b1c4366efef2ccbec426d7a4",
+      "size_bytes": 26086
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/compiling.py",
+      "sha256": "98226c06ed9509c101fa36535b4f26d1b3f828d27bc0ccfc4ff567961631a1b1",
+      "size_bytes": 13835
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/cudagraph_capture.py",
+      "sha256": "82cfce4a6422df8161453db25a23b24bbf3147310ab8ec52f9e63b3f8149a5f4",
+      "size_bytes": 14578
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/feed_forward.py",
+      "sha256": "e6c743950e90b0540499674c688271c5aab45101e6f776fbdde78f50bff12567",
+      "size_bytes": 531
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/gelu_approx.py",
+      "sha256": "c9d008a2db4f945ee39d24ff6c191fc6c15093ad021d86648b6a70dc16d6da55",
+      "size_bytes": 350
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/modality.py",
+      "sha256": "93a241e65999394133447f7fc3c97f0424d3d10da2758c34eeb0dce09429d47e",
+      "size_bytes": 4468
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/model.py",
+      "sha256": "620ba79a2fd372d85e190054a6d1d245d20d16ad8440d45e65beb9d1e8be359a",
+      "size_bytes": 26573
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/model_configurator.py",
+      "sha256": "ec0d9ec92e2c802b42272550490dbbfc0aeda1e6a80a2c550985cf5fdaa9cec3",
+      "size_bytes": 13641
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/ops.py",
+      "sha256": "19a1d40a6659c1cf7a64a2af2bb734d50199e97155375aaa156b5fe93467059d",
+      "size_bytes": 2875
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/rope.py",
+      "sha256": "2bb728d7a3d84a6c494b82c53fd3fdaf2bafc10e3ebc90a4189c68ff87d09253",
+      "size_bytes": 8297
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/text_projection.py",
+      "sha256": "989cd23bfd6491328625a5850f8212afda855418570f1059b20377415b8b2e7a",
+      "size_bytes": 1795
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/timestep_embedding.py",
+      "sha256": "3a75ff5ef6231bed408f10279a4fb3f0b76c7b027ebaf0aae8c0255fb5338b97",
+      "size_bytes": 4737
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/transformer.py",
+      "sha256": "ffeb3dd3c4ef97e056649592a0439611b8c2cc413ed85623ab3351eeb26a8062",
+      "size_bytes": 19024
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/transformer/transformer_args.py",
+      "sha256": "65d1cd746f89426e9cc06d75a6fa182cefa5e833231948f01a3f4d147879992b",
+      "size_bytes": 18614
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/upsampler/__init__.py",
+      "sha256": "0b45fe1ac690abd8b60c626c6777649faa46bddb94052b9f308623e8e01bbe82",
+      "size_bytes": 296
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/upsampler/blur_downsample.py",
+      "sha256": "e0a33bee6f7e747b23894217f8c5eb37abfd76044001d80b5e5b6dd0a5d58107",
+      "size_bytes": 2124
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/upsampler/model.py",
+      "sha256": "bf8ade275fa750265a30a312e818ee3054aac7fc086a475fad414058318fbbcb",
+      "size_bytes": 5741
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/upsampler/model_configurator.py",
+      "sha256": "3f155a3f4d2b58748ead24d966c241074b1c598d03cf3929188404dd6e5fecbc",
+      "size_bytes": 1308
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/upsampler/pixel_shuffle.py",
+      "sha256": "b5d7f2848ee36b7d11eb1d7db9dd924ba8bc8cbe7a74376b51924216653916d8",
+      "size_bytes": 2089
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/upsampler/res_block.py",
+      "sha256": "721bd9ba693081956951218bf09b13d293160f70cbf01d77fbff860c63cd161d",
+      "size_bytes": 1332
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/upsampler/spatial_rational_resampler.py",
+      "sha256": "7053d186f03c3905a0cf17da703df757e436f23b21271045eeca319a81bc15c7",
+      "size_bytes": 2005
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/__init__.py",
+      "sha256": "dd2c8804ccafbc97c7c6b28b6c7269bdc39c3cadb8b14c4f7b38a90c211ecac9",
+      "size_bytes": 1526
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/attention.py",
+      "sha256": "c6f5b5a60a429313068d9d2622b54e01393d92cf02b23fa12fee019aaaad1595",
+      "size_bytes": 3153
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/conv_video_decoder.py",
+      "sha256": "84b08b55cd506bb8cbec415e3a4de8691e8e9e786fa803d8ffafe2e12f390e9f",
+      "size_bytes": 26341
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/convolution.py",
+      "sha256": "593eb8ab8e7290a25f665f3088a2f67c3583ce8ce6c56912b2a61d4be170e060",
+      "size_bytes": 10404
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/diffusion_tiling.py",
+      "sha256": "70d84325566a3a83de31d025e25acef9d7a869110e23985ccd8680c1788abd46",
+      "size_bytes": 38326
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/diffusion_video_decoder.py",
+      "sha256": "e0fa742ca36a37f833a7dd55e6913abc85ee47bfbc0ade8de71a5a73e2c97e6e",
+      "size_bytes": 75539
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/enums.py",
+      "sha256": "9e9f9fc83f0f76ab1022576a52c65b5ba8dc99f5ad872e7de372333479d3bedd",
+      "size_bytes": 371
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/keyframes.py",
+      "sha256": "2cfdb6e6b5b6e3859b89b6e815c7b070a5345a6363e6ef6bc74496d407d1fa0f",
+      "size_bytes": 17051
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/memory_efficient_decode.py",
+      "sha256": "a534e37ff43daf82ed028d05254286859a2ba2d6fb0d7bc718de749fb2ed5b48",
+      "size_bytes": 27475
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/model_configurator.py",
+      "sha256": "ef07c503237aba86647b3c09fe9cef8921b3e2fbfabbcf9e2af2a0892817d243",
+      "size_bytes": 28958
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/normalization.py",
+      "sha256": "f89acdf4e98d01c343b4891e31b2be83a4cc5c148b1a8bc1eb5e07d5b717c8d9",
+      "size_bytes": 139
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/ops.py",
+      "sha256": "212e822f189f7d2d92a91b03d5d4bc069c9f29fa154ffda861d6f475c00ca7c1",
+      "size_bytes": 3519
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/resnet.py",
+      "sha256": "347924a483610c3fb66da2dc8dd2d9ed323cb6b8fe8d43b44f587323e1a7b852",
+      "size_bytes": 10341
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/sampling.py",
+      "sha256": "1dea756da9269d1552c0659c63cb88d960d957e7b54605f762113497aea0a614",
+      "size_bytes": 3687
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/__init__.py",
+      "sha256": "52042416ae3197363e60765d08cbca6e5f142c6e7c40985cd7e68a5af39d67a4",
+      "size_bytes": 3069
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/apply.py",
+      "sha256": "8074297bb11e29a5c74c7df797c95472e715134dbce985bea6c973d4ea139a5b",
+      "size_bytes": 9108
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/attention.py",
+      "sha256": "7589fa5367ba076a7debdc4a06e81522481d4e6910bc960b8163bc735099aa02",
+      "size_bytes": 10419
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/blocks.py",
+      "sha256": "6d22c0e04ebc57ad4bb3f4e8d0a17c75fe1a843b726488e3a857efac1c0b01b0",
+      "size_bytes": 4565
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/chunked/__init__.py",
+      "sha256": "c2d674e93995d9c39bbf6f3a1b94c649abf63124163f7b8b96a4a8816e49de2d",
+      "size_bytes": 89
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/chunked/attn.py",
+      "sha256": "eea2bd025316628364f7296a985447bec52425e85b790308ad3cef747c707fac",
+      "size_bytes": 27041
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/chunked/block.py",
+      "sha256": "f9c483beeb485a353c086cca1d6abb0e456b67b395e4188a8f759b3e241efdca",
+      "size_bytes": 6208
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/chunked/context.py",
+      "sha256": "da69205d3ee2330cd8568123f4ac10bb257688974541e50ea20e8473601ec0b7",
+      "size_bytes": 4209
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/chunked/mlp.py",
+      "sha256": "35d81d18c6b2a6cebbc1b3d0b81b61a9c45ef8216a583f24b92a30e7b137642c",
+      "size_bytes": 5965
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/combined/__init__.py",
+      "sha256": "07b573ff542cf0c6ca707644f6daa056014f784c8ac573c5c6e5ed7593cc3e71",
+      "size_bytes": 95
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/combined/attn.py",
+      "sha256": "acc2fd0dbc6d9691761ad72878669380c480b9055fb2cd73a1ad6e1fb62d15c1",
+      "size_bytes": 6904
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/combined/block.py",
+      "sha256": "dd448b2a31d5cddaad9702782dfd38cada984895b10588f3946956e5a5ffecde",
+      "size_bytes": 3023
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/combined/context.py",
+      "sha256": "89cd0f273f3e30770a8a56aa7b200df4560ac645a58f0778ac073bfcf1cb7481",
+      "size_bytes": 751
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/combined/mlp.py",
+      "sha256": "cb70660e65f501a9b2391de2bb0078f45c9091c49456b64e5ad003a983ff5b86",
+      "size_bytes": 712
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/compiling.py",
+      "sha256": "f0fe44831c85d8bd0c5536423574573f3a3c70e410a5ff588b43b20ca81972d6",
+      "size_bytes": 3745
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/config.py",
+      "sha256": "07b6301a0e7799553c27dcb2e7b6f33bc829febc983c5f0092173539fb2b13ae",
+      "size_bytes": 4396
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/det_attn_rope.py",
+      "sha256": "7afb5f0b02c61baddcb7dc906541597c994d506c0dd10c46f76c68ebe167f058",
+      "size_bytes": 9380
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/dsl_kernels/__init__.py",
+      "sha256": "29e526da9858fdd1158a360ab6dbb62085f5aee9b36c5a797a59e41717e1f887",
+      "size_bytes": 1355
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/dsl_kernels/apply_dsl.py",
+      "sha256": "d117e9dd3bdc73c2e91342c2e90a3885b4d1438a57c62bfaf0a034b4d317f0a0",
+      "size_bytes": 5413
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/dsl_kernels/attn.py",
+      "sha256": "17b40151528063ee2b39e99ec9917d54b07e73bc73daf123e452d593d4146b30",
+      "size_bytes": 3282
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/dsl_kernels/block.py",
+      "sha256": "97b04d31dbdb69f675c2ab17fd432c3e9b6096d6dd6c605b6741e9c20e25eaa4",
+      "size_bytes": 10029
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/dsl_kernels/chain.py",
+      "sha256": "52f94a154afcfeb5554f49be2d09fd922802b53f8ec2eadc2428d3af74c27228",
+      "size_bytes": 4872
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/dsl_kernels/joint_attn.py",
+      "sha256": "d89213bb5031fa84fa1b3fa245603f8f04a5d92be361c8282c0f98d3c879415d",
+      "size_bytes": 7015
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/fallback_na/__init__.py",
+      "sha256": "d9439070858d656dec2c5852d924c0a63ad751dbc93fb3ae472807f0eac98909",
+      "size_bytes": 13097
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/fallback_na/eager.py",
+      "sha256": "287c6eaadeded70150d390116bac845e6798579abd94a7acb0dc65e46fb1983c",
+      "size_bytes": 6779
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/fallback_na/joint_eager.py",
+      "sha256": "5f830fa78022d727db1205bfae59f9b6c2bfcf759d349922222866476cd58fce",
+      "size_bytes": 29235
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/fallback_na/joint_triton.py",
+      "sha256": "3ec51d72c5bbd0bafa7bde8494f369c26a5c6e5b9a6598468d6768b12a9fe705",
+      "size_bytes": 18067
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/fallback_na/triton_na.py",
+      "sha256": "02884a9a105b7397998e17a63723a7bf2558f3ceae55e51aa5373df212e90af7",
+      "size_bytes": 6631
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/layers.py",
+      "sha256": "163edc548114c60bcc0547f06f774a38d5fa8eb7d9803aba79af14d3a0828201",
+      "size_bytes": 3201
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/qkv.py",
+      "sha256": "e8206a507b33e8ccd401d585eeaecda43f9abddbefca52418d459901b3c4ca50",
+      "size_bytes": 1577
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/rope.py",
+      "sha256": "c9ff9541799b7ced2496c249514d9aa2c4d59a436769c83ec5d658ba166ce028",
+      "size_bytes": 3618
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/rope_math.py",
+      "sha256": "7d3ae783a2c6c52f91e60416faa8e2aa1cce1ca4a8b7c87214ee33233bedca08",
+      "size_bytes": 2042
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/transformer/swiglu.py",
+      "sha256": "15a89f207f407850aac203df0d5f3904f25d7bf5de916400597e027791ab0236",
+      "size_bytes": 17663
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/model/video_vae/video_vae.py",
+      "sha256": "faa72f4657bd5e0321b612a292332e2117c41471638a18eb09434d70a30a6acc",
+      "size_bytes": 28883
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/__init__.py",
+      "sha256": "727979883c2baddcc51b23f4559e6a8eeb642bb89ce04738211d66f602168812",
+      "size_bytes": 448
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/gemma/__init__.py",
+      "sha256": "96b3e19dece02afb1a4a14bdf545dcd2251f58e404df1ecd67cc4545c9ed6ff0",
+      "size_bytes": 271
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/gemma/accelerate_wrapper.py",
+      "sha256": "e580f28188e9027ec38ccf13caee55a839b58ac0ca84f527abf826f0c3fc450c",
+      "size_bytes": 1141
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/gemma/batch_parallel_wrapper.py",
+      "sha256": "669a9029eddc75cb5829cfb1c5054807be98ca58304305055d6db65497c9540c",
+      "size_bytes": 3473
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/gemma/broadcast_wrapper.py",
+      "sha256": "3c626dc0482cf0cee82f87dab479a60bfeef95dd541fa9b72496febb8f56e58c",
+      "size_bytes": 4686
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/gemma/loader.py",
+      "sha256": "fc1ab2d725ec9ba08ebfc7491230f884a3117cd97cb1c90317ed8fd47966803c",
+      "size_bytes": 5042
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/sharded_sd.py",
+      "sha256": "22e4f389a9d093c19e64559b30e903fe648001238c6b9858d8e446cabc166cf2",
+      "size_bytes": 7230
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/transformer/__init__.py",
+      "sha256": "5ce103784a2dedf514eb3a668a58505b3f5ff353493406e588fcd0638c87241a",
+      "size_bytes": 327
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/transformer/attention.py",
+      "sha256": "93c3ea5b3259b80b5d597c4c813d707305e60f3003184273428c8162714714c1",
+      "size_bytes": 11837
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/transformer/sequence_parallel.py",
+      "sha256": "dbd4138bda3f09f52a144c7c53af82300914d67d16b88e57d7f24503c5a4a678",
+      "size_bytes": 13041
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/transformer/tiled_data_parallel.py",
+      "sha256": "7cceef1f6f1c89074f7ac636e014de723a903629c80daa9d1d6a25c37661222e",
+      "size_bytes": 4216
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/vae/__init__.py",
+      "sha256": "0deabb5e11532c6e7b4befcbb53507bbe36339eaa2ce0e689fc07634d7c92a6e",
+      "size_bytes": 162
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/multigpu/vae/distributed_decoder.py",
+      "sha256": "d3ce0876c61b48868ae78d5a4724b3380635e7c238212d266fc3259dbc49253b",
+      "size_bytes": 18198
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/__init__.py",
+      "sha256": "334c3ebc5d5a7329e045974eb0716ff904644e96b5c7b49abd8cb101f84e30fd",
+      "size_bytes": 507
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/blockwise/__init__.py",
+      "sha256": "5a24ffb9df62e8cf042b64748c77ff05170948076c8ac9768845a01f6f304a31",
+      "size_bytes": 1865
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/blockwise/_impl.py",
+      "sha256": "ac989ca2151f487136e3091f81fe7601d0cfc7df484fa3edeb7ad6df111c28c4",
+      "size_bytes": 16780
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/fp8_cast.py",
+      "sha256": "73f5d25616720564ae0de886c585fcd40093db7ff30942193f1c15845bf94f52",
+      "size_bytes": 15690
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/fp8_scaled_mm.py",
+      "sha256": "b7a6ea2bbf4264d5fa93e0022b837d510534706b074e3eb05e276d47fbafc1d1",
+      "size_bytes": 7831
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/nvfp4/__init__.py",
+      "sha256": "3c9ac8deb9b8a2c5fd5a8d96fb3e2ec9e538ef7fec3f97fdbe9e3c8433cfc4be",
+      "size_bytes": 2510
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/nvfp4/convert.py",
+      "sha256": "5cf2317f3b6b7a4a540f2e7ddb7c7d31ed3cf40969c718c526a65c7a1f20d452",
+      "size_bytes": 4367
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/nvfp4/fuse.py",
+      "sha256": "a67bede495d68cc928c8d3bf8b9d2478bdf7f815bfefe3627ca19d8a196dc89e",
+      "size_bytes": 2061
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/nvfp4/linear.py",
+      "sha256": "9258ab20272fa920a6217c575c97dd6632764cdd7f23fa73f633afb770559acb",
+      "size_bytes": 5351
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/nvfp4/prequant.py",
+      "sha256": "66dfac4bfb57906da83775cb29e0c68d72a8ea5c7f91fcfb941c4ddd2ebece5f",
+      "size_bytes": 8341
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/nvfp4/types.py",
+      "sha256": "4bca4ebddf0d23c2c762aad487ea3241960b1932008ce2f7e550113a4fc9b3b8",
+      "size_bytes": 429
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/quantization/policy.py",
+      "sha256": "e9716c5794f65e2fdc6e337ca38f044cea46372d511b3b14cec23a483a7a0210",
+      "size_bytes": 1023
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/__init__.py",
+      "sha256": "c2d22b6df4c2298cdd872ded0636c4c710e7b52a638eac7df4bee330c085cc16",
+      "size_bytes": 42
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/__init__.py",
+      "sha256": "412310a34f014043aa58d215b0c4b802625fd89e55ab066b8b184bd854a27182",
+      "size_bytes": 1391
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/embeddings_connector.py",
+      "sha256": "820564f138f827686304387431d106f37d75f9dfc66de4e1b8034c9a32871454",
+      "size_bytes": 11070
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/embeddings_processor.py",
+      "sha256": "b724ff0f7bfe57e6d82f02b823be2668ca48e7a3f0f3d71337679a6e387e317e",
+      "size_bytes": 5769
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/encoders/base_encoder.py",
+      "sha256": "691286d79e42749513efdac67fcaac26c549c704bec871759fb5c38a2473850a",
+      "size_bytes": 10410
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/encoders/encoder_configurator.py",
+      "sha256": "4bcf35d714c7c481450c30264fa94b65c6bd8fb2897932cd10009cd9f0b3e433",
+      "size_bytes": 23865
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/encoders/prompts/gemma3_i2v_system_prompt.txt",
+      "sha256": "dbba877a41e60f9a3de152be953164b7611d7951c19713022e64d6c08e7c8766",
+      "size_bytes": 3817
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/encoders/prompts/gemma3_t2v_system_prompt.txt",
+      "sha256": "0f98f02f9fffae27ee3f576685d6d9f9ef13194a0c2068aacdd97f86ea96efd2",
+      "size_bytes": 4182
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/encoders/prompts/gemma4_i2v_system_prompt.txt",
+      "sha256": "15992bfb757d3bbd83f2d27ad86e450fc4caffa0f7cb7523772a60e346ef3fee",
+      "size_bytes": 4708
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/encoders/prompts/gemma4_t2v_system_prompt.txt",
+      "sha256": "0cddf69456bcd51e65430f848386295d9ac4d17d5df3ea65d5f3d8a9ad842f3c",
+      "size_bytes": 3769
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/feature_extractor.py",
+      "sha256": "76c1a5975b31f3d2a47a29149ef7978024f213b6da0b09f2d94564895d3834d6",
+      "size_bytes": 5111
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/gemma_assets.py",
+      "sha256": "b9ffd8657610d3b37882bbe366edc455eb0ddcd2254577e7a9a7eb14926eb704",
+      "size_bytes": 16676
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/text_encoders/gemma/tokenizer.py",
+      "sha256": "4f794626d9ce7113f1652c682fa1ea1228544a719c0ebf34d13a66501ed59e79",
+      "size_bytes": 2282
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/tiling.py",
+      "sha256": "486ee2a6db0a28f0ccfb7af20f3b0f9e718f1b9ba8bb72add28a35e617621baa",
+      "size_bytes": 44361
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/tools.py",
+      "sha256": "67af0c296ac29e14f23768d455f15bc01a57d1f31417ffc7b2e96978c045df9e",
+      "size_bytes": 10896
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/types.py",
+      "sha256": "da5143b0f16ae4cce28b594d2fede81d96f65987ed4ba1d75c7990d6b8a79cfe",
+      "size_bytes": 11728
+    },
+    {
+      "path": "packages/ltx-core/src/ltx_core/utils.py",
+      "sha256": "d4acb090aa380165e47739ec5c9dc89d58e9ab2b20e7db06c45c1c7554ab4810",
+      "size_bytes": 2018
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/__init__.py",
+      "sha256": "f2ab785b2bb756b1ad06625cad4e7c87c1fc4d2a8c0dd4d733d6b3fabc37579f",
+      "size_bytes": 3398
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/a2vid_two_stage.py",
+      "sha256": "7ef463bba074ef18e963bb77f1deff8c985335de9594c1e2ed9882ad07332b54",
+      "size_bytes": 18794
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/dfr_layout.py",
+      "sha256": "655ebd37655ffdb4be374fd03605010d097275337c05aa3bfac7abffa09c8664",
+      "size_bytes": 5327
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/dfr_mgpu.py",
+      "sha256": "5fe07aadf1c4a53cf8d09801aa2b5ba823df84a215d9a86c18ffeac94bfe4b04",
+      "size_bytes": 14057
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/dfr_pipeline.py",
+      "sha256": "227df4b2d0463bc543be87e8b7973ff76b0e2a423b2dd770ddd051f66e995e63",
+      "size_bytes": 50174
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/distilled.py",
+      "sha256": "feb52574ea5f892a8f6887159bc9ea3d5c9c6493dec0d88d7594b9558fd5e57f",
+      "size_bytes": 14407
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/distilled_mgpu.py",
+      "sha256": "5938fe5778ad0a9982540ac5ca07e1607916084831709870665aefc2d641384c",
+      "size_bytes": 9857
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/dubit.py",
+      "sha256": "88595c379fb455095a500b68fa12128546e3405485f95c390110864149b50f5c",
+      "size_bytes": 14806
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/hdr_ic_lora.py",
+      "sha256": "3090693455f6935eb4417e5284bff17e0e3caa2d139bbda5e6620ce0797e9fa5",
+      "size_bytes": 40905
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/ic_lora.py",
+      "sha256": "47b338ffdcdc3cc1c21eae812cf6918cfaa8d6a352268f7c087bddeaaa06ea9d",
+      "size_bytes": 22330
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/iclora_utils.py",
+      "sha256": "190df8f9ce5d8a686aac6061fff13f3460b6b97d21331d8913897eeba6f510d2",
+      "size_bytes": 6523
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/keyframe_interpolation.py",
+      "sha256": "4d8e662738971a36812858be61d2596af58370e24212bfa003d55f4dfa136c0f",
+      "size_bytes": 13540
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/__init__.py",
+      "sha256": "8ce2f1f7685d238e6ead049dcdf5c9c6f3067e14db8910faa12277e95a454818",
+      "size_bytes": 1190
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/_broadcast.py",
+      "sha256": "1a8862751336bacb107413db93775c3cbd09d0295e80a7387b3e2eabd02ee407",
+      "size_bytes": 2755
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/bp_gemma_builder.py",
+      "sha256": "9a5e21592665fa7d3fafaf437a219fe15713103aa7739a3a135afb07e664e6fc",
+      "size_bytes": 3571
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/controller.py",
+      "sha256": "7cd61e73439de23a2f8af436ce48e2092d2488ff2789649fd08fbf38e4de352d",
+      "size_bytes": 20842
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/delegating_builder.py",
+      "sha256": "85dbdd07f94c127c1de8d7eb30f5186d1011f49833c894410eb344b118d4da93",
+      "size_bytes": 2988
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/fleet.py",
+      "sha256": "1a1908566a66994e22ca02705bd77dbad7f5460ea511aff9f5b45c19375539ad",
+      "size_bytes": 18469
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/gemma_builders.py",
+      "sha256": "8849f4f82f9175b0487155a3504500df63de9a0cbedb6139812d344b959837d0",
+      "size_bytes": 8176
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/nccl_groups.py",
+      "sha256": "c2a5a901179525a0325cfdb8d0236249d97bd39b863319f093e77f8a807c194e",
+      "size_bytes": 935
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/runner.py",
+      "sha256": "74a20c00ac2e636c16a628eb739f26ab0e89c1e864db77889666a307361852a2",
+      "size_bytes": 3153
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/sp_builder.py",
+      "sha256": "b3b4d684a45b5f21e25d21d9fbf19c3a792529a38d5e0f8149231fbc657d1a24",
+      "size_bytes": 2659
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/tdp_builder.py",
+      "sha256": "781a064b453c3f02d6aad91d9dbaa471fd20bc1de99d0a665e66f57559a3e42e",
+      "size_bytes": 3010
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/vae_builders.py",
+      "sha256": "445bac4a5447db3691dbcb0186d2b267b5322c255fc7132b0d6fcf6997178947",
+      "size_bytes": 3462
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/multigpu/weight_tracker.py",
+      "sha256": "381c4563b022c272750203cc59d2d5b0aa54785b032d73aec2af65d84ff9e5d7",
+      "size_bytes": 7676
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/retake.py",
+      "sha256": "5c03b0fb8e80dc94efa1096dbf3fe0c1b6aef25feae22a9e5eb402e7d60459ea",
+      "size_bytes": 15639
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/t2a_one_stage.py",
+      "sha256": "c16d39e7f7b0235719c0e83c3776446017b4b0bc71d6d537090a1f9ea82e60be",
+      "size_bytes": 8500
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/ti2vid_one_stage.py",
+      "sha256": "d3c3183397ad6bbe51daeebe535a695c34c0aa9afb91a9a58df6c0bd74c191fa",
+      "size_bytes": 12061
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/ti2vid_two_stages.py",
+      "sha256": "855884249894a176ef70131ec171e87d4f58fe00f955e6ec606f733e3e636926",
+      "size_bytes": 14568
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/ti2vid_two_stages_hq.py",
+      "sha256": "5729d366300ea1c06619e589eaa4de0a8f096f95b7bee36f257e35a91011b15e",
+      "size_bytes": 16097
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/ti2vid_two_stages_hq_mgpu.py",
+      "sha256": "2cf4828f448f52bce53a49e116854f8bef1fa8342d163b8146dfb89db4eff05b",
+      "size_bytes": 12568
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/ti2vid_two_stages_mgpu.py",
+      "sha256": "9c25c23f9dfbfb287fe1d593212c16de6ac3f4babdcc75f9b71c2a4b0475891b",
+      "size_bytes": 12333
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/__init__.py",
+      "sha256": "8f276532a2773825f10aadab9ed55caebb0440b5f4322ccb27e6f5ef1649ee46",
+      "size_bytes": 1749
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/args.py",
+      "sha256": "ab64c924ea976b885bd76e2a22bc8140a33a9f904596c9674c2bcddea89fbbd0",
+      "size_bytes": 50224
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/blocks.py",
+      "sha256": "413890d0a21e6005646b40e493f6f91bc38a55f935809c625d6e2b04173fe625",
+      "size_bytes": 60135
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/constants.py",
+      "sha256": "cf319487a700c11f6e80eb2d756f742e71470a8f7cc0ac57831a63cccf86fbbd",
+      "size_bytes": 8679
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/denoisers.py",
+      "sha256": "aece1a8e15fb4b162cb67d66e234599829d2775d5084b37d5a0ce97a8a4a0663",
+      "size_bytes": 16027
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/gpu_model.py",
+      "sha256": "21b262d074fa9cca7d2be77637f6103010528b2e5736f8dd59d55df807ed73d2",
+      "size_bytes": 1407
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/helpers.py",
+      "sha256": "0143b63077bb4e923731700ac484b8e58ae852a3557c3fb5361ed2fe0c1741fd",
+      "size_bytes": 25745
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/media_io/__init__.py",
+      "sha256": "47345fb1d1de11c40de5e15585373624151b53aeae83f552a4e5f774d3775278",
+      "size_bytes": 2075
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/media_io/color_config.py",
+      "sha256": "558aad4355e7dbc5273339c9162d5df50753d8b577b8445d3042ad506cd54488",
+      "size_bytes": 3677
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/media_io/decode.py",
+      "sha256": "5f7ac37c5a7fdcd0264efb93bd6cf55a6600e6c4b5ecd0e6cd80faa24f2013e9",
+      "size_bytes": 17350
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/media_io/encode.py",
+      "sha256": "045a3b70b5d3db3a963f5c2a6bb4fce6a02fbc62a973bcd8c5f71bc4d9ddd8cb",
+      "size_bytes": 12085
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/media_io/exr.py",
+      "sha256": "98c3591d1c785372f36ae0add033b27a81c99db87ed44927c52dba0e8c1a5b0b",
+      "size_bytes": 9423
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/media_io/range_map.py",
+      "sha256": "ba3851fb6afe975dcb3eeae47141f5fffc7a84535b7a777fdb2665f455720325",
+      "size_bytes": 922
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/media_io/resize.py",
+      "sha256": "d3ccf44da6736935397cef89cb303bed24bbcac4f7ef4d78a9283cc47dc8d39d",
+      "size_bytes": 5509
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/model_paths.py",
+      "sha256": "43ad52f3be3bc70668eb1d00bc18f2ce7413204ad8710cac23c5a1acdff9ec6c",
+      "size_bytes": 7540
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/quantization_factory.py",
+      "sha256": "be7da91c72df7b5e9fc71d0312ba855c928ca060c4429f99f6b05bebc4317579",
+      "size_bytes": 2254
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/res2s.py",
+      "sha256": "c4c17d9a3fb9c656977c8610447eddf2a456692c8a1cac345c2547de1e5dd419",
+      "size_bytes": 1998
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/samplers.py",
+      "sha256": "8effaeec711c0eaf29c32d127567fd1459be6cebd2b3e22fed7b432bd234504c",
+      "size_bytes": 32866
+    },
+    {
+      "path": "packages/ltx-pipelines/src/ltx_pipelines/utils/types.py",
+      "sha256": "f6cc04a929517af70e86554ac7717a64a123e338212c143a8e48d1a0084ab3d0",
+      "size_bytes": 7073
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/__init__.py",
+      "sha256": "367ebbcbaa8f75e022357772cb543f842fb43249d20ca3d4ea2d81ff5e4aa24f",
+      "size_bytes": 1039
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/captioning.py",
+      "sha256": "d8a775c0f2a76cb1cb52adc3bae457010b39438d246280ba0e39ed5289ca4f52",
+      "size_bytes": 20502
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/config.py",
+      "sha256": "e50c40f93d138247142a673754824cd0f8518d1aae320fcb45e91e9b87a0edb3",
+      "size_bytes": 32332
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/config_display.py",
+      "sha256": "1cc72aa18810f5292828bc818f8109af84ce144d93e0fe04424e0d2f92bc8798",
+      "size_bytes": 6479
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/datasets.py",
+      "sha256": "c8b5c907b1bdeba7f6af14f85c137fd6cd154a9a8fe7cb8d2a769483395b6dae",
+      "size_bytes": 12756
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/gemma_8bit.py",
+      "sha256": "b1c2af92894154f3de858753e263051122e1083e203c1572cffab378ed8789eb",
+      "size_bytes": 6230
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/gpu_utils.py",
+      "sha256": "8a65b83aaab6861f2f6a948f82d658212bb68a8cb754d77f86af999c7faaa0a0",
+      "size_bytes": 2925
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/hf_hub_utils.py",
+      "sha256": "dffe776138331be159a0c81eeb8e5f593d3d19aab103d6a509c391ed1b4e9065",
+      "size_bytes": 8130
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/model_loader.py",
+      "sha256": "6a6fdf5847521308869f9fda8184764495a33df053055f8a9fbcbd7308ef2ff6",
+      "size_bytes": 20677
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/progress.py",
+      "sha256": "509eb333c4573b2b3aa3f2b230df422dcd3f4c1177787dec5a1c4cef97ee6c9f",
+      "size_bytes": 6720
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/quantization.py",
+      "sha256": "d2c7c22fa61228450dde95255dc54a282dc98c98cdc9de6b22008022b8aadb09",
+      "size_bytes": 6843
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/sigma_tracker.py",
+      "sha256": "3ee8ad72eccee7bb2c9dff8c1bfaa29d014ff0a90474a3a2cb553c9127f67240",
+      "size_bytes": 2665
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/timestep_samplers.py",
+      "sha256": "b259182c49cfb16a2180ea14ff1bbfe1005231377db54c1ae79fac7771f9942d",
+      "size_bytes": 6611
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/trainer.py",
+      "sha256": "7bb4441f785b20350656056206a48132bbfc676cce5d58b0665c91b295f3ac01",
+      "size_bytes": 50385
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/training_state.py",
+      "sha256": "16bc7db5be8b2b378506eae972570f2f603710cde72568fd011b7f9d87b8452b",
+      "size_bytes": 1736
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/training_strategies/__init__.py",
+      "sha256": "de44d59e2456594afcdd6e59016a802a849ef15ffc657b2d671dea957eba5827",
+      "size_bytes": 3548
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/training_strategies/base_strategy.py",
+      "sha256": "265bcc6e018224156218844a94c54155cba734f8fc038d5eeb09f28e619761bb",
+      "size_bytes": 9469
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/training_strategies/flexible.py",
+      "sha256": "483e5a1b2dd4a33e889039a950c494a0792557dd63db591fa0a8807d04ab3d6b",
+      "size_bytes": 29442
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/training_strategies/text_to_video.py",
+      "sha256": "89b713d15f7e734b6a4880c4ec0f518fa0a5eb65d1a9205e22cc1f60efa192d3",
+      "size_bytes": 10129
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/training_strategies/video_to_video.py",
+      "sha256": "d65079c6e05a72dba7d1b117c2df3a1d1f11657198de76ca9ea17e80db1abd2b",
+      "size_bytes": 11855
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/utils.py",
+      "sha256": "b389f3cd370909924a02945fdf90946c22c8021add32c7528bbcacf695353976",
+      "size_bytes": 3456
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/validation_runner.py",
+      "sha256": "bff75103fe0f6301a1ba5a208b5956833def4df1895dd6b81c36056ae5d20f3a",
+      "size_bytes": 66600
+    },
+    {
+      "path": "packages/ltx-trainer/src/ltx_trainer/video_utils.py",
+      "sha256": "52aaa30ece5e6fc52942de23f9a78f72b9d20204e4ed9c7a6801cfe5c7742f54",
+      "size_bytes": 7493
+    }
+  ],
+  "source_repo": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/models/LTX2.3"
+}

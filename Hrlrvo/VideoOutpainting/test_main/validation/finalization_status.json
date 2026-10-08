@@ -1,0 +1,30 @@
+{
+  "status": "PASS_BOTH_FULL_1025F",
+  "pid": 4057993,
+  "started_utc": "2026-10-07T20:05:19.022736+00:00",
+  "ended_utc": "2026-10-08T03:34:45.282583+00:00",
+  "videos": [
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/generated.mp4",
+      "sha256": "c04d8584f2916415b9776b389f19e33b53fb8658961c3108ea846254cb7bf4cf",
+      "width": 1920,
+      "height": 1080,
+      "avg_frame_rate": "24/1",
+      "duration": "42.708333",
+      "nb_read_frames": "1025",
+      "deliverable": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/deliverables/experiment_1_1025f_1080p_24fps.mp4"
+    },
+    {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/output/generated.mp4",
+      "sha256": "7747073ce97a7a6ee746c83a3c639cce308e19a7d5e6fdbf1dd87eb6ef06f53f",
+      "width": 1920,
+      "height": 1080,
+      "avg_frame_rate": "24/1",
+      "duration": "42.708333",
+      "nb_read_frames": "1025",
+      "deliverable": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/deliverables/experiment_2_1025f_1080p_24fps.mp4"
+    }
+  ],
+  "protected_source_files_checked": 82,
+  "protected_source_files_changed": []
+}

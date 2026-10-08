@@ -1,0 +1,86 @@
+{
+  "verdict": "PASS",
+  "cases": [
+    {
+      "anchor_yx": [
+        2,
+        2
+      ],
+      "target_yx": [
+        8,
+        12
+      ],
+      "canvas_hw": [
+        12,
+        16
+      ],
+      "support": [
+        0,
+        0,
+        12,
+        16
+      ],
+      "cell_count": 27,
+      "C2": 20,
+      "C4": 7,
+      "max_spatial_phase_error": 0.0,
+      "native_temporal_bounds_exact": true,
+      "equal_spatial_phase_endpoints": true
+    },
+    {
+      "anchor_yx": [
+        3,
+        3
+      ],
+      "target_yx": [
+        10,
+        13
+      ],
+      "canvas_hw": [
+        16,
+        20
+      ],
+      "support": [
+        2,
+        3,
+        14,
+        19
+      ],
+      "cell_count": 24,
+      "C2": 16,
+      "C4": 8,
+      "max_spatial_phase_error": 0.0,
+      "native_temporal_bounds_exact": true,
+      "equal_spatial_phase_endpoints": true
+    },
+    {
+      "anchor_yx": [
+        5,
+        7
+      ],
+      "target_yx": [
+        12,
+        16
+      ],
+      "canvas_hw": [
+        20,
+        24
+      ],
+      "support": [
+        4,
+        4,
+        16,
+        20
+      ],
+      "cell_count": 27,
+      "C2": 20,
+      "C4": 7,
+      "max_spatial_phase_error": 0.0,
+      "native_temporal_bounds_exact": true,
+      "equal_spatial_phase_endpoints": true
+    }
+  ],
+  "scope": "Pure coordinate helper only; no RoPE attention/model forward/backward",
+  "max_numerical_error": 0.0,
+  "cuda_initialized": false
+}

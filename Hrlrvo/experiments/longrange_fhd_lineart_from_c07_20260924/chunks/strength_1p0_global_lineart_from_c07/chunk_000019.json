@@ -1,0 +1,161 @@
+{
+  "absolute_start_frame": 912,
+  "anchor_source_frame_range": [
+    912,
+    977
+  ],
+  "carry_dtype": "torch.bfloat16",
+  "carry_file": "carry_000019.pt",
+  "carry_sha256": "a4032e76ac6042405fd72765a27440b6cce0fca560cdd27d8ee4f85343927f51",
+  "carry_shape": [
+    1,
+    128,
+    3,
+    36,
+    60
+  ],
+  "chunk_index": 19,
+  "chunk_seed": 71635822,
+  "emitted_tensor_range": [
+    17,
+    65
+  ],
+  "final_partial_repeat_last": false,
+  "new_output_frame_range": [
+    929,
+    977
+  ],
+  "next_prefix_byte_size": 423021537,
+  "next_prefix_dtype": "float32",
+  "next_prefix_file": "previous_prefix_1.pt",
+  "next_prefix_shape_fchw": [
+    17,
+    3,
+    1080,
+    1920
+  ],
+  "next_prefix_state_sha256": "7828a746f4d1ab5f96842f7161e86cdfc71b3a51e6bb0652da4ba596c790d483",
+  "output_appended_count": 48,
+  "prefix_output_frame_range": [
+    912,
+    929
+  ],
+  "real_input_frame_count": 65,
+  "repeat_last_padding_count": 0,
+  "runtime": {
+    "anchor_rgb_shape": [
+      65,
+      3,
+      540,
+      960
+    ],
+    "boundary_blend_width_pixels": 16,
+    "chunk_seed": 71635822,
+    "condition_latent_shape": [
+      1,
+      128,
+      9,
+      36,
+      60
+    ],
+    "conditioning_prefix_frames": 17,
+    "decoded_chunk_finite": true,
+    "decoded_chunk_shape": [
+      65,
+      3,
+      1080,
+      1920
+    ],
+    "denoise_elapsed_seconds": 607.2305212784559,
+    "denoised_latent_finite": true,
+    "experimental_generated_prefix_strength": 1.0,
+    "experimental_latent_carry_input": true,
+    "experimental_rebase_temporal_position": true,
+    "full_generation_latent_shape": [
+      1,
+      128,
+      9,
+      36,
+      60
+    ],
+    "known_anchor_rect_yxyx": [
+      9,
+      15,
+      27,
+      45
+    ],
+    "known_mask_elements": 9720,
+    "known_mask_shape": [
+      1,
+      9,
+      36,
+      60
+    ],
+    "lineart_global_prior": {
+      "active_calls": 4290,
+      "bias_max": 0.5,
+      "bias_min": 0.0,
+      "bias_scale": 0.5,
+      "calls": 4290,
+      "calls_by_step": {
+        "0": 143,
+        "1": 143,
+        "2": 143,
+        "3": 143,
+        "4": 143,
+        "5": 143,
+        "6": 143,
+        "7": 143,
+        "8": 143,
+        "9": 143,
+        "10": 143,
+        "11": 143,
+        "12": 143,
+        "13": 143,
+        "14": 143,
+        "15": 143,
+        "16": 143,
+        "17": 143,
+        "18": 143,
+        "19": 143,
+        "20": 143,
+        "21": 143,
+        "22": 143,
+        "23": 143,
+        "24": 143,
+        "25": 143,
+        "26": 143,
+        "27": 143,
+        "28": 143,
+        "29": 143
+      },
+      "chunk_index": 19,
+      "configured_biased_backend": "SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]",
+      "configured_original_backend": "SDPA[CUDNN_ATTENTION>FLASH_ATTENTION>EFFICIENT_ATTENTION>MATH]",
+      "enabled": true,
+      "runtime_kernel_note": "configured callable identity only; fused runtime kernel requires profiler evidence",
+      "schedule": {
+        "steps_0_9": 0.5,
+        "steps_10_19": 0.3,
+        "steps_20_29": 0.1
+      }
+    },
+    "peak_cuda_allocated_bytes": 31710124544,
+    "peak_cuda_reserved_bytes": 36347838464,
+    "preview_frame_indices": null,
+    "preview_latent_source": null,
+    "preview_step": null,
+    "vae_decode_elapsed_seconds": 5.719925621524453
+  },
+  "segment_byte_size": 298598528,
+  "segment_dtype": "uint8",
+  "segment_file": "segment_000019.npy",
+  "segment_pixel_sha256": "9d71ee270c981e86230c31295855e94cf2a7720a7c8b3b820595902d8dda9d01",
+  "segment_shape_fhwc": [
+    48,
+    1080,
+    1920,
+    3
+  ],
+  "working_frame_count": 65
+}

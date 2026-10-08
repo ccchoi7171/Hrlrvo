@@ -1,0 +1,6 @@
+{
+  "time_utc": "2026-09-28T10:54:44.825636+00:00",
+  "status": "UPSCALE_FAILED",
+  "watcher_pid": 2342443,
+  "reason": "GateError: 01 upscale exited with code=-15; see /home/work/ai-graphics_33/Hrlrvo/experiments/h200_01_upscale_continuation_20260928/01_upscale_process.log"
+}

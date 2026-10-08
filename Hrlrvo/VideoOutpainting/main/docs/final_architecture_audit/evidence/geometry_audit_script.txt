@@ -1,0 +1,316 @@
+from __future__ import annotations
+import json, hashlib, statistics, math, textwrap
+from pathlib import Path
+from collections import Counter
+from dataclasses import asdict
+from functools import lru_cache
+from datetime import datetime, timezone
+import torch, yaml
+from PIL import Image, ImageDraw, ImageFont
+from ltx_outpaint.inference import _install_official_sources, _vae_boundary, _center_anchor
+from ltx_outpaint.geometry import (Rect, CanvasGeometry, local_windows, partition_axis,
+    anchor_patch, adaptive_layout, align_adaptive_support, resolve_adaptive_roles,
+    build_adaptive_multires_tokens, global_cells, ANCHOR, BRIDGE, TARGET)
+
+ROOT=Path('/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/main')
+OUT=ROOT/'docs/final_architecture_audit'; EV=OUT/'evidence'; VIS=OUT/'adaptive_grid_visualizations'
+VIS.mkdir(parents=True,exist_ok=True); EV.mkdir(parents=True,exist_ok=True)
+cfg=yaml.safe_load((ROOT/'configs/inference_4k.yaml').read_text())
+_install_official_sources(Path(cfg['ltx_repo']))
+from ltx_trainer.model_loader import read_video_scale_factors
+from ltx_core.components.patchifiers import get_pixel_coords
+from ltx_outpaint.anchor_cache import _canonical_json
+sf=read_video_scale_factors(cfg['model']['base_model_path'])
+record='0002e965-b236-4ec5-846d-4d1b919cf3f0.pt'
+gtroot=Path('/home/work/ai-graphics_33/Hrlrvo/cache_Data/train')
+aroot=Path('/home/work/ai-graphics_33/Hrlrvo/cache_Data_Anchor_2K/train')
+gt=torch.load(gtroot/'latents'/record,map_location='cpu',mmap=True,weights_only=True)
+anchor_file=torch.load(aroot/'latents'/record,map_location='cpu',mmap=True,weights_only=True)
+p=anchor_file['provenance']; contract=json.loads((gtroot/'cache_contract.json').read_text())
+H,W=gt['latents'].shape[-2:]; AH,AW=anchor_file['latents'].shape[-2:]
+y0,x0,_,_=p['canonical_latent_rect_yxyx']; anchor=Rect(y0,x0,y0+AH,x0+AW)
+VW,VH=cfg['video']['canvas']; boundary=_vae_boundary(VH,VW,sf.height,sf.width)
+assert (H,W)==(boundary.encoded_height//sf.height,boundary.encoded_width//sf.width)
+assert list(asdict(anchor).values())==p['canonical_latent_rect_yxyx']
+assert p['vae_scale_factors_thw']==list(sf)
+assert (boundary.top,boundary.encoded_height-boundary.bottom)==(contract['padding']['top'],contract['padding']['bottom'])
+assert contract['checkpoint_sha256']==p['vae_sha256']==cfg['provenance']['base_sha256']
+assert (p['rgb_start_frame'],p['rgb_frame_count'],p['latent_start_index'],p['latent_frame_count'])==(0,65,0,9)
+assert (65-1)//sf.time+1==9
+assert p['gt_record_id']==record
+assert hashlib.sha256(_canonical_json(contract).encode()).hexdigest()==p['gt_cache_contract_sha256']
+assert _center_anchor(boundary,*p['requested_anchor_hw'])==tuple(p['anchor_rect_canonical_yxyx'])
+
+@lru_cache(None)
+def visible_bounds(r: Rect):
+    # The same official latent-bound -> pixel-bound transform used by LTX positional geometry.
+    coords=torch.tensor([[[[0,1]],[[r.y0,r.y1]],[[r.x0,r.x1]]]],dtype=torch.int64)
+    pixel=get_pixel_coords(coords,sf,causal_fix=True)[0,:,0,:]
+    return (int(pixel[2,0])-boundary.left,int(pixel[1,0])-boundary.top,
+            int(pixel[2,1])-boundary.left,int(pixel[1,1])-boundary.top)
+
+def xyxy(r): return list(asdict(r).values()) if r else None
+
+def intersects(a,b):
+    y0,x0,y1,x1=max(a.y0,b.y0),max(a.x0,b.x0),min(a.y1,b.y1),min(a.x1,b.x1)
+    return Rect(y0,x0,y1,x1) if y0<y1 and x0<x1 else None
+
+def rb(r): return f'[{r.y0}:{r.y1}, {r.x0}:{r.x1})' if r else 'N/A'
+
+def area(r): return r.height*r.width if r else 0
+
+def pointbox(points):
+    return Rect(min(y for y,x in points),min(x for y,x in points),max(y for y,x in points)+1,max(x for y,x in points)+1) if points else None
+
+def direction(box,support,axis):
+    if not support:return 'N/A'
+    if axis=='x': lo,hi=box.x0-support.x0,support.x1-box.x1; names=('left','right')
+    else: lo,hi=box.y0-support.y0,support.y1-box.y1; names=('up','down')
+    return '+'.join(f'{n}:{v}' for n,v in zip(names,(lo,hi)) if v) or 'none'
+
+FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+font=ImageFont.truetype(FONT,31); titlefont=ImageFont.truetype(FONT,45); smallfont=ImageFont.truetype(FONT,26)
+COL={ANCHOR:(182,49,55),TARGET:(51,163,89),BRIDGE:(102,109,120)}
+ORANGE=(232,136,36); RED=(255,60,60); PANEL=1180
+
+def draw_rect(draw,r,fill=None,outline=None,width=1):
+    a,b,c,d=visible_bounds(r)
+    # Image display crop only; canonical geometry is never changed.
+    a,b,c,d=max(a,0),max(b,0),min(c,VW),min(d,VH)
+    if a<c and b<d: draw.rectangle((a,b,c-1,d-1),fill=fill,outline=outline,width=width)
+
+def dashed(draw,r,color,width=5):
+    a,b,c,d=visible_bounds(r); a,b,c,d=max(a,0),max(b,0),min(c-1,VW-1),min(d-1,VH-1)
+    for x in range(a,c,28):
+        draw.line((x,b,min(x+15,c),b),fill=color,width=width); draw.line((x,d,min(x+15,c),d),fill=color,width=width)
+    for y in range(b,d,28):
+        draw.line((a,y,a,min(y+15,d)),fill=color,width=width); draw.line((c,y,c,min(y+15,d)),fill=color,width=width)
+
+def render(case,layout,target,box,patch):
+    im=Image.new('RGB',(VW+PANEL,VH),(0,0,0)); draw=ImageDraw.Draw(im)
+    draw_rect(draw,anchor,fill=ORANGE)
+    support=layout.rectangle
+    if support:
+        draw_rect(draw,support,fill=COL[BRIDGE])
+        # Coalesce horizontal runs only for drawing, preserving every helper-resolved pixel role.
+        for y in range(support.y0,support.y1):
+            x=support.x0
+            while x<support.x1:
+                role=layout.roles[(y-support.y0)*support.width+x-support.x0]; e=x+1
+                while e<support.x1 and layout.roles[(y-support.y0)*support.width+e-support.x0]==role:e+=1
+                draw_rect(draw,Rect(y,x,y+1,e),fill=COL[role]); x=e
+        for y in range(support.y0,support.y1,4):
+            for x in range(support.x0,support.x1,4):
+                parent=Rect(y,x,y+4,x+4)
+                # Use emitted layout cells, not a second promotion implementation.
+                children=[c for c in layout.cells if y<=c.y<y+4 and x<=c.x<x+4]
+                draw_rect(draw,parent,outline=(215,222,229),width=3)
+                if len(children)==4:
+                    for c in children:draw_rect(draw,Rect(*c.bounds),outline=(139,191,200),width=2)
+        dashed(draw,box,(255,219,94),4)
+        draw_rect(draw,support,outline=RED,width=10)
+    dashed(draw,target,(240,246,255),6)
+    draw.line((VW-1,0,VW-1,VH),fill=(200,210,220),width=3)
+    draw.rectangle((VW,0,VW+PANEL,VH),fill=(20,27,39))
+    px=VW+36; yy=28
+    draw.text((px,yy),f'K{case["partition"]} / Local {case["index"]:02d}',font=titlefont,fill='white'); yy+=66
+    lines=[
+      'STATIC GEOMETRY / NO MODEL EXECUTION',
+      'Rects: [y0:y1, x0:x1) latent coordinates',
+      f'Raw Local / T: {rb(target)}',f'Whole Anchor: {rb(anchor)}',
+      f'Anchor patch: {rb(patch)}',f'T bounding box: {rb(pointbox(case["_tpoints"]))}',
+      f'Raw T area: {case["raw_target_area"]}',f'Resolved T area: {case["resolved_target_area"]}',
+      f'Intended bbox: {rb(box)}', f'Expanded bbox: {rb(support)}',
+      f'Support H x W: {support.height if support else "N/A"} x {support.width if support else "N/A"}',
+      f'Expand horizontal: {case["horizontal_expansion"]}',
+      f'Expand vertical: {case["vertical_expansion"]}',
+      f'C4 context tokens / frame: {case["c4_count"]}',
+      f'C2 tokens / frame: {case["c2_count"]}',
+      f'Target Q tokens / frame: {case["q_count"]}',
+      f'K/V tokens / frame: {case["kv_count"]}',
+      f'Target empty / early exit: {case["early_exit"]}',
+      '', 'Visible: 3840 x 2160 RGB pixels',
+      f'Internal: {boundary.encoded_width} x {boundary.encoded_height}',
+      f'Native VAE scale (T,H,W): {tuple(sf)}',
+      f'Display removes top/bottom: {boundary.top}/{boundary.encoded_height-boundary.bottom} px',
+      '', 'A > T > B is PIXEL ownership.',
+      'A/T touch -> entire C4 parent becomes 4 C2.',
+      'All tokens -> K/V; T-touching C2 -> Q.',
+      'R2 full footprint -> T-only Local write.',
+      'No partial cell / C1 / input filler.',
+      '', 'Color / grid legend:'
+    ]
+    for line in lines:
+        for part in textwrap.wrap(line,width=63) or ['']:
+            draw.text((px,yy),part,font=font,fill=(224,231,243)); yy+=42
+    legend=[(ORANGE,'Whole Anchor outside read support'),(COL[ANCHOR],'Resolved Anchor inside read support'),(COL[TARGET],'Resolved Target'),(COL[BRIDGE],'Bridge'),(RED,'Red outline: expanded read support'),((255,219,94),'Yellow dash: intended bbox'),((240,246,255),'White dash: raw Local / Target'),((215,222,229),'Light grid: C4 parent boundaries'),((139,191,200),'Cyan grid: promoted C2 subdivisions')]
+    for color,label in legend:
+        draw.rectangle((px,yy+5,px+24,yy+27),fill=color); draw.text((px+36,yy),label,font=smallfont,fill=(224,231,243)); yy+=38
+    assert yy<VH, yy
+    im.save(VIS/case['filename'])
+
+cases=[]; invariants=Counter(); partition_info={}
+for k in (4,5):
+    windows=local_windows(H,W,k); coverage=Counter()
+    for w in windows:coverage.update((y,x) for y in range(w.y0,w.y1) for x in range(w.x0,w.x1))
+    assert len(coverage)==H*W
+    partition_info[str(k)]={'height_axis':partition_axis(H,k),'width_axis':partition_axis(W,k),
+      'window_count':len(windows),'window_hw':[windows[0].height,windows[0].width],
+      'holes':H*W-len(coverage),'overlap_spatial_positions':sum(v>1 for v in coverage.values()),
+      'extra_reads':sum(v-1 for v in coverage.values()),'max_multiplicity':max(coverage.values()),
+      'overlap_rows':[y for y in range(H) if sum(a<=y<b for a,b in partition_axis(H,k))>1],
+      'overlap_columns':[x for x in range(W) if sum(a<=x<b for a,b in partition_axis(W,k))>1]}
+    for i,target in enumerate(windows):
+        layout=adaptive_layout(anchor,target,H,W,cfg['architecture']['compression_scale'])
+        tp=[(y,x) for y in range(target.y0,target.y1) for x in range(target.x0,target.x1) if not anchor.contains(y,x)]
+        assert layout==adaptive_layout(anchor,target,H,W,cfg['architecture']['compression_scale'])
+        patch=anchor_patch(anchor,target) if tp else None
+        box=Rect(min(patch.y0,target.y0),min(patch.x0,target.x0),max(patch.y1,target.y1),max(patch.x1,target.x1)) if tp else None
+        s=layout.rectangle; covered=Counter(); q=sum(TARGET in c.pixel_roles for c in layout.cells)
+        if not tp:
+            assert s is None and not layout.cells and not layout.roles and q==0 and not layout.write_source_indices and not layout.write_target_indices
+            invariants['empty_early_exit_cases']+=1
+        else:
+            assert s.height%4==0 and s.width%4==0 and s.y1<=H and s.x1<=W
+            assert s==align_adaptive_support(box,H,W)
+            assert s.y0<=box.y0 and s.x0<=box.x0 and s.y1>=box.y1 and s.x1>=box.x1
+            assert s.height-box.height==(-box.height)%4 and s.width-box.width==(-box.width)%4
+            assert layout.roles==resolve_adaptive_roles(anchor,target,s)
+            assert len(layout.roles)==s.height*s.width
+            for y in range(s.y0,s.y1):
+                for x in range(s.x0,s.x1):
+                    r=layout.roles[(y-s.y0)*s.width+x-s.x0]
+                    expected=ANCHOR if anchor.contains(y,x) else TARGET if target.contains(y,x) else BRIDGE
+                    assert r==expected
+            for ci,c in enumerate(layout.cells):
+                assert c.scale in (2,4) and len(c.indices)==c.scale*c.scale
+                assert c.offsets==tuple(range(c.scale*c.scale))
+                assert (c.bounds[2]-c.bounds[0],c.bounds[3]-c.bounds[1])==(c.scale,c.scale)
+                assert (ci<layout.target_count)==(TARGET in c.pixel_roles)
+                assert not ci<layout.target_count or c.scale==2
+                for j,(idx,r) in enumerate(zip(c.indices,c.pixel_roles)):
+                    y,x=divmod(idx,W); assert s.contains(y,x) and 0<=y<H and 0<=x<W
+                    assert idx==(c.y+j//c.scale)*W+c.x+j%c.scale
+                    assert r==layout.roles[(y-s.y0)*s.width+x-s.x0]
+                    covered[(y,x)]+=1
+            assert len(covered)==s.height*s.width and set(covered.values())=={1}
+            for y in range(s.y0,s.y1,4):
+                for x in range(s.x0,s.x1,4):
+                    parent_roles=[layout.roles[(yy-s.y0)*s.width+xx-s.x0] for yy in range(y,y+4) for xx in range(x,x+4)]
+                    children=[c for c in layout.cells if y<=c.y<y+4 and x<=c.x<x+4]
+                    if set(parent_roles)=={BRIDGE}:assert len(children)==1 and children[0].scale==4
+                    else:assert len(children)==4 and all(c.scale==2 for c in children)
+            dest_expected={(y-target.y0)*target.width+x-target.x0 for y,x in tp}
+            assert set(layout.write_target_indices)==dest_expected
+            assert len(layout.write_target_indices)==len(dest_expected)==len(layout.write_source_indices)
+            for src,dest in zip(layout.write_source_indices,layout.write_target_indices):
+                c,tap=layout.cells[src//4],src%4
+                yy,xx=divmod(c.indices[tap],W)
+                assert c.pixel_roles[tap]==TARGET and target.contains(yy,xx) and not anchor.contains(yy,xx)
+                assert dest==(yy-target.y0)*target.width+xx-target.x0
+            # Coordinate-labeled *pure tensor* scatter using production layout; no R2/model called.
+            restored=torch.tensor([idx for c in layout.cells[:q] for idx in c.indices],dtype=torch.int64)+1
+            dense=torch.zeros(target.height*target.width,dtype=torch.int64)
+            dense[list(layout.write_target_indices)]=restored[list(layout.write_source_indices)]
+            for y in range(target.y0,target.y1):
+                for x in range(target.x0,target.x1):
+                    val=dense[(y-target.y0)*target.width+x-target.x0].item()
+                    assert val==(0 if anchor.contains(y,x) else y*W+x+1)
+            invariants['nonempty_alignment_and_layout_cases']+=1
+        assert q==layout.target_count
+        case={'partition':k,'index':i,'local_bbox':xyxy(target),'anchor_bbox':xyxy(anchor),
+          'anchor_intersection':xyxy(intersects(anchor,target)),'anchor_intersection_area':area(intersects(anchor,target)),
+          'raw_target_area':area(target),'resolved_target_area':len(tp),'resolved_target_bbox':xyxy(pointbox(tp)),
+          'selected_anchor_patch':xyxy(patch),'intended_bbox':xyxy(box),'expanded_bbox':xyxy(s),
+          'expanded_hw':[s.height,s.width] if s else None,'mod4':[s.height%4,s.width%4] if s else None,
+          'horizontal_expansion':direction(box,s,'x'),'vertical_expansion':direction(box,s,'y'),
+          'expansion_lrtb':[box.x0-s.x0,s.x1-box.x1,box.y0-s.y0,s.y1-box.y1] if s else None,
+          'c2_count':sum(c.scale==2 for c in layout.cells),'c4_count':sum(c.scale==4 for c in layout.cells),
+          'kv_count':len(layout.cells),'q_count':q,'early_exit':not tp,
+          'filename':f'grid{k}_local_{i:02d}.png','_tpoints':tp}
+        if not (VIS/case['filename']).exists(): render(case,layout,target,box,patch)
+        del case['_tpoints']; cases.append(case)
+        invariants['all_case_pass_count']+=1
+
+# Supplementary deterministic helper-only edge / policy checks, not model tests.
+probes=[]
+def check(name,cond,detail):
+    assert cond,name
+    probes.append({'name':name,'verdict':'PASS','detail':detail})
+for name,box,expected in [
+ ('already_aligned',Rect(4,4,12,12),Rect(4,4,12,12)),
+ ('left_and_above_expand_right_down',Rect(2,2,7,7),Rect(2,2,10,10)),
+ ('right_and_below_expand_left_up',Rect(13,13,18,18),Rect(10,10,18,18)),
+ ('tie_expand_right_down',Rect(7,7,13,13),Rect(7,7,15,15)),
+ ('preferred_boundary_remainder',Rect(1,1,18,18),Rect(0,0,20,20))]:
+    canvas=20
+    actual=align_adaptive_support(box,canvas,canvas)
+    check(name,actual==expected,{'input':xyxy(box),'canvas':[canvas,canvas],'actual':xyxy(actual)})
+for name,values,expectedC2,expectedC4,expectedQ in [
+ ('pure_B_parent',[BRIDGE]*16,0,1,0),
+ ('one_T_promotes_entire_parent',[TARGET]+[BRIDGE]*15,4,0,1),
+ ('one_A_promotes_B_only_subcells',[ANCHOR]+[BRIDGE]*15,4,0,0),
+ ('mixed_ATTT_query',[ANCHOR,TARGET,BRIDGE,BRIDGE,TARGET,TARGET]+[BRIDGE]*10,4,0,1)]:
+    cells=build_adaptive_multires_tokens(Rect(0,0,4,4),tuple(values),4)
+    cnt=(sum(c.scale==2 for c in cells),sum(c.scale==4 for c in cells),sum(TARGET in c.pixel_roles for c in cells))
+    check(name,cnt==(expectedC2,expectedC4,expectedQ),{'C2_C4_Q':cnt})
+roles=resolve_adaptive_roles(Rect(1,1,3,3),Rect(0,0,4,4),Rect(0,0,4,4))
+check('anchor_precedes_target',roles[5]==ANCHOR and Counter(roles)=={TARGET:12,ANCHOR:4},dict(Counter(roles)))
+try:align_adaptive_support(Rect(0,0,5,5),5,5)
+except ValueError:check('impossible_alignment_rejects',True,'5x5 canvas fully occupied; no padding/crop fallback')
+else:raise AssertionError('impossible alignment should reject')
+
+# General live Global edge-mode counterexample. Layout helpers only, no C4 or R4 forward.
+global_evidence=[]
+for h,w in ((H,W),(17,20)):
+    cs=global_cells(h,w,4)
+    entry={'canvas_hw':[h,w],'full_cells':sum(c.valid_count==16 for c in cs),
+      'partial_cells':sum(c.valid_count!=16 for c in cs),'valid_count_histogram':dict(Counter(c.valid_count for c in cs)),
+      'compressed_grid':[math.ceil(h/4),math.ceil(w/4)],'R4_target_hw':[h,w],
+      'R4_axis_ratio':[h/math.ceil(h/4),w/math.ceil(w/4)]}
+    if (h,w)==(17,20):
+        cg=CanvasGeometry(9,h,w,(Rect(4,5,13,15),))
+        for k in (4,5):
+            for t in local_windows(h,w,k):adaptive_layout(cg.anchors[0],t,h,w,4)
+        entry['all_K4_K5_adaptive_prerequisite_layouts_constructible']=True
+    global_evidence.append(entry)
+
+stats={}
+for group in ('4','5','all'):
+    chosen=[c for c in cases if group=='all' or str(c['partition'])==group]
+    stats[group]={'case_count':len(chosen),'empty_cases':sum(c['early_exit'] for c in chosen)}
+    for key in ('c2_count','c4_count','kv_count','q_count'):
+        v=[c[key] for c in chosen]; stats[group][key]={'min':min(v),'max':max(v),'mean':statistics.mean(v),'median':statistics.median(v),'sum':sum(v)}
+
+def contact(group,ncols,name):
+    thumbw=840; thumbh=round(VH/(VW+PANEL)*thumbw); labelh=38
+    sh=Image.new('RGB',(ncols*thumbw,math.ceil(len(group)/ncols)*(thumbh+labelh)),(13,18,27)); d=ImageDraw.Draw(sh)
+    for j,c in enumerate(group):
+        with Image.open(VIS/c['filename']) as im:
+            im=im.resize((thumbw,thumbh),Image.Resampling.LANCZOS)
+        x=(j%ncols)*thumbw; y=(j//ncols)*(thumbh+labelh)
+        sh.paste(im,(x,y+labelh)); d.text((x+8,y+5),f'K{c["partition"]} Local {c["index"]:02d} | C2 {c["c2_count"]}, C4 {c["c4_count"]}, Q {c["q_count"]}',font=smallfont,fill='white')
+    sh.save(VIS/name)
+contact([c for c in cases if c['partition']==4],4,'grid4_all_16.png')
+contact([c for c in cases if c['partition']==5],5,'grid5_all_25.png')
+contact(cases,7,'all_41_cases.png')
+assert len(list(VIS.glob('grid?_local_*.png')))==41
+assert not torch.cuda.is_initialized()
+report={'timestamp_utc':datetime.now(timezone.utc).isoformat(),'mode':'static_geometry_only_no_model_execution',
+ 'architecture_version':cfg['architecture']['architecture_version'],'coordinate_sources':{
+ 'record_id':record,'gt_shape':list(gt['latents'].shape),'anchor_shape':list(anchor_file['latents'].shape),
+ 'gt_dtype':str(gt['latents'].dtype),'anchor_dtype':str(anchor_file['latents'].dtype),
+ 'scale_factors_thw':list(sf),'pixel_boundary':asdict(boundary),'canonical_anchor_rect':xyxy(anchor),
+ 'visible_anchor_latent_footprint_xyxy':visible_bounds(anchor),'actual_rgb_content_source_yxyx':p['anchor_rect_source_yxyx'],
+ 'gt_contract_sha256':p['gt_cache_contract_sha256'],'vae_sha256':p['vae_sha256'],
+ 'legacy_known_latent_rect_in_cache_not_used':p.get('known_latent_rect_yxyx')},
+ 'partitions':partition_info,'cases':cases,'statistics':stats,'invariants':dict(invariants),
+ 'violation_counts':dict(outside_canvas=0,role_overlap=0,role_holes=0,read_support_drop=0,read_support_duplication=0,
+ partial_C2=0,partial_C4=0,C1=0,wrong_query=0,write_outside_target=0,write_drop=0,write_duplication=0),
+ 'supplementary_geometry_probes':probes,'global_general_path_evidence':global_evidence,
+ 'cuda_initialized':torch.cuda.is_initialized(),'model_instances_constructed':0,'model_forward_calls':0,
+ 'visualizations':{'individual':41,'contact_sheets':3}}
+(EV/'geometry_results.json').write_text(json.dumps(report,indent=2)+'\n')
+(EV/'geometry_audit_script.txt').write_text(Path(__file__).read_text())
+print(json.dumps({'geometry':'PASS','invariants':dict(invariants),'statistics':stats,
+ 'global_general_path_evidence':global_evidence,'cuda_initialized':False,'images':44},indent=2))

@@ -1,0 +1,483 @@
+{
+  "status": "PASS",
+  "time_utc": "2026-09-26T17:52:39.926033+00:00",
+  "overlay_manifest_sha256": "5d5eda9c4076b90341011f827c94744758f67b0b19428cf6cd49c5a8c5224507",
+  "old_coordinators": {
+    "04": {
+      "pid": 1870245,
+      "ppid": 1870243,
+      "state": "S",
+      "start_ticks": "393674051",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python -I /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/remote_control.py coordinate --video 04 --launch-token ab79dc4b09df43c200f698602e1a0ef1",
+      "children": []
+    },
+    "03": {
+      "pid": 1870250,
+      "ppid": 1870248,
+      "state": "S",
+      "start_ticks": "393674053",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python -I /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/remote_control.py coordinate --video 03 --launch-token ab79dc4b09df43c200f698602e1a0ef1",
+      "children": []
+    }
+  },
+  "old_states": {
+    "04": {
+      "status": "WAITING_FOR_TWO_SHARDS",
+      "pid": 1870245,
+      "time_utc": "2026-09-26T16:44:28.828269+00:00"
+    },
+    "03": {
+      "status": "WAITING_FOR_TWO_SHARDS",
+      "pid": 1870250,
+      "time_utc": "2026-09-26T16:44:28.828222+00:00"
+    }
+  },
+  "inference_before": {
+    "0": {
+      "pid": 1870485,
+      "ppid": 1870282,
+      "state": "R",
+      "start_ticks": "393675923",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py _internal --request /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu0/shard_request.json",
+      "children": []
+    },
+    "1": {
+      "pid": 1870504,
+      "ppid": 1870281,
+      "state": "R",
+      "start_ticks": "393675945",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py _internal --request /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu1/shard_request.json",
+      "children": []
+    },
+    "2": {
+      "pid": 1870324,
+      "ppid": 1870283,
+      "state": "R",
+      "start_ticks": "393675328",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py _internal --request /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu2/shard_request.json",
+      "children": []
+    },
+    "3": {
+      "pid": 1870332,
+      "ppid": 1870284,
+      "state": "R",
+      "start_ticks": "393675354",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py _internal --request /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu3/shard_request.json",
+      "children": []
+    }
+  },
+  "new_session": "flashvsr_finalonly_0304_20260927",
+  "signals": [
+    {
+      "video": "04",
+      "pid": 1870245,
+      "signal": "SIGSTOP",
+      "time_utc": "2026-09-26T17:52:40.566872+00:00"
+    },
+    {
+      "video": "03",
+      "pid": 1870250,
+      "signal": "SIGSTOP",
+      "time_utc": "2026-09-26T17:52:40.567283+00:00"
+    },
+    {
+      "video": "04",
+      "pid": 1870245,
+      "signal": "SIGTERM then SIGCONT",
+      "time_utc": "2026-09-26T17:52:40.718902+00:00"
+    },
+    {
+      "video": "03",
+      "pid": 1870250,
+      "signal": "SIGTERM then SIGCONT",
+      "time_utc": "2026-09-26T17:52:40.718952+00:00"
+    }
+  ],
+  "completed_utc": "2026-09-26T17:52:47.074101+00:00",
+  "new_statuses": {
+    "04": {
+      "schema": "a6000_final_only_coordinator/v2",
+      "video": "04",
+      "coordinator_pid": 1985689,
+      "parent_pid": 1985598,
+      "started_utc": "2026-09-26T17:52:42.339249+00:00",
+      "status": "WAITING_FOR_TWO_SHARDS",
+      "children": [],
+      "overlay": {
+        "manifest_path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/optimizations/final_only_v2/optimization_manifest.json",
+        "manifest_sha256": "5d5eda9c4076b90341011f827c94744758f67b0b19428cf6cd49c5a8c5224507",
+        "source_proof": {
+          "path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/verification/source_transfer_verification.json",
+          "sha256": "167dba3c91304907b3ddf0a5633f0c73838d86f38b9070790ff4c627981bf187"
+        },
+        "benchmark": {
+          "path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/verification/final_only_v2_bench/benchmark_decision.json",
+          "sha256": "88153b450b9e18f442b14e66b6539c9576bd289155fc5450cdf38c08b337e41f"
+        },
+        "policy": {
+          "renderer": "threaded",
+          "compose_workers": 8,
+          "max_parallel_videos": 2
+        },
+        "files": {
+          "final_only.py": "ed0bdc01242c7199fc44ac1c3dd078f219bea4911a55daf53958989561ea7d00",
+          "parallel_renderer.py": "515e1a7a27de1ab320057ba1748cb5ad57819c932093a2f83fc7b5844477e03a",
+          "coordinate_v2.py": "6edaad4ef1dca3c43adfbe7250f147c553dcad722fb0290665715f708d2ac53f"
+        }
+      },
+      "postprocess_policy": {
+        "renderer": "threaded",
+        "compose_workers": 8,
+        "max_parallel_videos": 2
+      },
+      "commands": {
+        "merge": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/merge_shards.py",
+          "--video-id",
+          "04",
+          "--work-dir",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04",
+          "--output-manifest",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/aggregate_manifest.json",
+          "--output-target",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/raw_flashvsr/04_FlashVSR_raw_16K_16fps.mp4",
+          "--shard",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu0/shard_receipt.json",
+          "--shard",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu1/shard_receipt.json"
+        ],
+        "final_only": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/optimizations/final_only_v2/final_only.py",
+          "--video-id",
+          "04",
+          "--input-4k",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/02_Outpaint_4K_3840x2160/04/final/04_Outpaint_4K.mp4",
+          "--original-8k",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/00_Input_8K_7680x4320/04_Input_8K.mp4",
+          "--model-root",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/src/models/flashvsr_v1_1",
+          "--flashvsr-reference",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/src/flashvsr/architect/FlashVSR_v1.1/upscale.py",
+          "--outpainting-config",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/src/video_outpainting/main/configs/inference_4k.yaml",
+          "--output",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/outputs/04/final/04_Certification_Final_16K_16fps.mp4",
+          "--raw-output",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/raw_flashvsr/04_FlashVSR_raw_16K_16fps.mp4",
+          "--final-manifest",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/outputs/04/metadata/final_manifest.json",
+          "--work-dir",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04",
+          "--expected-frames",
+          "1952",
+          "--tile-size",
+          "256",
+          "--tile-overlap",
+          "32",
+          "--min-tile-size",
+          "256",
+          "--sparse-ratio",
+          "2.0",
+          "--local-range",
+          "11",
+          "--seed",
+          "71634910",
+          "--ffmpeg-threads",
+          "32",
+          "--encoder",
+          "libx265",
+          "--aggregate-manifest",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/aggregate_manifest.json",
+          "--renderer",
+          "threaded",
+          "--compose-workers",
+          "8"
+        ]
+      },
+      "updated_utc": "2026-09-26T17:52:45.580783+00:00",
+      "worker_states": [
+        {
+          "gpu": 0,
+          "assignment": [
+            "04",
+            0,
+            84
+          ],
+          "started_utc": "2026-09-26T16:44:30.851886+00:00",
+          "supervisor_pid": 1870225,
+          "work": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu0",
+          "command": [
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py",
+            "--video-id",
+            "04",
+            "--input",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/02_Outpaint_4K_3840x2160/04/final/04_Outpaint_4K.mp4",
+            "--anchor",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/00_Input_8K_7680x4320/04_Input_8K.mp4",
+            "--gpu-index",
+            "0",
+            "--tile-start",
+            "0",
+            "--tile-end",
+            "84",
+            "--work-dir",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu0",
+            "--output-target",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/raw_flashvsr/04_FlashVSR_raw_16K_16fps.mp4",
+            "--mode",
+            "full"
+          ],
+          "status": "RUNNING",
+          "worker_pid": 1870282
+        },
+        {
+          "gpu": 1,
+          "assignment": [
+            "04",
+            85,
+            169
+          ],
+          "started_utc": "2026-09-26T16:44:30.699734+00:00",
+          "supervisor_pid": 1870230,
+          "work": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu1",
+          "command": [
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py",
+            "--video-id",
+            "04",
+            "--input",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/02_Outpaint_4K_3840x2160/04/final/04_Outpaint_4K.mp4",
+            "--anchor",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/00_Input_8K_7680x4320/04_Input_8K.mp4",
+            "--gpu-index",
+            "1",
+            "--tile-start",
+            "85",
+            "--tile-end",
+            "169",
+            "--work-dir",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu1",
+            "--output-target",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/raw_flashvsr/04_FlashVSR_raw_16K_16fps.mp4",
+            "--mode",
+            "full"
+          ],
+          "status": "RUNNING",
+          "worker_pid": 1870281
+        }
+      ]
+    },
+    "03": {
+      "schema": "a6000_final_only_coordinator/v2",
+      "video": "03",
+      "coordinator_pid": 1985690,
+      "parent_pid": 1985602,
+      "started_utc": "2026-09-26T17:52:42.339219+00:00",
+      "status": "WAITING_FOR_TWO_SHARDS",
+      "children": [],
+      "overlay": {
+        "manifest_path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/optimizations/final_only_v2/optimization_manifest.json",
+        "manifest_sha256": "5d5eda9c4076b90341011f827c94744758f67b0b19428cf6cd49c5a8c5224507",
+        "source_proof": {
+          "path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/verification/source_transfer_verification.json",
+          "sha256": "167dba3c91304907b3ddf0a5633f0c73838d86f38b9070790ff4c627981bf187"
+        },
+        "benchmark": {
+          "path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/verification/final_only_v2_bench/benchmark_decision.json",
+          "sha256": "88153b450b9e18f442b14e66b6539c9576bd289155fc5450cdf38c08b337e41f"
+        },
+        "policy": {
+          "renderer": "threaded",
+          "compose_workers": 8,
+          "max_parallel_videos": 2
+        },
+        "files": {
+          "final_only.py": "ed0bdc01242c7199fc44ac1c3dd078f219bea4911a55daf53958989561ea7d00",
+          "parallel_renderer.py": "515e1a7a27de1ab320057ba1748cb5ad57819c932093a2f83fc7b5844477e03a",
+          "coordinate_v2.py": "6edaad4ef1dca3c43adfbe7250f147c553dcad722fb0290665715f708d2ac53f"
+        }
+      },
+      "postprocess_policy": {
+        "renderer": "threaded",
+        "compose_workers": 8,
+        "max_parallel_videos": 2
+      },
+      "commands": {
+        "merge": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/merge_shards.py",
+          "--video-id",
+          "03",
+          "--work-dir",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03",
+          "--output-manifest",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/aggregate_manifest.json",
+          "--output-target",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/raw_flashvsr/03_FlashVSR_raw_16K_16fps.mp4",
+          "--shard",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu2/shard_receipt.json",
+          "--shard",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu3/shard_receipt.json"
+        ],
+        "final_only": [
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/optimizations/final_only_v2/final_only.py",
+          "--video-id",
+          "03",
+          "--input-4k",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/02_Outpaint_4K_3840x2160/03/final/03_Outpaint_4K.mp4",
+          "--original-8k",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/00_Input_8K_7680x4320/03_Input_8K.mp4",
+          "--model-root",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/src/models/flashvsr_v1_1",
+          "--flashvsr-reference",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/src/flashvsr/architect/FlashVSR_v1.1/upscale.py",
+          "--outpainting-config",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/src/video_outpainting/main/configs/inference_4k.yaml",
+          "--output",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/outputs/03/final/03_Certification_Final_16K_16fps.mp4",
+          "--raw-output",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/raw_flashvsr/03_FlashVSR_raw_16K_16fps.mp4",
+          "--final-manifest",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/outputs/03/metadata/final_manifest.json",
+          "--work-dir",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03",
+          "--expected-frames",
+          "1952",
+          "--tile-size",
+          "256",
+          "--tile-overlap",
+          "32",
+          "--min-tile-size",
+          "256",
+          "--sparse-ratio",
+          "2.0",
+          "--local-range",
+          "11",
+          "--seed",
+          "71634910",
+          "--ffmpeg-threads",
+          "32",
+          "--encoder",
+          "libx265",
+          "--aggregate-manifest",
+          "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/aggregate_manifest.json",
+          "--renderer",
+          "threaded",
+          "--compose-workers",
+          "8"
+        ]
+      },
+      "updated_utc": "2026-09-26T17:52:45.321188+00:00",
+      "worker_states": [
+        {
+          "gpu": 2,
+          "assignment": [
+            "03",
+            0,
+            84
+          ],
+          "started_utc": "2026-09-26T16:44:30.851908+00:00",
+          "supervisor_pid": 1870235,
+          "work": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu2",
+          "command": [
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py",
+            "--video-id",
+            "03",
+            "--input",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/02_Outpaint_4K_3840x2160/03/final/03_Outpaint_4K.mp4",
+            "--anchor",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/00_Input_8K_7680x4320/03_Input_8K.mp4",
+            "--gpu-index",
+            "2",
+            "--tile-start",
+            "0",
+            "--tile-end",
+            "84",
+            "--work-dir",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu2",
+            "--output-target",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/raw_flashvsr/03_FlashVSR_raw_16K_16fps.mp4",
+            "--mode",
+            "full"
+          ],
+          "status": "RUNNING",
+          "worker_pid": 1870283
+        },
+        {
+          "gpu": 3,
+          "assignment": [
+            "03",
+            85,
+            169
+          ],
+          "started_utc": "2026-09-26T16:44:30.877169+00:00",
+          "supervisor_pid": 1870240,
+          "work": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu3",
+          "command": [
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py",
+            "--video-id",
+            "03",
+            "--input",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/02_Outpaint_4K_3840x2160/03/final/03_Outpaint_4K.mp4",
+            "--anchor",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/00_Input_8K_7680x4320/03_Input_8K.mp4",
+            "--gpu-index",
+            "3",
+            "--tile-start",
+            "85",
+            "--tile-end",
+            "169",
+            "--work-dir",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu3",
+            "--output-target",
+            "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/raw_flashvsr/03_FlashVSR_raw_16K_16fps.mp4",
+            "--mode",
+            "full"
+          ],
+          "status": "RUNNING",
+          "worker_pid": 1870284
+        }
+      ]
+    }
+  },
+  "inference_after": {
+    "0": {
+      "pid": 1870485,
+      "ppid": 1870282,
+      "state": "R",
+      "start_ticks": "393675923",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py _internal --request /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu0/shard_request.json",
+      "children": []
+    },
+    "1": {
+      "pid": 1870504,
+      "ppid": 1870281,
+      "state": "R",
+      "start_ticks": "393675945",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py _internal --request /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/04/gpu1/shard_request.json",
+      "children": []
+    },
+    "2": {
+      "pid": 1870324,
+      "ppid": 1870283,
+      "state": "D",
+      "start_ticks": "393675328",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py _internal --request /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu2/shard_request.json",
+      "children": []
+    },
+    "3": {
+      "pid": 1870332,
+      "ppid": 1870284,
+      "state": "D",
+      "start_ticks": "393675354",
+      "cmdline": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/env/bin/python /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/tools/tile_worker.py _internal --request /home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/runs/03/gpu3/shard_request.json",
+      "children": []
+    }
+  }
+}

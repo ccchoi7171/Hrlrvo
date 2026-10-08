@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "video_id": "04",
+  "input_filename": "04_Input_8K.mp4",
+  "seeds": {
+    "outpainting": 71634910,
+    "upscale": 71634910
+  }
+}

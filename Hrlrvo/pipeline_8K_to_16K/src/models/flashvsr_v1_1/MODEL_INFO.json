@@ -1,0 +1,29 @@
+{
+  "name": "FlashVSR v1.1",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/OpenImagingLab/FlashVSR",
+  "repository_commit": "cf910c61a60733e610e9c6e8b607f80c3a6c202b",
+  "checkpoint_repository": "https://huggingface.co/JunhaoZhuang/FlashVSR-v1.1",
+  "checkpoint_revision": "27561b186ded3402d7c975f4fd722e2885b6135f",
+  "checkpoint_files": [
+    "checkpoint/diffusion_pytorch_model_streaming_dmd.safetensors",
+    "checkpoint/Wan2.1_VAE.pth",
+    "checkpoint/LQ_proj_in.ckpt",
+    "checkpoint/TCDecoder.ckpt",
+    "checkpoint/config.json",
+    "checkpoint/model_index.json"
+  ],
+  "checkpoint_sha256": {
+    "diffusion_pytorch_model_streaming_dmd.safetensors": "bd28180edcf3446c028e32fc6b731a80bf7e4da2ab4caac3186b9499964d37be",
+    "Wan2.1_VAE.pth": "38071ab59bd94681c686fa51d75a1968f64e470262043be31f7a094e442fd981",
+    "LQ_proj_in.ckpt": "d6d011cdaaba6a52645086caa08fa04124e746f6ca568140a24007591142bfd2",
+    "TCDecoder.ckpt": "e224bdcf2f52745cbf4d393ff5374c2ba09e90285d5d19062d2bf63b915b6161"
+  },
+  "inference_path": "FlashVSRTinyLongPipeline",
+  "native_dependency": {
+    "repository": "https://github.com/mit-han-lab/Block-Sparse-Attention",
+    "commit": "49d6c39e4dc0303442cda3bb758b3925d4399c49",
+    "installed_version": "0.0.2"
+  },
+  "training_performed": false
+}

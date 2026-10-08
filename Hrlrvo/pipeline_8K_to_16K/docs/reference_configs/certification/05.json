@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "job_name": "05_certification",
+  "output_root": "data/certification/video_05_seed71634910",
+  "input": {
+    "video_id": "05",
+    "path": "data/00_Input_8K_7680x4320/05_Input_8K.mp4"
+  },
+  "seed": 71634910,
+  "frames": {
+    "outpaint": "all",
+    "upscale": "all"
+  },
+  "preprocess": {
+    "source_fps": 16,
+    "processing_fps": 24,
+    "source_resolution": [
+      7680,
+      4320
+    ],
+    "output_resolution": [
+      1920,
+      1080
+    ],
+    "resize": "lanczos",
+    "video_codec": "libx265",
+    "pixel_format": "yuv420p10le",
+    "crf": 1,
+    "audio_tempo": 1.5
+  },
+  "outpainting": {
+    "runtime_config": "src/video_outpainting/main/configs/inference_4k.yaml",
+    "checkpoint": "src/models/outpaint_checkpoint_007500",
+    "steps": 30,
+    "positive_prompt": "",
+    "negative_prompt": "people, person, human, staff, audience, crowd, backstage, seats",
+    "input_resolution": [
+      1920,
+      1080
+    ],
+    "output_resolution": [
+      3840,
+      2160
+    ],
+    "alpha_feather_px": 16,
+    "processing_fps": 24,
+    "stored_fps": 16,
+    "memory_optimization": {
+      "video_only_gpu_weights": true,
+      "vae_decode_streaming": true,
+      "ffn_token_chunking": false
+    }
+  },
+  "upscale": {
+    "model": "src/models/flashvsr_v1_1",
+    "runtime": "src/flashvsr/architect/FlashVSR_v1.1/upscale.py",
+    "scale": 4,
+    "input_resolution": [
+      3840,
+      2160
+    ],
+    "output_resolution": [
+      15360,
+      8640
+    ],
+    "fps": 16,
+    "tile_size": "auto",
+    "tile_overlap": "auto",
+    "min_tile_size": 128,
+    "sparse_ratio": 2.0,
+    "local_range": 11,
+    "gpu_index": 0,
+    "ffmpeg_threads": 32,
+    "encoder": "libx265"
+  },
+  "final": {
+    "fps": 16,
+    "center_original_8k": true,
+    "center_feather_px": 64,
+    "filename": "05_Certification_Final_16K_16fps.mp4",
+    "audio_source": "original_8k"
+  },
+  "verification": {
+    "full_decode": false
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "original_metadata": {
+    "avg_frame_rate": "16/1",
+    "codec_name": "hevc",
+    "color_primaries": "bt709",
+    "color_space": "bt709",
+    "color_transfer": null,
+    "decoded_frame_count_performed": false,
+    "duration": 122.0,
+    "fps": 16.0,
+    "frame_count": 1952,
+    "height": 4320,
+    "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/01_Input_8K.mp4",
+    "pix_fmt": "yuv420p10le",
+    "r_frame_rate": "16/1",
+    "start_time": "0.000000",
+    "time_base": "1/16384",
+    "width": 7680
+  },
+  "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/01_Input_8K.mp4",
+  "sha256": "2d73992d09e37442fa7f0821711be0bb69584c6c5683ead99a8ad72ffe218d0c",
+  "size_bytes": 376710794
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "h200_video01_final_only_equivalence/v1",
+  "status": "PASS",
+  "cpu_only": true,
+  "source_video": "01",
+  "frames": [
+    0
+  ],
+  "scope": "real complete 112-tile committed PNG layout and correct 01 anchor",
+  "path_a": "serial production float32 reconstruction then 64px anchor composite",
+  "path_b": "final-only threaded direct reconstruction plus identical 64px anchor composite",
+  "full_raw_16k_mp4_created": false,
+  "full_video_decode_performed": false,
+  "results": [
+    {
+      "frame": 0,
+      "max_abs_error": 0,
+      "mean_abs_error": 0.0,
+      "psnr_db": "inf",
+      "anchor_boundary_max_abs_error": 0,
+      "anchor_boundary_mean_abs_error": 0.0,
+      "serial_rgb_sha256": "abbd97896a33903515e4e4a3db26624dd362a907c8c5b7a01d5e061835032159",
+      "direct_rgb_sha256": "abbd97896a33903515e4e4a3db26624dd362a907c8c5b7a01d5e061835032159"
+    }
+  ]
+}

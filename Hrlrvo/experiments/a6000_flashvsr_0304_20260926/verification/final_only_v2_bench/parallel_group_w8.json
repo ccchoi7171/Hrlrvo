@@ -1,0 +1,153 @@
+{
+  "exit_codes": {
+    "03": 0,
+    "04": 0
+  },
+  "parallel_group_wall_seconds": 31.757914111949503,
+  "results": {
+    "03": {
+      "anchor": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/00_Input_8K_7680x4320/03_Input_8K.mp4",
+      "encoder": {
+        "arguments": [
+          "-c:v",
+          "libx265",
+          "-preset",
+          "fast",
+          "-crf",
+          "14",
+          "-pix_fmt",
+          "yuv420p10le",
+          "-tag:v",
+          "hvc1",
+          "-x265-params",
+          "log-level=error:pools=32:frame-threads=0"
+        ],
+        "extension": ".mp4",
+        "name": "libx265"
+      },
+      "fixture_only": true,
+      "frames": 4,
+      "headers": {
+        "avg_frame_rate": "16/1",
+        "codec_name": "hevc",
+        "color_primaries": null,
+        "color_space": null,
+        "color_transfer": null,
+        "decoded_frame_count_performed": false,
+        "duration": 0.25,
+        "fps": 16.0,
+        "frame_count": 4,
+        "height": 8640,
+        "path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/verification/final_only_v2_bench/parallel_v03_w8_4f/fixture_NOT_PRODUCTION.mp4",
+        "pix_fmt": "yuv420p10le",
+        "probe_mode": "container_and_stream_headers_only",
+        "r_frame_rate": "16/1",
+        "start_time": "0.000000",
+        "time_base": "1/16384",
+        "width": 15360
+      },
+      "limitations": [
+        "repeated PNG source content/cache is not full video storage workload",
+        "short clip does not measure steady-state codec/GOP rate"
+      ],
+      "max_rss_kib": 5327676,
+      "metrics": {
+        "composition_workers": 8,
+        "frame_compose_seconds": 12.276092559564859,
+        "frames_written": 4,
+        "memory_mode": "one-frame PNG cache, immutable global weights, at most one next RGB frame",
+        "opencv_internal_threads": 1,
+        "original_decode_seconds": 4.071899208240211,
+        "pixel_math": "unchanged production float32 tile order/rint/center helper",
+        "prefetch_frames": 1,
+        "seconds": 29.089773130137473,
+        "vertical_band_count": 19
+      },
+      "real_encode": true,
+      "renderer": "threaded",
+      "rgb_sha256": [
+        "0fc1114e1ebfc424865fa17d066a87a2d5327d480630231c403795b0b9a7ef14",
+        "cd987491c8e314e9bf7c53431dadcb08ab419137c3accad9f83fdcbb9e9e8c64",
+        "9629c8107a4c0eee07c876df5861baa4ee770fb12d732d69d7a050d3aa80917d",
+        "56cc55c07d0e1c0ef83071de8954341001f5fcd7c9f7cd6fceda29aa90763cc4"
+      ],
+      "scope": "full170 genuine geometry with repeated committed tile PNGs and actual same-ID anchor",
+      "status": "PASS",
+      "video": "03",
+      "wall_seconds": 29.26282556494698,
+      "workers": 8
+    },
+    "04": {
+      "anchor": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/package/data/00_Input_8K_7680x4320/04_Input_8K.mp4",
+      "encoder": {
+        "arguments": [
+          "-c:v",
+          "libx265",
+          "-preset",
+          "fast",
+          "-crf",
+          "14",
+          "-pix_fmt",
+          "yuv420p10le",
+          "-tag:v",
+          "hvc1",
+          "-x265-params",
+          "log-level=error:pools=32:frame-threads=0"
+        ],
+        "extension": ".mp4",
+        "name": "libx265"
+      },
+      "fixture_only": true,
+      "frames": 4,
+      "headers": {
+        "avg_frame_rate": "16/1",
+        "codec_name": "hevc",
+        "color_primaries": null,
+        "color_space": null,
+        "color_transfer": null,
+        "decoded_frame_count_performed": false,
+        "duration": 0.25,
+        "fps": 16.0,
+        "frame_count": 4,
+        "height": 8640,
+        "path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_0304_20260926/verification/final_only_v2_bench/parallel_v04_w8_4f/fixture_NOT_PRODUCTION.mp4",
+        "pix_fmt": "yuv420p10le",
+        "probe_mode": "container_and_stream_headers_only",
+        "r_frame_rate": "16/1",
+        "start_time": "0.000000",
+        "time_base": "1/16384",
+        "width": 15360
+      },
+      "limitations": [
+        "repeated PNG source content/cache is not full video storage workload",
+        "short clip does not measure steady-state codec/GOP rate"
+      ],
+      "max_rss_kib": 5199756,
+      "metrics": {
+        "composition_workers": 8,
+        "frame_compose_seconds": 11.341290001757443,
+        "frames_written": 4,
+        "memory_mode": "one-frame PNG cache, immutable global weights, at most one next RGB frame",
+        "opencv_internal_threads": 1,
+        "original_decode_seconds": 3.965832807123661,
+        "pixel_math": "unchanged production float32 tile order/rint/center helper",
+        "prefetch_frames": 1,
+        "seconds": 28.264574628788978,
+        "vertical_band_count": 19
+      },
+      "real_encode": true,
+      "renderer": "threaded",
+      "rgb_sha256": [
+        "c4159a34ca761bd55506722895f5f323c068d5aea68d3143cf8b9476cca67f88",
+        "415a991d6cd34f3a9250f724b77a4cff58f507e0cae142453d3b1012fe29df89",
+        "a2857aabc8febe3b69278a3ed7fc0139b7441b76c2ba1c1871c5f94c30d22198",
+        "e175986df895c6ab3f6cb322c74252abab819312da6b320ea4350a8a228d0de5"
+      ],
+      "scope": "full170 genuine geometry with repeated committed tile PNGs and actual same-ID anchor",
+      "status": "PASS",
+      "video": "04",
+      "wall_seconds": 28.446981149259955,
+      "workers": 8
+    }
+  }
+}

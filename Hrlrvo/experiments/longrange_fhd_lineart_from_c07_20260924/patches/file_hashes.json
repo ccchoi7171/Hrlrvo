@@ -1,0 +1,14 @@
+{
+  "source/VideoOutpainting_test/main/scripts/run_lineart_chain.py": "1d626eb0fcb459118afeae566840f7fbebf7d83108cf70efa0c454a2d9e51a93",
+  "source/VideoOutpainting_test/tests/test_c07_bootstrap.py": "f53287c0100c3102c33d5f787b4fcdd0984537634c99415ff2fa5f13e359e73e",
+  "scripts/prepare_c06_bootstrap.py": "94ae0b3f951f453569606f5d15cfcd13e1b031d919de60c50504dc22bf48c4f9",
+  "scripts/watch_chunk_previews.py": "e89f09863616067b6b628fe66688c338c12413de75f999a132f0a8a85374f9b2",
+  "scripts/watch_progress_videos.py": "af8876cba8253ad2401cb34544fcdf20a794b1581ea6c621a362191d5009e779",
+  "configs/inference_lineart_global.json": "19c7a33a3ab4eaaef6bf90c6845dbff39672fdd158028438db07a6f699752b93",
+  "configs/inference_lineart_global.yaml": "ee54bc611300a18df4bb50095678a74fd0a9afa50b98f1eb92efe00f9e6f67ff",
+  "commands/env.sh": "9c65e5b8fef0ee0716bb3f9bb0a6a78f78a714ac3dfd9eaa94d023fb03bf706a",
+  "commands/run_lineart_from_c07.sh": "935be0b64a6ff2f7bb7c110eff715ac00f9a730b6a5ed7dfffde74df01ffe3ed",
+  "commands/supervise_lineart_from_c07.sh": "5cfcafe64347e1a9880daceb0fea331f6f9e10ef489b9c92dc95c99d6e38b37e",
+  "commands/watch_outputs.sh": "f090626d9689a2aa1fdaf2c25880f77f888ee0d694175a08734f50fef4f90c3b",
+  "commands/resume_lineart_from_c07.sh": "4a15bb4aff86ed7b0e937f27443fee697dac4524fde19e521d6f47a5ed81a2d3"
+}

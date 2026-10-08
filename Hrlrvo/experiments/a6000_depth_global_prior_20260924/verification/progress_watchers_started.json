@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-09-23T18:11:53.269707+00:00",
+  "milestone_counts": [
+    5,
+    10,
+    15,
+    20,
+    24
+  ],
+  "cpu_only": true,
+  "watchers": [
+    {
+      "arm": "02_no_carry",
+      "pane": "%62",
+      "log": "/home/oem/hrlrvo/experiments/a6000_depth_global_prior_20260924/logs/progress_02_no_carry.log"
+    },
+    {
+      "arm": "03_global_boost",
+      "pane": "%63",
+      "log": "/home/oem/hrlrvo/experiments/a6000_depth_global_prior_20260924/logs/progress_03_global_boost.log"
+    },
+    {
+      "arm": "04_native_halo",
+      "pane": "%64",
+      "log": "/home/oem/hrlrvo/experiments/a6000_depth_global_prior_20260924/logs/progress_04_native_halo.log"
+    },
+    {
+      "arm": "depth",
+      "pane": "%65",
+      "log": "/home/oem/hrlrvo/experiments/a6000_depth_global_prior_20260924/logs/progress_depth.log"
+    }
+  ]
+}

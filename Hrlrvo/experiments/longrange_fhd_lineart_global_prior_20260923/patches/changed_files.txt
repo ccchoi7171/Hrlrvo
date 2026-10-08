@@ -1,0 +1,22 @@
+main/src/ltx_outpaint/global_attention.py
+main/src/ltx_outpaint/lineart_global_prior.py
+main/scripts/run_lineart_chain.py
+tests/test_lineart_global_prior.py
+
+Experiment utilities (new only):
+scripts/prepare_reference.py
+scripts/archive_c0.py
+scripts/recover_c0.py
+scripts/compare_lineart.py
+commands/*.sh
+configs/inference_lineart_global.yaml
+
+Detailed-reference launch / CPU progress additions:
+configs/inference_lineart_global.json
+configs/inference_lineart_global.yaml
+scripts/watch_progress_videos.py
+tests/test_progress_videos.py
+commands/run_lineart_detailed_C23.sh
+commands/supervise_lineart_detailed_C23.sh
+commands/watch_detailed_previews.sh
+commands/watch_detailed_progress.sh

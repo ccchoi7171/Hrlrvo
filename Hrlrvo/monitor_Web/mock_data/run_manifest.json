@@ -1,0 +1,5 @@
+{
+  "run_id": "mock_training_run",
+  "synthetic": true,
+  "steps": 160
+}

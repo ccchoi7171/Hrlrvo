@@ -1,0 +1,9 @@
+{
+  "verdict": "CLEAR",
+  "reviewer_role": "architect",
+  "review_scope": "parent-only SIGINT and outpaint continuation",
+  "python": "3.14.6",
+  "join_reproduction": "caught alive=True; child completed; worker_rc=0; after alive=False; rc=0",
+  "tests": "5/5 normal and 5/5 -O",
+  "not_host_authority": true
+}

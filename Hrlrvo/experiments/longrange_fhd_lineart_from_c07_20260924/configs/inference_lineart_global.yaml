@@ -1,0 +1,29 @@
+lineart_global_prior:
+  enabled: true
+  source: first_chunk_first_frame
+  extractor: canny
+  bias_mode: token_strength
+  bias_scale: 0.5
+  apply_branch: global
+  schedule:
+  - start_step: 0
+    end_step: 9
+    multiplier: 1.0
+  - start_step: 10
+    end_step: 19
+    multiplier: 0.6
+  - start_step: 20
+    end_step: 29
+    multiplier: 0.2
+  step_indexing: zero_based
+  reference_map: reference/candidates/lineart/detailed_global_line_strength.npy
+  query_scope: new_generated_only
+  keys: all_global_video_tokens
+  known_output_preservation: restore original Global output after decompression on
+    known anchor/prefix
+  c0_enabled: false
+  candidate: detailed
+  reference_image: reference/candidates/lineart/detailed.png
+  reference_image_sha256: 868ef5b50e585e5fbdfb2fa870821b8e6c89d41609edb304afd09ec8641ea257
+  reference_sha256: 86a5a5a1b8e832939c5387d7a54c042a7c8f58a980eb2ac80976017d81e4f628
+  mapping: pad_y_36_each_then_32x32_area_mean_then_C4_area_mean_clip_density_div_0.05

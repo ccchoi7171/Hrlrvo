@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "jobs",
+    "outpaint_workers",
+    "upscale_workers",
+    "queue_policy"
+  ],
+  "properties": {
+    "jobs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "outpaint_workers": {
+      "const": 1
+    },
+    "upscale_workers": {
+      "const": 1
+    },
+    "queue_policy": {
+      "const": "fifo"
+    }
+  },
+  "additionalProperties": false
+}

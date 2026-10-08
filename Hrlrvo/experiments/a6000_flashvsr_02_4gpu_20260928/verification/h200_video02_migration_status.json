@@ -1,0 +1,19 @@
+{
+  "final": {
+    "destination": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/data/03_Upscale_16K_15360x8640/02/final/02_Certification_Final_16K_16fps.mp4",
+      "sha256": "c298c9112a166e36a69b6c821e374bc8371f9f2044d494f4b779a5fc8307fbfb",
+      "size": 2718380878
+    },
+    "source": {
+      "path": "/home/oem/hrlrvo/experiments/a6000_flashvsr_02_4gpu_20260928/outputs/02/final/02_Certification_Final_16K_16fps.mp4",
+      "sha256": "c298c9112a166e36a69b6c821e374bc8371f9f2044d494f4b779a5fc8307fbfb",
+      "size": 2718380878
+    }
+  },
+  "pid": 1412215,
+  "receipt": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/data/03_Upscale_16K_15360x8640/02/metadata/a6000_transfer_receipt.json",
+  "schema": "h200_video02_migration_watcher/v1",
+  "status": "PASS",
+  "updated_utc": "2026-09-28T17:32:58.541636+00:00"
+}

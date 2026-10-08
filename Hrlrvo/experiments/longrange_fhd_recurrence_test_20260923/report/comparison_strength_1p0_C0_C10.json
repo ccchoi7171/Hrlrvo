@@ -1,0 +1,140 @@
+{
+  "baseline": "/home/work/ai-graphics_33/Hrlrvo/pipeline/data/02_VideoOutPaint_4K_3840x2160/05_VideoOutPaint_4K.mp4",
+  "modified": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/outputs/strength_1p0/C0_C10_545f_1920x1080.mp4",
+  "frames_compared": [
+    0,
+    16,
+    17,
+    41,
+    48,
+    64,
+    65,
+    89,
+    96,
+    112,
+    113,
+    137,
+    144,
+    160,
+    161,
+    185,
+    192,
+    208,
+    209,
+    233,
+    240,
+    256,
+    257,
+    281,
+    288,
+    304,
+    305,
+    329,
+    336,
+    352,
+    353,
+    377,
+    384,
+    400,
+    401,
+    425,
+    432,
+    448,
+    449,
+    473,
+    480,
+    496,
+    497,
+    521,
+    544
+  ],
+  "timeline_frames": [
+    240,
+    480
+  ],
+  "phases": {
+    "0": {
+      "start": 0,
+      "prefix_last": 16,
+      "new_first": 17,
+      "new_middle": 41,
+      "new_last": 64
+    },
+    "1": {
+      "start": 48,
+      "prefix_last": 64,
+      "new_first": 65,
+      "new_middle": 89,
+      "new_last": 112
+    },
+    "2": {
+      "start": 96,
+      "prefix_last": 112,
+      "new_first": 113,
+      "new_middle": 137,
+      "new_last": 160
+    },
+    "3": {
+      "start": 144,
+      "prefix_last": 160,
+      "new_first": 161,
+      "new_middle": 185,
+      "new_last": 208
+    },
+    "4": {
+      "start": 192,
+      "prefix_last": 208,
+      "new_first": 209,
+      "new_middle": 233,
+      "new_last": 256
+    },
+    "5": {
+      "start": 240,
+      "prefix_last": 256,
+      "new_first": 257,
+      "new_middle": 281,
+      "new_last": 304
+    },
+    "6": {
+      "start": 288,
+      "prefix_last": 304,
+      "new_first": 305,
+      "new_middle": 329,
+      "new_last": 352
+    },
+    "7": {
+      "start": 336,
+      "prefix_last": 352,
+      "new_first": 353,
+      "new_middle": 377,
+      "new_last": 400
+    },
+    "8": {
+      "start": 384,
+      "prefix_last": 400,
+      "new_first": 401,
+      "new_middle": 425,
+      "new_last": 448
+    },
+    "9": {
+      "start": 432,
+      "prefix_last": 448,
+      "new_first": 449,
+      "new_middle": 473,
+      "new_last": 496
+    },
+    "10": {
+      "start": 480,
+      "prefix_last": 496,
+      "new_first": 497,
+      "new_middle": 521,
+      "new_last": 544
+    }
+  },
+  "fps": 24,
+  "baseline_resize": [
+    1920,
+    1080
+  ],
+  "pixel_metric_used": false
+}

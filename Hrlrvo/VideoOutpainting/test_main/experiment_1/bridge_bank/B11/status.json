@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "pid": 3723622,
+  "bridge": {
+    "index": 11,
+    "bridge_id": "B11",
+    "global_start": 803,
+    "global_stop": 812,
+    "context_start": 778,
+    "context_stop": 843,
+    "extract_start": 25,
+    "extract_stop": 34,
+    "pad_left": 0,
+    "pad_right": 0,
+    "reuse_full_context": null
+  },
+  "job": {
+    "schema": "hrlrvo_bridge_job_v1",
+    "bridge": {
+      "index": 11,
+      "bridge_id": "B11",
+      "global_start": 803,
+      "global_stop": 812,
+      "context_start": 778,
+      "context_stop": 843,
+      "extract_start": 25,
+      "extract_stop": 34,
+      "pad_left": 0,
+      "pad_right": 0,
+      "reuse_full_context": null
+    },
+    "source_rgb": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/canonical_background_013000_20261007/foreground_preparation/source_rgb.npy",
+    "source_rgb_sha256": "bb555edc3594e546853e4fc1ac661aa7a5cc96b52cbaad317ff2f4f226659f8f",
+    "config": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/common/native_65f.yaml",
+    "config_sha256": "d7b1262ab5c1cbb1a11453a1f134a31b6bbcd4b9969765a4d1913fc7c6bfe931",
+    "checkpoint": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-013000",
+    "adapter_sha256": "4e33a738dbed60fd64125e025d740e8b71902424383fd1bc4f2f35ab1905c22e",
+    "output_dir": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/B11",
+    "seed": 33333333,
+    "steps": 30,
+    "local_absolute_start_frame": 0,
+    "reference_conditioning": false,
+    "h200_uuid": "GPU-a01d425d-ffe8-26e3-c637-6c87a4cf0f38"
+  },
+  "worker": 0,
+  "worker_job_ordinal": 5,
+  "started_utc": "2026-10-07T21:25:15.697001+00:00",
+  "ended_utc": "2026-10-07T21:48:22.121456+00:00",
+  "sample_seconds": 1386.326808270067,
+  "noise": {
+    "generator_seed": 33333333,
+    "shape": [
+      1,
+      19440,
+      128
+    ],
+    "dtype": "torch.bfloat16",
+    "sha256": "80a46a4bbc191fceabf1809fcdc40286465cb45ac0f35dc0efd61053fe8ac861"
+  },
+  "context_sha256": "f271e5207b06429208f43b6c9dfaf8195513f07c1edbea3d1a15cb3c952d3885",
+  "bridge_sha256": "9fb3e968316aa7393cadbd150d77cfa1ee7679998950a75617298772e8bd912f",
+  "source_padding": {
+    "left": 0,
+    "right": 0
+  },
+  "peak_cuda_allocated_bytes": 31699308032,
+  "peak_cuda_reserved_bytes": 36029071360,
+  "adapter_report": {
+    "mode": "checkpoint",
+    "adapter_path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/runs/hrlrvo_main_train_v1/checkpoints/checkpoint-013000/adapter_model.safetensors",
+    "expected_key_count": 1728,
+    "loaded_key_count": 1728,
+    "missing_key_count": 0,
+    "unexpected_key_count": 0,
+    "shape_mismatch_count": 0,
+    "keys_by_category": {
+      "decompressors": 192,
+      "global_lora": 288,
+      "shared_outpainting_lora": 384,
+      "adaptive_lora": 288,
+      "compressors": 192,
+      "ffn_lora": 192,
+      "global_fusion": 96,
+      "local_fusion": 96
+    }
+  }
+}

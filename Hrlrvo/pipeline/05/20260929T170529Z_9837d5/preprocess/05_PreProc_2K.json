@@ -1,0 +1,96 @@
+{
+  "producer": "run_preprocess_stage",
+  "output_sha256": "751c3e53c0df078e7c5b4ba821d55b9c4b78fb12423bf2b2acff9db5447f8400",
+  "source_identity": {
+    "size_bytes": 854767123,
+    "mtime_ns": 1789999808734866000,
+    "sha256": "684b400a0057478295e22ddf7aa5caf5b5ad1a4fb77fafdbf9a5c74baa2cb454"
+  },
+  "source": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Input/05_Input_8K.mp4",
+  "preprocess_config": {
+    "audio_bitrate": "192k",
+    "audio_codec": "aac",
+    "audio_tempo": 1.5,
+    "color_primaries": "bt709",
+    "color_range": "pc",
+    "color_transfer": null,
+    "colorspace": "bt709",
+    "crf": 18,
+    "decoder_threads": 8,
+    "ffmpeg_loglevel": "error",
+    "fps_mode": "passthrough",
+    "input_audio_streams": 1,
+    "metadata_map": 0,
+    "output_resolution": [
+      1920,
+      1080
+    ],
+    "overwrite_partial": false,
+    "pixel_format": "yuv420p10le",
+    "preset": "fast",
+    "processing_fps": 24,
+    "resize": "lanczos",
+    "source_fps": 16,
+    "source_resolution": [
+      7680,
+      4320
+    ],
+    "stream_mapping": [
+      "0:v:0",
+      "0:a:0"
+    ],
+    "video_codec": "libx265",
+    "video_filter": "scale=1920:1080:flags=lanczos:in_range=pc:out_range=pc,setsar=1,setpts=PTS*2/3,fps=24",
+    "video_tag": "hvc1",
+    "video_track_timescale": 24576,
+    "x265_params": "log-level=error:pools=8"
+  },
+  "producer_identity": {
+    "contract": {
+      "source_fps": 16,
+      "processing_fps": 24,
+      "source_resolution": [
+        7680,
+        4320
+      ],
+      "output_resolution": [
+        1920,
+        1080
+      ],
+      "resize": "lanczos",
+      "video_codec": "libx265",
+      "pixel_format": "yuv420p10le",
+      "crf": 18,
+      "audio_tempo": 1.5,
+      "video_filter": "scale=1920:1080:flags=lanczos:in_range=pc:out_range=pc,setsar=1,setpts=PTS*2/3,fps=24",
+      "fps_mode": "passthrough",
+      "preset": "fast",
+      "decoder_threads": 8,
+      "x265_params": "log-level=error:pools=8",
+      "color_range": "pc",
+      "colorspace": "bt709",
+      "color_primaries": "bt709",
+      "color_transfer": null,
+      "video_tag": "hvc1",
+      "video_track_timescale": 24576,
+      "metadata_map": 0,
+      "stream_mapping": [
+        "0:v:0",
+        "0:a:0"
+      ],
+      "audio_codec": "aac",
+      "audio_bitrate": "192k",
+      "input_audio_streams": 1,
+      "ffmpeg_loglevel": "error",
+      "overwrite_partial": false
+    },
+    "implementation_sha256": "c46dd3442cf0a76320d94440f025cd1fed0eca2320d2140ca25c40f83a84484d",
+    "tool_versions": {
+      "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers\nbuilt with gcc 13 (Ubuntu 13.2.0-23ubuntu3)\nconfiguration: --prefix=/usr --extra-version=3ubuntu5 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --enable-libvpl --disable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared\nlibavutil      58. 29.100 / 58. 29.100\nlibavcodec     60. 31.102 / 60. 31.102\nlibavformat    60. 16.100 / 60. 16.100\nlibavdevice    60.  3.100 / 60.  3.100\nlibavfilter     9. 12.100 /  9. 12.100\nlibswscale      7.  5.100 /  7.  5.100\nlibswresample   4. 12.100 /  4. 12.100\nlibpostproc    57.  3.100 / 57.  3.100\n",
+      "ffprobe": "ffprobe version 6.1.1-3ubuntu5 Copyright (c) 2007-2023 the FFmpeg developers\nbuilt with gcc 13 (Ubuntu 13.2.0-23ubuntu3)\nconfiguration: --prefix=/usr --extra-version=3ubuntu5 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --enable-libvpl --disable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared\nlibavutil      58. 29.100 / 58. 29.100\nlibavcodec     60. 31.102 / 60. 31.102\nlibavformat    60. 16.100 / 60. 16.100\nlibavdevice    60.  3.100 / 60.  3.100\nlibavfilter     9. 12.100 /  9. 12.100\nlibswscale      7.  5.100 /  7.  5.100\nlibswresample   4. 12.100 /  4. 12.100\nlibpostproc    57.  3.100 / 57.  3.100\n"
+    }
+  },
+  "frames": 1952,
+  "audit_metadata": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/05/20260929T170529Z_9837d5/preprocess/metadata/runs/20260929T170530507457/metadata",
+  "generated": "/home/work/ai-graphics_33/Hrlrvo/pipeline_8K_to_16K/KOCCA_Verification/Runs/05/20260929T170529Z_9837d5/preprocess/metadata/runs/20260929T170530507457/output/05_PreProc_2K.mp4"
+}

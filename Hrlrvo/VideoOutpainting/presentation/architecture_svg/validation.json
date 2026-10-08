@@ -1,0 +1,130 @@
+{
+  "video_outpainting_architecture.svg": {
+    "elements": 106,
+    "text_elements": 47,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "39df69e83a2d98048b1267c1a89baad6a2d28600ee22535e831fdf5c4c08e175",
+    "bytes": 12075
+  },
+  "video_outpainting_architecture_outlined.svg": {
+    "elements": 704,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "c8f8c131e1de1b4d5489e955ffc1bf997dd3cc6398509f09c1e386137cec66d8",
+    "bytes": 170586
+  },
+  "video_outpainting_core.svg": {
+    "elements": 103,
+    "text_elements": 44,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "fc3969e7f19eeb9ab23ed05f69f60d3ac26b88270ea8ef8a81672223a8bc725c",
+    "bytes": 11819
+  },
+  "video_outpainting_core_outlined.svg": {
+    "elements": 627,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "396949965ca32e8e07245bfa7980362aa73031a2dd67cd70b4b55ffc28948b07",
+    "bytes": 152466
+  },
+  "modules/editable/01_native_local.svg": {
+    "elements": 15,
+    "text_elements": 6,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "8ab7a5fcec700388386dccf5cb9446a7844d396124e594e2178405493795d41f",
+    "bytes": 1559
+  },
+  "modules/outlined/01_native_local.svg": {
+    "elements": 75,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "f51a654fe6e7a999ce53d54a72beb3571b961ac2345b56f310b4c9c31fe69e8a",
+    "bytes": 17138
+  },
+  "modules/editable/02_adaptive_local.svg": {
+    "elements": 18,
+    "text_elements": 8,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "e87ba1daaf9a558073bef0b008fc55493f366db72958e22956de26d0f72075fb",
+    "bytes": 1935
+  },
+  "modules/outlined/02_adaptive_local.svg": {
+    "elements": 100,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "2e048f19d2eb5a0a34cc882ebb2e9c3c2b4365bd16aa061762d25cd3554822e2",
+    "bytes": 22950
+  },
+  "modules/editable/03_global.svg": {
+    "elements": 18,
+    "text_elements": 8,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "f00c1f51418cdd1afd1b05b5b1ac37fcdfa88172d543368c6e106b2c306978a8",
+    "bytes": 1937
+  },
+  "modules/outlined/03_global.svg": {
+    "elements": 96,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "021800a9901cd5853b10039c9f704616eb0a58f8d541fb3859e867dcb4a62bac",
+    "bytes": 22580
+  },
+  "modules/editable/04_local_fusion.svg": {
+    "elements": 10,
+    "text_elements": 3,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "196eb7439941e63a07a77352c5cc525ab4c5ad1c34268e00f4227f6d6b8736c9",
+    "bytes": 960
+  },
+  "modules/outlined/04_local_fusion.svg": {
+    "elements": 47,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "5366abfb48ff72872734018844c01fce15ea8cb29844808532defd484ed14320",
+    "bytes": 12111
+  },
+  "modules/editable/05_local_global_fusion.svg": {
+    "elements": 10,
+    "text_elements": 3,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "7371c95e98b181e2f2cc27b193b823bf94b43b982836cd8719432aea9335be9e",
+    "bytes": 966
+  },
+  "modules/outlined/05_local_global_fusion.svg": {
+    "elements": 40,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "b95692bd21e354b6386bc093db45dc60f9363d19d73d98b324f551ae45678863",
+    "bytes": 9844
+  },
+  "modules/editable/06_shared_post_attention.svg": {
+    "elements": 20,
+    "text_elements": 5,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "c4b0c1fdcb1830618444e634c72a3c17fe7ab9ecd813e395069c50fd87d5894e",
+    "bytes": 2020
+  },
+  "modules/outlined/06_shared_post_attention.svg": {
+    "elements": 93,
+    "text_elements": 0,
+    "raster_elements": 0,
+    "external_references": 0,
+    "sha256": "f7fc13431e4e96a399f02084edb0b8bec0119907ad05a908ab94ed33a1d7ad50",
+    "bytes": 21475
+  }
+}

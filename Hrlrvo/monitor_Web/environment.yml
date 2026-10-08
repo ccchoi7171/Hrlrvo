@@ -1,0 +1,17 @@
+name: monitor_web
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - dash==4.4.1
+      - plotly==6.9.0
+      - pandas==2.2.3
+      - numpy==1.26.4
+      - psutil==7.0.0
+      - PyYAML==6.0.2
+      - pytest==8.1.1
+      - requests==2.32.3
+      - packaging==23.2
+      - wheel==0.45.1

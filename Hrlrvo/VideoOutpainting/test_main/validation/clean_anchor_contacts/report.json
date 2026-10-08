@@ -1,0 +1,205 @@
+{
+  "status": "COMPLETE_READ_ONLY_DIAGNOSTIC",
+  "frames": [
+    0,
+    73,
+    120,
+    250,
+    480,
+    600,
+    800,
+    960,
+    1024
+  ],
+  "camera_inspection_frame": 120,
+  "camera_frame_basis": "F120 has elevated combined cleanup support near the known F96-F128 upper-equipment interval; this is a diagnostic selection, not ground truth.",
+  "inputs": {
+    "original": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/diagnostics/autonomous_013000_20261006/inputs/longrange_960x540_1025f.mkv",
+      "sha256": "34cc03832936d03dccc469fbd7b3666c7e3ff57253501f92a7cf62560dae9835"
+    },
+    "clean": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/clean_anchor_1025f.mkv",
+      "sha256": "1f18cc5aee11b2f22de1108c5874e7fb91a66fc5cb291f401e23c6cf33c1bc77"
+    },
+    "combined_cleanup_mask": {
+      "path": "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_2/combined_masks_uint8.npy",
+      "sha256": "7ba561fda8b7efcc1b65bfc543c54d252736806c4454c5b8f8c6663cee1fe286"
+    }
+  },
+  "metrics": [
+    {
+      "frame": 0,
+      "cleanup_support_pixels": 45945,
+      "cleanup_support_fraction": 0.08862847222222223,
+      "mean_abs_rgb_difference_all": 5.2817065329218105,
+      "mean_abs_rgb_difference_inside_support": 48.88248267856495,
+      "mean_abs_rgb_difference_outside_support": 1.0416462943560763,
+      "original_mean_rgb": [
+        124.11594907407408,
+        141.46971450617283,
+        203.47387538580247
+      ],
+      "clean_mean_rgb": [
+        126.61604552469136,
+        144.4769849537037,
+        208.47137345679013
+      ]
+    },
+    {
+      "frame": 73,
+      "cleanup_support_pixels": 54340,
+      "cleanup_support_fraction": 0.10482253086419753,
+      "mean_abs_rgb_difference_all": 5.509027777777778,
+      "mean_abs_rgb_difference_inside_support": 46.72110783952889,
+      "mean_abs_rgb_difference_outside_support": 0.6832198422617765,
+      "original_mean_rgb": [
+        124.21355324074074,
+        141.2260127314815,
+        202.94406828703703
+      ],
+      "clean_mean_rgb": [
+        126.85721836419754,
+        144.51481288580246,
+        208.59440779320988
+      ]
+    },
+    {
+      "frame": 120,
+      "cleanup_support_pixels": 96231,
+      "cleanup_support_fraction": 0.18563078703703703,
+      "mean_abs_rgb_difference_all": 10.897185570987654,
+      "mean_abs_rgb_difference_inside_support": 58.59747205508966,
+      "mean_abs_rgb_difference_outside_support": 0.024179100470822508,
+      "original_mean_rgb": [
+        119.6543325617284,
+        136.04601273148148,
+        194.58742476851853
+      ],
+      "clean_mean_rgb": [
+        126.74997106481482,
+        144.34868827160494,
+        208.46734953703702
+      ]
+    },
+    {
+      "frame": 250,
+      "cleanup_support_pixels": 82034,
+      "cleanup_support_fraction": 0.1582445987654321,
+      "mean_abs_rgb_difference_all": 7.336862782921811,
+      "mean_abs_rgb_difference_inside_support": 42.66461873532113,
+      "mean_abs_rgb_difference_outside_support": 0.6954719967489065,
+      "original_mean_rgb": [
+        123.62787229938272,
+        139.99962191358026,
+        200.46077160493826
+      ],
+      "clean_mean_rgb": [
+        127.1393923611111,
+        144.6407214506173,
+        208.68202353395063
+      ]
+    },
+    {
+      "frame": 480,
+      "cleanup_support_pixels": 64302,
+      "cleanup_support_fraction": 0.12403935185185185,
+      "mean_abs_rgb_difference_all": 5.746422968106996,
+      "mean_abs_rgb_difference_inside_support": 41.140337781095454,
+      "mean_abs_rgb_difference_outside_support": 0.7345103186243205,
+      "original_mean_rgb": [
+        124.05374421296297,
+        140.89435185185187,
+        202.23183449074074
+      ],
+      "clean_mean_rgb": [
+        126.5904513888889,
+        144.23626350308643,
+        208.39693672839505
+      ]
+    },
+    {
+      "frame": 600,
+      "cleanup_support_pixels": 73501,
+      "cleanup_support_fraction": 0.14178433641975308,
+      "mean_abs_rgb_difference_all": 7.123796296296296,
+      "mean_abs_rgb_difference_inside_support": 45.65577792592391,
+      "mean_abs_rgb_difference_outside_support": 0.7579937618800372,
+      "original_mean_rgb": [
+        123.90069058641976,
+        140.23587191358024,
+        200.56285686728395
+      ],
+      "clean_mean_rgb": [
+        126.97011959876544,
+        144.46113233024693,
+        208.508074845679
+      ]
+    },
+    {
+      "frame": 800,
+      "cleanup_support_pixels": 116020,
+      "cleanup_support_fraction": 0.223804012345679,
+      "mean_abs_rgb_difference_all": 8.279437371399178,
+      "mean_abs_rgb_difference_inside_support": 34.51315577773947,
+      "mean_abs_rgb_difference_outside_support": 0.7153536458074456,
+      "original_mean_rgb": [
+        122.27266782407408,
+        142.2778163580247,
+        199.96066358024692
+      ],
+      "clean_mean_rgb": [
+        126.229375,
+        147.45179398148147,
+        208.90235339506174
+      ]
+    },
+    {
+      "frame": 960,
+      "cleanup_support_pixels": 81498,
+      "cleanup_support_fraction": 0.15721064814814814,
+      "mean_abs_rgb_difference_all": 7.867887088477366,
+      "mean_abs_rgb_difference_inside_support": 45.84510049326364,
+      "mean_abs_rgb_difference_outside_support": 0.7837653905605071,
+      "original_mean_rgb": [
+        122.3504224537037,
+        141.9129726080247,
+        200.05421103395062
+      ],
+      "clean_mean_rgb": [
+        125.99808063271605,
+        146.5579648919753,
+        208.63451967592593
+      ]
+    },
+    {
+      "frame": 1024,
+      "cleanup_support_pixels": 85078,
+      "cleanup_support_fraction": 0.164116512345679,
+      "mean_abs_rgb_difference_all": 7.849226466049383,
+      "mean_abs_rgb_difference_inside_support": 44.54451993073023,
+      "mean_abs_rgb_difference_outside_support": 0.644509933336718,
+      "original_mean_rgb": [
+        121.39106674382717,
+        142.52326967592592,
+        199.59228587962963
+      ],
+      "clean_mean_rgb": [
+        125.07140817901235,
+        147.56175154320988,
+        208.2941512345679
+      ]
+    }
+  ],
+  "artifacts": {
+    "camera_frame120_upper_crop.jpg": "28df2b33204f0ce2407d5cc5737d9f12cd4babb2f5a7f14de714a89ba34f3dde",
+    "original_vs_clean_all_frames.jpg": "790b50be227dd1e53c3d2b9052f3085a0edb6a6993f2608a1f0028c3b224b866",
+    "original_vs_clean_early_camera.jpg": "4923a088680ec0990842666662d8c9de3abbb4d4d1ef6d809728bc7c01a7d06c",
+    "original_vs_clean_late.jpg": "5aeee9db4f963adbace863151216e69ea1da7183fc627c6d9b54c40dd7294e19"
+  },
+  "limitations": [
+    "The cleanup support combines detector and equipment masks; it is not semantic ground truth.",
+    "Absolute RGB differences include donor fill, registration interpolation, and framewise color fitting.",
+    "Sparse contacts cannot establish temporal stability or prove complete foreground removal."
+  ]
+}

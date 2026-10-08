@@ -1,0 +1,15 @@
+{
+  "csv_sha256": "2590317e437231ff5d8a8d00c0125e27f96435530b117a456d718f815165438c",
+  "recorded_observations": 650,
+  "log_interval_steps": 20,
+  "moving_average_observations": 50,
+  "moving_average_step_window": 1000,
+  "y_limits": [
+    0.14,
+    0.32
+  ],
+  "first_1000_steps_mean": 0.241886,
+  "last_1000_steps_mean": 0.162462,
+  "first_vs_last_relative_decrease_percent": 32.83530258055447,
+  "data_or_smoothing_modified": false
+}

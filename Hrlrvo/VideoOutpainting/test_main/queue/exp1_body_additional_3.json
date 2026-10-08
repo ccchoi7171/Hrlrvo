@@ -1,0 +1,21 @@
+{
+  "name": "exp1_body_additional_3",
+  "experiment": 2,
+  "actual_experiment": 1,
+  "budget_reallocated_from": "completed_experiment_2_per_user_four_parallel_request",
+  "argv": [
+    "/home/work/ai-graphics_33/miniconda3/envs/Hrlrvo/bin/python",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/run_body_additional.py",
+    "--worker",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/body_workers/additional_3.json"
+  ],
+  "reservation_mib": 34600,
+  "priority": 18,
+  "requires": [
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/jobs/body_workers/additional_3.json",
+    "/home/work/ai-graphics_33/Hrlrvo/VideoOutpainting/test_main/experiment_1/bridge_bank/all_14_contexts_ready.json"
+  ],
+  "max_group_processes": 2,
+  "script_sha256": "c2b3bf9c1f7e50a44ee3b03b7abe42b105414defbc911f6592459022dd2df77e",
+  "worker_sha256": "6dab2b582893d8aa13695bc529373371c876f85e6451fa11f8098da7e7a62e8e"
+}

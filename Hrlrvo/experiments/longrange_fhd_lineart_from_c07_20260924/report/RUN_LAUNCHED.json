@@ -1,0 +1,35 @@
+{
+  "utc": "2026-09-23T18:12:03.925433+00:00",
+  "status": "RUNNING",
+  "producer_pid": 574892,
+  "tmux_session": "hrlrvo_lineart_c07",
+  "reused_baseline_chunks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "generated_chunks_target": [
+    7,
+    23
+  ],
+  "new_chunk_count": 17,
+  "first_new_global_frame": 353,
+  "reference": "detailed.png",
+  "lineart_lambda": [
+    0.5,
+    0.3,
+    0.1
+  ],
+  "prefix_strength": 1.0,
+  "carry_exact": true,
+  "c06_rgb_prefix_exact": false,
+  "rgb_prefix_precision": "one-time lossless uint8 RGB-tail recovery, not MP4",
+  "tests_passed": 18,
+  "production_modified": false,
+  "original_baseline_modified": false,
+  "old_lineart_generated_outputs_preserved": true
+}

@@ -1,0 +1,32 @@
+{
+  "expected_adapter_sha256": "1acabcbf9c6b81282639d9e5f745487191f5854452d75fc93350ba78a70ae951",
+  "expected_base_sha256": "7ab7225325bc403448ea84b6db2269811a880e5118cd2ee2b6282a93d585016f",
+  "expected_input_sha256": "e1bc48bcc19ed6350e86a831f01a01ce31c20535fd8416398a5fc37c816faaed",
+  "files": {
+    "models/LTX2.3/models/LTX-2.3/LICENSE": 21399,
+    "models/LTX2.3/models/LTX-2.3/README.md": 6579,
+    "models/LTX2.3/models/LTX-2.3/ltx-2.3-22b-dev.safetensors": 46149344974,
+    "models/LTX2.3/models/gemma-3-12b/README.md": 22784,
+    "models/LTX2.3/models/gemma-3-12b/added_tokens.json": 35,
+    "models/LTX2.3/models/gemma-3-12b/chat_template.json": 1615,
+    "models/LTX2.3/models/gemma-3-12b/config.json": 1611,
+    "models/LTX2.3/models/gemma-3-12b/generation_config.json": 173,
+    "models/LTX2.3/models/gemma-3-12b/model-00001-of-00005.safetensors": 4979902192,
+    "models/LTX2.3/models/gemma-3-12b/model-00002-of-00005.safetensors": 4931296592,
+    "models/LTX2.3/models/gemma-3-12b/model-00003-of-00005.safetensors": 4931296656,
+    "models/LTX2.3/models/gemma-3-12b/model-00004-of-00005.safetensors": 4931296656,
+    "models/LTX2.3/models/gemma-3-12b/model-00005-of-00005.safetensors": 4601000928,
+    "models/LTX2.3/models/gemma-3-12b/model.safetensors.index.json": 108605,
+    "models/LTX2.3/models/gemma-3-12b/preprocessor_config.json": 570,
+    "models/LTX2.3/models/gemma-3-12b/processor_config.json": 70,
+    "models/LTX2.3/models/gemma-3-12b/special_tokens_map.json": 662,
+    "models/LTX2.3/models/gemma-3-12b/tokenizer.json": 33384570,
+    "models/LTX2.3/models/gemma-3-12b/tokenizer.model": 4689074,
+    "models/LTX2.3/models/gemma-3-12b/tokenizer_config.json": 1157001,
+    "models/checkpoint-007500/adapter_model.safetensors": 1121680096,
+    "models/checkpoint-007500/outpainting_manifest.json": 387347
+  },
+  "input_size_bytes": 540490819,
+  "ltx_source_revision": "598ab41247a77dbfe29b5186e915bcf4f9040ec7",
+  "schema_version": 1
+}

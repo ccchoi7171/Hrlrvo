@@ -1,0 +1,25 @@
+{
+  "chunk_count": 1,
+  "chunks": [
+    {
+      "absolute_start_frame": 0,
+      "anchor_source_frame_range": [
+        0,
+        65
+      ],
+      "chunk_index": 0,
+      "final_partial_repeat_last": false,
+      "new_output_frame_range": [
+        0,
+        65
+      ],
+      "output_appended_count": 65,
+      "prefix_output_frame_range": null,
+      "real_input_frame_count": 65,
+      "repeat_last_padding_count": 0,
+      "working_frame_count": 65
+    }
+  ],
+  "requested_frames": 65,
+  "source": "native LongRange committed records"
+}

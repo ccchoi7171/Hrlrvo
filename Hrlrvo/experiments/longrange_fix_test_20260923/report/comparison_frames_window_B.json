@@ -1,0 +1,43 @@
+{
+  "global_frames": [
+    1008,
+    1024,
+    1025,
+    1048,
+    1056,
+    1072,
+    1073,
+    1096,
+    1104,
+    1120,
+    1121,
+    1144,
+    1168
+  ],
+  "phase_frames": {
+    "21": {
+      "start": 1008,
+      "prefix_last": 1024,
+      "new_first": 1025,
+      "new_middle": 1048,
+      "last": 1072
+    },
+    "22": {
+      "start": 1056,
+      "prefix_last": 1072,
+      "new_first": 1073,
+      "new_middle": 1096,
+      "last": 1120
+    },
+    "23": {
+      "start": 1104,
+      "prefix_last": 1120,
+      "new_first": 1121,
+      "new_middle": 1144,
+      "last": 1168
+    }
+  },
+  "baseline": "/home/work/ai-graphics_33/Hrlrvo/pipeline/data/02_VideoOutPaint_4K_3840x2160/05_VideoOutPaint_4K.mp4",
+  "modified": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fix_test_20260923/modified_outputs/window_B/window_B_global_1008_1168.mp4",
+  "exact_global_offset": 1008
+}

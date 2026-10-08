@@ -1,0 +1,13 @@
+{
+  "base_seed": 71634910,
+  "branch_flag": 1.0,
+  "copied_from": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/chunks/modified",
+  "new_session_fingerprint": "dae29560208e86e8db5449831cf49c1287863ac218920d8bcfa21fb68befa85e",
+  "reason": "C0 has no previous generated prefix; strength 0.8 and 1.0, temporal absolute start 0, and final-latent capture do not affect its generation. Reuse exact C0 output, FP32 prefix, BF16 clean carry, and RNG state to start a controlled branch at C1.",
+  "shared_C0_carry_sha256": "36175533fdaf6ace2038116b643b91b9516e9e2c67c0b783e36b0f5ee32a59ed",
+  "shared_C0_prefix_sha256": "e009f96656081d11ced2346dc6112fb40b833d430bfbf3efbdd30dd145ef0563",
+  "shared_C0_segment_pixel_sha256": "049a9fe6e3d073e1d54a5d6d28b5f7f2e2aefd7e50c990cdf961b3143dd57da6",
+  "source_C0_record": "/home/work/ai-graphics_33/Hrlrvo/experiments/longrange_fhd_recurrence_test_20260923/chunks/modified/chunk_000000.json",
+  "source_C0_runtime_flag_value": 0.8,
+  "source_flag": 0.8
+}

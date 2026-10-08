@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "pid": 2634820,
+  "ordinal": 3,
+  "worker_id": 0,
+  "body": {
+    "index": 6,
+    "body_id": "I06",
+    "global_start": 438,
+    "global_stop": 519,
+    "left_bridge": "B06",
+    "right_bridge": "B07",
+    "middle_global_start": 447,
+    "middle_global_stop": 511,
+    "visible_middle_stop": 511
+  },
+  "started_utc": "2026-10-08T02:11:45.958987+00:00",
+  "ended_utc": "2026-10-08T02:51:20.742012+00:00",
+  "sample_seconds": 2325.3171471208334,
+  "noise": {
+    "generator_seed": 33333771,
+    "shape": [
+      1,
+      23760,
+      128
+    ],
+    "dtype": "torch.bfloat16",
+    "sha256": "13b8fdabb82c81589aea0387edc172025a26c78286a5f6ce5d6fe489aa866571"
+  },
+  "output_sha256": "c673614614158c21c153259321575797c56781fa6f42c171ec899c288419f476",
+  "suffix_latent_sha256": "f1e20aa82451dd8aae9f805cb6a7ce700f6d018be8fe4665a0f9015a2d9173a3",
+  "known_mask_sha256": "210cf32b4b25d37fae0c4b0ac1353492b5242a19920d4571b0400b825e389fd2",
+  "reference_cache_sha256": "b93e63d00f6b0b0d7daf18d2bdea04f15cf904afdcd451d40b405f845904d2ab",
+  "recurrence_events": [
+    {
+      "chunk": 0,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 0,
+      "action": "temporal_rebase",
+      "seconds_removed": 0.0
+    },
+    {
+      "chunk": 3,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 3,
+      "action": "temporal_rebase",
+      "seconds_removed": 6.083333333333333
+    },
+    {
+      "chunk": 6,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 6,
+      "action": "temporal_rebase",
+      "seconds_removed": 12.166666666666666
+    },
+    {
+      "chunk": 9,
+      "action": "reassert_anchor_latents",
+      "delta_rmse": 0.0,
+      "changed": false,
+      "prefix_latent_count": 2,
+      "rect": {
+        "y0": 9,
+        "x0": 15,
+        "y1": 27,
+        "x1": 45
+      }
+    },
+    {
+      "chunk": 9,
+      "action": "temporal_rebase",
+      "seconds_removed": 18.25
+    }
+  ],
+  "peak_cuda_allocated_bytes": 32771043840,
+  "peak_cuda_reserved_bytes": 35404120064
+}
